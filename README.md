@@ -19,24 +19,24 @@ Or install it yourself as:
 ## Usage
 
 ```ruby
-  client = TeamsnapRb::Client.new # without authorization, so you can't see much
+client = TeamsnapRb::Client.new # without authorization, so you can't see much
 
-  client = TeamsnapRb::Client.new(access_token: "oauth_access_token_here")
+client = TeamsnapRb::Client.new(access_token: "oauth_access_token_here")
 
-  me = client.links.me
-  # => [#<TeamsnapRb::Collection>]
+me = client.links.me
+# => [#<TeamsnapRb::Collection>]
 
-  user = me[0]
-  # => #<TeamsnapRb::Item>
+user = me[0]
+# => #<TeamsnapRb::Item>
 
-  user.href
-  # => "https://apiv3.teamsnap.com/users/1"
+user.href
+# => "https://apiv3.teamsnap.com/users/1"
 
-  user.links.teams.where(sport_id: 52)
-  # => [#<TeamsnapRb::Collection>, #<TeamsnapRb::Collection>]
+user.links.teams.where(sport_id: 52)
+# => [#<TeamsnapRb::Collection>, #<TeamsnapRb::Collection>]
 
-  user.links.teams.where(sport_id: 52).first.sport_id
-  # => 52
+user.links.teams.where(sport_id: 52).first.sport_id
+# => 52
 ```
 
 ## Contributing
