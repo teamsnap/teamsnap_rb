@@ -1,10 +1,14 @@
 module TeamsnapRb
-  class CollectionBase
+  class Collection
     include Enumerable
 
     def initialize(url, auth)
       self.auth = auth
+      body = get(url).body
       self.collection_json = CollectionJSON.parse(body)
+      self.items = collection_json.items.map do |item|
+        Item.new(item, auth)
+      end
     end
 
     def links
@@ -16,22 +20,26 @@ module TeamsnapRb
     # end
 
     def [](index)
-      Item.new(collection_json.items[index], auth)
+      items[index]
     end
 
     def each
-      collection_json.items.each do |item|
-        yield Item.new(item, auth)
+      items.each do |item|
+        yield item
       end
     end
 
     def where(attribute_hash)
-      CollectionBaseWhereProxy.new(self.to_a).where(attribute_hash)
+      CollectionWhereProxy.new(items).where(attribute_hash)
+    end
+
+    def href
+      collection_json.href
     end
 
     private
 
-    attr_accessor :collection_json, :auth
+    attr_accessor :collection_json, :auth, :items
 
     def get(url, query_parameters = {})
       Faraday.get do |conn|
@@ -47,7 +55,7 @@ module TeamsnapRb
       end
     end
 
-    class CollectionBaseWhereProxy
+    class CollectionWhereProxy
       include Enumerable
 
       def initialize(items)
@@ -65,7 +73,7 @@ module TeamsnapRb
       end
 
       def where(attribute_hash)
-        CollectionBaseWhereProxy.new(find_all do |item|
+        CollectionWhereProxy.new(find_all do |item|
           attribute_hash.keys.all? do |key|
             if item.respond_to?(key)
               attribute_hash[key] == item.send(key)

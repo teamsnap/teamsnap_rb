@@ -8,7 +8,7 @@ module TeamsnapRb
     def method_missing(method, *args)
       if link = links.find { |l| l.rel == method.to_s }
         unless instance_variable_get("@#{method}_collection")
-          instance_variable_set("@#{method}_collection", CollectionBase.new(link.href, auth))
+          instance_variable_set("@#{method}_collection", Collection.new(link.href, auth))
         end
 
         instance_variable_get("@#{method}_collection")
