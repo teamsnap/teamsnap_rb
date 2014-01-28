@@ -38,8 +38,9 @@ module TeamsnapRb
 
         message = env.url.to_s + (env.body || "")
 
-        digest = OpenSSL::Digest::Digest.new('sha256')
-        env.request_headers["X-Teamsnap-Hmac"] = OpenSSL::HMAC.hexdigest(digest, auth.client_secret, message)
+        digest = OpenSSL::Digest.new('sha256')
+        message_hash = digest.hexdigest(message)
+        env.request_headers["X-Teamsnap-Hmac"] = OpenSSL::HMAC.hexdigest(digest, auth.client_secret, message_hash)
       end
 
       @app.call(env)
