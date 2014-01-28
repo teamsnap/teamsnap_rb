@@ -42,16 +42,10 @@ module TeamsnapRb
     attr_accessor :collection_json, :auth, :items
 
     def get(url, query_parameters = {})
-      Faraday.get do |conn|
-        auth.headers.each do |key, value|
-          conn.headers[key] = value
-        end
-
+      RequestBuilder.new(auth, url).connection.get do |conn|
         query_parameters.each do |key, value|
           conn.params[key] = value
         end
-
-        conn.url(url)
       end
     end
 
