@@ -2,9 +2,9 @@ module TeamsnapRb
   class Collection
     include Enumerable
 
-    def initialize(url, auth)
+    def initialize(url, query_parameters={}, auth)
       self.auth = auth
-      body = get(url).body
+      body = get(url, query_parameters).body
       self.collection_json = CollectionJSON.parse(body)
       self.items = collection_json.items.map do |item|
         Item.new(item, auth)
@@ -15,9 +15,9 @@ module TeamsnapRb
       @links ||= LinksProxy.new(collection_json.links, auth)
     end
 
-    # def queries
-    #   @queries ||= QueriesProxy.new(collection_json.queries, auth)
-    # end
+    def queries
+      @queries ||= QueriesProxy.new(collection_json.queries, auth)
+    end
 
     def [](index)
       items[index]
