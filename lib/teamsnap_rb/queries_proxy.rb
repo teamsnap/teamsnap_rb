@@ -7,11 +7,7 @@ module TeamsnapRb
 
     def method_missing(method, *args)
       if query = queries.find { |q| q.rel == method.to_s }
-        unless instance_variable_get("@#{method}_query")
-          instance_variable_set("@#{method}_query", Query.new(query.href, query.data, auth))
-        end
-
-        instance_variable_get("@#{method}_query")
+         Query.build(query, auth, *args)
       else
         super
       end
@@ -40,7 +36,11 @@ module TeamsnapRb
       self.auth = auth
     end
 
-    def get(query_parameters)
+    def self.build(query, auth, args)
+      new(query.href, query.data, auth).get(args)
+    end
+
+    def get(query_parameters={})
       required_params = data.map(&:name).map(&:to_sym)
       missing_params = required_params - query_parameters.keys
       raise MissingQueryParameter, "missing required parameters #{missing_params}" if missing_params.any?
