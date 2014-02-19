@@ -2,12 +2,24 @@ module TeamsnapRb
   class Collection
     include Enumerable
 
+    PLURAL_TYPES_TO_SINGULAR = {
+      "teams" => "Team",
+      "users" => "User",
+      "rosters" => "Roster"
+    }
+
     def initialize(url, query_parameters={}, auth)
       self.auth = auth
       body = get(url, query_parameters).body
       self.collection_json = CollectionJSON.parse(body)
+      self.item_types = Set.new
+
       self.items = collection_json.items.map do |item|
         Item.new(item, auth)
+      end
+
+      items.each do |item|
+        item_types.add(item.type)
       end
     end
 
@@ -37,9 +49,21 @@ module TeamsnapRb
       collection_json.href
     end
 
+    def method_missing(method, *args)
+      if item_types.include?(PLURAL_TYPES_TO_SINGULAR[method.to_s])
+        where(:type => PLURAL_TYPES_TO_SINGULAR[method.to_s])
+      else
+        super
+      end
+    end
+
+    def respond_to?(method)
+      item_types.include?(PLURAL_TYPES_TO_SINGULAR[method])
+    end
+
     private
 
-    attr_accessor :collection_json, :auth, :items
+    attr_accessor :collection_json, :auth, :items, :item_types
 
     def get(url, query_parameters = {})
       RequestBuilder.new(auth, url).connection.get do |conn|
