@@ -31,6 +31,10 @@ module TeamsnapRb
       end
     end
 
+    def data
+      item.data
+    end
+
     private
 
     def links
