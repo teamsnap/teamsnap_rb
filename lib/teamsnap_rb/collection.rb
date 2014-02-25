@@ -2,34 +2,22 @@ module TeamsnapRb
   class Collection
     include Enumerable
 
-    PLURAL_TYPES_TO_SINGULAR = {
-      "teams" => "Team",
-      "users" => "User",
-      "rosters" => "Roster",
-      "events" => "Event",
+    TYPE_TO_CLASS = {
+      "Event" => Event
     }
 
     def initialize(url, query_parameters={}, auth)
       self.auth = auth
       body = get(url, query_parameters).body
       self.collection_json = CollectionJSON.parse(body)
-      self.item_types = Set.new
-
       self.items = collection_json.items.map do |item|
-        Item.new(item, auth)
+        type_name = item.data.find do |datum|
+          datum.name == "type"
+        end.value
+
+        klass = TYPE_TO_CLASS[type_name] || Item
+        klass.new(item, auth)
       end
-
-      items.each do |item|
-        item_types.add(item.type)
-      end
-    end
-
-    def links
-      @links ||= LinksProxy.new(collection_json.links, auth)
-    end
-
-    def queries
-      @queries ||= QueriesProxy.new(collection_json.queries, auth)
     end
 
     def [](index)
@@ -51,20 +39,30 @@ module TeamsnapRb
     end
 
     def method_missing(method, *args)
-      if item_types.include?(PLURAL_TYPES_TO_SINGULAR[method.to_s])
-        where(:type => PLURAL_TYPES_TO_SINGULAR[method.to_s])
+      if links.respond_to?(method)
+        links.send(method)
+      elsif queries.respond_to?(method)
+        queries.send(method, *args)
       else
         super
       end
     end
 
     def respond_to?(method)
-      item_types.include?(PLURAL_TYPES_TO_SINGULAR[method])
+      links.respond_to?(method) || queries.respond_to?(method)
     end
 
     private
 
-    attr_accessor :collection_json, :auth, :items, :item_types
+    attr_accessor :collection_json, :auth, :items
+
+    def links
+      @links ||= LinksProxy.new(collection_json.links, auth)
+    end
+
+    def queries
+      @queries ||= QueriesProxy.new(collection_json.queries, auth)
+    end
 
     def get(url, query_parameters = {})
       RequestBuilder.new(auth, url).connection.get do |conn|

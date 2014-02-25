@@ -27,7 +27,6 @@ module TeamsnapRb
   end
 
   class Query
-
     MissingQueryParameter = Class.new(StandardError)
 
     def initialize(url, data, auth)
@@ -41,9 +40,15 @@ module TeamsnapRb
     end
 
     def get(query_parameters={})
-      required_params = data.map(&:name).map(&:to_sym)
-      missing_params = required_params - query_parameters.keys
-      raise MissingQueryParameter, "missing required parameters #{missing_params}" if missing_params.any?
+      possible_params = data.map(&:name).map(&:to_sym)
+      query_parameters.reject! { |key, value| !possible_params.include?(key) }
+
+      if query_parameters.empty?
+        raise(
+          MissingQueryParameter,
+          "You must provide at least one of the following parameters: #{possible_params}"
+        )
+      end
 
       Collection.new(url, query_parameters, auth)
     end

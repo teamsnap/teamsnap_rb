@@ -4,14 +4,23 @@ PATH
     teamsnap_rb (0.0.1)
       collection-json
       faraday
+      virtus
 
 GEM
   remote: https://rubygems.org/
   specs:
+    axiom-types (0.0.5)
+      descendants_tracker (~> 0.0.1)
+      ice_nine (~> 0.9)
     coderay (1.1.0)
+    coercible (1.0.0)
+      descendants_tracker (~> 0.0.1)
     collection-json (0.1.6)
+    descendants_tracker (0.0.3)
+    equalizer (0.0.9)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
+    ice_nine (0.11.0)
     method_source (0.8.2)
     multipart-post (2.0.0)
     pry (0.9.12.4)
@@ -20,6 +29,11 @@ GEM
       slop (~> 3.4)
     rake (10.1.1)
     slop (3.4.7)
+    virtus (1.0.1)
+      axiom-types (~> 0.0.5)
+      coercible (~> 1.0)
+      descendants_tracker (~> 0.0.1)
+      equalizer (~> 0.0.7)
 
 PLATFORMS
   ruby
