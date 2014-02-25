@@ -5,7 +5,8 @@ module TeamsnapRb
     PLURAL_TYPES_TO_SINGULAR = {
       "teams" => "Team",
       "users" => "User",
-      "rosters" => "Roster"
+      "rosters" => "Roster",
+      "events" => "Event",
     }
 
     def initialize(url, query_parameters={}, auth)
