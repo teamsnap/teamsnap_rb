@@ -5,10 +5,6 @@ module TeamsnapRb
       self.item = item
     end
 
-    def links
-      @links ||= LinksProxy.new(item.links, auth)
-    end
-
     def href
       item.href
     end
@@ -20,6 +16,8 @@ module TeamsnapRb
         end
 
         instance_variable_get("@#{method}_datum")
+      elsif links.respond_to?(method)
+        links.send(method)
       else
         super
       end
@@ -29,11 +27,15 @@ module TeamsnapRb
       if item.data.find { |d| d.name == method.to_s }
         true
       else
-        false
+        links.respond_to?(method)
       end
     end
 
     private
+
+    def links
+      @links ||= LinksProxy.new(item.links, auth)
+    end
 
     attr_accessor :item, :auth
   end
