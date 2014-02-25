@@ -41,9 +41,10 @@ module TeamsnapRb
     end
 
     def get(query_parameters={})
-      required_params = data.map(&:name).map(&:to_sym)
-      missing_params = required_params - query_parameters.keys
-      raise MissingQueryParameter, "missing required parameters #{missing_params}" if missing_params.any?
+      valid_params = data.map(&:name).map(&:to_sym)
+      supplied_valid_params = valid_params & query_parameters.keys
+      raise MissingQueryParameter,
+        "missing query parameters #{valid_params}, supplied: #{query_parameters}" unless supplied_valid_params.any?
 
       Collection.new(url, query_parameters, auth)
     end
