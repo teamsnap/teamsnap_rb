@@ -21,7 +21,8 @@ Or install it yourself as:
 ```ruby
 client = TeamsnapRb::Client.new # without authorization, so you can't see much
 
-client = TeamsnapRb::Client.new(access_token: "oauth_access_token_here")
+client = TeamsnapRb::Client.new(client_id: "your client id", client_secret:
+"your client secret")
 
 me = client.links.me
 # => [#<TeamsnapRb::Collection>]
