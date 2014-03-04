@@ -51,6 +51,7 @@ module TeamsnapRb
     attr_accessor :auth
   end
 
-  Faraday::Request.register_middleware :request,
+  Faraday::Request.register_middleware(
     :teamsnap_auth_middleware => lambda { TeamsnapAuthMiddleware }
+  )
 end
