@@ -1,5 +1,7 @@
 module TeamsnapRb
   class LinksProxy
+    attr_reader :links
+
     def initialize(links, auth)
       self.auth = auth
       self.links = links
