@@ -1,5 +1,7 @@
 module TeamsnapRb
   class QueriesProxy
+    include Enumerable
+
     def initialize(queries, auth)
       self.auth = auth
       self.queries = queries
@@ -18,6 +20,12 @@ module TeamsnapRb
         true
       else
         false
+      end
+    end
+
+    def each
+      queries.each do |query|
+        query
       end
     end
 

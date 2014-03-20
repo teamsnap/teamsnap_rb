@@ -1,6 +1,6 @@
 module TeamsnapRb
   class LinksProxy
-    attr_reader :links
+    include Enumerable
 
     def initialize(links, auth)
       self.auth = auth
@@ -24,6 +24,12 @@ module TeamsnapRb
         true
       else
         false
+      end
+    end
+
+    def each
+      links.each do |link|
+        yield link
       end
     end
 

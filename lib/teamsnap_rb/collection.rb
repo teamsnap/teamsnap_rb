@@ -52,10 +52,6 @@ module TeamsnapRb
       links.respond_to?(method) || queries.respond_to?(method)
     end
 
-    private
-
-    attr_accessor :collection_json, :auth, :items
-
     def links
       @links ||= LinksProxy.new(collection_json.links, auth)
     end
@@ -63,6 +59,10 @@ module TeamsnapRb
     def queries
       @queries ||= QueriesProxy.new(collection_json.queries, auth)
     end
+
+    private
+
+    attr_accessor :collection_json, :auth, :items
 
     def get(url, query_parameters = {})
       RequestBuilder.new(auth, url).connection.get do |conn|
