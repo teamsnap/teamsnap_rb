@@ -2,21 +2,34 @@ module TeamsnapRb
   class Collection
     include Enumerable
 
+    attr_reader :errors
+
     TYPE_TO_CLASS = {
       "Event" => Event
     }
 
     def initialize(url, query_parameters={}, auth)
       self.auth = auth
-      body = get(url, query_parameters).body
-      self.collection_json = CollectionJSON.parse(body)
-      self.items = collection_json.items.map do |item|
-        type_name = item.data.find do |datum|
-          datum.name == "type"
-        end.value
+      self.data = get(url, query_parameters)
+      self.errors = []
+      body = data.body
 
-        klass = TYPE_TO_CLASS[type_name] || Item
-        klass.new(item, auth)
+      if data.success?
+        self.collection_json = CollectionJSON.parse(body)
+        self.items = collection_json.items.map do |item|
+          type_name = item.data.find do |datum|
+            datum.name == "type"
+          end.value
+
+          klass = TYPE_TO_CLASS[type_name] || Item
+          klass.new(item, auth)
+        end
+
+        if collection_json.error
+          errors << collection_json.error.message
+        end
+      else
+        errors << data.status.to_s
       end
     end
 
@@ -60,9 +73,18 @@ module TeamsnapRb
       @queries ||= QueriesProxy.new(collection_json.queries, auth)
     end
 
+    def error
+      errors
+    end
+
+    def error?
+      errors.count > 0
+    end
+
     private
 
-    attr_accessor :collection_json, :auth, :items
+    attr_accessor :collection_json, :auth, :items, :data
+    attr_writer :errors
 
     def get(url, query_parameters = {})
       RequestBuilder.new(auth, url).connection.get do |conn|
