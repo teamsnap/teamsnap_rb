@@ -4,33 +4,33 @@ module TeamsnapRb
 
     def initialize(links, auth)
       self.auth = auth
-      self.links = links
+      self.links = links.inject({}) do |h, link|
+        h.tap do |hash|
+          hash[link.rel.to_sym] = Link.new(link, auth)
+        end
+      end
     end
 
     def method_missing(method, *args)
-      if link = links.find { |l| l.rel == method.to_s }
-        unless instance_variable_get("@#{method}_collection")
-          instance_variable_set("@#{method}_collection", Collection.new(link.href, auth))
-        end
-
-        instance_variable_get("@#{method}_collection")
+      if link = links[method.to_sym]
+        link.follow
       else
         super
       end
     end
 
     def respond_to?(method)
-      if links.find { |l| l.rel == method.to_s }
-        true
-      else
-        false
-      end
+      links.include?(method.to_sym) || super
     end
 
     def each
-      links.each do |link|
+      links.values.each do |link|
         yield link
       end
+    end
+
+    def rels
+      links.keys
     end
 
     private

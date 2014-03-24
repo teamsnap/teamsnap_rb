@@ -4,29 +4,33 @@ module TeamsnapRb
 
     def initialize(queries, auth)
       self.auth = auth
-      self.queries = queries
+      self.queries = queries.inject({}) do |h, query|
+        h.tap do |hash|
+          hash[query.rel.to_sym] = Query.new(query.href, query.data, auth)
+        end
+      end
     end
 
     def method_missing(method, *args)
-      if query = queries.find { |q| q.rel == method.to_s }
-         Query.build(query, auth, *args)
+      if query = queries[method.to_sym]
+        query.get(*args)
       else
         super
       end
     end
 
     def respond_to?(method)
-      if queries.find { |q| q.rel == method.to_s }
-        true
-      else
-        false
-      end
+      queries.include?(method.to_sym) || super
     end
 
     def each
-      queries.each do |query|
-        query
+      queries.values.each do |query|
+        yield query
       end
+    end
+
+    def rels
+      queries.keys
     end
 
     private
@@ -41,10 +45,6 @@ module TeamsnapRb
       self.url = url
       self.data = data
       self.auth = auth
-    end
-
-    def self.build(query, auth, args)
-      new(query.href, query.data, auth).get(args)
     end
 
     def get(query_parameters={})
