@@ -21,3 +21,4 @@ config/*.yml
 .ruby-version
 .rbenv-version
 /bin/stubs
+/bin

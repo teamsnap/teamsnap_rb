@@ -36,10 +36,10 @@ module TeamsnapRb
         })
         env.url.query = URI.encode_www_form(query_params)
 
-        message = env.url.to_s + (env.body || "")
-
+        message = "/?" + env.url.query.to_s + (env.body || "")
         digest = OpenSSL::Digest.new('sha256')
         message_hash = digest.hexdigest(message)
+
         env.request_headers["X-Teamsnap-Hmac"] = OpenSSL::HMAC.hexdigest(digest, auth.client_secret, message_hash)
       end
 
