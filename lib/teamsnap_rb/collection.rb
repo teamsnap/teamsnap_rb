@@ -8,14 +8,15 @@ module TeamsnapRb
       "Event" => Event
     }
 
-    def initialize(url, query_parameters={}, auth)
+    def initialize(url, query_parameters, auth, request: nil)
       self.auth = auth
-      self.data = get(url, query_parameters)
+      data = request || get(url, query_parameters)
       self.errors = []
       body = data.body
 
       if data.success?
-        self.collection_json = CollectionJSON.parse(body)
+        deserializer = Conglomerate::TreeDeserializer.new(JSON.parse(body))
+        self.collection_json = deserializer.deserialize
         self.items = collection_json.items.map do |item|
           type_name = item.data.find do |datum|
             datum.name == "type"
@@ -65,12 +66,24 @@ module TeamsnapRb
       links.respond_to?(method) || queries.respond_to?(method)
     end
 
+    def collection
+      @collection ||= Collection.new(href, {}, auth)
+    end
+
+    def this
+      @this ||= Collection.new(this_href, {}, auth)
+    end
+
     def links
       @links ||= LinksProxy.new(collection_json.links, auth)
     end
 
     def queries
       @queries ||= QueriesProxy.new(collection_json.queries, auth)
+    end
+
+    def template
+      @template ||= TemplateProxy.new(collection_json.template, auth, href)
     end
 
     def error
@@ -83,7 +96,7 @@ module TeamsnapRb
 
     private
 
-    attr_accessor :collection_json, :auth, :items, :data
+    attr_accessor :collection_json, :auth, :items
     attr_writer :errors
 
     def get(url, query_parameters = {})
@@ -92,6 +105,10 @@ module TeamsnapRb
           conn.params[key] = value
         end
       end
+    end
+
+    def this_href
+      collection_json.links.find { |l| l.rel == "self" }.href
     end
 
     class CollectionWhereProxy
