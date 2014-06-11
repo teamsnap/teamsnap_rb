@@ -3,6 +3,7 @@ require "json"
 require "faraday"
 
 require "teamsnap_rb/version"
+require "teamsnap_rb/exceptions"
 
 require "teamsnap_rb/auth"
 require "teamsnap_rb/request_builder"
