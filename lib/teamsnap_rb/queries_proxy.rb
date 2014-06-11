@@ -2,11 +2,11 @@ module TeamsnapRb
   class QueriesProxy
     include Enumerable
 
-    def initialize(queries, auth)
-      self.auth = auth
+    def initialize(queries, config)
+      self.config = config
       self.queries = queries.inject({}) do |h, query|
         h.tap do |hash|
-          hash[query.rel.to_sym] = Query.new(query.href, query.data, auth)
+          hash[query.rel.to_sym] = Query.new(query.href, query.data, config)
         end
       end
     end
@@ -35,16 +35,16 @@ module TeamsnapRb
 
     private
 
-    attr_accessor :queries, :auth
+    attr_accessor :queries, :config
   end
 
   class Query
     MissingQueryParameter = Class.new(StandardError)
 
-    def initialize(url, data, auth)
+    def initialize(url, data, config)
       self.url = url
       self.data = data
-      self.auth = auth
+      self.config = config
     end
 
     def get(query_parameters={})
@@ -58,11 +58,11 @@ module TeamsnapRb
         )
       end
 
-      Collection.new(url, query_parameters, auth)
+      Collection.new(url, query_parameters, config)
     end
 
     private
 
-    attr_accessor :url, :data, :auth
+    attr_accessor :url, :data, :config
   end
 end

@@ -4,33 +4,41 @@ module TeamsnapRb
   class RequestBuilder
     attr_reader :connection
 
-    def initialize(auth, url)
-      self.auth = auth
+    def initialize(config, url)
+      self.config = config
       self.connection = Faraday::Connection.new(:url => url) do |faraday|
-        faraday.request :teamsnap_auth_middleware, auth
+        config.request_middleware.each do |m|
+          faraday.request(m)
+        end
+
+        config.response_middleware.each do |m|
+          faraday.response(m)
+        end
+
+        faraday.request :teamsnap_config_middleware, config
         faraday.adapter Faraday.default_adapter
       end
     end
 
     private
 
-    attr_accessor :auth
+    attr_accessor :config
     attr_writer :connection
   end
 
   class TeamsnapAuthMiddleware < Faraday::Middleware
     def initialize(app, *args, &block)
-      self.auth = args[0]
+      self.config = args[0]
       super(app)
     end
 
     def call(env)
-      if auth.access_token
-        env.request_headers["X-Teamsnap-Access-Token"] = auth.access_token
-      elsif auth.client_id && auth.client_secret
+      if config.access_token
+        env.request_headers["X-Teamsnap-Access-Token"] = config.access_token
+      elsif config.client_id && config.client_secret
         query_params = Hash[URI.decode_www_form(env.url.query || "")]
         query_params.merge!({
-          hmac_client_id: auth.client_id,
+          hmac_client_id: config.client_id,
           hmac_nonce: SecureRandom.uuid,
           hmac_timestamp: Time.now.to_i
         })
@@ -40,7 +48,7 @@ module TeamsnapRb
         digest = OpenSSL::Digest.new('sha256')
         message_hash = digest.hexdigest(message)
 
-        env.request_headers["X-Teamsnap-Hmac"] = OpenSSL::HMAC.hexdigest(digest, auth.client_secret, message_hash)
+        env.request_headers["X-Teamsnap-Hmac"] = OpenSSL::HMAC.hexdigest(digest, config.client_secret, message_hash)
       end
 
       @app.call(env)
@@ -48,10 +56,10 @@ module TeamsnapRb
 
     private
 
-    attr_accessor :auth
+    attr_accessor :config
   end
 
   Faraday::Request.register_middleware(
-    :teamsnap_auth_middleware => lambda { TeamsnapAuthMiddleware }
+    :teamsnap_config_middleware => lambda { TeamsnapAuthMiddleware }
   )
 end
