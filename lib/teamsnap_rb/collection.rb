@@ -12,6 +12,7 @@ module TeamsnapRb
       self.auth = auth
       data = request || get(url, query_parameters)
       self.errors = []
+      self.url = data.env["url"]
       body = data.body
 
       if data.success?
@@ -32,6 +33,8 @@ module TeamsnapRb
       else
         errors << data.status.to_s
       end
+
+      handle_error(errors)
     end
 
     def [](index)
@@ -96,7 +99,7 @@ module TeamsnapRb
 
     private
 
-    attr_accessor :collection_json, :auth, :items
+    attr_accessor :collection_json, :auth, :items, :url
     attr_writer :errors
 
     def get(url, query_parameters = {})
@@ -109,6 +112,12 @@ module TeamsnapRb
 
     def this_href
       collection_json.links.find { |l| l.rel == "self" }.href
+    end
+
+    def handle_error(errors)
+      if errors.include?("401")
+        raise HttpError, "401 Unauthorized for #{url}"
+      end
     end
 
     class CollectionWhereProxy
