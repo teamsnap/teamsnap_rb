@@ -1,7 +1,7 @@
 module TeamsnapRb
   class TemplateProxy
-    def initialize(template, auth, url)
-      self.auth = auth
+    def initialize(template, config, url)
+      self.config = config
       self.template = template
       self.url = url
     end
@@ -25,10 +25,10 @@ module TeamsnapRb
 
     private
 
-    attr_accessor :template, :auth, :url
+    attr_accessor :template, :config, :url
 
     def post(url, query_parameters = {})
-      RequestBuilder.new(auth, url).connection.post do |conn|
+      RequestBuilder.new(config, url).connection.post do |conn|
         conn.body = @data.to_json
         conn.headers['Content-Type'] = 'application/json'
       end

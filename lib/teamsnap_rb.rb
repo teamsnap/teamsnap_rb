@@ -5,7 +5,7 @@ require "faraday"
 require "teamsnap_rb/version"
 require "teamsnap_rb/exceptions"
 
-require "teamsnap_rb/auth"
+require "teamsnap_rb/config"
 require "teamsnap_rb/request_builder"
 require "teamsnap_rb/link"
 require "teamsnap_rb/links_proxy"

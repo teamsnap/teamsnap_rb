@@ -1,12 +1,12 @@
 module TeamsnapRb
   class Link
-    def initialize(link, auth)
-      self.auth = auth
+    def initialize(link, config)
+      self.config = config
       self.link = link
     end
 
     def follow
-      @collection ||= Collection.new(href, {}, auth)
+      @collection ||= Collection.new(href, {}, config)
     end
 
     def rel
@@ -19,6 +19,6 @@ module TeamsnapRb
 
     private
 
-    attr_accessor :auth, :link
+    attr_accessor :config, :link
   end
 end
