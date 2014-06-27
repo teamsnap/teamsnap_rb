@@ -1,6 +1,6 @@
 # TeamsnapRb
 
-TeamsnapRb is a convenient wrapper around the faraday and the collection-json gem that helps you talk to TeamSnap's APIv3.
+TeamsnapRb is a convenient wrapper around the faraday and the conglomerate gem that helps you talk to TeamSnap's APIv3.
 
 ## Installation
 
