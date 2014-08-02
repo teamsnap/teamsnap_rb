@@ -1,3 +1,7 @@
+# EARLY ACCESS
+
+Please be aware there may be bugs, gremlins, and horrible issues; and you could be eaten by a grue. We are not responsible for any loss of life or limb (especially if you are eaten by a grue).
+
 # TeamsnapRb
 
 TeamsnapRb is a convenient wrapper around the faraday and the conglomerate gem that helps you talk to TeamSnap's APIv3.
