@@ -1,6 +1,7 @@
 require "conglomerate"
 require "json"
 require "faraday"
+require "securerandom"
 
 require "teamsnap_rb/version"
 require "teamsnap_rb/exceptions"

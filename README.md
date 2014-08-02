@@ -18,27 +18,7 @@ Or install it yourself as:
 
 ## Usage
 
-```ruby
-client = TeamsnapRb::Client.new # without authorization, so you can't see much
-
-client = TeamsnapRb::Client.new(client_id: "your client id", client_secret:
-"your client secret")
-
-me = client.links.me
-# => [#<TeamsnapRb::Collection>]
-
-user = me[0]
-# => #<TeamsnapRb::Item>
-
-user.href
-# => "https://apiv3.teamsnap.com/users/1"
-
-user.links.teams.where(sport_id: 52)
-# => [#<TeamsnapRb::Collection>, #<TeamsnapRb::Collection>]
-
-user.links.teams.where(sport_id: 52).first.sport_id
-# => 52
-```
+Needs to be updated; coming soon.
 
 ## Contributing
 
