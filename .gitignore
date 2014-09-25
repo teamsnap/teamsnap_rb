@@ -22,3 +22,4 @@ config/*.yml
 .rbenv-version
 /bin/stubs
 /bin
+/pkg

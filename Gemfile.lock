@@ -1,15 +1,15 @@
 PATH
   remote: .
   specs:
-    teamsnap_rb (0.0.1)
-      conglomerate
-      faraday
+    teamsnap_rb (0.0.2)
+      conglomerate (~> 0.8.0)
+      faraday (~> 0.9.0)
 
 GEM
   remote: https://rubygems.org/
   specs:
     coderay (1.1.0)
-    conglomerate (0.8.0)
+    conglomerate (0.8.1)
     diff-lcs (1.2.5)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
@@ -41,5 +41,5 @@ DEPENDENCIES
   bundler (~> 1.5)
   pry
   rake
-  rspec
+  rspec (>= 3.0.0)
   teamsnap_rb!
