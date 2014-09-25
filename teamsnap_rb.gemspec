@@ -6,7 +6,7 @@ require 'teamsnap_rb/version'
 Gem::Specification.new do |spec|
   spec.name          = "teamsnap_rb"
   spec.version       = TeamsnapRb::VERSION
-  spec.authors       = ["Party Chicken", "Emily Dobervich", "Corey Purcell", "Zach Gardner", "Shane Emmons"]
+  spec.authors       = ["Party Chicken"]
   spec.email         = ["api@teamsnap.com"]
   spec.summary       = %q{A gem interact with TeamSnap's API}
   spec.description   = %q{}
