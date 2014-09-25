@@ -10,8 +10,8 @@ Gem::Specification.new do |spec|
   spec.email         = ["api@teamsnap.com"]
   spec.summary       = %q{A gem interact with TeamSnap's API}
   spec.description   = %q{}
-  spec.homepage      = ""
-  spec.license       = ""
+  spec.homepage      = "http://www.teamsnap.com/api"
+  spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
