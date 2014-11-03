@@ -12,8 +12,8 @@ Gem::Specification.new do |spec|
   spec.description   = %q{}
   spec.homepage      = "http://www.teamsnap.com/api"
   spec.license       = "MIT"
-  spec.required_ruby_version = '>= 1.8.6'
-  
+  spec.required_ruby_version = '>= 1.9.3'
+
   spec.files         = `git ls-files`.split($/)
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
@@ -25,5 +25,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rspec", ">= 3.0.0"
 
   spec.add_dependency "faraday", "~> 0.9.0"
-  spec.add_dependency "conglomerate", "~> 0.8.0"
+  spec.add_dependency "conglomerate", ">= 0.15.0"
 end

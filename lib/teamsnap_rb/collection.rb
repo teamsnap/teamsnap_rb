@@ -8,7 +8,9 @@ module TeamsnapRb
       "Event" => Event
     }
 
-    def initialize(url, query_parameters, config, request: nil)
+    def initialize(url, query_parameters, config, options = {})
+      request = options.fetch(:request, nil)
+
       self.config = config
       data = request || get(url, query_parameters)
       self.errors = []
