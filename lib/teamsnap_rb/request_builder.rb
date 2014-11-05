@@ -4,8 +4,8 @@ module TeamsnapRb
   class RequestBuilder
     attr_reader :connection
 
-    def initialize(config, url)
-      self.config = config
+    def initialize(url)
+      self.config = TeamsnapRb.config
       self.connection = Faraday::Connection.new(:url => url) do |faraday|
         config.request_middleware.each do |m|
           faraday.request(m)
@@ -28,7 +28,7 @@ module TeamsnapRb
 
   class TeamsnapAuthMiddleware < Faraday::Middleware
     def initialize(app, *args, &block)
-      self.config = args[0]
+      self.config = TeamsnapRb.config
       super(app)
     end
 

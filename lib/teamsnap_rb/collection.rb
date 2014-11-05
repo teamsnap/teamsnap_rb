@@ -8,10 +8,9 @@ module TeamsnapRb
       "Event" => Event
     }
 
-    def initialize(url, query_parameters, config, options = {})
+    def initialize(url, query_parameters, options = {})
       request = options.fetch(:request, nil)
 
-      self.config = config
       data = request || get(url, query_parameters)
       self.errors = []
       self.url = data.env["url"]
@@ -26,7 +25,7 @@ module TeamsnapRb
           end.value
 
           klass = TYPE_TO_CLASS[type_name] || Item
-          klass.new(item, config)
+          klass.new(item)
         end
 
         if collection_json.error
@@ -72,23 +71,23 @@ module TeamsnapRb
     end
 
     def collection
-      @collection ||= Collection.new(href, {}, config)
+      @collection ||= Collection.new(href, {})
     end
 
     def this
-      @this ||= Collection.new(this_href, {}, config)
+      @this ||= Collection.new(this_href, {})
     end
 
     def links
-      @links ||= LinksProxy.new(collection_json.links, config)
+      @links ||= LinksProxy.new(collection_json.links)
     end
 
     def queries
-      @queries ||= QueriesProxy.new(collection_json.queries, config)
+      @queries ||= QueriesProxy.new(collection_json.queries)
     end
 
     def template
-      @template ||= TemplateProxy.new(collection_json.template, config, href)
+      @template ||= TemplateProxy.new(collection_json.template, href)
     end
 
     def error
@@ -101,11 +100,11 @@ module TeamsnapRb
 
     private
 
-    attr_accessor :collection_json, :config, :items, :url
+    attr_accessor :collection_json, :items, :url
     attr_writer :errors
 
     def get(url, query_parameters = {})
-      RequestBuilder.new(config, url).connection.get do |conn|
+      RequestBuilder.new(url).connection.get do |conn|
         query_parameters.each do |key, value|
           conn.params[key] = value
         end

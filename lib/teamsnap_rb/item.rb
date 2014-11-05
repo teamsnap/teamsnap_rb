@@ -5,8 +5,7 @@ module TeamsnapRb
     end
     @templates = {}
 
-    def initialize(item, config)
-      self.config = config
+    def initialize(item)
       self.item = item
     end
 
@@ -24,7 +23,7 @@ module TeamsnapRb
         :data => new_data
       )
 
-      Item.new(item, config).tap do |it|
+      Item.new(item).tap do |it|
         it.send(:dirty, dirtied_attrs)
       end
     end
@@ -36,12 +35,12 @@ module TeamsnapRb
         end
       end
 
-      request = RequestBuilder.new(config, href).connection.patch do |conn|
+      request = RequestBuilder.new(href).connection.patch do |conn|
         conn.body = template.build(attrs_to_update).to_json
         conn.headers["Content-Type"] = "application/json"
       end
 
-      Collection.new(nil, nil, config, :request => request)
+      Collection.new(nil, nil, :request => request)
     end
 
     def attributes
@@ -96,17 +95,17 @@ module TeamsnapRb
     end
 
     def this
-      @this ||= Collection.new(href, {}, config)
+      @this ||= Collection.new(href, {})
     end
 
     def links
-      @links ||= LinksProxy.new(item.links, config)
+      @links ||= LinksProxy.new(item.links)
     end
 
     private
 
     def delete_href(href)
-      RequestBuilder.new(config, href).connection.delete
+      RequestBuilder.new(href).connection.delete
     end
 
     def dirty(attrs)
@@ -117,7 +116,7 @@ module TeamsnapRb
       this.template
     end
 
-    attr_accessor :item, :config, :dirty_attributes
+    attr_accessor :item, :dirty_attributes
   end
 
   class FailedToDelete < StandardError;end;

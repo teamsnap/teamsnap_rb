@@ -17,4 +17,15 @@ require_relative "teamsnap_rb/collection"
 require_relative "teamsnap_rb/client"
 
 module TeamsnapRb
+  class << self
+    attr_accessor :config
+  end
+
+  def self.config
+    @config ||= Config.new
+  end
+
+  def self.configure
+    yield(config)
+  end
 end
