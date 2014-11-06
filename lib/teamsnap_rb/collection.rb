@@ -83,6 +83,10 @@ module TeamsnapRb
       @template ||= Template.new(collection_json.template, config, href)
     end
 
+    def commands
+      @commands ||= CommandsProxy.new(collection_json.commands, config)
+    end
+
     def error
       errors
     end
