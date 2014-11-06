@@ -1,12 +1,11 @@
 module TeamsnapRb
   class Link
-    def initialize(link, config)
-      self.config = config
+    def initialize(link)
       self.link = link
     end
 
     def follow
-      @collection ||= Collection.new(href, {}, config)
+      @collection ||= Collection.new(href, {})
     end
 
     def rel
@@ -19,6 +18,6 @@ module TeamsnapRb
 
     private
 
-    attr_accessor :config, :link
+    attr_accessor :link
   end
 end
