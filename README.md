@@ -1,3 +1,6 @@
+[![Code Climate](https://codeclimate.com/github/teamsnap/teamsnap_rb/badges/gpa.svg)](https://codeclimate.com/github/teamsnap/teamsnap_rb)
+[![Test Coverage](https://codeclimate.com/github/teamsnap/teamsnap_rb/badges/coverage.svg)](https://codeclimate.com/github/teamsnap/teamsnap_rb)
+
 # EARLY ACCESS
 
 Please be aware there may be bugs, gremlins, and horrible issues; and you could be eaten by a grue. We are not responsible for any loss of life or limb (especially if you are eaten by a grue).
