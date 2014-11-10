@@ -1,0 +1,52 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:3003/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: 'OK '
+    headers:
+      Content-Type:
+      - application/vnd.collection+json
+      Content-Length:
+      - '2187'
+      X-Content-Type-Options:
+      - nosniff
+      X-Ratelimit-Limit:
+      - '5000'
+      X-Ratelimit-Remaining:
+      - '4996'
+      X-Ratelimit-Reset:
+      - '1415652962'
+      Etag:
+      - '"c5dd7d647d0380580d508bd4908093ee"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 99b9857a-e351-41ec-b97d-f294b5a0ebce
+      X-Runtime:
+      - '0.014089'
+      Server:
+      - WEBrick/1.3.1 (Ruby/2.1.1/2014-02-24)
+      Date:
+      - Mon, 10 Nov 2014 20:01:46 GMT
+      Connection:
+      - Keep-Alive
+    body:
+      encoding: UTF-8
+      string: '{"collection":{"version":"3.1.1","href":"http://localhost:3003/","links":[{"rel":"apiv2_root","href":"http://localhost:3003"},{"rel":"assignments","href":"http://localhost:3003/assignments"},{"rel":"availabilities","href":"http://localhost:3003/availabilities"},{"rel":"contact_email_addresses","href":"http://localhost:3003/contact_email_addresses"},{"rel":"contact_phone_numbers","href":"http://localhost:3003/contact_phone_numbers"},{"rel":"contacts","href":"http://localhost:3003/contacts"},{"rel":"custom_data","href":"http://localhost:3003/custom_data"},{"rel":"custom_fields","href":"http://localhost:3003/custom_fields"},{"rel":"events","href":"http://localhost:3003/events"},{"rel":"locations","href":"http://localhost:3003/locations"},{"rel":"me","href":"http://localhost:3003/me"},{"rel":"member_email_addresses","href":"http://localhost:3003/member_email_addresses"},{"rel":"member_files","href":"http://localhost:3003/member_files"},{"rel":"member_links","href":"http://localhost:3003/member_links"},{"rel":"member_phone_numbers","href":"http://localhost:3003/member_phone_numbers"},{"rel":"members","href":"http://localhost:3003/members"},{"rel":"members_preferences","href":"http://localhost:3003/members_preferences"},{"rel":"opponents","href":"http://localhost:3003/opponents"},{"rel":"plans","href":"http://localhost:3003/plans"},{"rel":"sms_gateways","href":"http://localhost:3003/sms_gateways"},{"rel":"sports","href":"http://localhost:3003/sports"},{"rel":"team_public_sites","href":"http://localhost:3003/team_public_sites"},{"rel":"teams","href":"http://localhost:3003/teams"},{"rel":"teams_preferences","href":"http://localhost:3003/teams_preferences"},{"rel":"time_zones","href":"http://localhost:3003/time_zones"},{"rel":"tracked_item_statuses","href":"http://localhost:3003/tracked_item_statuses"},{"rel":"tracked_items","href":"http://localhost:3003/tracked_items"},{"rel":"users","href":"http://localhost:3003/users"},{"rel":"root","href":"http://localhost:3003/"},{"rel":"self","href":"http://localhost:3003/"}],"queries":[{"rel":"bulk_load","href":"http://localhost:3003/bulk_load","data":[{"name":"team_id","value":null},{"name":"types","value":null}]}]}}'
+    http_version: 
+  recorded_at: Mon, 10 Nov 2014 20:01:46 GMT
+recorded_with: VCR 2.9.3

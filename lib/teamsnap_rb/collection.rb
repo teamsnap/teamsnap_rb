@@ -71,14 +71,6 @@ module TeamsnapRb
       links.respond_to?(method) || queries.respond_to?(method)
     end
 
-    def collection
-      @collection ||= Collection.new(href, {}, config)
-    end
-
-    def this
-      @this ||= Collection.new(this_href, {}, config)
-    end
-
     def links
       @links ||= LinksProxy.new(collection_json.links, config)
     end
