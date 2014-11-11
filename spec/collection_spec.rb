@@ -1,8 +1,6 @@
 require "spec_helper"
 
 describe TeamsnapRb::Collection do
-  use_vcr_cassette "root"
-
   describe "default attributes" do
     it "includes Enumerable" do
       expect(TeamsnapRb::Collection).to include(Enumerable)
@@ -10,6 +8,7 @@ describe TeamsnapRb::Collection do
   end
 
   context "GET root", :vcr, record: :once do
+    use_vcr_cassette "root"
     let(:root_collection) { TeamsnapRb::Collection.new("http://localhost:3003", {}, TeamsnapRb::Config.new) }
 
     describe "#href" do
@@ -65,6 +64,75 @@ describe TeamsnapRb::Collection do
     describe "#error?" do
       it "returns false if there are no errors" do
         expect(root_collection.error?).to eq(false)
+      end
+    end
+  end
+
+  context "GET /teams/1", :vcr, record: :once do
+    use_vcr_cassette "team"
+    let(:team_collection) { TeamsnapRb::Collection.new("http://localhost:3003/teams/1", {}, TeamsnapRb::Config.new) }
+
+    describe "#href" do
+      it "responds to href with the correct value" do
+        expect(team_collection.href).to eq("http://localhost:3003/teams")
+      end
+    end
+
+    describe "#links" do
+      it "returns a LinksProxy object" do
+        expect(team_collection.links).to be_a(TeamsnapRb::LinksProxy)
+      end
+    end
+
+    describe "#[]" do
+      it "returns an Item when the collection has data elements" do
+        expect(team_collection[0]).to be_a(TeamsnapRb::Item)
+      end
+    end
+
+    describe "#queries" do
+      it "returns a QueriesProxy object" do
+        expect(team_collection.queries).to be_a(TeamsnapRb::QueriesProxy)
+      end
+
+      it "contains a set of Query objects" do
+        expect(team_collection.queries.first).to be_a(TeamsnapRb::Query)
+      end
+    end
+
+    describe "#each" do
+      it "returns an array of items" do
+        expect(team_collection.each {|item|}).to_not be_empty
+      end
+    end
+
+    describe "#where" do
+      it "returns a CollectionWhereProxy" do
+        expect(team_collection.where({})).to be_a(TeamsnapRb::Collection::CollectionWhereProxy)
+      end
+
+      it "returns nil when trying to access a type that doesn't exist in the collection" do
+        expect(team_collection.where({type: "division"})[0]).to be_nil
+      end
+
+      it "returns an array of items that match the type passed in" do
+        expect(team_collection.where({type: "team"})[0]).to be_a(TeamsnapRb::Item)
+      end
+
+      it "the item selected has the expected data" do
+        expect(team_collection.where({type: "team"})[0].name).to eq("Test Mania")
+      end
+    end
+
+    describe "#error" do
+      it "returns an empty array if there are no errors" do
+        expect(team_collection.error).to be_empty
+      end
+    end
+
+    describe "#error?" do
+      it "returns false if there are no errors" do
+        expect(team_collection.error?).to eq(false)
       end
     end
   end

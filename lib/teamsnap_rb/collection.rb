@@ -80,7 +80,7 @@ module TeamsnapRb
     end
 
     def template
-      @template ||= TemplateProxy.new(collection_json.template, config, href)
+      @template ||= Template.new(collection_json.template, config, href)
     end
 
     def error

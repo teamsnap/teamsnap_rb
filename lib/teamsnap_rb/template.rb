@@ -1,5 +1,5 @@
 module TeamsnapRb
-  class TemplateProxy
+  class Template
     def initialize(template, config, url)
       self.config = config
       self.template = template
