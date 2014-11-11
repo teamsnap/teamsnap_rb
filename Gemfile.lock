@@ -11,18 +11,31 @@ GEM
     addressable (2.3.6)
     coderay (1.1.0)
     conglomerate (0.16.0)
+    coveralls (0.7.1)
+      multi_json (~> 1.3)
+      rest-client
+      simplecov (>= 0.7)
+      term-ansicolor
+      thor
     crack (0.4.2)
       safe_yaml (~> 1.0.0)
     diff-lcs (1.2.5)
+    docile (1.1.5)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
     method_source (0.8.2)
+    mime-types (2.4.3)
+    multi_json (1.10.1)
     multipart-post (2.0.0)
+    netrc (0.8.0)
     pry (0.9.12.4)
       coderay (~> 1.0)
       method_source (~> 0.8)
       slop (~> 3.4)
     rake (10.1.1)
+    rest-client (1.7.2)
+      mime-types (>= 1.16, < 3.0)
+      netrc (~> 0.7)
     rspec (3.0.0)
       rspec-core (~> 3.0.0)
       rspec-expectations (~> 3.0.0)
@@ -36,7 +49,16 @@ GEM
       rspec-support (~> 3.0.0)
     rspec-support (3.0.3)
     safe_yaml (1.0.4)
+    simplecov (0.9.1)
+      docile (~> 1.1.0)
+      multi_json (~> 1.0)
+      simplecov-html (~> 0.8.0)
+    simplecov-html (0.8.0)
     slop (3.4.7)
+    term-ansicolor (1.3.0)
+      tins (~> 1.0)
+    thor (0.19.1)
+    tins (1.3.3)
     vcr (2.9.3)
     webmock (1.20.4)
       addressable (>= 2.3.6)
@@ -47,6 +69,7 @@ PLATFORMS
 
 DEPENDENCIES
   bundler (~> 1.5)
+  coveralls
   pry
   rake
   rspec (>= 3.0.0)
