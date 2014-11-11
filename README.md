@@ -1,6 +1,9 @@
+# TeamSnapRb
+
+[ ![Codeship Status for teamsnap/teamsnap_rb](https://codeship.com/projects/535cff20-4bf3-0132-5b73-3612ac61d213/status)](https://codeship.com/projects/46910)
+
 [![Code Climate](https://codeclimate.com/github/teamsnap/teamsnap_rb/badges/gpa.svg)](https://codeclimate.com/github/teamsnap/teamsnap_rb)
 [![Test Coverage](https://codeclimate.com/github/teamsnap/teamsnap_rb/badges/coverage.svg)](https://codeclimate.com/github/teamsnap/teamsnap_rb)
-[![Build Status](https://travis-ci.org/teamsnap/teamsnap_rb.svg?branch=master)](https://travis-ci.org/teamsnap/teamsnap_rb)
 
 # EARLY ACCESS
 
