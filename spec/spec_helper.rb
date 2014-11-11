@@ -1,3 +1,6 @@
+require 'coveralls'
+Coveralls.wear!
+
 require "teamsnap_rb"
 require "pry"
 require "webmock/rspec"
