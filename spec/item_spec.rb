@@ -1,7 +1,7 @@
 require "spec_helper"
 
 describe TeamsnapRb::Item do
-  use_vcr_cassette "team", :allow_playback_repeats => true
+  use_vcr_cassette "team", :allow_playback_repeats => true, :match_requests_on => [:host, :path, :body, :method]
   let(:team_collection) { TeamsnapRb::Collection.new("http://localhost:3003/teams/1", {}, TeamsnapRb::Config.new) }
   let(:team_item) { team_collection[0] }
 
@@ -60,6 +60,24 @@ describe TeamsnapRb::Item do
       it "returns the correct value for a given datum" do
         expect(data.first.name).to eq("id")
         expect(data.first.value).to eq(1)
+      end
+    end
+
+    describe "#commands" do
+      it "returns a TeamsnapRb::CommandsProxy" do
+        expect(team_item.commands).to be_a(TeamsnapRb::CommandsProxy)
+      end
+
+      it "returns a 400 when the command is executed without correct arguments" do
+        expect(team_item.invite.status).to eq(400)
+      end
+
+      it "returns a 202 when the command is executed with correct arguments" do
+        expect(
+          team_item.invite(
+            :team_id => 1, :member_id => 8, :notify_as_member_id => 1
+          ).status
+        ).to eq(202)
       end
     end
 
