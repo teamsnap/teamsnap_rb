@@ -31,7 +31,7 @@ module TeamsnapRb
     end
 
     def commands
-      @commands ||= CommandsProxy.new(item.commands)
+      @commands ||= CommandsProxy.new(this.commands, config)
     end
 
     def delete
