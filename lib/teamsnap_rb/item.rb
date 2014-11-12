@@ -30,6 +30,10 @@ module TeamsnapRb
       @links ||= LinksProxy.new(item.links, config)
     end
 
+    def commands
+      @commands ||= CommandsProxy.new(item.commands)
+    end
+
     def delete
       response = delete_href(href)
       if response.status == 204
@@ -82,6 +86,8 @@ module TeamsnapRb
         instance_variable_get("@#{method}_datum")
       elsif links.respond_to?(method)
         links.send(method)
+      elsif commands.respond_to?(method)
+        commands.send(method, args)
       else
         super
       end
@@ -90,8 +96,10 @@ module TeamsnapRb
     def respond_to?(method)
       if data.find { |d| d.name == method.to_s }
         true
-      else
+      elsif
         links.respond_to?(method)
+      elsif
+        commands.respond_to?(method)
       end
     end
 
@@ -115,6 +123,10 @@ module TeamsnapRb
 
     def fetch_template
       this.template
+    end
+
+    def fetch_commands
+      this.commands
     end
 
     attr_accessor :item, :config, :dirty_attributes

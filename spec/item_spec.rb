@@ -69,7 +69,8 @@ describe TeamsnapRb::Item do
       end
 
       it "caches the template on the Item class" do
-        expect{ team_item.template }.to change(TeamsnapRb::Item.templates, :size).by(1)
+        team_item.template
+        expect(TeamsnapRb::Item.templates.keys).to include("team")
       end
     end
 
