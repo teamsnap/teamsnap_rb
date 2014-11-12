@@ -10,6 +10,35 @@ module TeamsnapRb
       self.item = item
     end
 
+    def href
+      item.href
+    end
+
+    def data
+      item.data
+    end
+
+    def template
+      self.class.templates[type] ||= fetch_template
+    end
+
+    def this
+      @this ||= Collection.new(href, {}, config)
+    end
+
+    def links
+      @links ||= LinksProxy.new(item.links, config)
+    end
+
+    def delete
+      response = delete_href(href)
+      if response.status == 204
+        true
+      else
+        raise FailedToDelete
+      end
+    end
+
     def with(attrs)
       attrs = Hash[attrs.map{ |k, v| [k.to_s, v] }]
       dirtied_attrs = attrs.keys
@@ -44,20 +73,8 @@ module TeamsnapRb
       Collection.new(nil, nil, config, :request => request)
     end
 
-    def attributes
-      @attributes ||= data.inject({}) do |h, datum|
-        h.tap do |hash|
-          hash[datum.name] = datum.value
-        end
-      end
-    end
-
-    def href
-      item.href
-    end
-
     def method_missing(method, *args)
-      if datum = item.data.find { |d| d.name == method.to_s }
+      if datum = data.find { |d| d.name == method.to_s }
         unless instance_variable_get("@#{method}_datum")
           instance_variable_set("@#{method}_datum", datum.value)
         end
@@ -71,39 +88,22 @@ module TeamsnapRb
     end
 
     def respond_to?(method)
-      if item.data.find { |d| d.name == method.to_s }
+      if data.find { |d| d.name == method.to_s }
         true
       else
         links.respond_to?(method)
       end
     end
 
-    def data
-      item.data
-    end
+    private
 
-    def template
-      self.class.templates[type] ||= fetch_template
-    end
-
-    def delete
-      response = delete_href(href)
-      if response.status == 204
-        true
-      else
-        raise FailedToDelete
+    def attributes
+      @attributes ||= data.inject({}) do |h, datum|
+        h.tap do |hash|
+          hash[datum.name] = datum.value
+        end
       end
     end
-
-    def this
-      @this ||= Collection.new(href, {}, config)
-    end
-
-    def links
-      @links ||= LinksProxy.new(item.links, config)
-    end
-
-    private
 
     def delete_href(href)
       RequestBuilder.new(config, href).connection.delete
