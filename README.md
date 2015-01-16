@@ -61,6 +61,23 @@ $ irb
 => # team object
 ```
 
+You can also access the API via OAuth2, which is handled outside of this gem.
+Simply pass the authorization token to access:
+
+```ruby
+$ irb
+> require 'teamsnap_rb'
+=> true
+> client_config = TeamsnapRb::Config.new(
+>   authorization: "authorization key here",
+> )
+> client = TeamsnapRb::Client.new("http://apiv3.teamsnap.com/", config: client_config)
+=> # client object
+> client.me.first.teams.inject({}){|a, t| a[t.name] = t.href; a }
+=> {"Authorized User Team"=>"https://apiv3.teamsnap.com/teams/82308"}
+```
+
+
 In order to work on teamsnap_rb most effectively and efficiently, it'll he helpful
 to have a TeamSnap account and teams so you can work with that data. You can
 create a TeamSnap account [here](https://go.teamsnap.com) and you can then
