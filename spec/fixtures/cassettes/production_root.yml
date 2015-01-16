@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://apiv3.teamsnap.com/
+    uri: https://api.teamsnap.com/v3/
     body:
       encoding: US-ASCII
       string: ''
