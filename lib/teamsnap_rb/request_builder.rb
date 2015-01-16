@@ -35,6 +35,8 @@ module TeamsnapRb
     def call(env)
       if config.access_token
         env.request_headers["X-Teamsnap-Access-Token"] = config.access_token
+      elsif config.authorization
+        env.request_headers["Authorization"] = "Bearer #{config.authorization}"
       elsif config.client_id && config.client_secret
         query_params = Hash[URI.decode_www_form(env.url.query || "")]
         query_params.merge!({
