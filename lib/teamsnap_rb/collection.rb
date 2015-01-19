@@ -95,6 +95,18 @@ module TeamsnapRb
       errors.count > 0
     end
 
+    def size
+      items.size
+    end
+
+    def present?
+      items.size > 0
+    end
+
+    def blank?
+      items.size == 0
+    end
+
     private
 
     attr_accessor :collection_json, :config, :items, :url
@@ -133,6 +145,18 @@ module TeamsnapRb
         items.each do |item|
           yield item
         end
+      end
+
+      def size
+        items.size
+      end
+
+      def present?
+        items.size > 0
+      end
+
+      def blank?
+        items.size == 0
       end
 
       def where(attribute_hash)
