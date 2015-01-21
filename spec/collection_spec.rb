@@ -66,6 +66,24 @@ describe TeamsnapRb::Collection do
         expect(root_collection.error?).to eq(false)
       end
     end
+
+    describe "size" do
+      it "returns zero when there are no items" do
+        expect(root_collection.size).to eq(0)
+      end
+    end
+
+    describe "present?" do
+      it "returns false when there are no iteams" do
+        expect(root_collection.present?).to eq(false)
+      end
+    end
+
+    describe "blank?" do
+      it "returns true when there are no iteams" do
+        expect(root_collection.blank?).to eq(true)
+      end
+    end
   end
 
   context "GET /teams/1", :vcr, record: :once do
@@ -103,6 +121,24 @@ describe TeamsnapRb::Collection do
     describe "#each" do
       it "returns an array of items" do
         expect(team_collection.each {|item|}).to_not be_empty
+      end
+    end
+
+    describe "size" do
+      it "returns zero when there are no items" do
+        expect(team_collection.size).to eq(1)
+      end
+    end
+
+    describe "present?" do
+      it "returns true when there are no iteams" do
+        expect(team_collection.present?).to eq(true)
+      end
+    end
+
+    describe "blank?" do
+      it "returns false when there are no iteams" do
+        expect(team_collection.blank?).to eq(false)
       end
     end
 
