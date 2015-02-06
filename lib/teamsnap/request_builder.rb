@@ -1,6 +1,8 @@
 require "openssl"
-require "faraday"
 require "securerandom"
+require "faraday"
+require "typhoeus"
+require "typhoeus/adapters/faraday"
 
 module TeamSnap
   class RequestBuilder
@@ -18,7 +20,7 @@ module TeamSnap
         end
 
         faraday.request :teamsnap_config_middleware, config
-        faraday.adapter Faraday.default_adapter
+        faraday.adapter :typhoeus
       end
     end
 
