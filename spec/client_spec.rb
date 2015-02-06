@@ -1,11 +1,11 @@
 require "spec_helper"
 
-describe TeamsnapRb::Client do
+describe TeamSnap::Client do
   describe "#new (GET production root/)" do
     use_vcr_cassette "production_root"
 
     it "raises an HttpError for unauthorized access" do
-      expect{TeamsnapRb::Client.new}.to raise_exception(TeamsnapRb::HttpError)
+      expect{TeamSnap::Client.new}.to raise_exception(TeamSnap::HttpError)
     end
   end
 
@@ -13,21 +13,21 @@ describe TeamsnapRb::Client do
     use_vcr_cassette "root"
 
     it "does not raise an error when authorized" do
-      expect{TeamsnapRb::Client.new("http://localhost:3003/")}.to_not raise_exception
+      expect{TeamSnap::Client.new("http://localhost:3003/")}.to_not raise_exception
     end
 
-    it "return a TeamsnapRb::Collection" do
-      expect(TeamsnapRb::Client.new("http://localhost:3003/")).to be_a(TeamsnapRb::Collection)
+    it "return a TeamSnap::Collection" do
+      expect(TeamSnap::Client.new("http://localhost:3003/")).to be_a(TeamSnap::Collection)
     end
   end
 
   context "#teams (GET local teams/)" do
     use_vcr_cassette "root"
-    let(:client) { TeamsnapRb::Client.new("http://localhost:3003") }
+    let(:client) { TeamSnap::Client.new("http://localhost:3003") }
 
     describe "client navigation of the api" do
       it "responds to links in the root collection, returning the appropriate collection" do
-        expect(client.teams).to be_a(TeamsnapRb::Collection)
+        expect(client.teams).to be_a(TeamSnap::Collection)
       end
 
       it "enables access to collections and items directly from the client" do

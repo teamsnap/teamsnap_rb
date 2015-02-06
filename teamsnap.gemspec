@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'teamsnap_rb/version'
+require 'teamsnap/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "teamsnap_rb"
-  spec.version       = TeamsnapRb::VERSION
+  spec.name          = "teamsnap"
+  spec.version       = TeamSnap::VERSION
   spec.authors       = ["Party Chicken"]
   spec.email         = ["api@teamsnap.com"]
   spec.summary       = %q{A gem interact with TeamSnap's API}

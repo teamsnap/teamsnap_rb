@@ -1,4 +1,4 @@
-module TeamsnapRb
+module TeamSnap
   class Template
     def initialize(template, config, url)
       self.config = config

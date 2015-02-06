@@ -1,4 +1,4 @@
-module TeamsnapRb
+module TeamSnap
   class Config
     attr_accessor :access_token, :client_id, :client_secret, :request_middleware, :response_middleware, :authorization
 

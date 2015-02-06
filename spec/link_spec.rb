@@ -1,15 +1,15 @@
 require "spec_helper"
 
-describe TeamsnapRb::Link do
-  let(:config) { TeamsnapRb::Config.new }
+describe TeamSnap::Link do
+  let(:config) { TeamSnap::Config.new }
   let(:collection) { double(
-    TeamsnapRb::Collection, :href => "http://localhost:3003/")
+    TeamSnap::Collection, :href => "http://localhost:3003/")
   }
   let(:conglomerate_link) { double(
     Conglomerate::Link, :rel => "team",
     :href => "http://localhost:3003/", :follow => collection
   ) }
-  let(:link) { TeamsnapRb::Link.new(conglomerate_link, config) }
+  let(:link) { TeamSnap::Link.new(conglomerate_link, config) }
 
   describe "#new" do
     it "accepts a Conglomerate item as a link" do
@@ -21,7 +21,7 @@ describe TeamsnapRb::Link do
     use_vcr_cassette "root"
 
     it "returns the Collection represented by that href" do
-      expect(link.follow).to be_a(TeamsnapRb::Collection)
+      expect(link.follow).to be_a(TeamSnap::Collection)
     end
 
     it "returns the Collection represented by that href" do

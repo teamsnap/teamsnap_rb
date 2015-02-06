@@ -1,13 +1,13 @@
 require "spec_helper"
 
-describe TeamsnapRb::Command do
+describe TeamSnap::Command do
   use_vcr_cassette "team", :match_requests_on => [:host, :path, :body], :record => :new_episodes
 
-  let(:client) { TeamsnapRb::Client.new("http://localhost:3003/teams/1") }
+  let(:client) { TeamSnap::Client.new("http://localhost:3003/teams/1") }
   let(:command) { client.commands.first }
 
   describe "#new" do
-    it "is built from a TeamsnapRb::Collection" do
+    it "is built from a TeamSnap::Collection" do
       expect{command}.to_not raise_exception
     end
   end

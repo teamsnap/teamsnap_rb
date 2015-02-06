@@ -1,15 +1,15 @@
 require "spec_helper"
 
-describe TeamsnapRb::CommandsProxy do
+describe TeamSnap::CommandsProxy do
   use_vcr_cassette "team", :match_requests_on => [:host, :path, :body]
 
-  let(:commands_proxy) { TeamsnapRb::Collection.new(
-    "http://localhost:3003/teams/1", {}, TeamsnapRb::Config.new
+  let(:commands_proxy) { TeamSnap::Collection.new(
+    "http://localhost:3003/teams/1", {}, TeamSnap::Config.new
   ).commands }
 
   describe "#new" do
     it "accepts an array of commands from a collection+json response and a config" do
-      expect(commands_proxy).to be_a(TeamsnapRb::CommandsProxy)
+      expect(commands_proxy).to be_a(TeamSnap::CommandsProxy)
     end
   end
 

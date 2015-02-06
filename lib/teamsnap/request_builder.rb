@@ -1,6 +1,6 @@
 require "openssl"
 
-module TeamsnapRb
+module TeamSnap
   class RequestBuilder
     attr_reader :connection
 

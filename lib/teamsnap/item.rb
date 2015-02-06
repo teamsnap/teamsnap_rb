@@ -1,4 +1,4 @@
-module TeamsnapRb
+module TeamSnap
   class Item
     class << self
       attr_accessor :templates

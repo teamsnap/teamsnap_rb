@@ -1,4 +1,4 @@
-module TeamsnapRb
+module TeamSnap
   class Command
     def initialize(command, config)
       self.command = command

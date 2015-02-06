@@ -1,7 +1,7 @@
 require 'coveralls'
 Coveralls.wear!
 
-require "teamsnap_rb"
+require "teamsnap"
 require "pry"
 require "webmock/rspec"
 require "vcr"
