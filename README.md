@@ -63,9 +63,7 @@ You can also access the API via OAuth2, which is handled outside of this gem.
 Simply pass the authorization token to access:
 
 ```ruby
-$ irb
-> require "teamsnap"
-=> true
+$ bundle exec rake console
 > client_config = TeamSnap::Config.new(
 >   authorization: "authorization key here",
 > )
