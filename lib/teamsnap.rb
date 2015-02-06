@@ -1,7 +1,5 @@
 require "conglomerate"
 require "json"
-require "faraday"
-require "securerandom"
 
 require_relative "teamsnap/version"
 require_relative "teamsnap/config"

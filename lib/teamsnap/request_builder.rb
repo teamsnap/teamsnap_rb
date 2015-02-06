@@ -1,4 +1,6 @@
 require "openssl"
+require "faraday"
+require "securerandom"
 
 module TeamSnap
   class RequestBuilder
