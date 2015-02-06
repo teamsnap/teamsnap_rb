@@ -43,6 +43,11 @@ describe TeamsnapRb::Collection do
       it "returns an empty array when there are not data elements" do
         expect(root_collection.each).to eq([])
       end
+
+      it "handles items being nil" do
+        root_collection.instance_variable_set(:@items, nil)
+        expect(root_collection.each).to eq([])
+      end
     end
 
     describe "#where" do

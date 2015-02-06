@@ -109,8 +109,12 @@ module TeamsnapRb
 
     private
 
-    attr_accessor :collection_json, :config, :items, :url
-    attr_writer :errors
+    def items
+      @items ||= []
+    end
+
+    attr_accessor :collection_json, :config, :url
+    attr_writer :errors, :items
 
     def get(url, query_parameters = {})
       RequestBuilder.new(config, url).connection.get do |conn|
