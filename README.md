@@ -1,4 +1,4 @@
-# TeamSnapRb
+# teamsnap_rb
 
 [ ![Codeship Status for teamsnap/teamsnap_rb](https://codeship.com/projects/535cff20-4bf3-0132-5b73-3612ac61d213/status)](https://codeship.com/projects/46910)
 
@@ -9,9 +9,9 @@
 
 Please be aware there may be bugs, gremlins, and horrible issues; and you could be eaten by a grue. We are not responsible for any loss of life or limb (especially if you are eaten by a grue).
 
-# TeamSnap
+# teamsnap_rb
 
-TeamSnap is a convenient wrapper around the faraday and the conglomerate gem that helps you talk to TeamSnap's APIv3.
+teamsnap_rb is a convenient wrapper around the faraday and the conglomerate gem that helps you talk to TeamSnap's APIv3.
 
 ## Installation
 
