@@ -1,7 +1,7 @@
 # coding: utf-8
-lib = File.expand_path('../lib', __FILE__)
+lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'teamsnap/version'
+require "teamsnap/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "teamsnap"
@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.description   = %q{}
   spec.homepage      = "http://www.teamsnap.com/api"
   spec.license       = "MIT"
-  spec.required_ruby_version = '>= 1.9.3'
+  spec.required_ruby_version = ">= 1.9.3"
 
   spec.files         = `git ls-files`.split($/)
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }

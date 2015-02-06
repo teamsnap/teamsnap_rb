@@ -17,7 +17,7 @@ TeamSnap is a convenient wrapper around the faraday and the conglomerate gem tha
 
 Add this line to your application's Gemfile:
 
-    gem 'teamsnap'
+    gem "teamsnap"
 
 And then execute:
 
@@ -37,7 +37,7 @@ Needs to be updated; coming soon.
 
 1. Fork it ( http://github.com/teamsnap/teamsnap_rb/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
+3. Commit your changes (`git commit -am "Add some feature"`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
 
@@ -64,7 +64,7 @@ Simply pass the authorization token to access:
 
 ```ruby
 $ irb
-> require 'teamsnap'
+> require "teamsnap"
 => true
 > client_config = TeamSnap::Config.new(
 >   authorization: "authorization key here",

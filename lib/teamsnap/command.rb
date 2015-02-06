@@ -30,7 +30,7 @@ module TeamSnap
     def post(attrs = {})
       RequestBuilder.new(config, href).connection.post do |conn|
         conn.body = attrs.to_json
-        conn.headers['Content-Type'] = 'application/json'
+        conn.headers["Content-Type"] = "application/json"
       end
     end
 

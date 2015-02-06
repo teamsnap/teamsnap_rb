@@ -1,4 +1,4 @@
-require 'coveralls'
+require "coveralls"
 Coveralls.wear!
 
 require "teamsnap"
