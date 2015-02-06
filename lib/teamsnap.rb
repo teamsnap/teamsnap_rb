@@ -4,7 +4,6 @@ require "faraday"
 require "securerandom"
 
 require_relative "teamsnap/version"
-require_relative "teamsnap/exceptions"
 require_relative "teamsnap/config"
 require_relative "teamsnap/request_builder"
 require_relative "teamsnap/link"
@@ -18,4 +17,6 @@ require_relative "teamsnap/models/event"
 require_relative "teamsnap/collection"
 require_relative "teamsnap/client"
 
-module TeamSnap; end
+module TeamSnap
+  HttpError = Class.new(StandardError)
+end
