@@ -9,7 +9,7 @@ module TeamSnap
     }
 
     def initialize(url, query_parameters, config, options = {})
-      request = options.fetch(:request, nil)
+      request = options.fetch(:request) { nil }
 
       self.config = config
       data = request || get(url, query_parameters)
