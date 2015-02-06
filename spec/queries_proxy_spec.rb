@@ -1,8 +1,7 @@
 require "spec_helper"
 
-describe TeamSnap::QueriesProxy do
-  use_vcr_cassette "root"
-
+vcr_options = {:cassette_name => "root"}
+describe TeamSnap::QueriesProxy, :vcr => vcr_options do
   let(:queries_proxy) { TeamSnap::Collection.new(
     "http://localhost:3003", {}, TeamSnap::Config.new
   ).queries }

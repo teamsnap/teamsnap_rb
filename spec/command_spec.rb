@@ -1,7 +1,11 @@
 require "spec_helper"
 
-describe TeamSnap::Command do
-  use_vcr_cassette "team", :match_requests_on => [:host, :path, :body], :record => :new_episodes
+vcr_options = {
+  :cassette_name => "team",
+  :match_requests_on => [:host, :path, :body],
+  :record => :new_episodes
+}
+describe TeamSnap::Command, :vcr => vcr_options do
 
   let(:client) { TeamSnap::Client.new("http://localhost:3003/teams/1") }
   let(:command) { client.commands.first }

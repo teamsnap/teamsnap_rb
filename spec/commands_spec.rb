@@ -1,7 +1,10 @@
 require "spec_helper"
 
-describe TeamSnap::CommandsProxy do
-  use_vcr_cassette "team", :match_requests_on => [:host, :path, :body]
+vcr_options = {
+  :cassette_name => "team",
+  :match_requests_on => [:host, :path, :body]
+}
+describe TeamSnap::CommandsProxy, :vcr => vcr_options do
 
   let(:commands_proxy) { TeamSnap::Collection.new(
     "http://localhost:3003/teams/1", {}, TeamSnap::Config.new

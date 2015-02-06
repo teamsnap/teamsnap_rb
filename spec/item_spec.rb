@@ -1,7 +1,11 @@
 require "spec_helper"
 
-describe TeamSnap::Item do
-  use_vcr_cassette "team", :allow_playback_repeats => true, :match_requests_on => [:host, :path, :body, :method]
+vcr_options = {
+  :cassette_name => "team",
+  :allow_playback_repeats => true,
+  :match_requests_on => [:host, :path, :body, :method]
+}
+describe TeamSnap::Item, :vcr => vcr_options do
   let(:team_collection) { TeamSnap::Collection.new("http://localhost:3003/teams/1", {}, TeamSnap::Config.new) }
   let(:team_item) { team_collection[0] }
 
@@ -9,7 +13,7 @@ describe TeamSnap::Item do
     expect(TeamSnap::Item).to_not include(Enumerable)
   end
 
-  context "PATCH teams/1", :vcr do
+  context "PATCH teams/1" do
     describe "#save" do
       it "successfully saves the item and returns it's collection" do
         expect(team_item.with(:name => "Danger Rangers").save).to be_a(TeamSnap::Collection)
@@ -25,7 +29,7 @@ describe TeamSnap::Item do
     end
   end
 
-  context "DELETE teams/1", :vcr do
+  context "DELETE teams/1" do
     describe "#delete" do
       it "successfully deletes the item and returns true" do
         expect(team_item.delete).to eq(true)
@@ -33,7 +37,7 @@ describe TeamSnap::Item do
     end
   end
 
-  context "GET teams/1", :vcr do
+  context "GET teams/1" do
     describe "#href" do
       it "returns 'teams/1' where 1 is the id of the item" do
         expect(team_item.href).to eq("http://localhost:3003/teams/1")

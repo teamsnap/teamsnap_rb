@@ -7,8 +7,8 @@ describe TeamSnap::Collection do
     end
   end
 
-  context "GET root", :vcr, record: :once do
-    use_vcr_cassette "root"
+  vcr_options = {:cassette_name => "root", :record => :once}
+  context "GET root", :vcr => vcr_options do
     let(:root_collection) { TeamSnap::Collection.new("http://localhost:3003", {}, TeamSnap::Config.new) }
 
     describe "#href" do
@@ -91,8 +91,8 @@ describe TeamSnap::Collection do
     end
   end
 
-  context "GET /teams/1", :vcr, record: :once do
-    use_vcr_cassette "team"
+  vcr_options = {:cassette_name => "team", :record => :once}
+  context "GET /teams/1", :vcr => vcr_options do
     let(:team_collection) { TeamSnap::Collection.new("http://localhost:3003/teams/1", {}, TeamSnap::Config.new) }
 
     describe "#href" do

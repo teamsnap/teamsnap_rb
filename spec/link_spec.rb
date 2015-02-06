@@ -17,9 +17,8 @@ describe TeamSnap::Link do
     end
   end
 
-  describe "#follow" do
-    use_vcr_cassette "root"
-
+  vcr_options = {:cassette_name => "root"}
+  describe "#follow", :vcr => vcr_options do
     it "returns the Collection represented by that href" do
       expect(link.follow).to be_a(TeamSnap::Collection)
     end

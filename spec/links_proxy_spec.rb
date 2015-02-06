@@ -1,7 +1,7 @@
 require "spec_helper"
 
-describe TeamSnap::LinksProxy do
-  use_vcr_cassette "root"
+vcr_options = {:cassette_name => "root"}
+describe TeamSnap::LinksProxy, :vcr => vcr_options do
   let(:links_proxy) { TeamSnap::Collection.new(
     "http://localhost:3003", {}, TeamSnap::Config.new
   ).links }
@@ -19,8 +19,6 @@ describe TeamSnap::LinksProxy do
   end
 
   describe "sending a link name to the LinksProxy" do
-    use_vcr_cassette "teams"
-
     it "follows the link if a matching link rel is found" do
       expect(links_proxy.teams).to be_a(TeamSnap::Collection)
     end

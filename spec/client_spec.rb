@@ -1,16 +1,16 @@
 require "spec_helper"
 
 describe TeamSnap::Client do
-  describe "#new (GET production root/)" do
-    use_vcr_cassette "production_root"
+  vcr_options = {:cassette_name => "production_root"}
+  describe "#new (GET production root/)", :vcr => vcr_options do
 
     it "raises an HttpError for unauthorized access" do
       expect{TeamSnap::Client.new}.to raise_exception(TeamSnap::HttpError)
     end
   end
 
-  context "#new (GET local root/)" do
-    use_vcr_cassette "root"
+  vcr_options = {:cassette_name => "root"}
+  context "#new (GET local root/)", :vcr => vcr_options do
 
     it "does not raise an error when authorized" do
       expect{TeamSnap::Client.new("http://localhost:3003/")}.to_not raise_exception
@@ -21,8 +21,8 @@ describe TeamSnap::Client do
     end
   end
 
-  context "#teams (GET local teams/)" do
-    use_vcr_cassette "root"
+  vcr_options = {:cassette_name => "root"}
+  context "#teams (GET local teams/)", :vcr => vcr_options do
     let(:client) { TeamSnap::Client.new("http://localhost:3003") }
 
     describe "client navigation of the api" do

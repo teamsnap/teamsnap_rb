@@ -1,8 +1,10 @@
 require "spec_helper"
 
-describe TeamSnap::Template do
-  use_vcr_cassette "teams", :match_requests_on => [:host, :path, :body]
-
+vcr_options = {
+  :cassette_name => "teams",
+  :match_requests_on => [:host, :path, :body]
+}
+describe TeamSnap::Template, :vcr => vcr_options do
   let(:template) { TeamSnap::Collection.new(
     "http://localhost:3003/teams", {}, TeamSnap::Config.new
   ).template }
