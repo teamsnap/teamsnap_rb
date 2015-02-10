@@ -73,7 +73,7 @@ module TeamSnap
     end
 
     def inspect
-      "#<#{self.class.name} :id => #{self.id}>"
+      "#<#{self.class.name} id=#{self.id}>"
     end
 
     private
