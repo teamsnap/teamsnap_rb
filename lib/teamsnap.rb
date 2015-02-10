@@ -5,7 +5,7 @@ require "oj"
 require "inflector"
 require "date"
 
-require "teamsnap/version"
+require_relative "teamsnap/version"
 
 class String
   include Inflector::CoreExtensions::String
@@ -101,8 +101,32 @@ module TeamSnap
       item[:links].each { |link|
         rel = link.fetch(:rel)
         href = link.fetch(:href)
+        is_singular = rel == rel.singularize
 
-        define_singleton_method(rel) { href }
+        define_singleton_method(rel) {
+          resp = conn.get(href)
+
+          if resp.status == 200
+            coll = Oj.load(resp.body)
+              .fetch(:collection) { {} }
+              .fetch(:items) { [] }
+              .map { |item|
+                type = item
+                  .fetch(:data)
+                  .find { |datum| datum.fetch(:name) == "type" }
+                  .fetch(:value)
+                cls = Kernel.const_get("TeamSnap::#{type.pascalize}")
+                cls.new(item)
+              }
+            coll.size == 1 && is_singular ? coll.first : coll
+          else
+            error_message = Oj.load(resp.body)
+              .fetch(:collection) { {} }
+              .fetch(:error) { {} }
+              .fetch(:message) { DEFAULT_ERROR_MESSAGE }
+            raise TeamSnap::Error, error_message
+          end
+        }
       }
     end
   end
@@ -163,7 +187,7 @@ module TeamSnap
                 .fetch(:data)
                 .find { |datum| datum.fetch(:name) == "type" }
                 .fetch(:value)
-              cls = Kernel.const_get("TeamSnap::#{type.singularize.pascalize}")
+              cls = Kernel.const_get("TeamSnap::#{type.pascalize}")
               cls.new(item)
             }
         else
