@@ -1,6 +1,10 @@
 require "openssl"
+require "securerandom"
+require "faraday"
+require "typhoeus"
+require "typhoeus/adapters/faraday"
 
-module TeamsnapRb
+module TeamSnap
   class RequestBuilder
     attr_reader :connection
 
@@ -16,7 +20,7 @@ module TeamsnapRb
         end
 
         faraday.request :teamsnap_config_middleware, config
-        faraday.adapter Faraday.default_adapter
+        faraday.adapter :typhoeus
       end
     end
 
@@ -47,7 +51,7 @@ module TeamsnapRb
         env.url.query = URI.encode_www_form(query_params)
 
         message = "/?" + env.url.query.to_s + (env.body || "")
-        digest = OpenSSL::Digest.new('sha256')
+        digest = OpenSSL::Digest.new("sha256")
         message_hash = digest.hexdigest(message)
 
         env.request_headers["X-Teamsnap-Hmac"] = OpenSSL::HMAC.hexdigest(digest, config.client_secret, message_hash)

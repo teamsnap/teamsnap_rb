@@ -1,33 +1,33 @@
 require "spec_helper"
 
-describe TeamsnapRb::Client do
-  describe "#new (GET production root/)" do
-    use_vcr_cassette "production_root"
+describe TeamSnap::Client do
+  vcr_options = {:cassette_name => "production_root"}
+  describe "#new (GET production root/)", :vcr => vcr_options do
 
     it "raises an HttpError for unauthorized access" do
-      expect{TeamsnapRb::Client.new}.to raise_exception(TeamsnapRb::HttpError)
+      expect{TeamSnap::Client.new}.to raise_exception(TeamSnap::HttpError)
     end
   end
 
-  context "#new (GET local root/)" do
-    use_vcr_cassette "root"
+  vcr_options = {:cassette_name => "root"}
+  context "#new (GET local root/)", :vcr => vcr_options do
 
     it "does not raise an error when authorized" do
-      expect{TeamsnapRb::Client.new("http://localhost:3003/")}.to_not raise_exception
+      expect{TeamSnap::Client.new("http://localhost:3003/")}.to_not raise_exception
     end
 
-    it "return a TeamsnapRb::Collection" do
-      expect(TeamsnapRb::Client.new("http://localhost:3003/")).to be_a(TeamsnapRb::Collection)
+    it "return a TeamSnap::Collection" do
+      expect(TeamSnap::Client.new("http://localhost:3003/")).to be_a(TeamSnap::Collection)
     end
   end
 
-  context "#teams (GET local teams/)" do
-    use_vcr_cassette "root"
-    let(:client) { TeamsnapRb::Client.new("http://localhost:3003") }
+  vcr_options = {:cassette_name => "root"}
+  context "#teams (GET local teams/)", :vcr => vcr_options do
+    let(:client) { TeamSnap::Client.new("http://localhost:3003") }
 
     describe "client navigation of the api" do
       it "responds to links in the root collection, returning the appropriate collection" do
-        expect(client.teams).to be_a(TeamsnapRb::Collection)
+        expect(client.teams).to be_a(TeamSnap::Collection)
       end
 
       it "enables access to collections and items directly from the client" do

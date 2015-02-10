@@ -1,15 +1,17 @@
 require "spec_helper"
 
-describe TeamsnapRb::Template do
-  use_vcr_cassette "teams", :match_requests_on => [:host, :path, :body]
-
-  let(:template) { TeamsnapRb::Collection.new(
-    "http://localhost:3003/teams", {}, TeamsnapRb::Config.new
+vcr_options = {
+  :cassette_name => "teams",
+  :match_requests_on => [:host, :path, :body]
+}
+describe TeamSnap::Template, :vcr => vcr_options do
+  let(:template) { TeamSnap::Collection.new(
+    "http://localhost:3003/teams", {}, TeamSnap::Config.new
   ).template }
 
   describe "#new" do
     it "returns a template object from Collection#template" do
-      expect(template).to be_a(TeamsnapRb::Template)
+      expect(template).to be_a(TeamSnap::Template)
     end
   end
 

@@ -1,4 +1,4 @@
-module TeamsnapRb
+module TeamSnap
   class Command
     def initialize(command, config)
       self.command = command
@@ -30,7 +30,7 @@ module TeamsnapRb
     def post(attrs = {})
       RequestBuilder.new(config, href).connection.post do |conn|
         conn.body = attrs.to_json
-        conn.headers['Content-Type'] = 'application/json'
+        conn.headers["Content-Type"] = "application/json"
       end
     end
 

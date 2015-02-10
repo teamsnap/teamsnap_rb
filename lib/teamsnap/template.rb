@@ -1,4 +1,4 @@
-module TeamsnapRb
+module TeamSnap
   class Template
     def initialize(template, config, url)
       self.config = config
@@ -30,7 +30,7 @@ module TeamsnapRb
     def post(url, query_parameters = {})
       RequestBuilder.new(config, url).connection.post do |conn|
         conn.body = @data.to_json
-        conn.headers['Content-Type'] = 'application/json'
+        conn.headers["Content-Type"] = "application/json"
       end
     end
   end

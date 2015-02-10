@@ -1,15 +1,15 @@
 require "spec_helper"
 
-describe TeamsnapRb::Collection do
+describe TeamSnap::Collection do
   describe "default attributes" do
     it "includes Enumerable" do
-      expect(TeamsnapRb::Collection).to include(Enumerable)
+      expect(TeamSnap::Collection).to include(Enumerable)
     end
   end
 
-  context "GET root", :vcr, record: :once do
-    use_vcr_cassette "root"
-    let(:root_collection) { TeamsnapRb::Collection.new("http://localhost:3003", {}, TeamsnapRb::Config.new) }
+  vcr_options = {:cassette_name => "root", :record => :once}
+  context "GET root", :vcr => vcr_options do
+    let(:root_collection) { TeamSnap::Collection.new("http://localhost:3003", {}, TeamSnap::Config.new) }
 
     describe "#href" do
       it "responds to href with the correct value" do
@@ -19,7 +19,7 @@ describe TeamsnapRb::Collection do
 
     describe "#links" do
       it "returns a LinksProxy object" do
-        expect(root_collection.links).to be_a(TeamsnapRb::LinksProxy)
+        expect(root_collection.links).to be_a(TeamSnap::LinksProxy)
       end
     end
 
@@ -31,11 +31,11 @@ describe TeamsnapRb::Collection do
 
     describe "#queries" do
       it "returns a QueriesProxy object" do
-        expect(root_collection.queries).to be_a(TeamsnapRb::QueriesProxy)
+        expect(root_collection.queries).to be_a(TeamSnap::QueriesProxy)
       end
 
       it "contains a set of Query objects" do
-        expect(root_collection.queries.first).to be_a(TeamsnapRb::Query)
+        expect(root_collection.queries.first).to be_a(TeamSnap::Query)
       end
     end
 
@@ -52,7 +52,7 @@ describe TeamsnapRb::Collection do
 
     describe "#where" do
       it "returns a CollectionWhereProxy" do
-        expect(root_collection.where({})).to be_a(TeamsnapRb::Collection::CollectionWhereProxy)
+        expect(root_collection.where({})).to be_a(TeamSnap::Collection::CollectionWhereProxy)
       end
 
       it "returns nil when trying to access an empty collection" do
@@ -91,9 +91,9 @@ describe TeamsnapRb::Collection do
     end
   end
 
-  context "GET /teams/1", :vcr, record: :once do
-    use_vcr_cassette "team"
-    let(:team_collection) { TeamsnapRb::Collection.new("http://localhost:3003/teams/1", {}, TeamsnapRb::Config.new) }
+  vcr_options = {:cassette_name => "team", :record => :once}
+  context "GET /teams/1", :vcr => vcr_options do
+    let(:team_collection) { TeamSnap::Collection.new("http://localhost:3003/teams/1", {}, TeamSnap::Config.new) }
 
     describe "#href" do
       it "responds to href with the correct value" do
@@ -103,23 +103,23 @@ describe TeamsnapRb::Collection do
 
     describe "#links" do
       it "returns a LinksProxy object" do
-        expect(team_collection.links).to be_a(TeamsnapRb::LinksProxy)
+        expect(team_collection.links).to be_a(TeamSnap::LinksProxy)
       end
     end
 
     describe "#[]" do
       it "returns an Item when the collection has data elements" do
-        expect(team_collection[0]).to be_a(TeamsnapRb::Item)
+        expect(team_collection[0]).to be_a(TeamSnap::Item)
       end
     end
 
     describe "#queries" do
       it "returns a QueriesProxy object" do
-        expect(team_collection.queries).to be_a(TeamsnapRb::QueriesProxy)
+        expect(team_collection.queries).to be_a(TeamSnap::QueriesProxy)
       end
 
       it "contains a set of Query objects" do
-        expect(team_collection.queries.first).to be_a(TeamsnapRb::Query)
+        expect(team_collection.queries.first).to be_a(TeamSnap::Query)
       end
     end
 
@@ -149,7 +149,7 @@ describe TeamsnapRb::Collection do
 
     describe "#where" do
       it "returns a CollectionWhereProxy" do
-        expect(team_collection.where({})).to be_a(TeamsnapRb::Collection::CollectionWhereProxy)
+        expect(team_collection.where({})).to be_a(TeamSnap::Collection::CollectionWhereProxy)
       end
 
       it "returns nil when trying to access a type that doesn't exist in the collection" do
@@ -157,7 +157,7 @@ describe TeamsnapRb::Collection do
       end
 
       it "returns an array of items that match the type passed in" do
-        expect(team_collection.where({type: "team"})[0]).to be_a(TeamsnapRb::Item)
+        expect(team_collection.where({type: "team"})[0]).to be_a(TeamSnap::Item)
       end
 
       it "the item selected has the expected data" do

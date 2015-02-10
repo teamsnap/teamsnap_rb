@@ -1,18 +1,22 @@
 require "spec_helper"
 
-describe TeamsnapRb::Item do
-  use_vcr_cassette "team", :allow_playback_repeats => true, :match_requests_on => [:host, :path, :body, :method]
-  let(:team_collection) { TeamsnapRb::Collection.new("http://localhost:3003/teams/1", {}, TeamsnapRb::Config.new) }
+vcr_options = {
+  :cassette_name => "team",
+  :allow_playback_repeats => true,
+  :match_requests_on => [:host, :path, :body, :method]
+}
+describe TeamSnap::Item, :vcr => vcr_options do
+  let(:team_collection) { TeamSnap::Collection.new("http://localhost:3003/teams/1", {}, TeamSnap::Config.new) }
   let(:team_item) { team_collection[0] }
 
   it "represents a single item and therefore does not include Enumerable" do
-    expect(TeamsnapRb::Item).to_not include(Enumerable)
+    expect(TeamSnap::Item).to_not include(Enumerable)
   end
 
-  context "PATCH teams/1", :vcr do
+  context "PATCH teams/1" do
     describe "#save" do
       it "successfully saves the item and returns it's collection" do
-        expect(team_item.with(:name => "Danger Rangers").save).to be_a(TeamsnapRb::Collection)
+        expect(team_item.with(:name => "Danger Rangers").save).to be_a(TeamSnap::Collection)
       end
 
       it "includes the item in the returned collection" do
@@ -25,7 +29,7 @@ describe TeamsnapRb::Item do
     end
   end
 
-  context "DELETE teams/1", :vcr do
+  context "DELETE teams/1" do
     describe "#delete" do
       it "successfully deletes the item and returns true" do
         expect(team_item.delete).to eq(true)
@@ -33,7 +37,7 @@ describe TeamsnapRb::Item do
     end
   end
 
-  context "GET teams/1", :vcr do
+  context "GET teams/1" do
     describe "#href" do
       it "returns 'teams/1' where 1 is the id of the item" do
         expect(team_item.href).to eq("http://localhost:3003/teams/1")
@@ -64,8 +68,8 @@ describe TeamsnapRb::Item do
     end
 
     describe "#commands" do
-      it "returns a TeamsnapRb::CommandsProxy" do
-        expect(team_item.commands).to be_a(TeamsnapRb::CommandsProxy)
+      it "returns a TeamSnap::CommandsProxy" do
+        expect(team_item.commands).to be_a(TeamSnap::CommandsProxy)
       end
 
       it "returns a 400 when the command is executed without correct arguments" do
@@ -82,19 +86,19 @@ describe TeamsnapRb::Item do
     end
 
     describe "#template" do
-      it "returns a TeamsnapRb::Template" do
-        expect(team_item.template).to be_a(TeamsnapRb::Template)
+      it "returns a TeamSnap::Template" do
+        expect(team_item.template).to be_a(TeamSnap::Template)
       end
 
       it "caches the template on the Item class" do
         team_item.template
-        expect(TeamsnapRb::Item.templates.keys).to include("team")
+        expect(TeamSnap::Item.templates.keys).to include("team")
       end
     end
 
     describe "#this" do
       it "returns the collection this item belongs to" do
-        expect(team_item.this).to be_a(TeamsnapRb::Collection)
+        expect(team_item.this).to be_a(TeamSnap::Collection)
       end
 
       it "returns a collection with an href that is the generalized form of the specific item href" do
@@ -104,11 +108,11 @@ describe TeamsnapRb::Item do
 
     describe "#links" do
       it "returns a LinksProxy" do
-        expect(team_item.links).to be_a(TeamsnapRb::LinksProxy)
+        expect(team_item.links).to be_a(TeamSnap::LinksProxy)
       end
 
       it "consists of an array of Links" do
-        expect(team_item.links.first).to be_a(TeamsnapRb::Link)
+        expect(team_item.links.first).to be_a(TeamSnap::Link)
       end
 
       it "can be accessed like an array" do
@@ -117,11 +121,11 @@ describe TeamsnapRb::Item do
     end
 
     describe "#with(attrs)" do
-      it "returns a new TeamsnapRb::Item" do
-        expect(team_item.with(name: "Goofballs")).to be_a(TeamsnapRb::Item)
+      it "returns a new TeamSnap::Item" do
+        expect(team_item.with(name: "Goofballs")).to be_a(TeamSnap::Item)
       end
 
-      it "has the updated attributes on the new TeamsnapRb::Item" do
+      it "has the updated attributes on the new TeamSnap::Item" do
         expect(team_item.with(name: "Goofballs").name).to eq("Goofballs")
       end
 

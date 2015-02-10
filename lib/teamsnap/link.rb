@@ -1,4 +1,4 @@
-module TeamsnapRb
+module TeamSnap
   class Link
     def initialize(link, config)
       self.config = config

@@ -1,4 +1,4 @@
-module TeamsnapRb
+module TeamSnap
   class User
   end
 end

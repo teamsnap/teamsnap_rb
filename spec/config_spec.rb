@@ -1,7 +1,7 @@
 require "spec_helper"
 
-describe TeamsnapRb::Config do
-  let(:config) { TeamsnapRb::Config.new }
+describe TeamSnap::Config do
+  let(:config) { TeamSnap::Config.new }
 
   describe "#new" do
     it "uses sensible defaults when no options are passed in" do
