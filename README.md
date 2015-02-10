@@ -42,4 +42,5 @@ Use `bundle show [gemname]` to see where a bundled gem is installed.
   - Can Faraday cache requests already?
 - Convert Items from Class to Virtus Value Object.
 - Implement create, update and delete.
+- Implement 'TeamSnap.me' (raise error if haven't init yet)
 - Refactor!?!?!
