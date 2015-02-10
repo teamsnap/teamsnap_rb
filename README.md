@@ -32,6 +32,7 @@ Use `bundle show [gemname]` to see where a bundled gem is installed.
 # Todo
 
 - Specs
+- Turn TeamSnap::Client.new into TeamSnap.init or TeamSnap.config
 - Use vcr to record non-root collections to `tmp/`. Delete cassettes if 'version' changes on root collection.
   - Check if parallel typhoeus is faster than vcr cassettes.
 - Ensure dynamic creation of classes is threadsafe. May require a mutex.
