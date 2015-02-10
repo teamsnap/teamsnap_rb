@@ -34,6 +34,7 @@ Use `bundle show [gemname]` to see where a bundled gem is installed.
 - Specs
 - Turn TeamSnap::Client.new into TeamSnap.init or TeamSnap.config
 - Rename 'conn' to 'client'
+- Literate style docs?
 - Use vcr to record non-root collections to `tmp/`. Delete cassettes if 'version' changes on root collection.
   - Check if parallel typhoeus is faster than vcr cassettes.
 - Ensure dynamic creation of classes is threadsafe. May require a mutex.
@@ -41,3 +42,4 @@ Use `bundle show [gemname]` to see where a bundled gem is installed.
   - Can Faraday cache requests already?
 - Convert Items from Class to Virtus Value Object.
 - Implement create, update and delete.
+- Refactor!?!?!
