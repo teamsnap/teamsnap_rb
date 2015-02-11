@@ -26,7 +26,6 @@ module TeamSnap
     "me", "apiv2_root", "root", "self"
   ]
   DEFAULT_URL = "http://127.0.0.1:3000"
-  DEFAULT_ERROR_MESSAGE = "Unknown API Error. Contact Maintainer (https://github.com/teamsnap/teamsnap_rb/issues)."
   Error = Class.new(StandardError)
   NotFound = Class.new(TeamSnap::Error)
 
@@ -49,9 +48,7 @@ module TeamSnap
     end
 
     def call(env)
-      token = @options.fetch(:token) {
-        raise ArgumentError, "You must supply an auth token to #{self.class}"
-      }
+      token = @options.fetch(:token)
       env[:request_headers].merge!({"Authorization" => "Bearer #{token}"})
 
       @app.call(env)
@@ -103,26 +100,18 @@ module TeamSnap
         define_singleton_method(rel) {
           resp = conn.get(href)
 
-          if resp.status == 200
-            coll = Oj.load(resp.body)
-              .fetch(:collection) { {} }
-              .fetch(:items) { [] }
-              .map { |item|
-                type = item
-                  .fetch(:data)
-                  .find { |datum| datum.fetch(:name) == "type" }
-                  .fetch(:value)
-                cls = Kernel.const_get("TeamSnap::#{type.pascalize}")
-                cls.new(item)
-              }
-            coll.size == 1 && is_singular ? coll.first : coll
-          else
-            error_message = Oj.load(resp.body)
-              .fetch(:collection) { {} }
-              .fetch(:error) { {} }
-              .fetch(:message) { DEFAULT_ERROR_MESSAGE }
-            raise TeamSnap::Error, error_message
-          end
+          coll = Oj.load(resp.body)
+            .fetch(:collection)
+            .fetch(:items) { [] }
+            .map { |item|
+              type = item
+                .fetch(:data)
+                .find { |datum| datum.fetch(:name) == "type" }
+                .fetch(:value)
+              cls = Kernel.const_get("TeamSnap::#{type.pascalize}")
+              cls.new(item)
+            }
+          coll.size == 1 && is_singular ? coll.first : coll
         }
       }
     end
@@ -142,10 +131,10 @@ module TeamSnap
     def load_collection
       resp = conn.get(href)
       collection = Oj.load(resp.body)
-        .fetch(:collection) { {} }
+        .fetch(:collection)
 
       collection
-        .fetch(:queries) { [] }
+        .fetch(:queries)
         .each { |endpoint| register_endpoint(endpoint, :via => :get) }
 
       collection
@@ -177,7 +166,7 @@ module TeamSnap
 
         if resp.status == 200
           Oj.load(resp.body)
-            .fetch(:collection) { {} }
+            .fetch(:collection)
             .fetch(:items) { [] }
             .map { |item|
               type = item
@@ -188,11 +177,10 @@ module TeamSnap
               cls.new(item)
             }
         else
-          require"pry";binding.pry
           error_message = Oj.load(resp.body)
-            .fetch(:collection) { {} }
-            .fetch(:error) { {} }
-            .fetch(:message) { DEFAULT_ERROR_MESSAGE }
+            .fetch(:collection)
+            .fetch(:error)
+            .fetch(:message)
           raise TeamSnap::Error, error_message
         end
       end
@@ -234,15 +222,15 @@ module TeamSnap
       # need to account for non-200 status
 
       collection = Oj.load(resp.body)
-        .fetch(:collection) { {} }
+        .fetch(:collection)
 
       collection
-        .fetch(:links) { [] }
+        .fetch(:links)
         .each { |link| classify_rel(link) }
 
       enable_bulk_load(
         collection
-          .fetch(:queries) { [] }
+          .fetch(:queries)
           .find { |query| query[:rel] == "bulk_load" }
       )
     end
@@ -266,15 +254,13 @@ module TeamSnap
 
       TeamSnap.define_singleton_method(:bulk_load) do |*args|
         args = Hash[*args]
-        args[:types] = args[:types].join(",")
+        args[:types] = args.fetch(:types) { [] }.join(",")
         resp = conn.get(href, args)
-
-        # need to account for non-200 status
 
         if resp.status == 200
           Oj.load(resp.body)
-            .fetch(:collection) { {} }
-            .fetch(:items) { [] }
+            .fetch(:collection)
+            .fetch(:items)
             .map { |item|
               type = item
                 .fetch(:data)
@@ -285,18 +271,12 @@ module TeamSnap
             }
         else
           error_message = Oj.load(resp.body)
-            .fetch(:collection) { {} }
-            .fetch(:error) { {} }
-            .fetch(:message) { DEFAULT_ERROR_MESSAGE }
+            .fetch(:collection)
+            .fetch(:error)
+            .fetch(:message)
           raise TeamSnap::Error, error_message
         end
       end
     end
-  end
-end
-
-if __FILE__ == $0
-  TeamSnap::Client.new("").tap do |client|
-    require "pry"; binding.pry
   end
 end
