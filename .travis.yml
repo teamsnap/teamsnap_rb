@@ -1,0 +1,15 @@
+language: ruby
+rvm:
+  - 1.9.3
+  - 2.0.c
+  - 2.1.x
+  - 2.2.x
+  - rbx-2
+  - ruby-head
+  - jruby-head
+  - jruby-19mode
+notifications:
+  email:
+    recipients:
+      - shane@teamsnap.com
+      - kyle.ries@teamsnap.com
