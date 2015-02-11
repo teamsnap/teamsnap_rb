@@ -264,9 +264,11 @@ module TeamSnap
 
     def enable_bulk_load(query)
       href = query.fetch(:href)
+      conn = @conn
 
-      define_singleton_method(:bulk_load) do |*args|
+      TeamSnap.define_singleton_method(:bulk_load) do |*args|
         args = Hash[*args]
+        args[:types] = args[:types].join(",")
         resp = conn.get(href, args)
 
         # need to account for non-200 status

@@ -1,13 +1,13 @@
 require "coveralls"
 Coveralls.wear!
 
-require "vcr"
+# require "vcr"
 
-VCR.configure do |c|
-  c.cassette_library_dir = "spec/cassettes"
-  c.hook_into :webmock
-  c.configure_rspec_metadata!
-end
+# VCR.configure do |c|
+#   c.cassette_library_dir = "spec/cassettes"
+#   c.hook_into :webmock
+#   c.configure_rspec_metadata!
+# end
 
 RSpec.configure do |c|
   c.expose_dsl_globally = false
