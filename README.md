@@ -1,4 +1,11 @@
-# Usage
+# teamsnap_rb
+
+[![Code
+Climate](https://codeclimate.com/github/teamsnap/teamsnap_rb/badges/gpa.svg)](https://codeclimate.com/github/teamsnap/teamsnap_rb)
+[![Coverage
+Status](https://coveralls.io/repos/teamsnap/teamsnap_rb/badge.png)](https://coveralls.io/r/teamsnap/teamsnap_rb)
+
+## Usage
 
 First, fire up apiv3 on port 3000. Then follow the instructions below.
 
@@ -29,7 +36,7 @@ Use `bundle show [gemname]` to see where a bundled gem is installed.
 => "Manny"
 ```
 
-# Todo
+## Todo
 
 - Specs
 - Turn TeamSnap::Client.new into TeamSnap.init or TeamSnap.config
