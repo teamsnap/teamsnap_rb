@@ -52,10 +52,7 @@ module TeamSnap
       token = @options.fetch(:token) {
         raise ArgumentError, "You must supply an auth token to #{self.class}"
       }
-      env[:request_headers].merge!({
-        "Authorization" => "Bearer #{token}",
-        "Content-Type" => "application/json"
-      })
+      env[:request_headers].merge!({"Authorization" => "Bearer #{token}"})
 
       @app.call(env)
     end
@@ -191,6 +188,7 @@ module TeamSnap
               cls.new(item)
             }
         else
+          require"pry";binding.pry
           error_message = Oj.load(resp.body)
             .fetch(:collection) { {} }
             .fetch(:error) { {} }
@@ -259,7 +257,7 @@ module TeamSnap
 
       TeamSnap.const_set(
         name, Class.new { include TeamSnap.collection(conn, href) }
-      )
+      ) unless TeamSnap.const_defined?(name)
     end
 
     def enable_bulk_load(query)
