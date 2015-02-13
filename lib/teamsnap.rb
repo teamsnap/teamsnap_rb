@@ -91,7 +91,7 @@ module TeamSnap
           .fetch(:collection)
           .fetch(:error)
           .fetch(:message)
-        raise TeamSnap::Error, error_message
+        raise TeamSnap::Error.new(error_message)
       end
     end
 
@@ -147,8 +147,9 @@ module TeamSnap
         args = Hash[*args]
 
         unless args.all? { |arg, _| valid_args.include?(arg) }
-          raise ArgumentError,
+          raise ArgumentError.new(
             "Invalid argument(s). Valid argument(s) are #{valid_args.inspect}"
+          )
         end
 
         TeamSnap.load_items(
@@ -238,10 +239,9 @@ module TeamSnap
     def enable_find
       define_singleton_method(:find) do |id|
         search(:id => id).first.tap do |object|
-          unless object
-            raise TeamSnap::NotFound,
-              "Could not find a #{self} with an id of '#{id}'."
-          end
+          raise TeamSnap::NotFound.new(
+            "Could not find a #{self} with an id of '#{id}'."
+          ) unless object
         end
       end
     end
