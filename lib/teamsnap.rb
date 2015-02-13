@@ -87,12 +87,16 @@ module TeamSnap
         Oj.load(resp.body)
           .fetch(:collection)
       else
-        error_message = Oj.load(resp.body)
-          .fetch(:collection)
-          .fetch(:error)
-          .fetch(:message)
+        error_message = parse_error(resp)
         raise TeamSnap::Error.new(error_message)
       end
+    end
+
+    def parse_error(resp)
+      Oj.load(resp.body)
+        .fetch(:collection)
+        .fetch(:error)
+        .fetch(:message)
     end
 
     def load_items(collection)
@@ -227,11 +231,16 @@ module TeamSnap
     end
 
     def parse_collection
-      collection = Oj.load(resp.body)
-        .fetch(:collection)
+      if resp.status == 200
+        collection = Oj.load(resp.body)
+          .fetch(:collection)
 
-      TeamSnap.apply_endpoints(self, collection)
-      enable_find if respond_to?(:search)
+        TeamSnap.apply_endpoints(self, collection)
+        enable_find if respond_to?(:search)
+      else
+        error_message = TeamSnap.parse_error(resp)
+        raise TeamSnap::Error.new(error_message)
+      end
     end
 
     private
