@@ -70,12 +70,6 @@ RSpec.describe "teamsnap_rb" do
     )
   end
 
-  it "allows for simple inspection of items" do
-    t = TeamSnap::Team.find(1)
-
-    expect(t.inspect).to eq("#<TeamSnap::Team id=1>")
-  end
-
   it "can follow singular links" do
     m = TeamSnap::Member.find(1)
     t = m.team

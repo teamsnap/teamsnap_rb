@@ -3,6 +3,7 @@ require "typhoeus"
 require "typhoeus/adapters/faraday"
 require "oj"
 require "inflector"
+require "virtus"
 require "date"
 
 require_relative "teamsnap/version"
@@ -116,12 +117,36 @@ module TeamSnap
           .fetch(:collection)
           .fetch(:items) { [] }
           .map { |item|
+            data = item
+              .fetch(:data)
+              .map { |datum|
+                name  = datum.fetch(:name)
+                value = datum.fetch(:value)
+                type  = datum.fetch(:type) { :default }
+
+                value = DateTime.parse(value) if value && type == "DateTime"
+
+                [name, value]
+              }
+              .inject({}) { |h, (k, v)| h[k] = v; h }
             type = item
               .fetch(:data)
               .find { |datum| datum.fetch(:name) == "type" }
               .fetch(:value)
-            cls = Kernel.const_get("TeamSnap::#{type.pascalize}")
-            cls.new(item)
+            cls = TeamSnap.const_get(type.pascalize)
+            unless cls.include?(Virtus::Model::Core)
+              cls.class_eval do
+                include Virtus.value_object
+
+                values do
+                  attribute :href, String
+                  data.each { |name, value| attribute name, value.class }
+                end
+              end
+            end
+            cls.new(data).tap { |obj|
+              obj.send(:load_links, item.fetch(:links))
+            }
           }
       else
         error_message = Oj.load(resp.body)
@@ -148,64 +173,23 @@ module TeamSnap
   end
 
   module Item
-    attr_reader :href
-
-    def initialize(item)
-      self.item = item
-      self.href = item[:href]
-
-      load_data
-      load_links
-    end
-
-    def inspect
-      "#<#{self.class.name} id=#{self.id}>"
-    end
-
     private
-
-    attr_accessor :item
-    attr_writer :href
 
     def client
       self.class.instance_variable_get(:@client)
     end
 
-    def load_data
-      item[:data].each { |datum|
-        name  = datum.fetch(:name)
-        value = datum.fetch(:value)
-        type  = datum.fetch(:type) { :default }
-
-        value = DateTime.parse(value) if type == "DateTime" && value
-
-        define_singleton_method(name) { value }
-      }
-    end
-
-    def load_links
-      item[:links].each { |link|
+    def load_links(links)
+      links.each do |link|
         rel = link.fetch(:rel)
         href = link.fetch(:href)
         is_singular = rel == rel.singularize
 
         define_singleton_method(rel) {
-          resp = client.get(href)
-
-          coll = Oj.load(resp.body)
-            .fetch(:collection)
-            .fetch(:items) { [] }
-            .map { |item|
-              type = item
-                .fetch(:data)
-                .find { |datum| datum.fetch(:name) == "type" }
-                .fetch(:value)
-              cls = Kernel.const_get("TeamSnap::#{type.pascalize}")
-              cls.new(item)
-            }
+          coll = TeamSnap.send(:run, :get, href, {})
           coll.size == 1 && is_singular ? coll.first : coll
         }
-      }
+      end
     end
   end
 
@@ -251,4 +235,9 @@ module TeamSnap
       end
     end
   end
+end
+
+if __FILE__ == $0
+  TeamSnap.init("")
+  require"pry";binding.pry
 end
