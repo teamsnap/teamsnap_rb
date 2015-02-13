@@ -29,11 +29,11 @@ module TeamSnap
   Error = Class.new(StandardError)
   NotFound = Class.new(TeamSnap::Error)
 
-  def self.collection(conn, href)
+  def self.collection(client, href)
     Module.new do
       define_singleton_method(:included) do |descendant|
         descendant.send(:include, TeamSnap::Item)
-        descendant.instance_variable_set(:@conn, conn)
+        descendant.instance_variable_set(:@client, client)
         descendant.instance_variable_set(:@href, href)
         descendant.extend(TeamSnap::Collection)
         descendant.send(:load_collection)
@@ -75,8 +75,8 @@ module TeamSnap
     attr_accessor :item
     attr_writer :href
 
-    def conn
-      self.class.instance_variable_get(:@conn)
+    def client
+      self.class.instance_variable_get(:@client)
     end
 
     def load_data
@@ -98,7 +98,7 @@ module TeamSnap
         is_singular = rel == rel.singularize
 
         define_singleton_method(rel) {
-          resp = conn.get(href)
+          resp = client.get(href)
 
           coll = Oj.load(resp.body)
             .fetch(:collection)
@@ -124,12 +124,12 @@ module TeamSnap
 
     private
 
-    def conn
-      self.instance_variable_get(:@conn)
+    def client
+      self.instance_variable_get(:@client)
     end
 
     def load_collection
-      resp = conn.get(href)
+      resp = client.get(href)
       collection = Oj.load(resp.body)
         .fetch(:collection)
 
@@ -162,7 +162,7 @@ module TeamSnap
             "Invalid argument(s). Valid argument(s) are #{valid_args.inspect}"
         end
 
-        resp = conn.send(via, href, args)
+        resp = client.send(via, href, args)
 
         if resp.status == 200
           Oj.load(resp.body)
@@ -204,7 +204,7 @@ module TeamSnap
       self.opts = opts
       opts[:url] ||= DEFAULT_URL
 
-      self.conn = Faraday.new(:url => opts[:url]) do |conf|
+      self.client = Faraday.new(:url => opts[:url]) do |conf|
         conf.request :teamsnap_auth_middleware, {:token => token}
         conf.adapter :typhoeus
       end
@@ -214,10 +214,10 @@ module TeamSnap
 
     private
 
-    attr_accessor :token, :opts, :conn
+    attr_accessor :token, :opts, :client
 
     def load_root
-      resp = conn.get("/")
+      resp = client.get("/")
 
       # need to account for non-200 status
 
@@ -240,22 +240,22 @@ module TeamSnap
 
       rel = link[:rel]
       href = link[:href]
-      conn = @conn
+      client = @client
       name = rel.singularize.pascalize
 
       TeamSnap.const_set(
-        name, Class.new { include TeamSnap.collection(conn, href) }
+        name, Class.new { include TeamSnap.collection(client, href) }
       ) unless TeamSnap.const_defined?(name)
     end
 
     def enable_bulk_load(query)
       href = query.fetch(:href)
-      conn = @conn
+      client = @client
 
       TeamSnap.define_singleton_method(:bulk_load) do |*args|
         args = Hash[*args]
         args[:types] = args.fetch(:types) { [] }.join(",")
-        resp = conn.get(href, args)
+        resp = client.get(href, args)
 
         if resp.status == 200
           Oj.load(resp.body)
