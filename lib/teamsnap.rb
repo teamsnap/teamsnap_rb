@@ -26,7 +26,7 @@ module TeamSnap
   EXCLUDED_RELS = [
     "me", "apiv2_root", "root", "self"
   ]
-  DEFAULT_URL = "http://127.0.0.1:3000"
+  DEFAULT_URL = "http://localhost:3000"
   Error = Class.new(StandardError)
   NotFound = Class.new(TeamSnap::Error)
 
@@ -45,13 +45,13 @@ module TeamSnap
   end
 
   class << self
-    def collection(href)
+    def collection(href, resp)
       Module.new do
         define_singleton_method(:included) do |descendant|
           descendant.send(:include, TeamSnap::Item)
-          descendant.instance_variable_set(:@href, href)
           descendant.extend(TeamSnap::Collection)
-          descendant.send(:load_collection)
+          descendant.instance_variable_set(:@href, href)
+          descendant.instance_variable_set(:@resp, resp)
         end
       end
     end
@@ -59,14 +59,27 @@ module TeamSnap
     def init(token, opts = {})
       opts[:url] ||= DEFAULT_URL
 
-      self.client = Faraday.new(:url => opts.fetch(:url)) do |c|
+      self.client = Faraday.new(
+        :url => opts.fetch(:url),
+        :parallel_manager => Typhoeus::Hydra.new
+      ) do |c|
         c.request :teamsnap_auth_middleware, {:token => token}
         c.adapter :typhoeus
       end
 
-      load_root
+      collection = TeamSnap.run(:get, "/")
 
-      true
+      classes = []
+      client.in_parallel do
+        classes = collection
+          .fetch(:links)
+          .map { |link| classify_rel(link) }
+          .compact
+      end
+
+      classes.each { |cls| cls.parse_collection }
+
+      apply_endpoints(self, collection) && true
     end
 
     def run(via, href, args = {})
@@ -112,25 +125,16 @@ module TeamSnap
 
     attr_accessor :client
 
-    def load_root
-      collection = TeamSnap.run(:get, "/")
-
-      collection
-        .fetch(:links)
-        .each { |link| classify_rel(link) }
-
-      apply_endpoints(self, collection)
-    end
-
     def classify_rel(link)
       return if EXCLUDED_RELS.include?(link.fetch(:rel))
 
       rel = link.fetch(:rel)
       href = link.fetch(:href)
       name = rel.singularize.pascalize
+      resp = client.get(href)
 
       TeamSnap.const_set(
-        name, Class.new { include TeamSnap.collection(href) }
+        name, Class.new { include TeamSnap.collection(href, resp) }
       ) unless TeamSnap.const_defined?(name)
     end
 
@@ -219,14 +223,19 @@ module TeamSnap
       self.instance_variable_get(:@href)
     end
 
-    private
+    def resp
+      self.instance_variable_get(:@resp)
+    end
 
-    def load_collection
-      collection = TeamSnap.run(:get, href)
+    def parse_collection
+      collection = Oj.load(resp.body)
+        .fetch(:collection)
 
       TeamSnap.apply_endpoints(self, collection)
       enable_find if respond_to?(:search)
     end
+
+    private
 
     def enable_find
       define_singleton_method(:find) do |id|
@@ -239,10 +248,4 @@ module TeamSnap
       end
     end
   end
-end
-
-if __FILE__ == $0
-  # TeamSnap.init("5ba070d04728e3de7f4f051ab3b00f98928949b4fefad135b54332ef3d712752")
-  TeamSnap.init("")
-  require"pry";binding.pry
 end
