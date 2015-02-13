@@ -39,10 +39,6 @@ Use `bundle show [gemname]` to see where a bundled gem is installed.
 ## Todo
 
 - Literate style docs?
-- Use vcr to record non-root collections to `tmp/`. Delete cassettes if 'version' changes on root collection.
-  - Check if parallel typhoeus is faster than vcr cassettes.
-- Ensure dynamic creation of classes is threadsafe. May require a mutex.
 - Cache items with threadsafe Hash (https://github.com/headius/thread_safe).
-  - Can Faraday cache requests already?
 - Implement create, update and delete.
 - Implement 'TeamSnap.me' (raise error if haven't init yet)
