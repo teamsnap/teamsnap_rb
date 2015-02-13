@@ -46,7 +46,7 @@ module TeamSnap
     def init(token, opts = {})
       opts[:url] ||= DEFAULT_URL
 
-      self.client = Faraday.new(:url => opts[:url]) do |c|
+      self.client = Faraday.new(:url => opts.fetch(:url)) do |c|
         c.request :teamsnap_auth_middleware, {:token => token}
         c.adapter :typhoeus
       end
@@ -78,10 +78,10 @@ module TeamSnap
     end
 
     def classify_rel(link)
-      return if EXCLUDED_RELS.include?(link[:rel])
+      return if EXCLUDED_RELS.include?(link.fetch(:rel))
 
-      rel = link[:rel]
-      href = link[:href]
+      rel = link.fetch(:rel)
+      href = link.fetch(:href)
       client = @client
       name = rel.singularize.pascalize
 
@@ -181,6 +181,8 @@ module TeamSnap
 
     def load_links(links)
       links.each do |link|
+        next if EXCLUDED_RELS.include?(link.fetch(:rel))
+
         rel = link.fetch(:rel)
         href = link.fetch(:href)
         is_singular = rel == rel.singularize
