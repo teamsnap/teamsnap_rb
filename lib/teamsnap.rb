@@ -29,14 +29,105 @@ module TeamSnap
   Error = Class.new(StandardError)
   NotFound = Class.new(TeamSnap::Error)
 
-  def self.collection(client, href)
-    Module.new do
-      define_singleton_method(:included) do |descendant|
-        descendant.send(:include, TeamSnap::Item)
-        descendant.instance_variable_set(:@client, client)
-        descendant.instance_variable_set(:@href, href)
-        descendant.extend(TeamSnap::Collection)
-        descendant.send(:load_collection)
+  class << self
+    def collection(client, href)
+      Module.new do
+        define_singleton_method(:included) do |descendant|
+          descendant.send(:include, TeamSnap::Item)
+          descendant.instance_variable_set(:@client, client)
+          descendant.instance_variable_set(:@href, href)
+          descendant.extend(TeamSnap::Collection)
+          descendant.send(:load_collection)
+        end
+      end
+    end
+
+    def init(token, opts = {})
+      opts[:url] ||= DEFAULT_URL
+
+      self.client = Faraday.new(:url => opts[:url]) do |c|
+        c.request :teamsnap_auth_middleware, {:token => token}
+        c.adapter :typhoeus
+      end
+
+      load_root
+
+      true
+    end
+
+    private
+
+    attr_accessor :client
+
+    def load_root
+      resp = client.get("/")
+
+      # need to account for non-200 status
+
+      collection = Oj.load(resp.body)
+        .fetch(:collection)
+
+      collection
+        .fetch(:links)
+        .each { |link| classify_rel(link) }
+
+      collection
+        .fetch(:queries)
+        .each { |endpoint| register_endpoint(self, endpoint, :via => :get) }
+    end
+
+    def classify_rel(link)
+      return if EXCLUDED_RELS.include?(link[:rel])
+
+      rel = link[:rel]
+      href = link[:href]
+      client = @client
+      name = rel.singularize.pascalize
+
+      self.const_set(
+        name, Class.new { include TeamSnap.collection(client, href) }
+      ) unless self.const_defined?(name)
+    end
+
+    def register_endpoint(obj, endpoint, opts)
+      rel = endpoint.fetch(:rel)
+      href = endpoint.fetch(:href)
+      valid_args = endpoint.fetch(:data)
+        .lazy
+        .map { |datum| datum.fetch(:name) }
+        .map(&:to_sym)
+        .to_a
+      via = opts.fetch(:via)
+
+      obj.define_singleton_method(rel) do |*args|
+        args = Hash[*args]
+
+        unless args.all? { |arg, _| valid_args.include?(arg) }
+          raise ArgumentError,
+            "Invalid argument(s). Valid argument(s) are #{valid_args.inspect}"
+        end
+
+        resp = client.send(via, href, args)
+
+        if resp.status == 200
+          Oj.load(resp.body)
+            .fetch(:collection)
+            .fetch(:items) { [] }
+            .map { |item|
+              type = item
+                .fetch(:data)
+                .find { |datum| datum.fetch(:name) == "type" }
+                .fetch(:value)
+              cls = Kernel.const_get("TeamSnap::#{type.pascalize}")
+              cls.new(item)
+            }
+        else
+          error_message = Oj.load(resp.body)
+            .fetch(:collection)
+            .fetch(:error)
+            .fetch(:message)
+          raise TeamSnap::Error, error_message
+        end
       end
     end
   end
@@ -193,88 +284,6 @@ module TeamSnap
             raise TeamSnap::NotFound,
               "Could not find a #{self} with an id of '#{id}'."
           end
-        end
-      end
-    end
-  end
-
-  class Client
-    def initialize(token, opts = {})
-      self.token = token
-      self.opts = opts
-      opts[:url] ||= DEFAULT_URL
-
-      self.client = Faraday.new(:url => opts[:url]) do |conf|
-        conf.request :teamsnap_auth_middleware, {:token => token}
-        conf.adapter :typhoeus
-      end
-
-      load_root
-    end
-
-    private
-
-    attr_accessor :token, :opts, :client
-
-    def load_root
-      resp = client.get("/")
-
-      # need to account for non-200 status
-
-      collection = Oj.load(resp.body)
-        .fetch(:collection)
-
-      collection
-        .fetch(:links)
-        .each { |link| classify_rel(link) }
-
-      enable_bulk_load(
-        collection
-          .fetch(:queries)
-          .find { |query| query[:rel] == "bulk_load" }
-      )
-    end
-
-    def classify_rel(link)
-      return if EXCLUDED_RELS.include?(link[:rel])
-
-      rel = link[:rel]
-      href = link[:href]
-      client = @client
-      name = rel.singularize.pascalize
-
-      TeamSnap.const_set(
-        name, Class.new { include TeamSnap.collection(client, href) }
-      ) unless TeamSnap.const_defined?(name)
-    end
-
-    def enable_bulk_load(query)
-      href = query.fetch(:href)
-      client = @client
-
-      TeamSnap.define_singleton_method(:bulk_load) do |*args|
-        args = Hash[*args]
-        args[:types] = args.fetch(:types) { [] }.join(",")
-        resp = client.get(href, args)
-
-        if resp.status == 200
-          Oj.load(resp.body)
-            .fetch(:collection)
-            .fetch(:items)
-            .map { |item|
-              type = item
-                .fetch(:data)
-                .find { |datum| datum.fetch(:name) == "type" }
-                .fetch(:value)
-              cls = Kernel.const_get("TeamSnap::#{type.singularize.pascalize}")
-              cls.new(item)
-            }
-        else
-          error_message = Oj.load(resp.body)
-            .fetch(:collection)
-            .fetch(:error)
-            .fetch(:message)
-          raise TeamSnap::Error, error_message
         end
       end
     end

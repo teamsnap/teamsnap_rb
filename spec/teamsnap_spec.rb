@@ -2,7 +2,7 @@ require "spec_helper"
 require "teamsnap"
 
 RSpec.describe "teamsnap_rb" do
-  let!(:client) { TeamSnap::Client.new("") }
+  before(:all) { TeamSnap.init("") }
 
   it "registers new classes via introspection of the root collection" do
     expect { TeamSnap::Team }.to_not raise_error
@@ -98,7 +98,7 @@ RSpec.describe "teamsnap_rb" do
   end
 
   it "can use bulk load" do
-    cs = TeamSnap.bulk_load(:team_id => 1, :types => [:team, :member])
+    cs = TeamSnap.bulk_load(:team_id => 1, :types => "team,member")
 
     expect(cs).to_not be_empty
     expect(cs.size).to eq(11)
@@ -111,7 +111,7 @@ RSpec.describe "teamsnap_rb" do
   end
 
   it "can handle an empty bulk load" do
-    cs = TeamSnap.bulk_load(:team_id => 0, :types => [:team, :member])
+    cs = TeamSnap.bulk_load(:team_id => 0, :types => "team,member")
 
     expect(cs).to be_empty
   end
