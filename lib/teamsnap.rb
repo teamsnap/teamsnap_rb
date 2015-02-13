@@ -226,55 +226,17 @@ module TeamSnap
 
       collection
         .fetch(:queries)
-        .each { |endpoint| register_endpoint(endpoint, :via => :get) }
+        .each { |endpoint|
+          TeamSnap.send(:register_endpoint, self, endpoint, :via => :get)
+        }
 
       collection
         .fetch(:commands) { [] }
-        .each { |endpoint| register_endpoint(endpoint, :via => :post) }
+        .each { |endpoint|
+          TeamSnap.send(:register_endpoint, self, endpoint, :via => :post)
+        }
 
       enable_find if respond_to?(:search)
-    end
-
-    def register_endpoint(endpoint, opts = {})
-      rel = endpoint.fetch(:rel)
-      href = endpoint.fetch(:href)
-      valid_args = endpoint.fetch(:data)
-        .lazy
-        .map { |datum| datum.fetch(:name) }
-        .map(&:to_sym)
-        .to_a
-      via = opts.fetch(:via)
-
-      define_singleton_method(rel) do |*args|
-        args = Hash[*args]
-
-        unless args.all? { |arg, _| valid_args.include?(arg) }
-          raise ArgumentError,
-            "Invalid argument(s). Valid argument(s) are #{valid_args.inspect}"
-        end
-
-        resp = client.send(via, href, args)
-
-        if resp.status == 200
-          Oj.load(resp.body)
-            .fetch(:collection)
-            .fetch(:items) { [] }
-            .map { |item|
-              type = item
-                .fetch(:data)
-                .find { |datum| datum.fetch(:name) == "type" }
-                .fetch(:value)
-              cls = TeamSnap.const_get(type.pascalize)
-              cls.new(item)
-            }
-        else
-          error_message = Oj.load(resp.body)
-            .fetch(:collection)
-            .fetch(:error)
-            .fetch(:message)
-          raise TeamSnap::Error, error_message
-        end
-      end
     end
 
     def enable_find
