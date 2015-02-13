@@ -1,19 +1,16 @@
-require 'coveralls'
-Coveralls.wear!
+require "simplecov"
+require "coveralls"
 
-require "teamsnap_rb"
-require "pry"
-require "webmock/rspec"
-require "vcr"
-
-RSpec.configure do |config|
-  config.extend VCR::RSpec::Macros
-  config.color = true
-  config.order = "random"
+SimpleCov::Formatter::MultiFormatter[
+  SimpleCov::Formatter::HTMLFormatter,
+  Coveralls::SimpleCov::Formatter
+]
+SimpleCov.start do
+  add_filter "vendor"
 end
 
-VCR.configure do |c|
-  c.configure_rspec_metadata!
-  c.cassette_library_dir = "spec/fixtures/cassettes"
-  c.hook_into :webmock
+RSpec.configure do |c|
+  c.expose_dsl_globally = false
+  c.order = "random"
+  c.backtrace_inclusion_patterns = []
 end
