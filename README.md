@@ -38,7 +38,6 @@ Use `bundle show [gemname]` to see where a bundled gem is installed.
 
 ## Todo
 
-- Specs
 - Turn TeamSnap::Client.new into TeamSnap.init or TeamSnap.config
 - Rename 'conn' to 'client'
 - Literate style docs?
