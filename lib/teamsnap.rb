@@ -2,15 +2,11 @@ require "faraday"
 require "typhoeus"
 require "typhoeus/adapters/faraday"
 require "oj"
-require "inflector"
+require "inflecto"
 require "virtus"
 require "date"
 
 require_relative "teamsnap/version"
-
-class String
-  include Inflector::CoreExtensions::String
-end
 
 Oj.default_options = {
   :mode => :compat,
@@ -21,6 +17,13 @@ Oj.default_options = {
 Faraday::Request.register_middleware(
   :teamsnap_auth_middleware => -> { TeamSnap::AuthMiddleware }
 )
+
+Inflecto.inflections do |inflect|
+  inflect.irregular "member_preferences", "members_preferences"
+  inflect.irregular "opponent_results", "opponents_results"
+  inflect.irregular "team_preferences", "teams_preferences"
+  inflect.irregular "team_results", "teams_results"
+end
 
 module TeamSnap
   EXCLUDED_RELS = ["me", "apiv2_root", "root", "self"]
@@ -132,7 +135,7 @@ module TeamSnap
 
       rel = link.fetch(:rel)
       href = link.fetch(:href)
-      name = rel.singularize.pascalize
+      name = Inflecto.classify(rel)
       resp = client.get(href)
 
       TeamSnap.const_set(
@@ -185,7 +188,7 @@ module TeamSnap
     end
 
     def load_class(type, data)
-      TeamSnap.const_get(type.pascalize).tap { |cls|
+      TeamSnap.const_get(Inflecto.classify(type)).tap { |cls|
         unless cls.include?(Virtus::Model::Core)
           cls.class_eval do
             include Virtus.value_object
@@ -209,7 +212,7 @@ module TeamSnap
 
         rel = link.fetch(:rel)
         href = link.fetch(:href)
-        is_singular = rel == rel.singularize
+        is_singular = rel == Inflecto.singularize(rel)
 
         define_singleton_method(rel) {
           coll = TeamSnap.load_items(
