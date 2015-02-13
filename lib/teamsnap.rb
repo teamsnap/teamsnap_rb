@@ -93,10 +93,7 @@ module TeamSnap
       rel = endpoint.fetch(:rel)
       href = endpoint.fetch(:href)
       valid_args = endpoint.fetch(:data)
-        .lazy
-        .map { |datum| datum.fetch(:name) }
-        .map(&:to_sym)
-        .to_a
+        .map { |datum| datum.fetch(:name).to_sym }
       via = opts.fetch(:via)
 
       obj.define_singleton_method(rel) do |*args|
@@ -107,27 +104,31 @@ module TeamSnap
             "Invalid argument(s). Valid argument(s) are #{valid_args.inspect}"
         end
 
-        resp = client.send(via, href, args)
+        TeamSnap.send(:run, via, href, args)
+      end
+    end
 
-        if resp.status == 200
-          Oj.load(resp.body)
-            .fetch(:collection)
-            .fetch(:items) { [] }
-            .map { |item|
-              type = item
-                .fetch(:data)
-                .find { |datum| datum.fetch(:name) == "type" }
-                .fetch(:value)
-              cls = Kernel.const_get("TeamSnap::#{type.pascalize}")
-              cls.new(item)
-            }
-        else
-          error_message = Oj.load(resp.body)
-            .fetch(:collection)
-            .fetch(:error)
-            .fetch(:message)
-          raise TeamSnap::Error, error_message
-        end
+    def run(via, href, args)
+      resp = client.send(via, href, args)
+
+      if resp.status == 200
+        Oj.load(resp.body)
+          .fetch(:collection)
+          .fetch(:items) { [] }
+          .map { |item|
+            type = item
+              .fetch(:data)
+              .find { |datum| datum.fetch(:name) == "type" }
+              .fetch(:value)
+            cls = Kernel.const_get("TeamSnap::#{type.pascalize}")
+            cls.new(item)
+          }
+      else
+        error_message = Oj.load(resp.body)
+          .fetch(:collection)
+          .fetch(:error)
+          .fetch(:message)
+        raise TeamSnap::Error, error_message
       end
     end
   end
