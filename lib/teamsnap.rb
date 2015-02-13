@@ -23,9 +23,7 @@ Faraday::Request.register_middleware(
 )
 
 module TeamSnap
-  EXCLUDED_RELS = [
-    "me", "apiv2_root", "root", "self"
-  ]
+  EXCLUDED_RELS = ["me", "apiv2_root", "root", "self"]
   DEFAULT_URL = "http://localhost:3000"
   Error = Class.new(StandardError)
   NotFound = Class.new(TeamSnap::Error)
