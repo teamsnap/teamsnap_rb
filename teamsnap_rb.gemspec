@@ -29,4 +29,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency "typhoeus",  "~> 0.7.1"
   spec.add_dependency "oj",        "~> 2.11.4"
   spec.add_dependency "inflector", "~> 0.0.1"
+  spec.add_dependency "virtus",    "~> 1.0.4"
 end
