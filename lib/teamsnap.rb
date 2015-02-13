@@ -45,11 +45,10 @@ module TeamSnap
   end
 
   class << self
-    def collection(client, href)
+    def collection(href)
       Module.new do
         define_singleton_method(:included) do |descendant|
           descendant.send(:include, TeamSnap::Item)
-          descendant.instance_variable_set(:@client, client)
           descendant.instance_variable_set(:@href, href)
           descendant.extend(TeamSnap::Collection)
           descendant.send(:load_collection)
@@ -99,6 +98,16 @@ module TeamSnap
         }
     end
 
+    def apply_endpoints(obj, collection)
+      collection
+        .fetch(:queries) { [] }
+        .each { |endpoint| register_endpoint(obj, endpoint, :via => :get) }
+
+      collection
+        .fetch(:commands) { [] }
+        .each { |endpoint| register_endpoint(obj, endpoint, :via => :post) }
+    end
+
     private
 
     attr_accessor :client
@@ -110,9 +119,7 @@ module TeamSnap
         .fetch(:links)
         .each { |link| classify_rel(link) }
 
-      collection
-        .fetch(:queries)
-        .each { |endpoint| register_endpoint(self, endpoint, :via => :get) }
+      apply_endpoints(self, collection)
     end
 
     def classify_rel(link)
@@ -120,11 +127,10 @@ module TeamSnap
 
       rel = link.fetch(:rel)
       href = link.fetch(:href)
-      client = @client
       name = rel.singularize.pascalize
 
       TeamSnap.const_set(
-        name, Class.new { include TeamSnap.collection(client, href) }
+        name, Class.new { include TeamSnap.collection(href) }
       ) unless TeamSnap.const_defined?(name)
     end
 
@@ -153,9 +159,9 @@ module TeamSnap
       item
         .fetch(:data)
         .map { |datum|
-          name  = datum.fetch(:name)
+          name = datum.fetch(:name)
           value = datum.fetch(:value)
-          type  = datum.fetch(:type) { :default }
+          type = datum.fetch(:type) { :default }
 
           value = DateTime.parse(value) if value && type == "DateTime"
 
@@ -215,27 +221,10 @@ module TeamSnap
 
     private
 
-    def client
-      self.instance_variable_get(:@client)
-    end
-
     def load_collection
-      resp = client.get(href)
-      collection = Oj.load(resp.body)
-        .fetch(:collection)
+      collection = TeamSnap.run(:get, href)
 
-      collection
-        .fetch(:queries)
-        .each { |endpoint|
-          TeamSnap.send(:register_endpoint, self, endpoint, :via => :get)
-        }
-
-      collection
-        .fetch(:commands) { [] }
-        .each { |endpoint|
-          TeamSnap.send(:register_endpoint, self, endpoint, :via => :post)
-        }
-
+      TeamSnap.apply_endpoints(self, collection)
       enable_find if respond_to?(:search)
     end
 
