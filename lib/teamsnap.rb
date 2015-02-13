@@ -30,6 +30,20 @@ module TeamSnap
   Error = Class.new(StandardError)
   NotFound = Class.new(TeamSnap::Error)
 
+  class AuthMiddleware < Faraday::Middleware
+    def initialize(app, options)
+      super(app)
+      @options = options
+    end
+
+    def call(env)
+      token = @options.fetch(:token)
+      env[:request_headers].merge!({"Authorization" => "Bearer #{token}"})
+
+      @app.call(env)
+    end
+  end
+
   class << self
     def collection(client, href)
       Module.new do
@@ -56,17 +70,41 @@ module TeamSnap
       true
     end
 
+    def run(via, href, args = {})
+      resp = client.send(via, href, args)
+
+      if resp.status == 200
+        Oj.load(resp.body)
+          .fetch(:collection)
+      else
+        error_message = Oj.load(resp.body)
+          .fetch(:collection)
+          .fetch(:error)
+          .fetch(:message)
+        raise TeamSnap::Error, error_message
+      end
+    end
+
+    def load_items(collection)
+      collection
+        .fetch(:items) { [] }
+        .map { |item|
+          data = parse_data(item)
+          type = type_of(item)
+          cls  = load_class(type, data)
+
+          cls.new(data).tap { |obj|
+            obj.send(:load_links, item.fetch(:links))
+          }
+        }
+    end
+
     private
 
     attr_accessor :client
 
     def load_root
-      resp = client.get("/")
-
-      # need to account for non-200 status
-
-      collection = Oj.load(resp.body)
-        .fetch(:collection)
+      collection = TeamSnap.run(:get, "/")
 
       collection
         .fetch(:links)
@@ -105,79 +143,52 @@ module TeamSnap
             "Invalid argument(s). Valid argument(s) are #{valid_args.inspect}"
         end
 
-        TeamSnap.send(:run, via, href, args)
+        TeamSnap.load_items(
+          TeamSnap.run(via, href, args)
+        )
       end
     end
 
-    def run(via, href, args)
-      resp = client.send(via, href, args)
+    def parse_data(item)
+      item
+        .fetch(:data)
+        .map { |datum|
+          name  = datum.fetch(:name)
+          value = datum.fetch(:value)
+          type  = datum.fetch(:type) { :default }
 
-      if resp.status == 200
-        Oj.load(resp.body)
-          .fetch(:collection)
-          .fetch(:items) { [] }
-          .map { |item|
-            data = item
-              .fetch(:data)
-              .map { |datum|
-                name  = datum.fetch(:name)
-                value = datum.fetch(:value)
-                type  = datum.fetch(:type) { :default }
+          value = DateTime.parse(value) if value && type == "DateTime"
 
-                value = DateTime.parse(value) if value && type == "DateTime"
+          [name, value]
+        }
+        .inject({}) { |h, (k, v)| h[k] = v; h }
+    end
 
-                [name, value]
-              }
-              .inject({}) { |h, (k, v)| h[k] = v; h }
-            type = item
-              .fetch(:data)
-              .find { |datum| datum.fetch(:name) == "type" }
-              .fetch(:value)
-            cls = TeamSnap.const_get(type.pascalize)
-            unless cls.include?(Virtus::Model::Core)
-              cls.class_eval do
-                include Virtus.value_object
+    def type_of(item)
+      item
+        .fetch(:data)
+        .find { |datum| datum.fetch(:name) == "type" }
+        .fetch(:value)
+    end
 
-                values do
-                  attribute :href, String
-                  data.each { |name, value| attribute name, value.class }
-                end
-              end
+    def load_class(type, data)
+      TeamSnap.const_get(type.pascalize).tap { |cls|
+        unless cls.include?(Virtus::Model::Core)
+          cls.class_eval do
+            include Virtus.value_object
+
+            values do
+              attribute :href, String
+              data.each { |name, value| attribute name, value.class }
             end
-            cls.new(data).tap { |obj|
-              obj.send(:load_links, item.fetch(:links))
-            }
-          }
-      else
-        error_message = Oj.load(resp.body)
-          .fetch(:collection)
-          .fetch(:error)
-          .fetch(:message)
-        raise TeamSnap::Error, error_message
-      end
-    end
-  end
-
-  class AuthMiddleware < Faraday::Middleware
-    def initialize(app, options)
-      super(app)
-      @options = options
-    end
-
-    def call(env)
-      token = @options.fetch(:token)
-      env[:request_headers].merge!({"Authorization" => "Bearer #{token}"})
-
-      @app.call(env)
+          end
+        end
+      }
     end
   end
 
   module Item
     private
-
-    def client
-      self.class.instance_variable_get(:@client)
-    end
 
     def load_links(links)
       links.each do |link|
@@ -188,7 +199,9 @@ module TeamSnap
         is_singular = rel == rel.singularize
 
         define_singleton_method(rel) {
-          coll = TeamSnap.send(:run, :get, href, {})
+          coll = TeamSnap.load_items(
+            TeamSnap.run(:get, href)
+          )
           coll.size == 1 && is_singular ? coll.first : coll
         }
       end
@@ -240,6 +253,7 @@ module TeamSnap
 end
 
 if __FILE__ == $0
+  # TeamSnap.init("5ba070d04728e3de7f4f051ab3b00f98928949b4fefad135b54332ef3d712752")
   TeamSnap.init("")
   require"pry";binding.pry
 end
