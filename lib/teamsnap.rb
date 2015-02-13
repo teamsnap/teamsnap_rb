@@ -141,7 +141,7 @@ module TeamSnap
     def register_endpoint(obj, endpoint, opts)
       rel = endpoint.fetch(:rel)
       href = endpoint.fetch(:href)
-      valid_args = endpoint.fetch(:data)
+      valid_args = endpoint.fetch(:data) { [] }
         .map { |datum| datum.fetch(:name).to_sym }
       via = opts.fetch(:via)
 
