@@ -84,9 +84,9 @@ module TeamSnap
       client = @client
       name = rel.singularize.pascalize
 
-      self.const_set(
+      TeamSnap.const_set(
         name, Class.new { include TeamSnap.collection(client, href) }
-      ) unless self.const_defined?(name)
+      ) unless TeamSnap.const_defined?(name)
     end
 
     def register_endpoint(obj, endpoint, opts)
@@ -264,7 +264,7 @@ module TeamSnap
                 .fetch(:data)
                 .find { |datum| datum.fetch(:name) == "type" }
                 .fetch(:value)
-              cls = Kernel.const_get("TeamSnap::#{type.pascalize}")
+              cls = TeamSnap.const_get(type.pascalize)
               cls.new(item)
             }
         else
