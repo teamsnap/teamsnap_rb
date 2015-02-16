@@ -7,7 +7,7 @@ Status](https://coveralls.io/repos/teamsnap/teamsnap_rb/badge.png)](https://cove
 
 ## Usage
 
-__Note: You'll need an OAuth2 Token from TeamSnap.__
+_Note: You'll need an OAuth2 Token from TeamSnap._
 
 ```
 λ bundle install
