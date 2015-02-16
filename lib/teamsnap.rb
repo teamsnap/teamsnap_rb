@@ -57,14 +57,17 @@ module TeamSnap
       end
     end
 
-    def init(token, opts = {})
+    def init(opts = {})
       opts[:url] ||= DEFAULT_URL
+      opts.fetch(:token) {
+        raise ArgumentError.new("You must provide a :token to '.init'")
+      }
 
       self.client = Faraday.new(
         :url => opts.fetch(:url),
         :parallel_manager => Typhoeus::Hydra.new
       ) do |c|
-        c.request :teamsnap_auth_middleware, {:token => token}
+        c.request :teamsnap_auth_middleware, {:token => opts[:token]}
         c.adapter :typhoeus
       end
 
