@@ -57,6 +57,12 @@ module TeamSnap
       end
     end
 
+    def hashify(arr)
+      arr.to_h
+    rescue NoMethodError
+      arr.inject({}) { |hash, (key, value)| hash[key] = value; hash }
+    end
+
     def init(opts = {})
       opts[:url] ||= DEFAULT_URL
       opts.fetch(:token) {
@@ -169,7 +175,7 @@ module TeamSnap
     end
 
     def parse_data(item)
-      item
+      data = item
         .fetch(:data)
         .map { |datum|
           name = datum.fetch(:name)
@@ -180,7 +186,7 @@ module TeamSnap
 
           [name, value]
         }
-        .inject({}) { |h, (k, v)| h[k] = v; h }
+      TeamSnap.hashify(data)
     end
 
     def type_of(item)
