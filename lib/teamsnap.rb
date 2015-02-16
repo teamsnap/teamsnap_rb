@@ -111,7 +111,7 @@ module TeamSnap
         .map { |item|
           data = parse_data(item)
           type = type_of(item)
-          cls  = load_class(type, data)
+          cls = load_class(type, data)
 
           cls.new(data).tap { |obj|
             obj.send(:load_links, item.fetch(:links))
