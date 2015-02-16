@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = TeamSnap::VERSION
   spec.authors       = ["Shane Emmons", "Kyle Ries"]
   spec.email         = ["api@teamsnap.com"]
-  spec.summary       = %q{A gem interact with TeamSnap's API}
-  spec.description   = %q{A gem interact with TeamSnap's API}
+  spec.summary       = %q{A gem to interact with TeamSnap's API}
+  spec.description   = %q{A gem to interact with TeamSnap's API}
   spec.homepage      = "http://developer.teamsnap.com/"
   spec.license       = "MIT"
   spec.required_ruby_version = ">= 1.9.3"
