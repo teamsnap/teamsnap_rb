@@ -7,7 +7,7 @@ Status](https://coveralls.io/repos/teamsnap/teamsnap_rb/badge.png)](https://cove
 
 ## Usage
 
-First, fire up apiv3 on port 3000. Then follow the instructions below.
+__Note: You'll need an OAuth2 Token from TeamSnap.__
 
 ```
 λ bundle install
@@ -15,25 +15,19 @@ Fetching gem metadata from https://rubygems.org/..........
 ...
 Your bundle is complete!
 Use `bundle show [gemname]` to see where a bundled gem is installed.
-λ ruby shane.rb
-[1] pry(main)> t = TeamSnap::Team.find(1)
+λ bundle exec rake console
+[1] pry(main)> TeamSnap.init("abc123...", :url => "https://apiv3.teamsnap.com")
+[2] pry(main)> t = TeamSnap::Team.find(1)
 => #<TeamSnap::Team::...>
-[2] pry(main)> t.name
-=> "Base Team"
-[3] pry(main)> rs = client.bulk_load(:team_id => 1, :types => "team,member")
+[3] pry(main)> t.name
+=> "TeamSnap"
+[4] pry(main)> rs = client.bulk_load(:team_id => 1, :types => "team,member")
 => [#<TeamSnap::Team:...>,
  #<TeamSnap::Member:...>,
- #<TeamSnap::Member:...>,
- #<TeamSnap::Member:...>,
- #<TeamSnap::Member:...>,
- #<TeamSnap::Member:...>,
- #<TeamSnap::Member:...>,
- #<TeamSnap::Member:...>,
- #<TeamSnap::Member:...>,
- #<TeamSnap::Member:...>,
+ # ...
  #<TeamSnap::Member:...>]
-[4] pry(main)> rs[1].first_name
-=> "Manny"
+[5] pry(main)> rs[1].first_name
+=> "Andrew"
 ```
 
 ## Todo
