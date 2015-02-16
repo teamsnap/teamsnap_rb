@@ -35,4 +35,3 @@ Use `bundle show [gemname]` to see where a bundled gem is installed.
 - Literate style docs?
 - Cache items with threadsafe Hash (https://github.com/headius/thread_safe).
 - Implement create, update and delete.
-- Use vcr in specs so they run outside of TeamSnap developers machines.
