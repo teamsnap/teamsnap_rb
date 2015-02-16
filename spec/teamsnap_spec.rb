@@ -2,7 +2,7 @@ require "spec_helper"
 require "teamsnap"
 
 RSpec.describe "teamsnap_rb" do
-  before(:all) { TeamSnap.init(:token => "") }
+  before(:all) { TeamSnap.init(:token => "97b68bef90ad6631db140c6c1f887a6bccd19be4c64956fa49c101b18e5d350d") }
 
   it "registers new classes via introspection of the root collection" do
     expect { TeamSnap::Team }.to_not raise_error
