@@ -276,3 +276,8 @@ module TeamSnap
     end
   end
 end
+
+if __FILE__ == $0
+  TeamSnap.init(:token => "")
+  require"pry";binding.pry
+end
