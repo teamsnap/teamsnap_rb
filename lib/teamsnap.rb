@@ -228,10 +228,14 @@ module TeamSnap
         is_singular = rel == Inflecto.singularize(rel)
 
         define_singleton_method(rel) {
-          coll = TeamSnap.load_items(
-            TeamSnap.run(:get, href)
+          instance_variable_get("@#{rel}") || instance_variable_set(
+            "@#{rel}", -> {
+              coll = TeamSnap.load_items(
+                TeamSnap.run(:get, href)
+              )
+              coll.size == 1 && is_singular ? coll.first : coll
+            }.call
           )
-          coll.size == 1 && is_singular ? coll.first : coll
         }
       end
     end
