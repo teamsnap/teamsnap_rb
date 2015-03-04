@@ -1,11 +1,13 @@
 require "spec_helper"
 require "teamsnap"
 
-RSpec.describe "teamsnap_rb", :vcr => true do
+RSpec.describe "teamsnap_rb" do
   before(:all) do
-    VCR.use_cassette("apiv3-init") do
-      TeamSnap.init(:token => "97b68bef90ad6631db140c6c1f887a6bccd19be4c64956fa49c101b18e5d350d")
-    end
+    TeamSnap.init(
+      :url => "http://localhost:3000",
+      :client_id => "classic",
+      :client_secret => "dont_tell_the_cops"
+    )
   end
 
   it "registers new classes via introspection of the root collection" do

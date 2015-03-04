@@ -5,6 +5,7 @@ require "oj"
 require "inflecto"
 require "virtus"
 require "date"
+require "securerandom"
 
 require_relative "teamsnap/version"
 
@@ -31,19 +32,45 @@ end
 
 module TeamSnap
   EXCLUDED_RELS = ["me", "apiv2_root", "root", "self"]
-  DEFAULT_URL = "http://localhost:3000"
+  DEFAULT_URL = "http://apiv3.teamsnap.com"
   Error = Class.new(StandardError)
   NotFound = Class.new(TeamSnap::Error)
 
   class AuthMiddleware < Faraday::Middleware
     def initialize(app, options)
-      super(app)
       @options = options
+      super(app)
     end
 
     def call(env)
-      token = @options.fetch(:token)
-      env[:request_headers].merge!({"Authorization" => "Bearer #{token}"})
+      token = @options[:token]
+      client_id = @options[:client_id]
+      client_secret = @options[:client_secret]
+
+      if token
+        env[:request_headers].merge!({"Authorization" => "Bearer #{token}"})
+      elsif client_id && client_secret
+        query_params = Hash[URI.decode_www_form(env.url.query || "")]
+          .merge({
+          hmac_client_id: client_id,
+          hmac_nonce: SecureRandom.uuid,
+          hmac_timestamp: Time.now.to_i
+        })
+        env.url.query = URI.encode_www_form(query_params)
+
+        body = if env.body.is_a?(Hash)
+                 Faraday::Utils::ParamsHash.new.merge(env.body).to_query
+               else
+                 env.body
+               end
+        message = "/?" + env.url.query.to_s + (body || "")
+        digest = OpenSSL::Digest.new("sha256")
+        message_hash = digest.hexdigest(message)
+
+        env.request_headers["X-Teamsnap-Hmac"] = OpenSSL::HMAC.hexdigest(
+          digest, client_secret, message_hash
+        )
+      end
 
       @app.call(env)
     end
@@ -69,15 +96,23 @@ module TeamSnap
 
     def init(opts = {})
       opts[:url] ||= DEFAULT_URL
-      opts.fetch(:token) {
-        raise ArgumentError.new("You must provide a :token to '.init'")
-      }
+      unless opts.include?(:token) || (
+        opts.include?(:client_id) && opts.include?(:client_secret)
+      )
+        raise ArgumentError.new(
+          "You must provide a :token or :client_id and :client_secret pair to '.init'"
+        )
+      end
 
       self.client = Faraday.new(
         :url => opts.fetch(:url),
         :parallel_manager => Typhoeus::Hydra.new
       ) do |c|
-        c.request :teamsnap_auth_middleware, {:token => opts[:token]}
+        c.request :teamsnap_auth_middleware, {
+          :token => opts[:token],
+          :client_id => opts[:client_id],
+          :client_secret => opts[:client_secret]
+        }
         c.adapter :typhoeus
       end
 
@@ -275,9 +310,4 @@ module TeamSnap
       end
     end
   end
-end
-
-if __FILE__ == $0
-  TeamSnap.init(:token => "")
-  require"pry";binding.pry
 end
