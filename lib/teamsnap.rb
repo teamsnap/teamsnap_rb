@@ -52,10 +52,10 @@ module TeamSnap
       elsif client_id && client_secret
         query_params = Hash[URI.decode_www_form(env.url.query || "")]
           .merge({
-          hmac_client_id: client_id,
-          hmac_nonce: SecureRandom.uuid,
-          hmac_timestamp: Time.now.to_i
-        })
+            hmac_client_id: client_id,
+            hmac_nonce: SecureRandom.uuid,
+            hmac_timestamp: Time.now.to_i
+          })
         env.url.query = URI.encode_www_form(query_params)
 
         body = if env.body.is_a?(Hash)
