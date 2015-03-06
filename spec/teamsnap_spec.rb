@@ -5,8 +5,7 @@ RSpec.describe "teamsnap_rb" do
   before(:all) do
     TeamSnap.init(
       :url => "http://localhost:3000",
-      :client_id => "classic",
-      :client_secret => "dont_tell_the_cops"
+      :token => "1-classic-dont_tell_the_cops"
     )
   end
 
