@@ -1,0 +1,52 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:3000/bulk_load?team_id=0&types=team%2Cmember
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.1
+      Authorization:
+      - Bearer 1-classic-dont_tell_the_cops
+  response:
+    status:
+      code: 200
+      message: 'OK '
+    headers:
+      Content-Type:
+      - application/vnd.collection+json
+      Content-Length:
+      - '374'
+      X-Content-Type-Options:
+      - nosniff
+      X-Ratelimit-Limit:
+      - '5000'
+      X-Ratelimit-Remaining:
+      - '4899'
+      X-Ratelimit-Reset:
+      - '1425673858'
+      Etag:
+      - '"3539be41ac85f15692801d0bbb619ea8"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - b3bb7f06-9742-4778-8170-62decd156468
+      X-Runtime:
+      - '0.043830'
+      Server:
+      - WEBrick/1.3.1 (Ruby/2.1.5/2014-11-13)
+      Date:
+      - Fri, 06 Mar 2015 19:34:05 GMT
+      Connection:
+      - Keep-Alive
+    body:
+      encoding: UTF-8
+      string: '{"collection":{"version":"3.37.1","href":"http://localhost:3000/bulk_load","links":[{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/bulk_load?team_id=0&types=team%2Cmember"}],"queries":[{"rel":"bulk_load","href":"http://localhost:3000/bulk_load","data":[{"name":"team_id","value":null},{"name":"types","value":null}]}],"items":[]}}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: http://localhost:3000/bulk_load?team_id=0&types=team%2Cmember
+  recorded_at: Fri, 06 Mar 2015 19:34:05 GMT
+recorded_with: VCR 2.9.3

@@ -1,0 +1,50 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://localhost:3000/members/disable_member
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.1
+      Authorization:
+      - Bearer 1-classic-dont_tell_the_cops
+  response:
+    status:
+      code: 400
+      message: 'Bad Request '
+    headers:
+      Content-Type:
+      - application/vnd.collection+json
+      Content-Length:
+      - '70'
+      X-Content-Type-Options:
+      - nosniff
+      X-Ratelimit-Limit:
+      - '5000'
+      X-Ratelimit-Remaining:
+      - '4897'
+      X-Ratelimit-Reset:
+      - '1425673858'
+      Cache-Control:
+      - no-cache
+      X-Request-Id:
+      - 73ea44ff-afa3-4dfd-a674-9e82d6c6825e
+      X-Runtime:
+      - '0.020118'
+      Server:
+      - WEBrick/1.3.1 (Ruby/2.1.5/2014-11-13)
+      Date:
+      - Fri, 06 Mar 2015 19:34:05 GMT
+      Connection:
+      - Keep-Alive
+    body:
+      encoding: UTF-8
+      string: '{"collection":{"error":{"message":"You must provide the member_id."}}}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: http://localhost:3000/members/disable_member
+  recorded_at: Fri, 06 Mar 2015 19:34:05 GMT
+recorded_with: VCR 2.9.3
