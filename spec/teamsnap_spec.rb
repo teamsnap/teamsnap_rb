@@ -33,7 +33,7 @@ RSpec.describe "teamsnap_rb", :vcr => true do
       TeamSnap::Team.search(:foo => :bar)
     }.to raise_error(
       ArgumentError,
-      "Invalid argument(s). Valid argument(s) are [:id, :team_id, :user_id]"
+      "Invalid argument(s). Valid argument(s) are [:id, :team_id, :user_id, :division_id]"
     )
   end
 
