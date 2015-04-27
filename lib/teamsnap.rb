@@ -236,7 +236,7 @@ module TeamSnap
     end
 
     def load_class(type, data)
-      TeamSnap.const_get(Inflecto.classify(type)).tap { |cls|
+      TeamSnap.const_get(Inflecto.camelize(type)).tap { |cls|
         unless cls.include?(Virtus::Model::Core)
           cls.class_eval do
             include Virtus.value_object
