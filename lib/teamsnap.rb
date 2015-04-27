@@ -159,7 +159,7 @@ module TeamSnap
           cls = load_class(type, data)
 
           cls.new(data).tap { |obj|
-            obj.send(:load_links, item.fetch(:links))
+            obj.send(:load_links, item.fetch(:links) { [] })
           }
         }
     end
