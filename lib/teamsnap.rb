@@ -154,7 +154,7 @@ module TeamSnap
       collection
         .fetch(:items) { [] }
         .map { |item|
-          data = parse_data(item)
+          data = parse_data(item).merge(:href => item[:href])
           type = type_of(item)
           cls = load_class(type, data)
 

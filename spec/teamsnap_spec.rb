@@ -125,4 +125,10 @@ RSpec.describe "teamsnap_rb", :vcr => true do
       "You must include a team_id parameter"
     )
   end
+
+  it "adds href to items" do
+    m = TeamSnap::Member.find(1)
+
+    expect(m.href).to eq("http://localhost:3000/members/1")
+  end
 end
