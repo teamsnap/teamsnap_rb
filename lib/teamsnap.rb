@@ -43,10 +43,6 @@ module TeamSnap
     end
 
     def call(env)
-      token = @options[:token]
-      client_id = @options[:client_id]
-      client_secret = @options[:client_secret]
-
       if token
         env[:request_headers].merge!({"Authorization" => "Bearer #{token}"})
       elsif client_id && client_secret
@@ -58,21 +54,46 @@ module TeamSnap
           })
         env.url.query = URI.encode_www_form(query_params)
 
-        body = if env.body.is_a?(Hash)
-                 Faraday::Utils::ParamsHash.new.merge(env.body).to_query
-               else
-                 env.body
-               end
-        message = "/?" + env.url.query.to_s + (body || "")
-        digest = OpenSSL::Digest.new("sha256")
-        message_hash = digest.hexdigest(message)
-
         env.request_headers["X-Teamsnap-Hmac"] = OpenSSL::HMAC.hexdigest(
-          digest, client_secret, message_hash
+          digest, client_secret, message_hash(env)
         )
       end
 
       @app.call(env)
+    end
+
+    def token
+      @token ||= @options[:token]
+    end
+
+    def client_id
+      @client_id ||= @options[:client_id]
+    end
+
+    def client_secret
+      @client_secret ||= @options[:client_secret]
+    end
+
+    def digest
+      @digest ||= OpenSSL::Digest.new("sha256")
+    end
+
+    def message_hash(env)
+      @message_hash ||= digest.hexdigest(
+        query_string(env) + sorted_message(env)
+      )
+    end
+
+    def query_string(env)
+      @query_string ||= "/?" + env.url.query.to_s
+    end
+
+    def sorted_message(env)
+      @sorted_message ||= if env.body.is_a?(Hash)
+                            Faraday::Utils.build_query(env.body)
+                          else
+                            env.body
+                          end || ""
     end
   end
 
@@ -137,12 +158,19 @@ module TeamSnap
     end
 
     def run(via, href, args = {}, opts = {})
-      resp = client.send(via, href, args)
+      resp = case via
+             when :get
+               client.send(via, href, args)
+             when :post
+               client.send(via, href) { |req| req.body = Oj.dump(args) }
+             else
+               raise TeamSnap::Error.new("Don't know how to run `#{via}`")
+             end
 
-      if resp.status == 200
-        collection = Oj.load(resp.body).fetch(:collection)
-        TeamSnap.write_backup_file(opts[:backup_cache_file], collection)
-        collection
+      if resp.success?
+        Oj.load(resp.body).fetch(:collection).tap do |collection|
+          TeamSnap.write_backup_file(opts[:backup_cache_file], collection)
+        end
       else
         if TeamSnap.backup_file_exists?(opts[:backup_cache_file])
           warn("Connection to API failed.. using backup cache file to initialize endpoints")

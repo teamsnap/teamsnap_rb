@@ -45,6 +45,17 @@ RSpec.describe "teamsnap_rb", :vcr => true do
     expect(ms[0].id).to eq(1)
   end
 
+  it "handles executing an action via commands w/ multiple params" do
+    ms = TeamSnap::Team.invite(
+      :team_id => 1, :member_id => [6,7], :notify_as_member_id => 2,
+      :introduction => "Welcome! This is our team\n ...the superstars!"
+    )
+
+    expect(ms.size).to eq(2)
+    expect(ms.map(&:id)).to eq([6,7])
+    expect(ms.map(&:is_invited)).to eq([true, true])
+  end
+
   it "raises and exception when a command is invalid" do
     expect {
       TeamSnap::Member.disable_member(:foo => :bar)
