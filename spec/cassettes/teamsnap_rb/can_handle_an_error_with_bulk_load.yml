@@ -14,7 +14,7 @@ http_interactions:
   response:
     status:
       code: 400
-      message: 'Bad Request '
+      message: Bad Request
     headers:
       Content-Type:
       - application/vnd.collection+json
@@ -22,29 +22,27 @@ http_interactions:
       - '75'
       X-Content-Type-Options:
       - nosniff
-      X-Ratelimit-Limit:
+      X-RateLimit-Limit:
       - '5000'
-      X-Ratelimit-Remaining:
-      - '4867'
-      X-Ratelimit-Reset:
-      - '1428521598'
+      X-RateLimit-Remaining:
+      - '4870'
+      X-RateLimit-Reset:
+      - '1432828850'
       Cache-Control:
       - no-cache
       X-Request-Id:
-      - 97bd70df-4ab5-435e-a488-ca8f57e87cae
+      - c3382dbc-e672-4a0e-adcf-5770c9917d1c
       X-Runtime:
-      - '0.021100'
-      Server:
-      - WEBrick/1.3.1 (Ruby/2.1.5/2014-11-13)
-      Date:
-      - Wed, 08 Apr 2015 19:24:25 GMT
+      - '0.016384'
       Connection:
-      - Keep-Alive
+      - keep-alive
+      Server:
+      - thin
     body:
       encoding: UTF-8
       string: '{"collection":{"error":{"message":"You must include a team_id parameter"}}}'
     http_version: '1.1'
     adapter_metadata:
       effective_url: http://localhost:3000/bulk_load
-  recorded_at: Wed, 08 Apr 2015 19:24:25 GMT
+  recorded_at: Thu, 28 May 2015 15:03:24 GMT
 recorded_with: VCR 2.9.3

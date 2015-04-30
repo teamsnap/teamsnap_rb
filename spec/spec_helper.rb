@@ -11,10 +11,20 @@ end
 
 require "vcr"
 
+ROOT_TEST_URL = "http://localhost:3000"
+
 VCR.configure do |c|
   c.cassette_library_dir = "spec/cassettes"
   c.hook_into :typhoeus
   c.configure_rspec_metadata!
+  c.default_cassette_options = {
+    :match_requests_on => [
+      :method,
+      VCR.request_matchers.uri_without_params(
+        :hmac_client_id, :hmac_nonce, :hmac_timestamp
+      )
+    ]
+  }
 end
 
 RSpec.configure do |c|

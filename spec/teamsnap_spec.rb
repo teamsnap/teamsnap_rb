@@ -5,9 +5,10 @@ RSpec.describe "teamsnap_rb", :vcr => true do
   before(:all) do
     VCR.use_cassette("apiv3-init") do
       TeamSnap.init(
-        :url => "http://localhost:3000",
-        :token => "1-classic-dont_tell_the_cops",
-        :backup_cache => false
+        :url => ROOT_TEST_URL,
+        :backup_cache => false,
+        :client_id => "classic",
+        :client_secret => "dont_tell_the_cops"
       )
     end
   end
@@ -45,14 +46,20 @@ RSpec.describe "teamsnap_rb", :vcr => true do
     expect(ms[0].id).to eq(1)
   end
 
-  it "handles executing an action via commands w/ multiple params" do
+  it "handles executing an action via commands with multiple params" do
+    TeamSnap.init(
+      :url => ROOT_TEST_URL,
+      :backup_cache => false,
+      :token => "1-classic-dont_tell_the_cops"
+    )
+
     ms = TeamSnap::Team.invite(
-      :team_id => 1, :member_id => [6,7], :notify_as_member_id => 2,
+      :team_id => 1, :member_id => [9, 11], :notify_as_member_id => 3,
       :introduction => "Welcome! This is our team\n ...the superstars!"
     )
 
     expect(ms.size).to eq(2)
-    expect(ms.map(&:id)).to eq([6,7])
+    expect(ms.map(&:id)).to eq([9, 11])
     expect(ms.map(&:is_invited)).to eq([true, true])
   end
 
@@ -90,7 +97,7 @@ RSpec.describe "teamsnap_rb", :vcr => true do
   end
 
   it "can follow singular links" do
-    m = TeamSnap::Member.find(1)
+    m = TeamSnap::Member.find(3)
     t = m.team
 
     expect(t.id).to eq(1)
@@ -107,19 +114,19 @@ RSpec.describe "teamsnap_rb", :vcr => true do
     t = TeamSnap::Team.find(1)
     ms = t.members
 
-    expect(ms.size).to eq(10)
+    expect(ms.size).to eq(16)
   end
 
   it "can use bulk load" do
     cs = TeamSnap.bulk_load(:team_id => 1, :types => "team,member")
 
     expect(cs).to_not be_empty
-    expect(cs.size).to eq(11)
+    expect(cs.size).to eq(17)
     expect(cs[0]).to be_a(TeamSnap::Team)
     expect(cs[0].id).to eq(1)
-    cs[1..10].each_with_index do |c, idx|
+    cs[3..17].each.with_index(5) do |c, idx|
       expect(c).to be_a(TeamSnap::Member)
-      expect(c.id).to eq(idx+1)
+      expect(c.id).to eq(idx)
     end
   end
 
@@ -141,7 +148,7 @@ RSpec.describe "teamsnap_rb", :vcr => true do
   it "adds href to items" do
     m = TeamSnap::Member.find(1)
 
-    expect(m.href).to eq("http://localhost:3000/members/1")
+    expect(m.href).to eq("#{ROOT_TEST_URL}/members/1")
   end
 
   context "supports relations with expected behaviors" do

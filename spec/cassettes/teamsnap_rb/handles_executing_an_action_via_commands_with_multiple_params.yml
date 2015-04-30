@@ -2,15 +2,15 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:3000/?hmac_client_id=classic&hmac_nonce=a4216bee-4875-4997-a8c5-6b79189db9a2&hmac_timestamp=1432825400
+    uri: http://localhost:3000/
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
       - Faraday v0.9.1
-      X-Teamsnap-Hmac:
-      - ccdf4cd33f0b328f00269c369c1236a81e14a3cc3c6ebc99c3f97a3d68251256
+      Authorization:
+      - Bearer 1-classic-dont_tell_the_cops
   response:
     status:
       code: 200
@@ -22,14 +22,20 @@ http_interactions:
       - '4926'
       X-Content-Type-Options:
       - nosniff
+      X-RateLimit-Limit:
+      - '5000'
+      X-RateLimit-Remaining:
+      - '4931'
+      X-RateLimit-Reset:
+      - '1432828850'
       ETag:
       - '"79b22591494095122f4557768c976d19"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - c0213f4c-1e4e-4946-9dd6-9a0e6a529c8e
+      - 99d33679-1f22-4a54-82ed-ae7a060b9895
       X-Runtime:
-      - '0.014954'
+      - '0.017480'
       Connection:
       - keep-alive
       Server:
@@ -39,19 +45,19 @@ http_interactions:
       string: '{"collection":{"version":"3.72.0","href":"http://localhost:3000/","links":[{"rel":"apiv2_root","href":"http://localhost:3003"},{"rel":"assignments","href":"http://localhost:3000/assignments"},{"rel":"availabilities","href":"http://localhost:3000/availabilities"},{"rel":"broadcast_emails","href":"http://localhost:3000/broadcast_emails"},{"rel":"broadcast_smses","href":"http://localhost:3000/broadcast_smses"},{"rel":"contact_email_addresses","href":"http://localhost:3000/contact_email_addresses"},{"rel":"contact_phone_numbers","href":"http://localhost:3000/contact_phone_numbers"},{"rel":"contacts","href":"http://localhost:3000/contacts"},{"rel":"custom_data","href":"http://localhost:3000/custom_data"},{"rel":"custom_fields","href":"http://localhost:3000/custom_fields"},{"rel":"league_custom_data","href":"http://localhost:3000/league_custom_data"},{"rel":"league_custom_fields","href":"http://localhost:3000/league_custom_fields"},{"rel":"division_locations","href":"http://localhost:3000/division_members"},{"rel":"division_members","href":"http://localhost:3000/division_members"},{"rel":"division_members_preferences","href":"http://localhost:3000/division_members_preferences"},{"rel":"events","href":"http://localhost:3000/events"},{"rel":"forecasts","href":"http://localhost:3000/forecasts"},{"rel":"forum_posts","href":"http://localhost:3000/forum_posts"},{"rel":"forum_subscriptions","href":"http://localhost:3000/forum_subscriptions"},{"rel":"forum_topics","href":"http://localhost:3000/forum_topics"},{"rel":"geocoded_locations","href":"http://localhost:3000/geocoded_locations"},{"rel":"league_registrant_documents","href":"http://localhost:3000/league_registrant_documents"},{"rel":"locations","href":"http://localhost:3000/locations"},{"rel":"me","href":"http://localhost:3000/me"},{"rel":"member_email_addresses","href":"http://localhost:3000/member_email_addresses"},{"rel":"member_files","href":"http://localhost:3000/member_files"},{"rel":"member_links","href":"http://localhost:3000/member_links"},{"rel":"member_payments","href":"http://localhost:3000/member_payments"},{"rel":"member_phone_numbers","href":"http://localhost:3000/member_phone_numbers"},{"rel":"members","href":"http://localhost:3000/members"},{"rel":"members_preferences","href":"http://localhost:3000/members_preferences"},{"rel":"opponents","href":"http://localhost:3000/opponents"},{"rel":"opponents_results","href":"http://localhost:3000/opponents_results"},{"rel":"payment_notes","href":"http://localhost:3000/payment_notes"},{"rel":"paypal_currencies","href":"http://localhost:3000/paypal_currencies"},{"rel":"plans","href":"http://localhost:3000/plans"},{"rel":"public_features","href":"http://localhost:3000/public_features"},{"rel":"sms_gateways","href":"http://localhost:3000/sms_gateways"},{"rel":"sponsors","href":"http://localhost:3000/sponsors"},{"rel":"sports","href":"http://localhost:3000/sports"},{"rel":"statistics","href":"http://localhost:3000/statistics"},{"rel":"statistic_data","href":"http://localhost:3000/statistic_data"},{"rel":"statistic_groups","href":"http://localhost:3000/statistic_groups"},{"rel":"referrals","href":"http://localhost:3000/referrals"},{"rel":"team_fees","href":"http://localhost:3000/team_fees"},{"rel":"team_public_sites","href":"http://localhost:3000/team_public_sites"},{"rel":"teams","href":"http://localhost:3000/teams"},{"rel":"teams_paypal_preferences","href":"http://localhost:3000/teams_paypal_preferences"},{"rel":"teams_preferences","href":"http://localhost:3000/teams_preferences"},{"rel":"teams_results","href":"http://localhost:3000/teams_results"},{"rel":"time_zones","href":"http://localhost:3000/time_zones"},{"rel":"tracked_item_statuses","href":"http://localhost:3000/tracked_item_statuses"},{"rel":"tracked_items","href":"http://localhost:3000/tracked_items"},{"rel":"tsl_metadata","href":"http://localhost:3000/tsl_metadata"},{"rel":"tsl_photos","href":"http://localhost:3000/tsl_photos"},{"rel":"users","href":"http://localhost:3000/users"},{"rel":"dude","href":"http://localhost:3000/dude"},{"rel":"sweet","href":"http://localhost:3000/sweet"},{"rel":"random","href":"http://localhost:3000/random"},{"rel":"xyzzy","href":"http://localhost:3000/xyzzy"},{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/"}],"queries":[{"rel":"bulk_load","href":"http://localhost:3000/bulk_load","data":[{"name":"team_id","value":null},{"name":"types","value":null}]},{"rel":"me","href":"http://localhost:3000/me"},{"rel":"feature","href":"http://localhost:3000/feature","data":[{"name":"id","value":null},{"name":"type","value":null},{"name":"feature_name","value":null}]},{"rel":"forecast","href":"http://localhost:3000/forecasts/search","data":[{"name":"team_id","value":null}]},{"rel":"geocode","href":"http://localhost:3000/geocoded_locations/search","data":[{"name":"country","value":null},{"name":"postal_code","value":null}]}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/?hmac_client_id=classic&hmac_nonce=a4216bee-4875-4997-a8c5-6b79189db9a2&hmac_timestamp=1432825400
-  recorded_at: Thu, 28 May 2015 15:03:20 GMT
+      effective_url: http://localhost:3000/
+  recorded_at: Thu, 28 May 2015 15:03:22 GMT
 - request:
     method: get
-    uri: http://localhost:3000/assignments?hmac_client_id=classic&hmac_nonce=a3a33e9d-09d2-4e04-b2b7-8002a0fda350&hmac_timestamp=1432825400
+    uri: http://localhost:3000/assignments
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
       - Faraday v0.9.1
-      X-Teamsnap-Hmac:
-      - 9b52c7cf28b51e72c30801820e48984918064bbb5583f3ba23fb31e54a04fe27
+      Authorization:
+      - Bearer 1-classic-dont_tell_the_cops
   response:
     status:
       code: 200
@@ -63,14 +69,20 @@ http_interactions:
       - '771'
       X-Content-Type-Options:
       - nosniff
+      X-RateLimit-Limit:
+      - '5000'
+      X-RateLimit-Remaining:
+      - '4930'
+      X-RateLimit-Reset:
+      - '1432828850'
       ETag:
       - '"34fa2dd7ab9f1eb76bd38a7d11e8b841"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 998c1358-b143-449d-ad9c-1c2396ba54ef
+      - 0c3de08d-87b8-4a84-91dc-7bd3552453ef
       X-Runtime:
-      - '0.011904'
+      - '0.013632'
       Connection:
       - keep-alive
       Server:
@@ -80,19 +92,19 @@ http_interactions:
       string: '{"collection":{"version":"3.72.0","href":"http://localhost:3000/assignments","template":{"data":[{"name":"description","value":null},{"name":"event_id","value":null},{"name":"member_id","value":null}]},"links":[{"rel":"event","href":"http://localhost:3000/events"},{"rel":"member","href":"http://localhost:3000/members"},{"rel":"team","href":"http://localhost:3000/teams"},{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/assignments"}],"queries":[{"rel":"search","href":"http://localhost:3000/assignments/search","data":[{"name":"team_id","value":null},{"name":"event_id","value":null},{"name":"member_id","value":null},{"name":"started_before","value":null},{"name":"started_after","value":null},{"name":"id","value":null}]}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/assignments?hmac_client_id=classic&hmac_nonce=a3a33e9d-09d2-4e04-b2b7-8002a0fda350&hmac_timestamp=1432825400
-  recorded_at: Thu, 28 May 2015 15:03:20 GMT
+      effective_url: http://localhost:3000/assignments
+  recorded_at: Thu, 28 May 2015 15:03:22 GMT
 - request:
     method: get
-    uri: http://localhost:3000/availabilities?hmac_client_id=classic&hmac_nonce=d7da8a7f-96aa-4f0c-85e9-24d6df7987af&hmac_timestamp=1432825400
+    uri: http://localhost:3000/availabilities
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
       - Faraday v0.9.1
-      X-Teamsnap-Hmac:
-      - 7278c01c03ded1a15a8384f921a533423ce51f3eb32858c979ca487bd64aa5e0
+      Authorization:
+      - Bearer 1-classic-dont_tell_the_cops
   response:
     status:
       code: 200
@@ -104,14 +116,20 @@ http_interactions:
       - '1275'
       X-Content-Type-Options:
       - nosniff
+      X-RateLimit-Limit:
+      - '5000'
+      X-RateLimit-Remaining:
+      - '4929'
+      X-RateLimit-Reset:
+      - '1432828850'
       ETag:
       - '"afa1786398ad98e3a33733f5c023b5af"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 8a2f7fce-6746-455b-a5b2-5630247e0a04
+      - 3404b97e-6979-496e-800e-ff269aa76126
       X-Runtime:
-      - '0.009340'
+      - '0.013762'
       Connection:
       - keep-alive
       Server:
@@ -123,19 +141,19 @@ http_interactions:
         member_id","data":[{"name":"status_code","value":null},{"name":"member_id","value":null},{"name":"started_after","value":null}]}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/availabilities?hmac_client_id=classic&hmac_nonce=d7da8a7f-96aa-4f0c-85e9-24d6df7987af&hmac_timestamp=1432825400
-  recorded_at: Thu, 28 May 2015 15:03:20 GMT
+      effective_url: http://localhost:3000/availabilities
+  recorded_at: Thu, 28 May 2015 15:03:22 GMT
 - request:
     method: get
-    uri: http://localhost:3000/broadcast_emails?hmac_client_id=classic&hmac_nonce=40b1365d-6e60-41a4-881c-af9ac16daa50&hmac_timestamp=1432825400
+    uri: http://localhost:3000/broadcast_emails
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
       - Faraday v0.9.1
-      X-Teamsnap-Hmac:
-      - a65caad6feb27e06601a0e669d355d12c1bf214a0620f95031af34018143b662
+      Authorization:
+      - Bearer 1-classic-dont_tell_the_cops
   response:
     status:
       code: 200
@@ -147,14 +165,20 @@ http_interactions:
       - '1120'
       X-Content-Type-Options:
       - nosniff
+      X-RateLimit-Limit:
+      - '5000'
+      X-RateLimit-Remaining:
+      - '4928'
+      X-RateLimit-Reset:
+      - '1432828850'
       ETag:
       - '"36af738fd46c642e9fe71a844faf920d"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 716b2c7b-b608-4254-8a97-dba4649e111a
+      - d7db5e00-ea12-446f-a328-d1e8c31121f7
       X-Runtime:
-      - '0.010161'
+      - '0.013145'
       Connection:
       - keep-alive
       Server:
@@ -164,19 +188,19 @@ http_interactions:
       string: '{"collection":{"version":"3.72.0","href":"http://localhost:3000/broadcast_emails","template":{"data":[{"name":"attachments","value":null},{"name":"body","value":null},{"name":"is_draft","value":null},{"name":"member_id","value":null},{"name":"recipient_ids","value":null},{"name":"subject","value":null},{"name":"team_id","value":null}]},"links":[{"rel":"team","href":"http://localhost:3000/teams"},{"rel":"member","href":"http://localhost:3000/members"},{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/broadcast_emails"}],"queries":[{"rel":"search","href":"http://localhost:3000/broadcast_emails/search","data":[{"name":"id","value":null},{"name":"member_id","value":null},{"name":"team_id","value":null}]}],"commands":[{"rel":"upload_attachment","href":"http://localhost:3000/broadcast_emails/upload_attachment","data":[{"name":"broadcast_email_id","value":null},{"name":"file","value":null}]},{"rel":"remove_attachment","href":"http://localhost:3000/broadcast_emails/remove_attachment","data":[{"name":"broadcast_email_id","value":null},{"name":"filename","value":null}]}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/broadcast_emails?hmac_client_id=classic&hmac_nonce=40b1365d-6e60-41a4-881c-af9ac16daa50&hmac_timestamp=1432825400
-  recorded_at: Thu, 28 May 2015 15:03:20 GMT
+      effective_url: http://localhost:3000/broadcast_emails
+  recorded_at: Thu, 28 May 2015 15:03:22 GMT
 - request:
     method: get
-    uri: http://localhost:3000/broadcast_smses?hmac_client_id=classic&hmac_nonce=ba792836-2c33-464d-9367-94f2a3af185b&hmac_timestamp=1432825400
+    uri: http://localhost:3000/broadcast_smses
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
       - Faraday v0.9.1
-      X-Teamsnap-Hmac:
-      - a6ffa9b715271d6280bba5d20fd377158af42fc4753a1d1123401e643dc8e115
+      Authorization:
+      - Bearer 1-classic-dont_tell_the_cops
   response:
     status:
       code: 200
@@ -188,14 +212,20 @@ http_interactions:
       - '649'
       X-Content-Type-Options:
       - nosniff
+      X-RateLimit-Limit:
+      - '5000'
+      X-RateLimit-Remaining:
+      - '4927'
+      X-RateLimit-Reset:
+      - '1432828850'
       ETag:
       - '"37142729ff3ee6f1777e4c652d7d1cea"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 64c09832-da27-4500-9fd3-296f649a6f13
+      - 7af52826-e507-410c-8753-3fe152f076e2
       X-Runtime:
-      - '0.010223'
+      - '0.012867'
       Connection:
       - keep-alive
       Server:
@@ -205,19 +235,19 @@ http_interactions:
       string: '{"collection":{"version":"3.72.0","href":"http://localhost:3000/broadcast_smses","template":{"data":[{"name":"body","value":null},{"name":"team_id","value":null},{"name":"member_id","value":null},{"name":"recipient_ids","value":null}]},"links":[{"rel":"team","href":"http://localhost:3000/teams"},{"rel":"member","href":"http://localhost:3000/members"},{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/broadcast_smses"}],"queries":[{"rel":"search","href":"http://localhost:3000/broadcast_smses/search","data":[{"name":"id","value":null},{"name":"member_id","value":null},{"name":"team_id","value":null}]}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/broadcast_smses?hmac_client_id=classic&hmac_nonce=ba792836-2c33-464d-9367-94f2a3af185b&hmac_timestamp=1432825400
-  recorded_at: Thu, 28 May 2015 15:03:21 GMT
+      effective_url: http://localhost:3000/broadcast_smses
+  recorded_at: Thu, 28 May 2015 15:03:22 GMT
 - request:
     method: get
-    uri: http://localhost:3000/contact_email_addresses?hmac_client_id=classic&hmac_nonce=bd790b17-8dc2-40bd-b360-f7227dfa9764&hmac_timestamp=1432825400
+    uri: http://localhost:3000/contact_email_addresses
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
       - Faraday v0.9.1
-      X-Teamsnap-Hmac:
-      - c42f0b7589b9b9619b11905e52721e1d11ef4fe4eccd722eb8cba25e38b1c08b
+      Authorization:
+      - Bearer 1-classic-dont_tell_the_cops
   response:
     status:
       code: 200
@@ -229,14 +259,20 @@ http_interactions:
       - '773'
       X-Content-Type-Options:
       - nosniff
+      X-RateLimit-Limit:
+      - '5000'
+      X-RateLimit-Remaining:
+      - '4926'
+      X-RateLimit-Reset:
+      - '1432828850'
       ETag:
       - '"2b26dfbf8bc5b36f450673da031e9694"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 44947cc2-71b0-4bf8-a177-4dcf28324b52
+      - e8ca075e-eef0-4a1a-bc01-b7cfebcb656e
       X-Runtime:
-      - '0.011219'
+      - '0.012597'
       Connection:
       - keep-alive
       Server:
@@ -246,19 +282,19 @@ http_interactions:
       string: '{"collection":{"version":"3.72.0","href":"http://localhost:3000/contact_email_addresses","template":{"data":[{"name":"label","value":null},{"name":"email","value":null},{"name":"receives_team_emails","value":null},{"name":"is_hidden","value":null},{"name":"contact_id","value":null}]},"links":[{"rel":"contact","href":"http://localhost:3000/contacts"},{"rel":"member","href":"http://localhost:3000/members"},{"rel":"team","href":"http://localhost:3000/teams"},{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/contact_email_addresses"}],"queries":[{"rel":"search","href":"http://localhost:3000/contact_email_addresses/search","data":[{"name":"contact_id","value":null},{"name":"team_id","value":null},{"name":"id","value":null}]}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/contact_email_addresses?hmac_client_id=classic&hmac_nonce=bd790b17-8dc2-40bd-b360-f7227dfa9764&hmac_timestamp=1432825400
-  recorded_at: Thu, 28 May 2015 15:03:21 GMT
+      effective_url: http://localhost:3000/contact_email_addresses
+  recorded_at: Thu, 28 May 2015 15:03:23 GMT
 - request:
     method: get
-    uri: http://localhost:3000/contact_phone_numbers?hmac_client_id=classic&hmac_nonce=7ec8e130-72c0-4a39-8bb4-2804ff90b6f4&hmac_timestamp=1432825400
+    uri: http://localhost:3000/contact_phone_numbers
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
       - Faraday v0.9.1
-      X-Teamsnap-Hmac:
-      - c2ea77519587ce60c3c8d5f5f99f7149f1f84dd0076a539e379a4cf6567c96cb
+      Authorization:
+      - Bearer 1-classic-dont_tell_the_cops
   response:
     status:
       code: 200
@@ -270,14 +306,20 @@ http_interactions:
       - '904'
       X-Content-Type-Options:
       - nosniff
+      X-RateLimit-Limit:
+      - '5000'
+      X-RateLimit-Remaining:
+      - '4925'
+      X-RateLimit-Reset:
+      - '1432828850'
       ETag:
       - '"51cf13b4fbe40989bf4b74498c2b80b7"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - ad416ef5-3afb-49e6-90f8-e008a71507a1
+      - 86c647e4-5e2c-4492-ad10-9fbdd0934841
       X-Runtime:
-      - '0.010151'
+      - '0.012878'
       Connection:
       - keep-alive
       Server:
@@ -287,19 +329,19 @@ http_interactions:
       string: '{"collection":{"version":"3.72.0","href":"http://localhost:3000/contact_phone_numbers","template":{"data":[{"name":"label","value":null},{"name":"phone_number","value":null},{"name":"preferred","value":null},{"name":"contact_id","value":null},{"name":"sms_enabled","value":null},{"name":"sms_gateway_id","value":null},{"name":"is_hidden","value":null}]},"links":[{"rel":"contact","href":"http://localhost:3000/contacts"},{"rel":"member","href":"http://localhost:3000/members"},{"rel":"sms_gateway","href":"http://localhost:3000/sms_gateways"},{"rel":"team","href":"http://localhost:3000/teams"},{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/contact_phone_numbers"}],"queries":[{"rel":"search","href":"http://localhost:3000/contact_phone_numbers/search","data":[{"name":"team_id","value":null},{"name":"id","value":null},{"name":"contact_id","value":null}]}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/contact_phone_numbers?hmac_client_id=classic&hmac_nonce=7ec8e130-72c0-4a39-8bb4-2804ff90b6f4&hmac_timestamp=1432825400
-  recorded_at: Thu, 28 May 2015 15:03:21 GMT
+      effective_url: http://localhost:3000/contact_phone_numbers
+  recorded_at: Thu, 28 May 2015 15:03:23 GMT
 - request:
     method: get
-    uri: http://localhost:3000/contacts?hmac_client_id=classic&hmac_nonce=689e5402-db7d-47a5-9e62-08a887b882fa&hmac_timestamp=1432825400
+    uri: http://localhost:3000/contacts
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
       - Faraday v0.9.1
-      X-Teamsnap-Hmac:
-      - 4d9727d402a25f5eeaa323af5caba005dbf555267da7b148864282ba329d3f6d
+      Authorization:
+      - Bearer 1-classic-dont_tell_the_cops
   response:
     status:
       code: 200
@@ -311,14 +353,20 @@ http_interactions:
       - '1166'
       X-Content-Type-Options:
       - nosniff
+      X-RateLimit-Limit:
+      - '5000'
+      X-RateLimit-Remaining:
+      - '4924'
+      X-RateLimit-Reset:
+      - '1432828850'
       ETag:
       - '"da9fc1a56709228198e64f1f9df31a73"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 7430ea40-2bfc-40d0-84b8-7aa1aa3eca99
+      - cc79569e-262c-4eab-a149-3482b939ee1c
       X-Runtime:
-      - '0.012118'
+      - '0.012725'
       Connection:
       - keep-alive
       Server:
@@ -328,19 +376,19 @@ http_interactions:
       string: '{"collection":{"version":"3.72.0","href":"http://localhost:3000/contacts","template":{"data":[{"name":"label","value":null},{"name":"address_street1","value":null},{"name":"address_street2","value":null},{"name":"address_city","value":null},{"name":"address_state","value":null},{"name":"address_zip","value":null},{"name":"address_country","value":null},{"name":"first_name","value":null},{"name":"last_name","value":null},{"name":"hide_address","value":null},{"name":"allow_shared_access","value":null},{"name":"member_id","value":null}]},"links":[{"rel":"contact_email_addresses","href":"http://localhost:3000/contact_email_addresses"},{"rel":"contact_phone_numbers","href":"http://localhost:3000/contact_phone_numbers"},{"rel":"member","href":"http://localhost:3000/members"},{"rel":"team","href":"http://localhost:3000/teams"},{"rel":"user","href":"http://localhost:3000/users"},{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/contacts"}],"queries":[{"rel":"search","href":"http://localhost:3000/contacts/search","data":[{"name":"team_id","value":null},{"name":"member_id","value":null},{"name":"id","value":null}]}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/contacts?hmac_client_id=classic&hmac_nonce=689e5402-db7d-47a5-9e62-08a887b882fa&hmac_timestamp=1432825400
-  recorded_at: Thu, 28 May 2015 15:03:21 GMT
+      effective_url: http://localhost:3000/contacts
+  recorded_at: Thu, 28 May 2015 15:03:23 GMT
 - request:
     method: get
-    uri: http://localhost:3000/custom_data?hmac_client_id=classic&hmac_nonce=49fee324-a893-4fbc-9c4c-3c2c255fbf30&hmac_timestamp=1432825400
+    uri: http://localhost:3000/custom_data
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
       - Faraday v0.9.1
-      X-Teamsnap-Hmac:
-      - 580eda89150a1dfc34ea073ee4b08a0da2d8562f695fe2bf031275465deeaa90
+      Authorization:
+      - Bearer 1-classic-dont_tell_the_cops
   response:
     status:
       code: 200
@@ -352,14 +400,20 @@ http_interactions:
       - '751'
       X-Content-Type-Options:
       - nosniff
+      X-RateLimit-Limit:
+      - '5000'
+      X-RateLimit-Remaining:
+      - '4923'
+      X-RateLimit-Reset:
+      - '1432828850'
       ETag:
       - '"323626ee87a3c572528714f3ed48b561"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 78279d98-dd19-4958-9579-3c0b128b9077
+      - 493ae10a-b287-4606-88c1-065c00bd78b0
       X-Runtime:
-      - '0.011130'
+      - '0.012609'
       Connection:
       - keep-alive
       Server:
@@ -369,19 +423,19 @@ http_interactions:
       string: '{"collection":{"version":"3.72.0","href":"http://localhost:3000/custom_data","template":{"data":[{"name":"member_id","value":null},{"name":"custom_field_id","value":null},{"name":"value","value":null},{"name":"is_private","value":null}]},"links":[{"rel":"custom_field","href":"http://localhost:3000/custom_fields"},{"rel":"member","href":"http://localhost:3000/members"},{"rel":"team","href":"http://localhost:3000/teams"},{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/custom_data"}],"queries":[{"rel":"search","href":"http://localhost:3000/custom_data/search","data":[{"name":"id","value":null},{"name":"team_id","value":null},{"name":"member_id","value":null},{"name":"custom_field_id","value":null}]}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/custom_data?hmac_client_id=classic&hmac_nonce=49fee324-a893-4fbc-9c4c-3c2c255fbf30&hmac_timestamp=1432825400
-  recorded_at: Thu, 28 May 2015 15:03:21 GMT
+      effective_url: http://localhost:3000/custom_data
+  recorded_at: Thu, 28 May 2015 15:03:23 GMT
 - request:
     method: get
-    uri: http://localhost:3000/custom_fields?hmac_client_id=classic&hmac_nonce=23240b8c-98b7-4e4b-aff0-17332462592f&hmac_timestamp=1432825400
+    uri: http://localhost:3000/custom_fields
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
       - Faraday v0.9.1
-      X-Teamsnap-Hmac:
-      - b7c58105c151c75e6da31d93ae5476a2aca1368ca0689c7e563e2a8e58ef68a0
+      Authorization:
+      - Bearer 1-classic-dont_tell_the_cops
   response:
     status:
       code: 200
@@ -393,14 +447,20 @@ http_interactions:
       - '641'
       X-Content-Type-Options:
       - nosniff
+      X-RateLimit-Limit:
+      - '5000'
+      X-RateLimit-Remaining:
+      - '4922'
+      X-RateLimit-Reset:
+      - '1432828850'
       ETag:
       - '"6e99e065a2d788a7018a484b3fb86e50"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 84d2fead-c144-4a0e-8a30-e691a01d2135
+      - da37dbc0-b902-472c-b3eb-3e610d7b06fb
       X-Runtime:
-      - '0.009956'
+      - '0.012513'
       Connection:
       - keep-alive
       Server:
@@ -410,19 +470,19 @@ http_interactions:
       string: '{"collection":{"version":"3.72.0","href":"http://localhost:3000/custom_fields","template":{"data":[{"name":"team_id","value":null},{"name":"name","value":null},{"name":"kind","value":null},{"name":"options","value":null},{"name":"help_text","value":null}]},"links":[{"rel":"custom_data","href":"http://localhost:3000/custom_data"},{"rel":"team","href":"http://localhost:3000/teams"},{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/custom_fields"}],"queries":[{"rel":"search","href":"http://localhost:3000/custom_fields/search","data":[{"name":"id","value":null},{"name":"team_id","value":null}]}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/custom_fields?hmac_client_id=classic&hmac_nonce=23240b8c-98b7-4e4b-aff0-17332462592f&hmac_timestamp=1432825400
-  recorded_at: Thu, 28 May 2015 15:03:21 GMT
+      effective_url: http://localhost:3000/custom_fields
+  recorded_at: Thu, 28 May 2015 15:03:23 GMT
 - request:
     method: get
-    uri: http://localhost:3000/league_custom_data?hmac_client_id=classic&hmac_nonce=42a0d4ab-1d1d-48e4-97f1-08184bbfdf41&hmac_timestamp=1432825400
+    uri: http://localhost:3000/league_custom_data
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
       - Faraday v0.9.1
-      X-Teamsnap-Hmac:
-      - 177165a65ad391e863bfbc9889f93d22aaec0ddcf2252f068345d0083c3447be
+      Authorization:
+      - Bearer 1-classic-dont_tell_the_cops
   response:
     status:
       code: 200
@@ -434,14 +494,20 @@ http_interactions:
       - '836'
       X-Content-Type-Options:
       - nosniff
+      X-RateLimit-Limit:
+      - '5000'
+      X-RateLimit-Remaining:
+      - '4921'
+      X-RateLimit-Reset:
+      - '1432828850'
       ETag:
       - '"50fe28731322827ce534589026eb05e4"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 337382a2-c205-43f9-a465-ace33bd35a61
+      - 79cbcec3-2a99-462a-b748-729e7d229682
       X-Runtime:
-      - '0.009418'
+      - '0.012479'
       Connection:
       - keep-alive
       Server:
@@ -451,19 +517,19 @@ http_interactions:
       string: '{"collection":{"version":"3.72.0","href":"http://localhost:3000/league_custom_data","template":{"data":[{"name":"member_id","value":null},{"name":"league_custom_field_id","value":null},{"name":"value","value":null},{"name":"is_private","value":null}]},"links":[{"rel":"league_custom_field","href":"http://localhost:3000/league_custom_fields"},{"rel":"member","href":"http://localhost:3000/members"},{"rel":"team","href":"http://localhost:3000/teams"},{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/league_custom_data"}],"queries":[{"rel":"search","href":"http://localhost:3000/league_custom_data/search","data":[{"name":"id","value":null},{"name":"team_id","value":null},{"name":"member_id","value":null},{"name":"division_id","value":null},{"name":"league_custom_field_id","value":null}]}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/league_custom_data?hmac_client_id=classic&hmac_nonce=42a0d4ab-1d1d-48e4-97f1-08184bbfdf41&hmac_timestamp=1432825400
-  recorded_at: Thu, 28 May 2015 15:03:21 GMT
+      effective_url: http://localhost:3000/league_custom_data
+  recorded_at: Thu, 28 May 2015 15:03:23 GMT
 - request:
     method: get
-    uri: http://localhost:3000/league_custom_fields?hmac_client_id=classic&hmac_nonce=7602e971-9b5c-46b8-8e30-5e35e829cd57&hmac_timestamp=1432825400
+    uri: http://localhost:3000/league_custom_fields
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
       - Faraday v0.9.1
-      X-Teamsnap-Hmac:
-      - 7130f1d51fce0c4e4ad6b081eb5eb8907724954593e6061c607b58e6b9eb361d
+      Authorization:
+      - Bearer 1-classic-dont_tell_the_cops
   response:
     status:
       code: 200
@@ -475,14 +541,20 @@ http_interactions:
       - '535'
       X-Content-Type-Options:
       - nosniff
+      X-RateLimit-Limit:
+      - '5000'
+      X-RateLimit-Remaining:
+      - '4920'
+      X-RateLimit-Reset:
+      - '1432828850'
       ETag:
       - '"6b56fa33dab35a7b347f5db70ff5c023"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 102ff9ba-f19a-46f3-96d7-bf2cf5992b9a
+      - 0a2c5292-0399-440f-a012-ae319e01cfa7
       X-Runtime:
-      - '0.009625'
+      - '0.014188'
       Connection:
       - keep-alive
       Server:
@@ -492,19 +564,19 @@ http_interactions:
       string: '{"collection":{"version":"3.72.0","href":"http://localhost:3000/league_custom_fields","links":[{"rel":"teams","href":"http://localhost:3000/teams"},{"rel":"root","href":"http://localhost:3000/"},{"rel":"league_custom_data","href":"http://localhost:3000/league_custom_data"},{"rel":"self","href":"http://localhost:3000/league_custom_fields"}],"queries":[{"rel":"search","href":"http://localhost:3000/league_custom_fields/search","data":[{"name":"id","value":null},{"name":"team_id","value":null},{"name":"division_id","value":null}]}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/league_custom_fields?hmac_client_id=classic&hmac_nonce=7602e971-9b5c-46b8-8e30-5e35e829cd57&hmac_timestamp=1432825400
-  recorded_at: Thu, 28 May 2015 15:03:21 GMT
+      effective_url: http://localhost:3000/league_custom_fields
+  recorded_at: Thu, 28 May 2015 15:03:23 GMT
 - request:
     method: get
-    uri: http://localhost:3000/division_members?hmac_client_id=classic&hmac_nonce=c96c75e8-0300-4c70-b456-eda0e1f20033&hmac_timestamp=1432825400
+    uri: http://localhost:3000/division_members
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
       - Faraday v0.9.1
-      X-Teamsnap-Hmac:
-      - 3a495c9b984a7ebdbbc9727d741433a0836f08718446a620a823ab04307a5e1c
+      Authorization:
+      - Bearer 1-classic-dont_tell_the_cops
   response:
     status:
       code: 200
@@ -516,14 +588,20 @@ http_interactions:
       - '602'
       X-Content-Type-Options:
       - nosniff
+      X-RateLimit-Limit:
+      - '5000'
+      X-RateLimit-Remaining:
+      - '4919'
+      X-RateLimit-Reset:
+      - '1432828850'
       ETag:
       - '"a6f2f54bbf16df1052edb5f00a770610"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - fa7efdea-4d93-41c4-8ed6-c1f32bd3c31a
+      - a11ad527-4feb-4a37-93b4-1598d9413d70
       X-Runtime:
-      - '0.009343'
+      - '0.016949'
       Connection:
       - keep-alive
       Server:
@@ -534,19 +612,19 @@ http_interactions:
         a division member by the id of the team they are a commissioner of"},{"name":"user_id","value":null},{"name":"id","value":null}]}],"links":[{"rel":"member_preferences","href":"http://localhost:3000/members_preferences"},{"rel":"user","href":"http://localhost:3000/users"},{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/division_members"}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/division_members?hmac_client_id=classic&hmac_nonce=c96c75e8-0300-4c70-b456-eda0e1f20033&hmac_timestamp=1432825400
-  recorded_at: Thu, 28 May 2015 15:03:21 GMT
+      effective_url: http://localhost:3000/division_members
+  recorded_at: Thu, 28 May 2015 15:03:23 GMT
 - request:
     method: get
-    uri: http://localhost:3000/division_members?hmac_client_id=classic&hmac_nonce=ae5f6969-3a6d-4697-95af-5a2d2d81bb23&hmac_timestamp=1432825400
+    uri: http://localhost:3000/division_members
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
       - Faraday v0.9.1
-      X-Teamsnap-Hmac:
-      - ab6b4df9aa8c9322341e38894220792bcb5e9d6b9da070286469fbbd0ce53e27
+      Authorization:
+      - Bearer 1-classic-dont_tell_the_cops
   response:
     status:
       code: 200
@@ -558,14 +636,20 @@ http_interactions:
       - '602'
       X-Content-Type-Options:
       - nosniff
+      X-RateLimit-Limit:
+      - '5000'
+      X-RateLimit-Remaining:
+      - '4918'
+      X-RateLimit-Reset:
+      - '1432828850'
       ETag:
       - '"a6f2f54bbf16df1052edb5f00a770610"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 8788e2b1-48ab-49e7-ac3a-9adcb67e1441
+      - 6c14be64-f843-4d2c-bbdc-22ecc7e6af12
       X-Runtime:
-      - '0.009387'
+      - '0.023305'
       Connection:
       - keep-alive
       Server:
@@ -576,19 +660,19 @@ http_interactions:
         a division member by the id of the team they are a commissioner of"},{"name":"user_id","value":null},{"name":"id","value":null}]}],"links":[{"rel":"member_preferences","href":"http://localhost:3000/members_preferences"},{"rel":"user","href":"http://localhost:3000/users"},{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/division_members"}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/division_members?hmac_client_id=classic&hmac_nonce=ae5f6969-3a6d-4697-95af-5a2d2d81bb23&hmac_timestamp=1432825400
-  recorded_at: Thu, 28 May 2015 15:03:21 GMT
+      effective_url: http://localhost:3000/division_members
+  recorded_at: Thu, 28 May 2015 15:03:23 GMT
 - request:
     method: get
-    uri: http://localhost:3000/division_members_preferences?hmac_client_id=classic&hmac_nonce=1cc011aa-faaa-4d6d-b9e7-dfcc42a19187&hmac_timestamp=1432825400
+    uri: http://localhost:3000/division_members_preferences
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
       - Faraday v0.9.1
-      X-Teamsnap-Hmac:
-      - ed80dff13a45c443817ad886e988f1a809bb4b2a5a3c2cd82800a980d4965192
+      Authorization:
+      - Bearer 1-classic-dont_tell_the_cops
   response:
     status:
       code: 200
@@ -600,14 +684,20 @@ http_interactions:
       - '1589'
       X-Content-Type-Options:
       - nosniff
+      X-RateLimit-Limit:
+      - '5000'
+      X-RateLimit-Remaining:
+      - '4917'
+      X-RateLimit-Reset:
+      - '1432828850'
       ETag:
       - '"8e7802e805124a5bb8254c90d5658688"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 26753831-c1b8-4e49-b8b3-5c11bbdb6389
+      - a926b7dc-37e3-4a79-b4ce-d1106af4fe76
       X-Runtime:
-      - '0.009586'
+      - '0.019052'
       Connection:
       - keep-alive
       Server:
@@ -617,19 +707,19 @@ http_interactions:
       string: '{"collection":{"version":"3.72.0","href":"http://localhost:3000/division_members_preferences","template":{"data":[{"name":"assignments_hide_past","value":null},{"name":"schedule_hide_past","value":null},{"name":"availability_show_past","value":null},{"name":"schedule_show_for_code","value":null},{"name":"reminders_send_game","value":null},{"name":"reminders_send_event","value":null},{"name":"reminders_send_days_before_game","value":null},{"name":"reminders_send_days_before_event","value":null},{"name":"reminders_send_manager_game","value":null},{"name":"reminders_send_manager_event","value":null},{"name":"reminders_send_manager_days_before_game","value":null},{"name":"reminders_send_manager_days_before_event","value":null},{"name":"mobile_send_push_messages","value":null},{"name":"public_site_show_thumbnail","value":null},{"name":"public_site_show_last_name","value":null},{"name":"facebook_post_scores","value":null},{"name":"facebook_post_scores_to_page_id","value":null},{"name":"facebook_post_scores_to_page_name","value":null},{"name":"facebook_post_scores_to_wall","value":null},{"name":"facebook_only_post_wins","value":null},{"name":"facebook_polite_scores","value":null},{"name":"facebook_page_access_token","value":null}]},"links":[{"rel":"member","href":"http://localhost:3000/members"},{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/division_members_preferences"}],"queries":[{"rel":"search","href":"http://localhost:3000/members_preferences/search","data":[{"name":"team_id","value":null},{"name":"id","value":null}]}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/division_members_preferences?hmac_client_id=classic&hmac_nonce=1cc011aa-faaa-4d6d-b9e7-dfcc42a19187&hmac_timestamp=1432825400
-  recorded_at: Thu, 28 May 2015 15:03:21 GMT
+      effective_url: http://localhost:3000/division_members_preferences
+  recorded_at: Thu, 28 May 2015 15:03:23 GMT
 - request:
     method: get
-    uri: http://localhost:3000/events?hmac_client_id=classic&hmac_nonce=71f0ac94-36be-44b5-a589-88696cc6580f&hmac_timestamp=1432825400
+    uri: http://localhost:3000/events
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
       - Faraday v0.9.1
-      X-Teamsnap-Hmac:
-      - d7c7c19b19d19cae0e65ba528556add804e68ce37693cdc6a5cc3fb7ce49c57f
+      Authorization:
+      - Bearer 1-classic-dont_tell_the_cops
   response:
     status:
       code: 200
@@ -641,14 +731,20 @@ http_interactions:
       - '2753'
       X-Content-Type-Options:
       - nosniff
+      X-RateLimit-Limit:
+      - '5000'
+      X-RateLimit-Remaining:
+      - '4916'
+      X-RateLimit-Reset:
+      - '1432828851'
       ETag:
       - '"d326d1bdc321adca089c0b0b09a4b989"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - b1db2a0a-f7d1-4a52-b5fb-4d5bb8e0d7ea
+      - 962a8d0a-395d-4c30-8d1c-8b43c49ef14c
       X-Runtime:
-      - '0.009511'
+      - '0.018803'
       Connection:
       - keep-alive
       Server:
@@ -659,19 +755,19 @@ http_interactions:
         = (all|unset)","data":[{"name":"id","value":null},{"name":"members_to_notify","value":null},{"name":"notify_team_as_member_id","value":null}]}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/events?hmac_client_id=classic&hmac_nonce=71f0ac94-36be-44b5-a589-88696cc6580f&hmac_timestamp=1432825400
-  recorded_at: Thu, 28 May 2015 15:03:21 GMT
+      effective_url: http://localhost:3000/events
+  recorded_at: Thu, 28 May 2015 15:03:23 GMT
 - request:
     method: get
-    uri: http://localhost:3000/forecasts?hmac_client_id=classic&hmac_nonce=ff09bbc7-3728-40a2-b2c6-de595f808ae2&hmac_timestamp=1432825400
+    uri: http://localhost:3000/forecasts
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
       - Faraday v0.9.1
-      X-Teamsnap-Hmac:
-      - 7961acfd80538a4149e1b0bee6219ef4d0192c507686031adc1b4010f6f444aa
+      Authorization:
+      - Bearer 1-classic-dont_tell_the_cops
   response:
     status:
       code: 200
@@ -683,14 +779,20 @@ http_interactions:
       - '307'
       X-Content-Type-Options:
       - nosniff
+      X-RateLimit-Limit:
+      - '5000'
+      X-RateLimit-Remaining:
+      - '4915'
+      X-RateLimit-Reset:
+      - '1432828851'
       ETag:
       - '"c12c3c508acaa62f15f2d01eb3f18314"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 10452c08-1f4f-479f-a933-437419a1943f
+      - 8dd58a5d-8fd6-4432-8693-7b9d7d9a1a58
       X-Runtime:
-      - '0.010073'
+      - '0.016654'
       Connection:
       - keep-alive
       Server:
@@ -700,19 +802,19 @@ http_interactions:
       string: '{"collection":{"version":"3.72.0","href":"http://localhost:3000/forecasts","links":[{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/forecasts"}],"queries":[{"rel":"search","href":"http://localhost:3000/forecasts/search","data":[{"name":"team_id","value":null}]}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/forecasts?hmac_client_id=classic&hmac_nonce=ff09bbc7-3728-40a2-b2c6-de595f808ae2&hmac_timestamp=1432825400
-  recorded_at: Thu, 28 May 2015 15:03:21 GMT
+      effective_url: http://localhost:3000/forecasts
+  recorded_at: Thu, 28 May 2015 15:03:23 GMT
 - request:
     method: get
-    uri: http://localhost:3000/forum_posts?hmac_client_id=classic&hmac_nonce=20f3a286-8b24-46f5-b634-f94f666adaca&hmac_timestamp=1432825400
+    uri: http://localhost:3000/forum_posts
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
       - Faraday v0.9.1
-      X-Teamsnap-Hmac:
-      - 5a963948fb6d9163341cdf3ab7544b52080d0e6565a48f453a079faf7e1b6bcf
+      Authorization:
+      - Bearer 1-classic-dont_tell_the_cops
   response:
     status:
       code: 200
@@ -724,14 +826,20 @@ http_interactions:
       - '714'
       X-Content-Type-Options:
       - nosniff
+      X-RateLimit-Limit:
+      - '5000'
+      X-RateLimit-Remaining:
+      - '4914'
+      X-RateLimit-Reset:
+      - '1432828851'
       ETag:
       - '"93417fa2294aa047bac7eb49698d7bb1"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - c123626f-88a1-49f8-a32e-b7c0cd9d4664
+      - 151d17f4-09ef-49f1-92f5-bc7ab6a340ed
       X-Runtime:
-      - '0.011692'
+      - '0.017445'
       Connection:
       - keep-alive
       Server:
@@ -741,19 +849,19 @@ http_interactions:
       string: '{"collection":{"version":"3.72.0","href":"http://localhost:3000/forum_posts","template":{"data":[{"name":"forum_topic_id","value":null},{"name":"member_id","value":null},{"name":"message","value":null}]},"links":[{"rel":"team","href":"http://localhost:3000/teams"},{"rel":"forum_topic","href":"http://localhost:3000/forum_topics"},{"rel":"member","href":"http://localhost:3000/members"},{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/forum_posts"}],"queries":[{"rel":"search","href":"http://localhost:3000/forum_posts/search","data":[{"name":"forum_topic_id","value":null},{"name":"id","value":null},{"name":"member_id","value":null},{"name":"team_id","value":null}]}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/forum_posts?hmac_client_id=classic&hmac_nonce=20f3a286-8b24-46f5-b634-f94f666adaca&hmac_timestamp=1432825400
-  recorded_at: Thu, 28 May 2015 15:03:21 GMT
+      effective_url: http://localhost:3000/forum_posts
+  recorded_at: Thu, 28 May 2015 15:03:23 GMT
 - request:
     method: get
-    uri: http://localhost:3000/forum_subscriptions?hmac_client_id=classic&hmac_nonce=8516303a-1e92-46de-921c-1d03ab9f8d32&hmac_timestamp=1432825400
+    uri: http://localhost:3000/forum_subscriptions
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
       - Faraday v0.9.1
-      X-Teamsnap-Hmac:
-      - 65d5112bbb9a47d6bd856aeb1abc208f56b168c7a84e2b3e9acabdc6ef8d8261
+      Authorization:
+      - Bearer 1-classic-dont_tell_the_cops
   response:
     status:
       code: 200
@@ -765,14 +873,20 @@ http_interactions:
       - '706'
       X-Content-Type-Options:
       - nosniff
+      X-RateLimit-Limit:
+      - '5000'
+      X-RateLimit-Remaining:
+      - '4913'
+      X-RateLimit-Reset:
+      - '1432828851'
       ETag:
       - '"31dcda275e63a02aae412659c469ad22"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 96446ba9-59c0-4955-a2a1-18ff7e80c794
+      - c52d3429-1486-4c1d-acff-442358dfc7b1
       X-Runtime:
-      - '0.011912'
+      - '0.016902'
       Connection:
       - keep-alive
       Server:
@@ -782,19 +896,19 @@ http_interactions:
       string: '{"collection":{"version":"3.72.0","href":"http://localhost:3000/forum_subscriptions","template":{"data":[{"name":"forum_topic_id","value":null},{"name":"member_id","value":null}]},"links":[{"rel":"team","href":"http://localhost:3000/teams"},{"rel":"forum_topic","href":"http://localhost:3000/forum_topics"},{"rel":"member","href":"http://localhost:3000/members"},{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/forum_subscriptions"}],"queries":[{"rel":"search","href":"http://localhost:3000/forum_subscriptions/search","data":[{"name":"forum_topic_id","value":null},{"name":"id","value":null},{"name":"member_id","value":null},{"name":"team_id","value":null}]}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/forum_subscriptions?hmac_client_id=classic&hmac_nonce=8516303a-1e92-46de-921c-1d03ab9f8d32&hmac_timestamp=1432825400
-  recorded_at: Thu, 28 May 2015 15:03:21 GMT
+      effective_url: http://localhost:3000/forum_subscriptions
+  recorded_at: Thu, 28 May 2015 15:03:23 GMT
 - request:
     method: get
-    uri: http://localhost:3000/forum_topics?hmac_client_id=classic&hmac_nonce=f502b0e5-3c53-4ef3-aa7c-76b598142e7f&hmac_timestamp=1432825400
+    uri: http://localhost:3000/forum_topics
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
       - Faraday v0.9.1
-      X-Teamsnap-Hmac:
-      - 2f8e3bbdf272c083f2d4b3a7b37d3d8d76216c8dcd3b3f7f9aa38339c6709a98
+      Authorization:
+      - Bearer 1-classic-dont_tell_the_cops
   response:
     status:
       code: 200
@@ -806,14 +920,20 @@ http_interactions:
       - '665'
       X-Content-Type-Options:
       - nosniff
+      X-RateLimit-Limit:
+      - '5000'
+      X-RateLimit-Remaining:
+      - '4912'
+      X-RateLimit-Reset:
+      - '1432828851'
       ETag:
       - '"d838dd422d3e7882e91b8593067b8aa0"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - eae6e164-645e-408b-9bfd-e1a33de47175
+      - d0b31846-1752-4f6f-95c5-db141e6e6631
       X-Runtime:
-      - '0.013678'
+      - '0.016876'
       Connection:
       - keep-alive
       Server:
@@ -823,19 +943,19 @@ http_interactions:
       string: '{"collection":{"version":"3.72.0","href":"http://localhost:3000/forum_topics","template":{"data":[{"name":"title","value":null},{"name":"is_announcement","value":null},{"name":"team_id","value":null}]},"links":[{"rel":"forum_posts","href":"http://localhost:3000/forum_posts"},{"rel":"forum_subscriptions","href":"http://localhost:3000/forum_subscriptions"},{"rel":"team","href":"http://localhost:3000/teams"},{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/forum_topics"}],"queries":[{"rel":"search","href":"http://localhost:3000/forum_topics/search","data":[{"name":"team_id","value":null},{"name":"id","value":null}]}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/forum_topics?hmac_client_id=classic&hmac_nonce=f502b0e5-3c53-4ef3-aa7c-76b598142e7f&hmac_timestamp=1432825400
-  recorded_at: Thu, 28 May 2015 15:03:21 GMT
+      effective_url: http://localhost:3000/forum_topics
+  recorded_at: Thu, 28 May 2015 15:03:23 GMT
 - request:
     method: get
-    uri: http://localhost:3000/geocoded_locations?hmac_client_id=classic&hmac_nonce=927be3ee-8218-488e-9803-79828cf6b7b7&hmac_timestamp=1432825400
+    uri: http://localhost:3000/geocoded_locations
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
       - Faraday v0.9.1
-      X-Teamsnap-Hmac:
-      - 44fa37f37f9a8c08d5de7c54714b46e23ea7179b4c805754d2031ef751d92d20
+      Authorization:
+      - Bearer 1-classic-dont_tell_the_cops
   response:
     status:
       code: 200
@@ -847,14 +967,20 @@ http_interactions:
       - '370'
       X-Content-Type-Options:
       - nosniff
+      X-RateLimit-Limit:
+      - '5000'
+      X-RateLimit-Remaining:
+      - '4911'
+      X-RateLimit-Reset:
+      - '1432828851'
       ETag:
       - '"502743f41ef72f064daae179b6a86da1"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - c07d9bc1-38e5-4c4a-8800-4b2b8ab09a72
+      - 2ae4bf3e-0eec-4459-a6d9-637054e35fec
       X-Runtime:
-      - '0.012221'
+      - '0.016024'
       Connection:
       - keep-alive
       Server:
@@ -864,19 +990,19 @@ http_interactions:
       string: '{"collection":{"version":"3.72.0","href":"http://localhost:3000/geocoded_locations","links":[{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/geocoded_locations"}],"queries":[{"rel":"search","href":"http://localhost:3000/geocoded_locations/search","data":[{"name":"country","value":null},{"name":"postal_code","value":null}]}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/geocoded_locations?hmac_client_id=classic&hmac_nonce=927be3ee-8218-488e-9803-79828cf6b7b7&hmac_timestamp=1432825400
-  recorded_at: Thu, 28 May 2015 15:03:21 GMT
+      effective_url: http://localhost:3000/geocoded_locations
+  recorded_at: Thu, 28 May 2015 15:03:23 GMT
 - request:
     method: get
-    uri: http://localhost:3000/league_registrant_documents?hmac_client_id=classic&hmac_nonce=01bac4e0-48be-4db6-8a07-8befd2d57043&hmac_timestamp=1432825400
+    uri: http://localhost:3000/league_registrant_documents
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
       - Faraday v0.9.1
-      X-Teamsnap-Hmac:
-      - e33572ece735b1ca2558371a17a9061fed55f282fc3177d4acaddb3c8653ad94
+      Authorization:
+      - Bearer 1-classic-dont_tell_the_cops
   response:
     status:
       code: 200
@@ -888,14 +1014,20 @@ http_interactions:
       - '530'
       X-Content-Type-Options:
       - nosniff
+      X-RateLimit-Limit:
+      - '5000'
+      X-RateLimit-Remaining:
+      - '4910'
+      X-RateLimit-Reset:
+      - '1432828851'
       ETag:
       - '"ca0579dcfe679b3bc785b308de0501dc"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 2a6c910b-86fe-4096-a85a-415c6e6f3691
+      - 7abbd7bf-dbb2-479f-9438-b570f4d0c883
       X-Runtime:
-      - '0.012336'
+      - '0.015064'
       Connection:
       - keep-alive
       Server:
@@ -905,19 +1037,19 @@ http_interactions:
       string: '{"collection":{"version":"3.72.0","href":"http://localhost:3000/league_registrant_documents","links":[{"rel":"member","href":"http://localhost:3000/members"},{"rel":"team","href":"http://localhost:3000/teams"},{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/league_registrant_documents"}],"queries":[{"rel":"search","href":"http://localhost:3000/league_registrant_documents/search","data":[{"name":"team_id","value":null},{"name":"member_id","value":null},{"name":"id","value":null}]}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/league_registrant_documents?hmac_client_id=classic&hmac_nonce=01bac4e0-48be-4db6-8a07-8befd2d57043&hmac_timestamp=1432825400
-  recorded_at: Thu, 28 May 2015 15:03:21 GMT
+      effective_url: http://localhost:3000/league_registrant_documents
+  recorded_at: Thu, 28 May 2015 15:03:23 GMT
 - request:
     method: get
-    uri: http://localhost:3000/locations?hmac_client_id=classic&hmac_nonce=12be881b-ff4e-4d78-bf0a-a83ccf725675&hmac_timestamp=1432825400
+    uri: http://localhost:3000/locations
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
       - Faraday v0.9.1
-      X-Teamsnap-Hmac:
-      - 49cb117f0804b83efc72972817ebf8861a9d4b1db0bf67426dc493575c82e022
+      Authorization:
+      - Bearer 1-classic-dont_tell_the_cops
   response:
     status:
       code: 200
@@ -929,14 +1061,20 @@ http_interactions:
       - '644'
       X-Content-Type-Options:
       - nosniff
+      X-RateLimit-Limit:
+      - '5000'
+      X-RateLimit-Remaining:
+      - '4909'
+      X-RateLimit-Reset:
+      - '1432828851'
       ETag:
       - '"1606baf23311b92e45abfaaffe8ad5a6"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 94dabc69-9b25-4f69-a758-8538c62865eb
+      - 57495335-fe14-4d0a-9eff-6e78a05b3e0b
       X-Runtime:
-      - '0.011953'
+      - '0.013884'
       Connection:
       - keep-alive
       Server:
@@ -946,19 +1084,19 @@ http_interactions:
       string: '{"collection":{"version":"3.72.0","href":"http://localhost:3000/locations","template":{"data":[{"name":"name","value":null},{"name":"url","value":null},{"name":"phone","value":null},{"name":"notes","value":null},{"name":"address","value":null},{"name":"team_id","value":null}]},"links":[{"rel":"events","href":"http://localhost:3000/events"},{"rel":"team","href":"http://localhost:3000/teams"},{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/locations"}],"queries":[{"rel":"search","href":"http://localhost:3000/locations/search","data":[{"name":"team_id","value":null},{"name":"id","value":null}]}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/locations?hmac_client_id=classic&hmac_nonce=12be881b-ff4e-4d78-bf0a-a83ccf725675&hmac_timestamp=1432825400
-  recorded_at: Thu, 28 May 2015 15:03:21 GMT
+      effective_url: http://localhost:3000/locations
+  recorded_at: Thu, 28 May 2015 15:03:23 GMT
 - request:
     method: get
-    uri: http://localhost:3000/member_email_addresses?hmac_client_id=classic&hmac_nonce=14244cac-ac89-4849-bea5-9fe487bbde29&hmac_timestamp=1432825400
+    uri: http://localhost:3000/member_email_addresses
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
       - Faraday v0.9.1
-      X-Teamsnap-Hmac:
-      - 7f247da2f46c871290df2ae72d5af20fae4eae4eda0e23156e5508f7f649cdf3
+      Authorization:
+      - Bearer 1-classic-dont_tell_the_cops
   response:
     status:
       code: 200
@@ -970,14 +1108,20 @@ http_interactions:
       - '710'
       X-Content-Type-Options:
       - nosniff
+      X-RateLimit-Limit:
+      - '5000'
+      X-RateLimit-Remaining:
+      - '4908'
+      X-RateLimit-Reset:
+      - '1432828851'
       ETag:
       - '"585200dd6af5c5496376dcc652587e3c"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - db45c285-9a39-4df2-95a2-5e9731c67bc3
+      - 45e63c48-4b25-447b-8128-3c0019cec04b
       X-Runtime:
-      - '0.012763'
+      - '0.013776'
       Connection:
       - keep-alive
       Server:
@@ -987,19 +1131,19 @@ http_interactions:
       string: '{"collection":{"version":"3.72.0","href":"http://localhost:3000/member_email_addresses","template":{"data":[{"name":"member_id","value":null},{"name":"label","value":null},{"name":"email","value":null},{"name":"receives_team_emails","value":null},{"name":"is_hidden","value":null}]},"links":[{"rel":"member","href":"http://localhost:3000/members"},{"rel":"team","href":"http://localhost:3000/teams"},{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/member_email_addresses"}],"queries":[{"rel":"search","href":"http://localhost:3000/member_email_addresses/search","data":[{"name":"team_id","value":null},{"name":"member_id","value":null},{"name":"id","value":null}]}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/member_email_addresses?hmac_client_id=classic&hmac_nonce=14244cac-ac89-4849-bea5-9fe487bbde29&hmac_timestamp=1432825400
-  recorded_at: Thu, 28 May 2015 15:03:21 GMT
+      effective_url: http://localhost:3000/member_email_addresses
+  recorded_at: Thu, 28 May 2015 15:03:23 GMT
 - request:
     method: get
-    uri: http://localhost:3000/member_files?hmac_client_id=classic&hmac_nonce=6653b840-b36f-4f16-8f61-254a7403f082&hmac_timestamp=1432825400
+    uri: http://localhost:3000/member_files
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
       - Faraday v0.9.1
-      X-Teamsnap-Hmac:
-      - da7ae0b04e659802069e5fa72c8cb105ccd8c7293600da2dcb6c93771d1615df
+      Authorization:
+      - Bearer 1-classic-dont_tell_the_cops
   response:
     status:
       code: 200
@@ -1011,14 +1155,20 @@ http_interactions:
       - '827'
       X-Content-Type-Options:
       - nosniff
+      X-RateLimit-Limit:
+      - '5000'
+      X-RateLimit-Remaining:
+      - '4907'
+      X-RateLimit-Reset:
+      - '1432828851'
       ETag:
       - '"2dd0a282cc73c7226a559597fdce78b0"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - c1efbcd6-cdde-42fe-8adc-cfaafcac195b
+      - 42b29280-2c5e-4eef-8afe-a0fd9ab465de
       X-Runtime:
-      - '0.012003'
+      - '0.013854'
       Connection:
       - keep-alive
       Server:
@@ -1029,19 +1179,19 @@ http_interactions:
         a member file.","data":[{"name":"member_file_id","value":null},{"name":"file","value":null}]}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/member_files?hmac_client_id=classic&hmac_nonce=6653b840-b36f-4f16-8f61-254a7403f082&hmac_timestamp=1432825400
-  recorded_at: Thu, 28 May 2015 15:03:21 GMT
+      effective_url: http://localhost:3000/member_files
+  recorded_at: Thu, 28 May 2015 15:03:23 GMT
 - request:
     method: get
-    uri: http://localhost:3000/member_links?hmac_client_id=classic&hmac_nonce=4f79b546-3316-42a4-a15c-2bd0f4bb1c5a&hmac_timestamp=1432825400
+    uri: http://localhost:3000/member_links
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
       - Faraday v0.9.1
-      X-Teamsnap-Hmac:
-      - 7a970e75d17ba41d74df988100ac63e4c81e2935de05cea83897f668e50c8daa
+      Authorization:
+      - Bearer 1-classic-dont_tell_the_cops
   response:
     status:
       code: 200
@@ -1053,14 +1203,20 @@ http_interactions:
       - '640'
       X-Content-Type-Options:
       - nosniff
+      X-RateLimit-Limit:
+      - '5000'
+      X-RateLimit-Remaining:
+      - '4906'
+      X-RateLimit-Reset:
+      - '1432828851'
       ETag:
       - '"24680ac0e126b534c8f4859a3d67c60f"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 3e276a79-21f9-48ec-8aac-fc82cc40bff9
+      - 7fe19a56-bcb0-4599-8cbd-da4a6b3e491d
       X-Runtime:
-      - '0.011375'
+      - '0.015499'
       Connection:
       - keep-alive
       Server:
@@ -1070,19 +1226,19 @@ http_interactions:
       string: '{"collection":{"version":"3.72.0","href":"http://localhost:3000/member_links","template":{"data":[{"name":"member_id","value":null},{"name":"url","value":null},{"name":"is_private","value":null},{"name":"description","value":null}]},"links":[{"rel":"member","href":"http://localhost:3000/members"},{"rel":"team","href":"http://localhost:3000/teams"},{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/member_links"}],"queries":[{"rel":"search","href":"http://localhost:3000/member_links/search","data":[{"name":"team_id","value":null},{"name":"member_id","value":null},{"name":"id","value":null}]}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/member_links?hmac_client_id=classic&hmac_nonce=4f79b546-3316-42a4-a15c-2bd0f4bb1c5a&hmac_timestamp=1432825400
-  recorded_at: Thu, 28 May 2015 15:03:21 GMT
+      effective_url: http://localhost:3000/member_links
+  recorded_at: Thu, 28 May 2015 15:03:23 GMT
 - request:
     method: get
-    uri: http://localhost:3000/member_payments?hmac_client_id=classic&hmac_nonce=a150998b-77ba-47a3-933a-45474130c905&hmac_timestamp=1432825400
+    uri: http://localhost:3000/member_payments
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
       - Faraday v0.9.1
-      X-Teamsnap-Hmac:
-      - b227fd19145f8718b61b4af6bff66ac8d2e38d921da02545c6819fadc34f7665
+      Authorization:
+      - Bearer 1-classic-dont_tell_the_cops
   response:
     status:
       code: 200
@@ -1094,14 +1250,20 @@ http_interactions:
       - '889'
       X-Content-Type-Options:
       - nosniff
+      X-RateLimit-Limit:
+      - '5000'
+      X-RateLimit-Remaining:
+      - '4905'
+      X-RateLimit-Reset:
+      - '1432828851'
       ETag:
       - '"1ecd203d3f9b7fb5a1d16bcdaab96415"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 77e297de-d72a-48a0-8e2d-fac05b11bb17
+      - 1a09898f-a249-4ed5-bf58-865f0a2a61d7
       X-Runtime:
-      - '0.011314'
+      - '0.013651'
       Connection:
       - keep-alive
       Server:
@@ -1111,19 +1273,19 @@ http_interactions:
       string: '{"collection":{"version":"3.72.0","href":"http://localhost:3000/member_payments","template":{"data":[{"name":"amount_paid","value":null},{"name":"amount_due","value":null},{"name":"is_applicable","value":null},{"name":"member_id","value":null},{"name":"note","value":null},{"name":"team_fee_id","value":null}]},"links":[{"rel":"member","href":"http://localhost:3000/members"},{"rel":"payment_notes","href":"http://localhost:3000/payment_notes"},{"rel":"team","href":"http://localhost:3000/teams"},{"rel":"team_fee","href":"http://localhost:3000/team_fees"},{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/member_payments"}],"queries":[{"rel":"search","href":"http://localhost:3000/member_payments/search","data":[{"name":"id","value":null},{"name":"member_id","value":null},{"name":"team_fee_id","value":null},{"name":"team_id","value":null}]}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/member_payments?hmac_client_id=classic&hmac_nonce=a150998b-77ba-47a3-933a-45474130c905&hmac_timestamp=1432825400
-  recorded_at: Thu, 28 May 2015 15:03:21 GMT
+      effective_url: http://localhost:3000/member_payments
+  recorded_at: Thu, 28 May 2015 15:03:23 GMT
 - request:
     method: get
-    uri: http://localhost:3000/member_phone_numbers?hmac_client_id=classic&hmac_nonce=cbf893b1-efc7-461d-98c7-e75af883e9dd&hmac_timestamp=1432825400
+    uri: http://localhost:3000/member_phone_numbers
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
       - Faraday v0.9.1
-      X-Teamsnap-Hmac:
-      - 189c5c35370c6e1b1940a451dbaf119a5952002775d53a78846d0cf0e920d8f6
+      Authorization:
+      - Bearer 1-classic-dont_tell_the_cops
   response:
     status:
       code: 200
@@ -1135,14 +1297,20 @@ http_interactions:
       - '841'
       X-Content-Type-Options:
       - nosniff
+      X-RateLimit-Limit:
+      - '5000'
+      X-RateLimit-Remaining:
+      - '4904'
+      X-RateLimit-Reset:
+      - '1432828851'
       ETag:
       - '"e9756aaa02128a33e56f1d62bf428a49"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - c6426d29-563e-45ee-9e24-3cb381d7d19b
+      - 5a8c2a85-88c7-4c70-acb4-7087094109d0
       X-Runtime:
-      - '0.011622'
+      - '0.013985'
       Connection:
       - keep-alive
       Server:
@@ -1152,19 +1320,19 @@ http_interactions:
       string: '{"collection":{"version":"3.72.0","href":"http://localhost:3000/member_phone_numbers","template":{"data":[{"name":"label","value":null},{"name":"phone_number","value":null},{"name":"preferred","value":null},{"name":"member_id","value":null},{"name":"sms_enabled","value":null},{"name":"sms_gateway_id","value":null},{"name":"is_hidden","value":null}]},"links":[{"rel":"member","href":"http://localhost:3000/members"},{"rel":"sms_gateway","href":"http://localhost:3000/sms_gateways"},{"rel":"team","href":"http://localhost:3000/teams"},{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/member_phone_numbers"}],"queries":[{"rel":"search","href":"http://localhost:3000/member_phone_numbers/search","data":[{"name":"team_id","value":null},{"name":"id","value":null},{"name":"member_id","value":null}]}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/member_phone_numbers?hmac_client_id=classic&hmac_nonce=cbf893b1-efc7-461d-98c7-e75af883e9dd&hmac_timestamp=1432825400
-  recorded_at: Thu, 28 May 2015 15:03:21 GMT
+      effective_url: http://localhost:3000/member_phone_numbers
+  recorded_at: Thu, 28 May 2015 15:03:23 GMT
 - request:
     method: get
-    uri: http://localhost:3000/members?hmac_client_id=classic&hmac_nonce=a184282c-442f-498b-86d3-69476576fe87&hmac_timestamp=1432825400
+    uri: http://localhost:3000/members
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
       - Faraday v0.9.1
-      X-Teamsnap-Hmac:
-      - 2cc700bb29fe0127db812bba46072d8cdf3c062987e8abb2ea4877d91ce0f71f
+      Authorization:
+      - Bearer 1-classic-dont_tell_the_cops
   response:
     status:
       code: 200
@@ -1176,14 +1344,20 @@ http_interactions:
       - '3800'
       X-Content-Type-Options:
       - nosniff
+      X-RateLimit-Limit:
+      - '5000'
+      X-RateLimit-Remaining:
+      - '4903'
+      X-RateLimit-Reset:
+      - '1432828851'
       ETag:
       - '"5ea10b6820112f1d4a5986c09f9b8233"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - d73df304-fb16-4673-8104-baa1d4c102f4
+      - 00a3c9df-9500-4ee3-bcf6-9161ac80eb51
       X-Runtime:
-      - '0.012368'
+      - '0.014900'
       Connection:
       - keep-alive
       Server:
@@ -1193,19 +1367,19 @@ http_interactions:
       string: '{"collection":{"version":"3.72.0","href":"http://localhost:3000/members","template":{"data":[{"name":"first_name","value":null},{"name":"last_name","value":null},{"name":"gender","value":null},{"name":"position","value":null},{"name":"is_manager","value":null},{"name":"birthday","value":null},{"name":"hide_age","value":null},{"name":"hide_address","value":null},{"name":"is_non_player","value":null},{"name":"address_street1","value":null},{"name":"address_street2","value":null},{"name":"address_city","value":null},{"name":"address_state","value":null},{"name":"address_zip","value":null},{"name":"jersey_number","value":null},{"name":"team_id","value":null}]},"links":[{"rel":"assignments","href":"http://localhost:3000/assignments"},{"rel":"availabilities","href":"http://localhost:3000/availabilities"},{"rel":"broadcast_emails","href":"http://localhost:3000/broadcast_emails"},{"rel":"broadcast_smses","href":"http://localhost:3000/broadcast_smses"},{"rel":"contact_email_addresses","href":"http://localhost:3000/contact_email_addresses"},{"rel":"contact_phone_numbers","href":"http://localhost:3000/contact_phone_numbers"},{"rel":"contacts","href":"http://localhost:3000/contacts"},{"rel":"custom_data","href":"http://localhost:3000/custom_data"},{"rel":"custom_fields","href":"http://localhost:3000/custom_fields"},{"rel":"league_custom_data","href":"http://localhost:3000/league_custom_data"},{"rel":"league_custom_fields","href":"http://localhost:3000/league_custom_fields"},{"rel":"forum_posts","href":"http://localhost:3000/forum_posts"},{"rel":"forum_subscriptions","href":"http://localhost:3000/forum_subscriptions"},{"rel":"forum_topics","href":"http://localhost:3000/forum_topics"},{"rel":"league_registrant_documents","href":"http://localhost:3000/league_registrant_documents"},{"rel":"member_email_addresses","href":"http://localhost:3000/member_email_addresses"},{"rel":"member_files","href":"http://localhost:3000/member_files"},{"rel":"member_links","href":"http://localhost:3000/member_links"},{"rel":"member_payments","href":"http://localhost:3000/member_payments"},{"rel":"member_phone_numbers","href":"http://localhost:3000/member_phone_numbers"},{"rel":"member_preferences","href":"http://localhost:3000/members_preferences"},{"rel":"team","href":"http://localhost:3000/teams"},{"rel":"statistic_data","href":"http://localhost:3000/statistic_data"},{"rel":"tracked_item_statuses","href":"http://localhost:3000/tracked_item_statuses"},{"rel":"user","href":"http://localhost:3000/users"},{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/members"}],"queries":[{"rel":"search","href":"http://localhost:3000/members/search","data":[{"name":"team_id","value":null},{"name":"user_id","value":null},{"name":"id","value":null}]},{"rel":"managers","href":"http://localhost:3000/members/managers","data":[{"name":"team_id","value":null}]},{"rel":"owner","href":"http://localhost:3000/members/owner","data":[{"name":"team_id","value":null}]}],"commands":[{"rel":"disable_member","href":"http://localhost:3000/members/disable_member","data":[{"name":"member_id","value":null}]},{"rel":"upload_member_photo","href":"http://localhost:3000/members/upload_member_photo","data":[{"name":"member_id","value":null},{"name":"file","value":null},{"name":"x","value":null},{"name":"y","value":null},{"name":"width","value":null},{"name":"height","value":null}]},{"rel":"remove_member_photo","href":"http://localhost:3000/members/remove_member_photo","data":[{"name":"member_id","value":null}]},{"rel":"generate_member_thumbnail","href":"http://localhost:3000/members/generate_member_thumbnail","data":[{"name":"member_id","value":null},{"name":"x","value":null},{"name":"y","value":null},{"name":"width","value":null},{"name":"height","value":null}]}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/members?hmac_client_id=classic&hmac_nonce=a184282c-442f-498b-86d3-69476576fe87&hmac_timestamp=1432825400
-  recorded_at: Thu, 28 May 2015 15:03:21 GMT
+      effective_url: http://localhost:3000/members
+  recorded_at: Thu, 28 May 2015 15:03:23 GMT
 - request:
     method: get
-    uri: http://localhost:3000/members_preferences?hmac_client_id=classic&hmac_nonce=b1ad3746-5a9a-4b42-95c8-38af80abdf4e&hmac_timestamp=1432825400
+    uri: http://localhost:3000/members_preferences
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
       - Faraday v0.9.1
-      X-Teamsnap-Hmac:
-      - ad16686a022d373823d840b68440f5c70b570c997b57c7337434e1e07b6c450b
+      Authorization:
+      - Bearer 1-classic-dont_tell_the_cops
   response:
     status:
       code: 200
@@ -1217,14 +1391,20 @@ http_interactions:
       - '1623'
       X-Content-Type-Options:
       - nosniff
+      X-RateLimit-Limit:
+      - '5000'
+      X-RateLimit-Remaining:
+      - '4902'
+      X-RateLimit-Reset:
+      - '1432828851'
       ETag:
       - '"65bc98f87a448c2ec64941f9e50a576a"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - c773dfe0-51f2-4ffd-aba3-d3adbf7b8685
+      - d442c015-15e6-4593-ae52-1393d0464366
       X-Runtime:
-      - '0.009838'
+      - '0.014026'
       Connection:
       - keep-alive
       Server:
@@ -1234,19 +1414,19 @@ http_interactions:
       string: '{"collection":{"version":"3.72.0","href":"http://localhost:3000/members_preferences","template":{"data":[{"name":"assignments_hide_past","value":null},{"name":"schedule_hide_past","value":null},{"name":"availability_show_past","value":null},{"name":"schedule_show_for_code","value":null},{"name":"reminders_send_game","value":null},{"name":"reminders_send_event","value":null},{"name":"reminders_send_days_before_game","value":null},{"name":"reminders_send_days_before_event","value":null},{"name":"reminders_send_manager_game","value":null},{"name":"reminders_send_manager_event","value":null},{"name":"reminders_send_manager_days_before_game","value":null},{"name":"reminders_send_manager_days_before_event","value":null},{"name":"mobile_send_push_messages","value":null},{"name":"public_site_show_thumbnail","value":null},{"name":"public_site_show_last_name","value":null},{"name":"facebook_post_scores","value":null},{"name":"facebook_post_scores_to_page_id","value":null},{"name":"facebook_post_scores_to_page_name","value":null},{"name":"facebook_post_scores_to_wall","value":null},{"name":"facebook_only_post_wins","value":null},{"name":"facebook_polite_scores","value":null},{"name":"facebook_page_access_token","value":null}]},"links":[{"rel":"member","href":"http://localhost:3000/members"},{"rel":"team","href":"http://localhost:3000/teams"},{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/members_preferences"}],"queries":[{"rel":"search","href":"http://localhost:3000/members_preferences/search","data":[{"name":"team_id","value":null},{"name":"id","value":null}]}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/members_preferences?hmac_client_id=classic&hmac_nonce=b1ad3746-5a9a-4b42-95c8-38af80abdf4e&hmac_timestamp=1432825400
-  recorded_at: Thu, 28 May 2015 15:03:21 GMT
+      effective_url: http://localhost:3000/members_preferences
+  recorded_at: Thu, 28 May 2015 15:03:23 GMT
 - request:
     method: get
-    uri: http://localhost:3000/opponents?hmac_client_id=classic&hmac_nonce=c94f386b-6785-4a2e-8315-b1d0e692c736&hmac_timestamp=1432825400
+    uri: http://localhost:3000/opponents
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
       - Faraday v0.9.1
-      X-Teamsnap-Hmac:
-      - 6737ea77c4331545e9399a2bde62a650cf6a39e28f9180864adf887143e967fd
+      Authorization:
+      - Bearer 1-classic-dont_tell_the_cops
   response:
     status:
       code: 200
@@ -1258,14 +1438,20 @@ http_interactions:
       - '746'
       X-Content-Type-Options:
       - nosniff
+      X-RateLimit-Limit:
+      - '5000'
+      X-RateLimit-Remaining:
+      - '4901'
+      X-RateLimit-Reset:
+      - '1432828850'
       ETag:
       - '"3cee66a256148370b22fd69d04782ce8"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - d4614536-5db1-48ed-825e-1ae220046a7d
+      - d8148324-3664-42ef-9462-06d60d25dc41
       X-Runtime:
-      - '0.008393'
+      - '0.013962'
       Connection:
       - keep-alive
       Server:
@@ -1275,19 +1461,19 @@ http_interactions:
       string: '{"collection":{"version":"3.72.0","href":"http://localhost:3000/opponents","template":{"data":[{"name":"name","value":null},{"name":"contacts_name","value":null},{"name":"contacts_phone","value":null},{"name":"contacts_email","value":null},{"name":"notes","value":null},{"name":"team_id","value":null}]},"links":[{"rel":"events","href":"http://localhost:3000/events"},{"rel":"opponent_results","href":"http://localhost:3000/opponents_results"},{"rel":"team","href":"http://localhost:3000/teams"},{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/opponents"}],"queries":[{"rel":"search","href":"http://localhost:3000/opponents/search","data":[{"name":"team_id","value":null},{"name":"id","value":null}]}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/opponents?hmac_client_id=classic&hmac_nonce=c94f386b-6785-4a2e-8315-b1d0e692c736&hmac_timestamp=1432825400
-  recorded_at: Thu, 28 May 2015 15:03:21 GMT
+      effective_url: http://localhost:3000/opponents
+  recorded_at: Thu, 28 May 2015 15:03:23 GMT
 - request:
     method: get
-    uri: http://localhost:3000/opponents_results?hmac_client_id=classic&hmac_nonce=ebd52758-a3cd-41cc-8985-ceae0a5af707&hmac_timestamp=1432825400
+    uri: http://localhost:3000/opponents_results
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
       - Faraday v0.9.1
-      X-Teamsnap-Hmac:
-      - 188ab655b6123e0ca8a744d62dd5f7654f3792945f085bc6c8a80165a79e7040
+      Authorization:
+      - Bearer 1-classic-dont_tell_the_cops
   response:
     status:
       code: 200
@@ -1299,14 +1485,20 @@ http_interactions:
       - '470'
       X-Content-Type-Options:
       - nosniff
+      X-RateLimit-Limit:
+      - '5000'
+      X-RateLimit-Remaining:
+      - '4900'
+      X-RateLimit-Reset:
+      - '1432828850'
       ETag:
       - '"aac2db452446c9914d02eb339c945eed"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - fb84513f-155f-4a1d-b4da-f28e2269f79c
+      - ea9d3dd2-72d5-4a7d-8ca5-79f2b7f0e6ee
       X-Runtime:
-      - '0.008776'
+      - '0.014184'
       Connection:
       - keep-alive
       Server:
@@ -1316,19 +1508,19 @@ http_interactions:
       string: '{"collection":{"version":"3.72.0","href":"http://localhost:3000/opponents_results","links":[{"rel":"opponent","href":"http://localhost:3000/opponents"},{"rel":"team","href":"http://localhost:3000/teams"},{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/opponents_results"}],"queries":[{"rel":"search","href":"http://localhost:3000/opponents_results/search","data":[{"name":"team_id","value":null},{"name":"id","value":null}]}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/opponents_results?hmac_client_id=classic&hmac_nonce=ebd52758-a3cd-41cc-8985-ceae0a5af707&hmac_timestamp=1432825400
-  recorded_at: Thu, 28 May 2015 15:03:21 GMT
+      effective_url: http://localhost:3000/opponents_results
+  recorded_at: Thu, 28 May 2015 15:03:23 GMT
 - request:
     method: get
-    uri: http://localhost:3000/payment_notes?hmac_client_id=classic&hmac_nonce=bdcc3cbb-95c9-4555-b016-39f943b4bb34&hmac_timestamp=1432825400
+    uri: http://localhost:3000/payment_notes
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
       - Faraday v0.9.1
-      X-Teamsnap-Hmac:
-      - 724aa0225b706b66f81da036df0e4fcfa8ac623cf4216840b489dce8a9758c51
+      Authorization:
+      - Bearer 1-classic-dont_tell_the_cops
   response:
     status:
       code: 200
@@ -1340,14 +1532,20 @@ http_interactions:
       - '661'
       X-Content-Type-Options:
       - nosniff
+      X-RateLimit-Limit:
+      - '5000'
+      X-RateLimit-Remaining:
+      - '4899'
+      X-RateLimit-Reset:
+      - '1432828850'
       ETag:
       - '"303b619fa3dae6b526c5a33ffb7545b6"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 74137ddd-f404-4f5a-a30c-6e723196452a
+      - 70aac51f-4e89-4c5b-aed7-2ba4bdcb82e0
       X-Runtime:
-      - '0.008281'
+      - '0.014512'
       Connection:
       - keep-alive
       Server:
@@ -1357,19 +1555,19 @@ http_interactions:
       string: '{"collection":{"version":"3.72.0","href":"http://localhost:3000/payment_notes","template":{"data":[{"name":"member_payment_id","value":null},{"name":"note","value":null}]},"links":[{"rel":"team","href":"http://localhost:3000/teams"},{"rel":"member","href":"http://localhost:3000/members"},{"rel":"member_payment","href":"http://localhost:3000/member_payments"},{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/payment_notes"}],"queries":[{"rel":"search","href":"http://localhost:3000/payment_notes/search","data":[{"name":"id","value":null},{"name":"member_payment_id","value":null},{"name":"team_id","value":null}]}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/payment_notes?hmac_client_id=classic&hmac_nonce=bdcc3cbb-95c9-4555-b016-39f943b4bb34&hmac_timestamp=1432825400
-  recorded_at: Thu, 28 May 2015 15:03:21 GMT
+      effective_url: http://localhost:3000/payment_notes
+  recorded_at: Thu, 28 May 2015 15:03:23 GMT
 - request:
     method: get
-    uri: http://localhost:3000/paypal_currencies?hmac_client_id=classic&hmac_nonce=3f46dddb-7ade-4459-9300-abffdc71c1ea&hmac_timestamp=1432825400
+    uri: http://localhost:3000/paypal_currencies
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
       - Faraday v0.9.1
-      X-Teamsnap-Hmac:
-      - 6b87ebcef686b3d5f7644805dc94ac798399966b71c6fc4f507ce00576706061
+      Authorization:
+      - Bearer 1-classic-dont_tell_the_cops
   response:
     status:
       code: 200
@@ -1381,14 +1579,20 @@ http_interactions:
       - '3452'
       X-Content-Type-Options:
       - nosniff
+      X-RateLimit-Limit:
+      - '5000'
+      X-RateLimit-Remaining:
+      - '4898'
+      X-RateLimit-Reset:
+      - '1432828850'
       ETag:
       - '"30703ef8b6936a1e973db2dd53635a59"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - a5122bdf-efba-47ce-b136-776bd25b5959
+      - 483dd87c-64ff-4105-9475-b5801ef97a03
       X-Runtime:
-      - '0.022922'
+      - '0.031233'
       Connection:
       - keep-alive
       Server:
@@ -1475,185 +1679,19 @@ http_interactions:
         bWUiOiJjb3VudHJ5IiwidmFsdWUiOm51bGx9XX1dfX0=
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/paypal_currencies?hmac_client_id=classic&hmac_nonce=3f46dddb-7ade-4459-9300-abffdc71c1ea&hmac_timestamp=1432825400
-  recorded_at: Thu, 28 May 2015 15:03:21 GMT
+      effective_url: http://localhost:3000/paypal_currencies
+  recorded_at: Thu, 28 May 2015 15:03:23 GMT
 - request:
     method: get
-    uri: http://localhost:3000/public_features?hmac_client_id=classic&hmac_nonce=1bf5c045-3e26-4d9e-a5f3-a86647353d4a&hmac_timestamp=1432825400
+    uri: http://localhost:3000/plans
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
       - Faraday v0.9.1
-      X-Teamsnap-Hmac:
-      - 9f51847399820a08362338e7745e01b46e5170e332923e1aa17ba8cac69396a0
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/vnd.collection+json
-      Content-Length:
-      - '193'
-      X-Content-Type-Options:
-      - nosniff
-      ETag:
-      - '"2fdae77a1b3b8380c845ffd0411e9e68"'
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      X-Request-Id:
-      - 0c212533-40d6-4c92-b58d-0ddfbbbb25d7
-      X-Runtime:
-      - '0.008598'
-      Connection:
-      - keep-alive
-      Server:
-      - thin
-    body:
-      encoding: UTF-8
-      string: '{"collection":{"version":"3.72.0","href":"http://localhost:3000/feature","links":[{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/public_features"}]}}'
-    http_version: '1.1'
-    adapter_metadata:
-      effective_url: http://localhost:3000/public_features?hmac_client_id=classic&hmac_nonce=1bf5c045-3e26-4d9e-a5f3-a86647353d4a&hmac_timestamp=1432825400
-  recorded_at: Thu, 28 May 2015 15:03:21 GMT
-- request:
-    method: get
-    uri: http://localhost:3000/sponsors?hmac_client_id=classic&hmac_nonce=9e33ffab-da88-4a0e-aff4-6dff20ac4857&hmac_timestamp=1432825400
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v0.9.1
-      X-Teamsnap-Hmac:
-      - d2a864cde49993cd7fcac119d49575481264020b7de4672497f7504b48d96231
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/vnd.collection+json
-      Content-Length:
-      - '919'
-      X-Content-Type-Options:
-      - nosniff
-      ETag:
-      - '"c8ce38a13a21051be2ec400f6d87e021"'
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      X-Request-Id:
-      - 0d142203-1bc4-41e9-8038-4485ac2f8c46
-      X-Runtime:
-      - '0.007988'
-      Connection:
-      - keep-alive
-      Server:
-      - thin
-    body:
-      encoding: UTF-8
-      string: '{"collection":{"version":"3.72.0","href":"http://localhost:3000/sponsors","template":{"data":[{"name":"team_id","value":null},{"name":"name","value":null},{"name":"url","value":null}]},"links":[{"rel":"team","href":"http://localhost:3000/teams"},{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/sponsors"}],"queries":[{"rel":"search","href":"http://localhost:3000/sponsors/search","data":[{"name":"team_id","value":null},{"name":"id","value":null}]}],"commands":[{"rel":"upload_sponsor_logo","href":"http://localhost:3000/sponsors/upload_sponsor_logo","prompt":"Upload
-        a sponsor logo.","data":[{"name":"sponsor_id","value":null},{"name":"file","value":null}]},{"rel":"remove_sponsor_logo","href":"http://localhost:3000/sponsors/remove_sponsor_logo","prompt":"translation
-        missing: en.prompts.sponsors.commands.remove_sponsor_logo","data":[{"name":"sponsor_id","value":null}]}]}}'
-    http_version: '1.1'
-    adapter_metadata:
-      effective_url: http://localhost:3000/sponsors?hmac_client_id=classic&hmac_nonce=9e33ffab-da88-4a0e-aff4-6dff20ac4857&hmac_timestamp=1432825400
-  recorded_at: Thu, 28 May 2015 15:03:21 GMT
-- request:
-    method: get
-    uri: http://localhost:3000/statistic_data?hmac_client_id=classic&hmac_nonce=f7bd9079-03a4-4342-b473-11a199367e7c&hmac_timestamp=1432825400
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v0.9.1
-      X-Teamsnap-Hmac:
-      - 3dfd7fe1d1bc33cdf7626cfbd63a6ffa6b0bd038db1e690dbe97239bee774e37
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/vnd.collection+json
-      Content-Length:
-      - '726'
-      X-Content-Type-Options:
-      - nosniff
-      ETag:
-      - '"e70d101bc4e8d0bc85f646bba5a9c4e3"'
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      X-Request-Id:
-      - 92cf47a3-7360-4300-8e76-639c9ae10188
-      X-Runtime:
-      - '0.008262'
-      Connection:
-      - keep-alive
-      Server:
-      - thin
-    body:
-      encoding: UTF-8
-      string: '{"collection":{"version":"3.72.0","href":"http://localhost:3000/statistic_data","template":{"data":[{"name":"team_id","value":null},{"name":"name","value":null}]},"links":[{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/statistic_data"},{"rel":"event","href":"http://localhost:3000/events"},{"rel":"member","href":"http://localhost:3000/members"},{"rel":"statistic","href":"http://localhost:3000/statistics"},{"rel":"team","href":"http://localhost:3000/teams"}],"queries":[{"rel":"search","href":"http://localhost:3000/statistic_data/search","data":[{"name":"id","value":null},{"name":"event_id","value":null},{"name":"statistic_id","value":null},{"name":"team_id","value":null}]}]}}'
-    http_version: '1.1'
-    adapter_metadata:
-      effective_url: http://localhost:3000/statistic_data?hmac_client_id=classic&hmac_nonce=f7bd9079-03a4-4342-b473-11a199367e7c&hmac_timestamp=1432825400
-  recorded_at: Thu, 28 May 2015 15:03:21 GMT
-- request:
-    method: get
-    uri: http://localhost:3000/statistic_groups?hmac_client_id=classic&hmac_nonce=9d935e8a-4dca-4615-ac0a-51773cdaec86&hmac_timestamp=1432825400
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v0.9.1
-      X-Teamsnap-Hmac:
-      - dabcab2fd741b8eefaf167b30d3cae53d4b25fee182ad2770ddf99cdf08fcb25
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/vnd.collection+json
-      Content-Length:
-      - '548'
-      X-Content-Type-Options:
-      - nosniff
-      ETag:
-      - '"3d0717775bdb00933031cb1e2a8a4c8e"'
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      X-Request-Id:
-      - 83c5a06e-cd4e-4929-bbde-dba1d77664dc
-      X-Runtime:
-      - '0.008309'
-      Connection:
-      - keep-alive
-      Server:
-      - thin
-    body:
-      encoding: UTF-8
-      string: '{"collection":{"version":"3.72.0","href":"http://localhost:3000/statistic_groups","template":{"data":[{"name":"team_id","value":null},{"name":"name","value":null}]},"links":[{"rel":"statistics","href":"http://localhost:3000/teams"},{"rel":"team","href":"http://localhost:3000/teams"},{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/statistic_groups"}],"queries":[{"rel":"search","href":"http://localhost:3000/statistic_groups/search","data":[{"name":"team_id","value":null},{"name":"id","value":null}]}]}}'
-    http_version: '1.1'
-    adapter_metadata:
-      effective_url: http://localhost:3000/statistic_groups?hmac_client_id=classic&hmac_nonce=9d935e8a-4dca-4615-ac0a-51773cdaec86&hmac_timestamp=1432825400
-  recorded_at: Thu, 28 May 2015 15:03:21 GMT
-- request:
-    method: get
-    uri: http://localhost:3000/plans?hmac_client_id=classic&hmac_nonce=f8c81829-7292-4f6e-b5d0-78b104815917&hmac_timestamp=1432825400
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v0.9.1
-      X-Teamsnap-Hmac:
-      - d63e981460b7ffdee9077883b6ba5e3841178a94e770e17f84fc1aed086b8b20
+      Authorization:
+      - Bearer 1-classic-dont_tell_the_cops
   response:
     status:
       code: 200
@@ -1665,14 +1703,20 @@ http_interactions:
       - '19198'
       X-Content-Type-Options:
       - nosniff
+      X-RateLimit-Limit:
+      - '5000'
+      X-RateLimit-Remaining:
+      - '4897'
+      X-RateLimit-Reset:
+      - '1432828850'
       ETag:
       - '"3aabfd9bb01d0f40631bf9ae19af6ae5"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - fa3dd2ae-e75f-4442-8e15-8ddfff91b96c
+      - 5115f862-a054-4fc8-bd9c-fb2779b70467
       X-Runtime:
-      - '0.022829'
+      - '0.030651'
       Connection:
       - keep-alive
       Server:
@@ -1696,19 +1740,66 @@ http_interactions:
         Plan"},{"name":"plan_type","value":"ultra"},{"name":"platform","value":"partner"},{"name":"platform_version","value":"0.0.0"},{"name":"upload_quota_in_mb","value":99000}]}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/plans?hmac_client_id=classic&hmac_nonce=f8c81829-7292-4f6e-b5d0-78b104815917&hmac_timestamp=1432825400
-  recorded_at: Thu, 28 May 2015 15:03:21 GMT
+      effective_url: http://localhost:3000/plans
+  recorded_at: Thu, 28 May 2015 15:03:23 GMT
 - request:
     method: get
-    uri: http://localhost:3000/sms_gateways?hmac_client_id=classic&hmac_nonce=33db579c-d92c-4799-9404-c50789d37ee1&hmac_timestamp=1432825400
+    uri: http://localhost:3000/public_features
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
       - Faraday v0.9.1
-      X-Teamsnap-Hmac:
-      - 9fe450969fa4ef5af3c888d147a833852a8255bd4dc22621612076ad07d7bbcc
+      Authorization:
+      - Bearer 1-classic-dont_tell_the_cops
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/vnd.collection+json
+      Content-Length:
+      - '193'
+      X-Content-Type-Options:
+      - nosniff
+      X-RateLimit-Limit:
+      - '5000'
+      X-RateLimit-Remaining:
+      - '4896'
+      X-RateLimit-Reset:
+      - '1432828850'
+      ETag:
+      - '"2fdae77a1b3b8380c845ffd0411e9e68"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 788d0fce-5bb6-45c7-a6d7-9dc44b0cd80b
+      X-Runtime:
+      - '0.013620'
+      Connection:
+      - keep-alive
+      Server:
+      - thin
+    body:
+      encoding: UTF-8
+      string: '{"collection":{"version":"3.72.0","href":"http://localhost:3000/feature","links":[{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/public_features"}]}}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: http://localhost:3000/public_features
+  recorded_at: Thu, 28 May 2015 15:03:23 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/sms_gateways
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.1
+      Authorization:
+      - Bearer 1-classic-dont_tell_the_cops
   response:
     status:
       code: 200
@@ -1720,14 +1811,20 @@ http_interactions:
       - '33044'
       X-Content-Type-Options:
       - nosniff
+      X-RateLimit-Limit:
+      - '5000'
+      X-RateLimit-Remaining:
+      - '4895'
+      X-RateLimit-Reset:
+      - '1432828850'
       ETag:
       - '"0953b69c12d96f5be1b9900711ac231a"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 0e5844bb-112e-4612-af5e-47c354447a17
+      - 0610dc6b-83b8-4e25-a911-61a042090401
       X-Runtime:
-      - '0.103801'
+      - '0.218031'
       Connection:
       - keep-alive
       Server:
@@ -1845,19 +1942,68 @@ http_interactions:
         Mobile (Canada)"}]}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/sms_gateways?hmac_client_id=classic&hmac_nonce=33db579c-d92c-4799-9404-c50789d37ee1&hmac_timestamp=1432825400
-  recorded_at: Thu, 28 May 2015 15:03:21 GMT
+      effective_url: http://localhost:3000/sms_gateways
+  recorded_at: Thu, 28 May 2015 15:03:23 GMT
 - request:
     method: get
-    uri: http://localhost:3000/sports?hmac_client_id=classic&hmac_nonce=f713bdc9-3501-4d5c-aa07-3ff4f061e6f3&hmac_timestamp=1432825400
+    uri: http://localhost:3000/sponsors
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
       - Faraday v0.9.1
-      X-Teamsnap-Hmac:
-      - 720e2632cd57671dd5e0cadb1b2fe091adeee3709e0fc1c6b00e28b21da35495
+      Authorization:
+      - Bearer 1-classic-dont_tell_the_cops
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/vnd.collection+json
+      Content-Length:
+      - '919'
+      X-Content-Type-Options:
+      - nosniff
+      X-RateLimit-Limit:
+      - '5000'
+      X-RateLimit-Remaining:
+      - '4894'
+      X-RateLimit-Reset:
+      - '1432828850'
+      ETag:
+      - '"c8ce38a13a21051be2ec400f6d87e021"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 581d3247-db2b-47da-8b85-a516b900aabc
+      X-Runtime:
+      - '0.034846'
+      Connection:
+      - keep-alive
+      Server:
+      - thin
+    body:
+      encoding: UTF-8
+      string: '{"collection":{"version":"3.72.0","href":"http://localhost:3000/sponsors","template":{"data":[{"name":"team_id","value":null},{"name":"name","value":null},{"name":"url","value":null}]},"links":[{"rel":"team","href":"http://localhost:3000/teams"},{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/sponsors"}],"queries":[{"rel":"search","href":"http://localhost:3000/sponsors/search","data":[{"name":"team_id","value":null},{"name":"id","value":null}]}],"commands":[{"rel":"upload_sponsor_logo","href":"http://localhost:3000/sponsors/upload_sponsor_logo","prompt":"Upload
+        a sponsor logo.","data":[{"name":"sponsor_id","value":null},{"name":"file","value":null}]},{"rel":"remove_sponsor_logo","href":"http://localhost:3000/sponsors/remove_sponsor_logo","prompt":"translation
+        missing: en.prompts.sponsors.commands.remove_sponsor_logo","data":[{"name":"sponsor_id","value":null}]}]}}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: http://localhost:3000/sponsors
+  recorded_at: Thu, 28 May 2015 15:03:23 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/sports
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.1
+      Authorization:
+      - Bearer 1-classic-dont_tell_the_cops
   response:
     status:
       code: 200
@@ -1869,14 +2015,20 @@ http_interactions:
       - '44007'
       X-Content-Type-Options:
       - nosniff
+      X-RateLimit-Limit:
+      - '5000'
+      X-RateLimit-Remaining:
+      - '4893'
+      X-RateLimit-Reset:
+      - '1432828850'
       ETag:
       - '"d42026e9282fad9c54374ab7ce16fc58"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 3d6cf929-9634-46d3-a12b-7efbfb8399f7
+      - d178288a-6d29-44da-8efa-dad1d8e6cd65
       X-Runtime:
-      - '0.106297'
+      - '0.153601'
       Connection:
       - keep-alive
       Server:
@@ -1922,19 +2074,19 @@ http_interactions:
         Lacrosse"},{"name":"overtime_abbrev","value":"OT"},{"name":"overtime_label","value":"Overtime"},{"name":"shootout_abbrev","value":null},{"name":"shootout_label","value":null},{"name":"tracks_overtime_losses","value":false},{"name":"tracks_points","value":true}]}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/sports?hmac_client_id=classic&hmac_nonce=f713bdc9-3501-4d5c-aa07-3ff4f061e6f3&hmac_timestamp=1432825400
-  recorded_at: Thu, 28 May 2015 15:03:21 GMT
+      effective_url: http://localhost:3000/sports
+  recorded_at: Thu, 28 May 2015 15:03:23 GMT
 - request:
     method: get
-    uri: http://localhost:3000/statistics?hmac_client_id=classic&hmac_nonce=2f15c164-9b47-4b43-97b6-566bec799f90&hmac_timestamp=1432825400
+    uri: http://localhost:3000/statistics
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
       - Faraday v0.9.1
-      X-Teamsnap-Hmac:
-      - 8a8d2b2c37403366dcc14054cb971e50c156b362e122da3a348438639b109bfe
+      Authorization:
+      - Bearer 1-classic-dont_tell_the_cops
   response:
     status:
       code: 200
@@ -1946,14 +2098,20 @@ http_interactions:
       - '1038'
       X-Content-Type-Options:
       - nosniff
+      X-RateLimit-Limit:
+      - '5000'
+      X-RateLimit-Remaining:
+      - '4892'
+      X-RateLimit-Reset:
+      - '1432828850'
       ETag:
       - '"446a0ea2b932dbacdf5bfcd8203dd2d0"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - c76e17bd-2e37-48a6-b6fe-fed5836d5268
+      - e572f9e7-4847-409c-9d93-35fbac9defb0
       X-Runtime:
-      - '0.051462'
+      - '0.014500'
       Connection:
       - keep-alive
       Server:
@@ -1963,19 +2121,113 @@ http_interactions:
       string: '{"collection":{"version":"3.72.0","href":"http://localhost:3000/statistics","template":{"data":[{"name":"team_id","value":null},{"name":"name","value":null},{"name":"acronym","value":null},{"name":"formula","value":null},{"name":"precision","value":null},{"name":"is_rounded","value":null},{"name":"is_percentage","value":null},{"name":"has_zeros_displayed","value":null},{"name":"has_descending_order","value":null},{"name":"is_top_statistic","value":null},{"name":"is_private","value":null},{"name":"is_team_statistic","value":null}]},"links":[{"rel":"team","href":"http://localhost:3000/teams"},{"rel":"statistic_data","href":"http://localhost:3000/statistic_data"},{"rel":"statistic_group","href":"http://localhost:3000/statistic_groups"},{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/statistics"}],"queries":[{"rel":"search","href":"http://localhost:3000/statistics/search","data":[{"name":"statistic_group_id","value":null},{"name":"team_id","value":null},{"name":"id","value":null}]}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/statistics?hmac_client_id=classic&hmac_nonce=2f15c164-9b47-4b43-97b6-566bec799f90&hmac_timestamp=1432825400
-  recorded_at: Thu, 28 May 2015 15:03:21 GMT
+      effective_url: http://localhost:3000/statistics
+  recorded_at: Thu, 28 May 2015 15:03:23 GMT
 - request:
     method: get
-    uri: http://localhost:3000/referrals?hmac_client_id=classic&hmac_nonce=8cfbf985-012a-4df6-8d6c-ef6e2cfd226f&hmac_timestamp=1432825400
+    uri: http://localhost:3000/statistic_data
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
       - Faraday v0.9.1
-      X-Teamsnap-Hmac:
-      - e17243a95eca53b3aa714f8feb01b89f5b7bf4dc25f6416e98b3bd05e05c92e4
+      Authorization:
+      - Bearer 1-classic-dont_tell_the_cops
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/vnd.collection+json
+      Content-Length:
+      - '726'
+      X-Content-Type-Options:
+      - nosniff
+      X-RateLimit-Limit:
+      - '5000'
+      X-RateLimit-Remaining:
+      - '4891'
+      X-RateLimit-Reset:
+      - '1432828850'
+      ETag:
+      - '"e70d101bc4e8d0bc85f646bba5a9c4e3"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 917929d6-1340-4d13-aba9-805c042e2e6e
+      X-Runtime:
+      - '0.014338'
+      Connection:
+      - keep-alive
+      Server:
+      - thin
+    body:
+      encoding: UTF-8
+      string: '{"collection":{"version":"3.72.0","href":"http://localhost:3000/statistic_data","template":{"data":[{"name":"team_id","value":null},{"name":"name","value":null}]},"links":[{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/statistic_data"},{"rel":"event","href":"http://localhost:3000/events"},{"rel":"member","href":"http://localhost:3000/members"},{"rel":"statistic","href":"http://localhost:3000/statistics"},{"rel":"team","href":"http://localhost:3000/teams"}],"queries":[{"rel":"search","href":"http://localhost:3000/statistic_data/search","data":[{"name":"id","value":null},{"name":"event_id","value":null},{"name":"statistic_id","value":null},{"name":"team_id","value":null}]}]}}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: http://localhost:3000/statistic_data
+  recorded_at: Thu, 28 May 2015 15:03:23 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/statistic_groups
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.1
+      Authorization:
+      - Bearer 1-classic-dont_tell_the_cops
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/vnd.collection+json
+      Content-Length:
+      - '548'
+      X-Content-Type-Options:
+      - nosniff
+      X-RateLimit-Limit:
+      - '5000'
+      X-RateLimit-Remaining:
+      - '4890'
+      X-RateLimit-Reset:
+      - '1432828850'
+      ETag:
+      - '"3d0717775bdb00933031cb1e2a8a4c8e"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 847c9c36-bb15-4327-a9e4-384f8f4f2f98
+      X-Runtime:
+      - '0.014302'
+      Connection:
+      - keep-alive
+      Server:
+      - thin
+    body:
+      encoding: UTF-8
+      string: '{"collection":{"version":"3.72.0","href":"http://localhost:3000/statistic_groups","template":{"data":[{"name":"team_id","value":null},{"name":"name","value":null}]},"links":[{"rel":"statistics","href":"http://localhost:3000/teams"},{"rel":"team","href":"http://localhost:3000/teams"},{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/statistic_groups"}],"queries":[{"rel":"search","href":"http://localhost:3000/statistic_groups/search","data":[{"name":"team_id","value":null},{"name":"id","value":null}]}]}}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: http://localhost:3000/statistic_groups
+  recorded_at: Thu, 28 May 2015 15:03:23 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/referrals
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.1
+      Authorization:
+      - Bearer 1-classic-dont_tell_the_cops
   response:
     status:
       code: 200
@@ -1987,14 +2239,20 @@ http_interactions:
       - '957'
       X-Content-Type-Options:
       - nosniff
+      X-RateLimit-Limit:
+      - '5000'
+      X-RateLimit-Remaining:
+      - '4889'
+      X-RateLimit-Reset:
+      - '1432828850'
       ETag:
       - '"77ae40b7ec602a90fe0a7d4ef36a04a8"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - d009afe9-2f2c-408a-8c1e-8afabed6f94e
+      - 6ef98702-7f26-4e68-a73d-b77e626a6668
       X-Runtime:
-      - '0.013106'
+      - '0.014404'
       Connection:
       - keep-alive
       Server:
@@ -2004,19 +2262,19 @@ http_interactions:
       string: '{"collection":{"version":"3.72.0","href":"http://localhost:3000/referrals","links":[{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/referrals"}],"template":{"data":[{"name":"to_address","value":null},{"name":"name","value":null},{"name":"friends_name","value":null},{"name":"friends_email","value":null},{"name":"subject","value":null},{"name":"body","value":null},{"name":"page","value":null},{"name":"referral_form_version","value":null},{"name":"referral_email_variant","value":null}]},"commands":[{"rel":"referral","href":"http://localhost:3000/referrals","prompt":"Referral","data":[{"name":"to_address","value":null},{"name":"name","value":null},{"name":"friends_name","value":null},{"name":"friends_email","value":null},{"name":"subject","value":null},{"name":"body","value":null},{"name":"page","value":null},{"name":"referral_form_version","value":null},{"name":"referral_email_variant","value":null}]}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/referrals?hmac_client_id=classic&hmac_nonce=8cfbf985-012a-4df6-8d6c-ef6e2cfd226f&hmac_timestamp=1432825400
-  recorded_at: Thu, 28 May 2015 15:03:21 GMT
+      effective_url: http://localhost:3000/referrals
+  recorded_at: Thu, 28 May 2015 15:03:23 GMT
 - request:
     method: get
-    uri: http://localhost:3000/team_fees?hmac_client_id=classic&hmac_nonce=343a9f7f-fd03-4ecf-9d9f-d6d8b09e1e03&hmac_timestamp=1432825400
+    uri: http://localhost:3000/team_fees
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
       - Faraday v0.9.1
-      X-Teamsnap-Hmac:
-      - df94282d9bd150d783008cdbaa475ec1f38ddc5f83d86d4c66050f715c9bae91
+      Authorization:
+      - Bearer 1-classic-dont_tell_the_cops
   response:
     status:
       code: 200
@@ -2028,14 +2286,20 @@ http_interactions:
       - '610'
       X-Content-Type-Options:
       - nosniff
+      X-RateLimit-Limit:
+      - '5000'
+      X-RateLimit-Remaining:
+      - '4888'
+      X-RateLimit-Reset:
+      - '1432828850'
       ETag:
       - '"27ec2bc8aa8780acb109a0771f592f00"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - faa5e6d1-df73-4161-9284-f4f81d067290
+      - 9bde6a8d-7b44-4166-97fb-954ba2218e04
       X-Runtime:
-      - '0.010705'
+      - '0.014872'
       Connection:
       - keep-alive
       Server:
@@ -2045,19 +2309,69 @@ http_interactions:
       string: '{"collection":{"version":"3.72.0","href":"http://localhost:3000/team_fees","template":{"data":[{"name":"description","value":null},{"name":"amount","value":null},{"name":"notes","value":null},{"name":"team_id","value":null}]},"links":[{"rel":"member_payments","href":"http://localhost:3000/member_payments"},{"rel":"team","href":"http://localhost:3000/teams"},{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/team_fees"}],"queries":[{"rel":"search","href":"http://localhost:3000/team_fees/search","data":[{"name":"team_id","value":null},{"name":"id","value":null}]}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/team_fees?hmac_client_id=classic&hmac_nonce=343a9f7f-fd03-4ecf-9d9f-d6d8b09e1e03&hmac_timestamp=1432825400
-  recorded_at: Thu, 28 May 2015 15:03:21 GMT
+      effective_url: http://localhost:3000/team_fees
+  recorded_at: Thu, 28 May 2015 15:03:23 GMT
 - request:
     method: get
-    uri: http://localhost:3000/teams?hmac_client_id=classic&hmac_nonce=0aa761c6-f74b-453c-a3ec-8d38a0300c4e&hmac_timestamp=1432825400
+    uri: http://localhost:3000/team_public_sites
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
       - Faraday v0.9.1
-      X-Teamsnap-Hmac:
-      - b2171fe0d061d4655f353b8c0be366f7d07392dce09191e37d1a2358776d58b1
+      Authorization:
+      - Bearer 1-classic-dont_tell_the_cops
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/vnd.collection+json
+      Content-Length:
+      - '2017'
+      X-Content-Type-Options:
+      - nosniff
+      X-RateLimit-Limit:
+      - '5000'
+      X-RateLimit-Remaining:
+      - '4887'
+      X-RateLimit-Reset:
+      - '1432828850'
+      ETag:
+      - '"22c0c3c327744406183f4254282c67d0"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 055ff605-0f4f-4ff4-a6d5-8519355daf32
+      X-Runtime:
+      - '0.014514'
+      Connection:
+      - keep-alive
+      Server:
+      - thin
+    body:
+      encoding: UTF-8
+      string: '{"collection":{"version":"3.72.0","href":"http://localhost:3000/team_public_sites","template":{"data":[{"name":"custom_domain","value":null},{"name":"enable_assignments","value":null},{"name":"enable_availabilities","value":null},{"name":"enable_events","value":null},{"name":"enable_files","value":null},{"name":"enable_games","value":null},{"name":"enable_marketplace","value":null},{"name":"enable_members","value":null},{"name":"enable_messages","value":null},{"name":"enable_payments","value":null},{"name":"enable_photos","value":null},{"name":"enable_public_contact","value":null},{"name":"enable_public_email","value":null},{"name":"enable_schedule","value":null},{"name":"enable_statistics","value":null},{"name":"enabled","value":null},{"name":"hide_old_events","value":null},{"name":"hide_win_loss_record","value":null},{"name":"public_email_manager_only","value":null},{"name":"public_email_reply_to_list","value":null},{"name":"subdomain","value":null},{"name":"team_headline","value":null},{"name":"team_message","value":null}]},"links":[{"rel":"team","href":"http://localhost:3000/teams"},{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/team_public_sites"}],"queries":[{"rel":"search","href":"http://localhost:3000/team_public_sites/search","data":[{"name":"id","value":null},{"name":"team_id","value":null}]}],"commands":[{"rel":"upload_team_public_photo","href":"http://localhost:3000/team_public_sites/upload_team_public_photo","prompt":"Upload
+        a team public photo.","data":[{"name":"team_public_site_id","value":null},{"name":"file","value":null}]},{"rel":"remove_team_public_photo","href":"http://localhost:3000/team_public_sites/remove_team_public_photo","prompt":"Remove
+        a team public photo.","data":[{"name":"team_public_site_id","value":null}]},{"rel":"validate_subdomain","href":"http://localhost:3000/team_public_sites/validate_subdomain","prompt":"Check
+        to see if a subdomain is available and valid.","data":[{"name":"subdomain","value":null}]}]}}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: http://localhost:3000/team_public_sites
+  recorded_at: Thu, 28 May 2015 15:03:23 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/teams
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.1
+      Authorization:
+      - Bearer 1-classic-dont_tell_the_cops
   response:
     status:
       code: 200
@@ -2069,14 +2383,20 @@ http_interactions:
       - '4664'
       X-Content-Type-Options:
       - nosniff
+      X-RateLimit-Limit:
+      - '5000'
+      X-RateLimit-Remaining:
+      - '4886'
+      X-RateLimit-Reset:
+      - '1432828850'
       ETag:
       - '"10b222b87130a2c02da859afbb9ad12c"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - d3704c45-b2fb-4286-bdc3-12657e9b92b7
+      - 85438cd7-0764-4c28-9df7-5656eb9c6a42
       X-Runtime:
-      - '0.011667'
+      - '0.016810'
       Connection:
       - keep-alive
       Server:
@@ -2088,19 +2408,19 @@ http_interactions:
         team''s time zone.","data":[{"name":"team_id","value":null},{"name":"time_zone","value":null},{"name":"offset_team_times","value":null}]}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/teams?hmac_client_id=classic&hmac_nonce=0aa761c6-f74b-453c-a3ec-8d38a0300c4e&hmac_timestamp=1432825400
-  recorded_at: Thu, 28 May 2015 15:03:21 GMT
+      effective_url: http://localhost:3000/teams
+  recorded_at: Thu, 28 May 2015 15:03:24 GMT
 - request:
     method: get
-    uri: http://localhost:3000/teams_paypal_preferences?hmac_client_id=classic&hmac_nonce=28ced9a7-8dcf-465d-9f98-a9a8d7bfb2b7&hmac_timestamp=1432825400
+    uri: http://localhost:3000/teams_paypal_preferences
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
       - Faraday v0.9.1
-      X-Teamsnap-Hmac:
-      - 9cf7bed349a648e1b60af170fa890d3e18ff8757bf16a61f9e095ce863ccaf73
+      Authorization:
+      - Bearer 1-classic-dont_tell_the_cops
   response:
     status:
       code: 200
@@ -2112,14 +2432,20 @@ http_interactions:
       - '699'
       X-Content-Type-Options:
       - nosniff
+      X-RateLimit-Limit:
+      - '5000'
+      X-RateLimit-Remaining:
+      - '4884'
+      X-RateLimit-Reset:
+      - '1432828851'
       ETag:
       - '"19ef34daf0574cf25014d173eb50615b"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 5c42eaca-600f-451f-8374-d473fcf9918d
+      - 39905d27-2729-466b-9398-2b7a383d8aff
       X-Runtime:
-      - '0.010095'
+      - '0.011638'
       Connection:
       - keep-alive
       Server:
@@ -2129,19 +2455,19 @@ http_interactions:
       string: '{"collection":{"version":"3.72.0","href":"http://localhost:3000/teams_paypal_preferences","template":{"data":[{"name":"is_paypal_active","value":null},{"name":"is_paypal_allowed","value":null},{"name":"paypal_currency_id","value":null},{"name":"paypal_email","value":null},{"name":"paypal_first_name","value":null},{"name":"paypal_last_name","value":null}]},"links":[{"rel":"team","href":"http://localhost:3000/teams"},{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/teams_paypal_preferences"}],"queries":[{"rel":"search","href":"http://localhost:3000/teams_paypal_preferences/search","data":[{"name":"team_id","value":null},{"name":"id","value":null}]}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/teams_paypal_preferences?hmac_client_id=classic&hmac_nonce=28ced9a7-8dcf-465d-9f98-a9a8d7bfb2b7&hmac_timestamp=1432825400
-  recorded_at: Thu, 28 May 2015 15:03:21 GMT
+      effective_url: http://localhost:3000/teams_paypal_preferences
+  recorded_at: Thu, 28 May 2015 15:03:24 GMT
 - request:
     method: get
-    uri: http://localhost:3000/teams_preferences?hmac_client_id=classic&hmac_nonce=38ea6c46-4649-4ca0-8235-858c9ba13845&hmac_timestamp=1432825400
+    uri: http://localhost:3000/teams_preferences
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
       - Faraday v0.9.1
-      X-Teamsnap-Hmac:
-      - c5310edca28f2a19f30aed5a33a301969f4449cceed56a365c1e18870fcb237b
+      Authorization:
+      - Bearer 1-classic-dont_tell_the_cops
   response:
     status:
       code: 200
@@ -2153,14 +2479,20 @@ http_interactions:
       - '2895'
       X-Content-Type-Options:
       - nosniff
+      X-RateLimit-Limit:
+      - '5000'
+      X-RateLimit-Remaining:
+      - '4883'
+      X-RateLimit-Reset:
+      - '1432828851'
       ETag:
       - '"8bd6c9aa4a038a8dfc76c9113b787488"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - a8352291-791c-4bf6-ac8f-c4371c917d30
+      - 523ebbfa-57ad-4612-ac22-3a90221ece55
       X-Runtime:
-      - '0.010236'
+      - '0.011809'
       Connection:
       - keep-alive
       Server:
@@ -2174,19 +2506,19 @@ http_interactions:
         a team photo.","data":[{"name":"team_preferences_id","value":null}]}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/teams_preferences?hmac_client_id=classic&hmac_nonce=38ea6c46-4649-4ca0-8235-858c9ba13845&hmac_timestamp=1432825400
-  recorded_at: Thu, 28 May 2015 15:03:21 GMT
+      effective_url: http://localhost:3000/teams_preferences
+  recorded_at: Thu, 28 May 2015 15:03:24 GMT
 - request:
     method: get
-    uri: http://localhost:3000/teams_results?hmac_client_id=classic&hmac_nonce=fd6017ce-6227-41f2-8883-0502f9f72360&hmac_timestamp=1432825400
+    uri: http://localhost:3000/teams_results
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
       - Faraday v0.9.1
-      X-Teamsnap-Hmac:
-      - 84d053bed03f624fa07f3f712073703c9ed8ce916d057fe84a76035f4371c921
+      Authorization:
+      - Bearer 1-classic-dont_tell_the_cops
   response:
     status:
       code: 200
@@ -2198,14 +2530,20 @@ http_interactions:
       - '398'
       X-Content-Type-Options:
       - nosniff
+      X-RateLimit-Limit:
+      - '5000'
+      X-RateLimit-Remaining:
+      - '4882'
+      X-RateLimit-Reset:
+      - '1432828851'
       ETag:
       - '"0ffdd1aaf4363bbb2512ef3f51ac9b32"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 6b24b8ad-4a93-4ced-b6fc-07b8b797bc66
+      - 8380684a-4146-4621-a9c5-315464786c08
       X-Runtime:
-      - '0.009132'
+      - '0.011387'
       Connection:
       - keep-alive
       Server:
@@ -2215,19 +2553,255 @@ http_interactions:
       string: '{"collection":{"version":"3.72.0","href":"http://localhost:3000/teams_results","links":[{"rel":"team","href":"http://localhost:3000/teams"},{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/teams_results"}],"queries":[{"rel":"search","href":"http://localhost:3000/teams_results/search","data":[{"name":"team_id","value":null},{"name":"id","value":null}]}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/teams_results?hmac_client_id=classic&hmac_nonce=fd6017ce-6227-41f2-8883-0502f9f72360&hmac_timestamp=1432825400
-  recorded_at: Thu, 28 May 2015 15:03:21 GMT
+      effective_url: http://localhost:3000/teams_results
+  recorded_at: Thu, 28 May 2015 15:03:24 GMT
 - request:
     method: get
-    uri: http://localhost:3000/time_zones?hmac_client_id=classic&hmac_nonce=706f035e-35d6-450a-9432-d8b8ab28e2e9&hmac_timestamp=1432825400
+    uri: http://localhost:3000/tracked_item_statuses
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
       - Faraday v0.9.1
-      X-Teamsnap-Hmac:
-      - fd1843dac2173db35543d2ccb4095a0b29ba5e7a4e1b59e9b97b8bcefd2082f6
+      Authorization:
+      - Bearer 1-classic-dont_tell_the_cops
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/vnd.collection+json
+      Content-Length:
+      - '752'
+      X-Content-Type-Options:
+      - nosniff
+      X-RateLimit-Limit:
+      - '5000'
+      X-RateLimit-Remaining:
+      - '4881'
+      X-RateLimit-Reset:
+      - '1432828851'
+      ETag:
+      - '"4fcaef78e779ce173c598fc76adcbd38"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 2b8e8a78-0aad-44b0-aff9-e322a5775415
+      X-Runtime:
+      - '0.011488'
+      Connection:
+      - keep-alive
+      Server:
+      - thin
+    body:
+      encoding: UTF-8
+      string: '{"collection":{"version":"3.72.0","href":"http://localhost:3000/tracked_item_statuses","template":{"data":[{"name":"status_code","value":null},{"name":"tracked_item_id","value":null},{"name":"member_id","value":null}]},"links":[{"rel":"member","href":"http://localhost:3000/members"},{"rel":"team","href":"http://localhost:3000/teams"},{"rel":"tracked_item","href":"http://localhost:3000/tracked_items"},{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/tracked_item_statuses"}],"queries":[{"rel":"search","href":"http://localhost:3000/tracked_item_statuses/search","data":[{"name":"team_id","value":null},{"name":"member_id","value":null},{"name":"tracked_item_id","value":null},{"name":"id","value":null}]}]}}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: http://localhost:3000/tracked_item_statuses
+  recorded_at: Thu, 28 May 2015 15:03:24 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/tracked_items
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.1
+      Authorization:
+      - Bearer 1-classic-dont_tell_the_cops
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/vnd.collection+json
+      Content-Length:
+      - '566'
+      X-Content-Type-Options:
+      - nosniff
+      X-RateLimit-Limit:
+      - '5000'
+      X-RateLimit-Remaining:
+      - '4880'
+      X-RateLimit-Reset:
+      - '1432828851'
+      ETag:
+      - '"f33481500b005da67af62711f4fc0449"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - e15bfb4e-d0ec-422f-8d5e-437bcccb579f
+      X-Runtime:
+      - '0.011500'
+      Connection:
+      - keep-alive
+      Server:
+      - thin
+    body:
+      encoding: UTF-8
+      string: '{"collection":{"version":"3.72.0","href":"http://localhost:3000/tracked_items","template":{"data":[{"name":"name","value":null},{"name":"team_id","value":null}]},"links":[{"rel":"team","href":"http://localhost:3000/teams"},{"rel":"tracked_item_statuses","href":"http://localhost:3000/tracked_item_statuses"},{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/tracked_items"}],"queries":[{"rel":"search","href":"http://localhost:3000/tracked_items/search","data":[{"name":"team_id","value":null},{"name":"id","value":null}]}]}}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: http://localhost:3000/tracked_items
+  recorded_at: Thu, 28 May 2015 15:03:24 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/tsl_metadata
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.1
+      Authorization:
+      - Bearer 1-classic-dont_tell_the_cops
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/vnd.collection+json
+      Content-Length:
+      - '481'
+      X-Content-Type-Options:
+      - nosniff
+      X-RateLimit-Limit:
+      - '5000'
+      X-RateLimit-Remaining:
+      - '4879'
+      X-RateLimit-Reset:
+      - '1432828851'
+      ETag:
+      - '"bac15abc2c9c36d488f0d4ebe9402998"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 81035fe4-7fd6-4669-bc10-25e309a64239
+      X-Runtime:
+      - '0.012016'
+      Connection:
+      - keep-alive
+      Server:
+      - thin
+    body:
+      encoding: UTF-8
+      string: '{"collection":{"version":"3.72.0","href":"http://localhost:3000/tsl_metadata","template":{"data":[{"name":"user_id","value":null}]},"links":[{"rel":"user","href":"http://localhost:3000/users"},{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/tsl_metadata"}],"queries":[{"rel":"search","href":"http://localhost:3000/tsl_metadata/search","data":[{"name":"user_id","value":null},{"name":"id","value":null},{"name":"version","value":null}]}]}}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: http://localhost:3000/tsl_metadata
+  recorded_at: Thu, 28 May 2015 15:03:24 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/tsl_photos
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.1
+      Authorization:
+      - Bearer 1-classic-dont_tell_the_cops
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/vnd.collection+json
+      Content-Length:
+      - '857'
+      X-Content-Type-Options:
+      - nosniff
+      X-RateLimit-Limit:
+      - '5000'
+      X-RateLimit-Remaining:
+      - '4878'
+      X-RateLimit-Reset:
+      - '1432828851'
+      ETag:
+      - '"2b9f130e0fa5e17db18ff6ca9c78e1da"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - f428945d-5cbe-45fc-8552-e41d89176346
+      X-Runtime:
+      - '0.011396'
+      Connection:
+      - keep-alive
+      Server:
+      - thin
+    body:
+      encoding: UTF-8
+      string: '{"collection":{"version":"3.72.0","href":"http://localhost:3000/tsl_photos","data":[{"name":"host_prefix","value":"https://7260a23d55820f6c1c20-f198c593f0f20eb7f7dca7d007f0f2d7.ssl.cf1.rackcdn.com"}],"links":[{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/tsl_photos"}],"commands":[{"rel":"upload","href":"https://storage101.dfw1.clouddrive.com/v1/MossoCloudFS_b16ebd19-d46d-4f34-88cc-4d869b1b56f4/rw_formpost_test","prompt":"Upload
+        TeamSnap Live photo","data":[{"name":"team_id","value":null},{"name":"event_id","value":null},{"name":"user_id","value":null},{"name":"redirect","value":""},{"name":"max_file_size","value":104857600},{"name":"max_file_count","value":1},{"name":"expires","value":1432827204},{"name":"signature","value":"2002d30ec5b85776fdb36b9b46275cd3c827ebcf"},{"name":"file1","value":null}]}]}}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: http://localhost:3000/tsl_photos
+  recorded_at: Thu, 28 May 2015 15:03:24 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/users
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.1
+      Authorization:
+      - Bearer 1-classic-dont_tell_the_cops
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/vnd.collection+json
+      Content-Length:
+      - '669'
+      X-Content-Type-Options:
+      - nosniff
+      X-RateLimit-Limit:
+      - '5000'
+      X-RateLimit-Remaining:
+      - '4877'
+      X-RateLimit-Reset:
+      - '1432828851'
+      ETag:
+      - '"d26107c6dc8fcf220d10c43d2a52546e"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 02483249-d0c3-47b0-bb66-2eef05556323
+      X-Runtime:
+      - '0.011324'
+      Connection:
+      - keep-alive
+      Server:
+      - thin
+    body:
+      encoding: UTF-8
+      string: '{"collection":{"version":"3.72.0","href":"http://localhost:3000/users","template":{"data":[{"name":"first_name","value":null},{"name":"last_name","value":null},{"name":"password","value":null},{"name":"birthday","value":null},{"name":"email","value":null},{"name":"facebook_id","value":null},{"name":"facebook_access_token","value":null}]},"links":[{"rel":"members","href":"http://localhost:3000/members"},{"rel":"teams","href":"http://localhost:3000/teams"},{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/users"}],"queries":[{"rel":"search","href":"http://localhost:3000/users/search","data":[{"name":"id","value":null}]}]}}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: http://localhost:3000/users
+  recorded_at: Thu, 28 May 2015 15:03:24 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/time_zones
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.1
+      Authorization:
+      - Bearer 1-classic-dont_tell_the_cops
   response:
     status:
       code: 200
@@ -2239,14 +2813,20 @@ http_interactions:
       - '37830'
       X-Content-Type-Options:
       - nosniff
+      X-RateLimit-Limit:
+      - '5000'
+      X-RateLimit-Remaining:
+      - '4885'
+      X-RateLimit-Reset:
+      - '1432828850'
       ETag:
       - '"588a362523ea76b71c4625934116c324"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 762c466f-944c-48b3-8c48-ff98672b52ec
+      - d51764d6-95d2-4fe1-a94c-3728d51df587
       X-Runtime:
-      - '0.164691'
+      - '0.165946'
       Connection:
       - keep-alive
       Server:
@@ -2283,256 +2863,56 @@ http_interactions:
         Is."},{"name":"iana_name","value":"Pacific/Fakaofo"},{"name":"offset","value":"+13:00"}]}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/time_zones?hmac_client_id=classic&hmac_nonce=706f035e-35d6-450a-9432-d8b8ab28e2e9&hmac_timestamp=1432825400
-  recorded_at: Thu, 28 May 2015 15:03:21 GMT
+      effective_url: http://localhost:3000/time_zones
+  recorded_at: Thu, 28 May 2015 15:03:24 GMT
 - request:
-    method: get
-    uri: http://localhost:3000/tracked_item_statuses?hmac_client_id=classic&hmac_nonce=5ce058f1-9a42-4d63-a777-c42667955acb&hmac_timestamp=1432825400
+    method: post
+    uri: http://localhost:3000/teams/invite
     body:
-      encoding: US-ASCII
-      string: ''
+      encoding: UTF-8
+      string: '{"team_id":1,"member_id":[9,11],"notify_as_member_id":3,"introduction":"Welcome!
+        This is our team\n ...the superstars!"}'
     headers:
       User-Agent:
       - Faraday v0.9.1
-      X-Teamsnap-Hmac:
-      - bd8b1954f45f856b13579421064f76c5aee139d0fbf8e7c2c8250726b084a2fb
+      Authorization:
+      - Bearer 1-classic-dont_tell_the_cops
   response:
     status:
-      code: 200
-      message: OK
+      code: 202
+      message: Accepted
     headers:
       Content-Type:
       - application/vnd.collection+json
       Content-Length:
-      - '752'
+      - '11683'
       X-Content-Type-Options:
       - nosniff
-      ETag:
-      - '"4fcaef78e779ce173c598fc76adcbd38"'
+      X-RateLimit-Limit:
+      - '5000'
+      X-RateLimit-Remaining:
+      - '4876'
+      X-RateLimit-Reset:
+      - '1432828851'
       Cache-Control:
-      - max-age=0, private, must-revalidate
+      - no-cache
       X-Request-Id:
-      - e83febb6-4c6c-46fc-b245-3c6459176ed8
+      - c4d354fe-5465-47c6-8c8f-925267aa6c68
       X-Runtime:
-      - '0.009146'
+      - '0.104883'
       Connection:
       - keep-alive
       Server:
       - thin
     body:
       encoding: UTF-8
-      string: '{"collection":{"version":"3.72.0","href":"http://localhost:3000/tracked_item_statuses","template":{"data":[{"name":"status_code","value":null},{"name":"tracked_item_id","value":null},{"name":"member_id","value":null}]},"links":[{"rel":"member","href":"http://localhost:3000/members"},{"rel":"team","href":"http://localhost:3000/teams"},{"rel":"tracked_item","href":"http://localhost:3000/tracked_items"},{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/tracked_item_statuses"}],"queries":[{"rel":"search","href":"http://localhost:3000/tracked_item_statuses/search","data":[{"name":"team_id","value":null},{"name":"member_id","value":null},{"name":"tracked_item_id","value":null},{"name":"id","value":null}]}]}}'
+      string: '{"collection":{"version":"3.72.0","href":"http://localhost:3000/teams","template":{"data":[{"name":"name","value":null},{"name":"location_country","value":null},{"name":"location_postal_code","value":null},{"name":"time_zone","value":null},{"name":"sport_id","value":null},{"name":"division_name","value":null},{"name":"season_name","value":null},{"name":"league_name","value":null},{"name":"league_url","value":null}]},"links":[{"rel":"active_season_team","href":"http://localhost:3000/teams"},{"rel":"assignments","href":"http://localhost:3000/assignments"},{"rel":"availabilities","href":"http://localhost:3000/availabilities"},{"rel":"broadcast_emails","href":"http://localhost:3000/broadcast_emails"},{"rel":"broadcast_smses","href":"http://localhost:3000/broadcast_smses"},{"rel":"contact_email_addresses","href":"http://localhost:3000/contact_email_addresses"},{"rel":"contact_phone_numbers","href":"http://localhost:3000/contact_phone_numbers"},{"rel":"contacts","href":"http://localhost:3000/contacts"},{"rel":"custom_data","href":"http://localhost:3000/custom_data"},{"rel":"custom_fields","href":"http://localhost:3000/custom_fields"},{"rel":"league_custom_data","href":"http://localhost:3000/league_custom_data"},{"rel":"league_custom_fields","href":"http://localhost:3000/league_custom_fields"},{"rel":"division_locations","href":"http://localhost:3000/division_locations"},{"rel":"division_members","href":"http://localhost:3000/division_members"},{"rel":"division_members_preferences","href":"http://localhost:3000/division_members_preferences"},{"rel":"events","href":"http://localhost:3000/events"},{"rel":"forum_posts","href":"http://localhost:3000/forum_posts"},{"rel":"forum_subscriptions","href":"http://localhost:3000/forum_subscriptions"},{"rel":"forum_topics","href":"http://localhost:3000/forum_topics"},{"rel":"league_registrant_documents","href":"http://localhost:3000/league_registrant_documents"},{"rel":"locations","href":"http://localhost:3000/locations"},{"rel":"managers","href":"http://localhost:3000/members"},{"rel":"member_email_addresses","href":"http://localhost:3000/member_email_addresses"},{"rel":"member_files","href":"http://localhost:3000/member_files"},{"rel":"member_links","href":"http://localhost:3000/member_links"},{"rel":"member_payments","href":"http://localhost:3000/member_payments"},{"rel":"member_phone_numbers","href":"http://localhost:3000/member_phone_numbers"},{"rel":"members","href":"http://localhost:3000/members"},{"rel":"members_preferences","href":"http://localhost:3000/members_preferences"},{"rel":"opponents","href":"http://localhost:3000/opponents"},{"rel":"opponents_results","href":"http://localhost:3000/opponents_results"},{"rel":"owner","href":"http://localhost:3000/members"},{"rel":"payment_notes","href":"http://localhost:3000/payment_notes"},{"rel":"paypal_currency","href":"http://localhost:3000/paypal_currencies"},{"rel":"plan","href":"http://localhost:3000/plans"},{"rel":"sponsors","href":"http://localhost:3000/sponsors"},{"rel":"sport","href":"http://localhost:3000/sports"},{"rel":"statistic","href":"http://localhost:3000/statistics"},{"rel":"statistic_data","href":"http://localhost:3000/statistic_data"},{"rel":"statistic_group","href":"http://localhost:3000/statistic_groups"},{"rel":"team_fees","href":"http://localhost:3000/team_fees"},{"rel":"team_paypal_preferences","href":"http://localhost:3000/teams_paypal_preferences"},{"rel":"team_preferences","href":"http://localhost:3000/teams_preferences"},{"rel":"team_public_site","href":"http://localhost:3000/team_public_sites"},{"rel":"team_results","href":"http://localhost:3000/teams_results"},{"rel":"tracked_item_statuses","href":"http://localhost:3000/tracked_item_statuses"},{"rel":"tracked_items","href":"http://localhost:3000/tracked_items"},{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/teams/invite"}],"queries":[{"rel":"search","href":"http://localhost:3000/teams/search","data":[{"name":"id","value":null},{"name":"team_id","value":null},{"name":"user_id","value":null},{"name":"division_id","value":null}]}],"commands":[{"rel":"invite","href":"http://localhost:3000/teams/invite","prompt":"invite
+        team members or contacts to join TeamSnap.","data":[{"name":"team_id","value":null},{"name":"contact_id","value":null},{"name":"member_id","value":null},{"name":"introduction","value":null},{"name":"notify_as_member_id","value":null}]},{"rel":"update_time_zone","href":"http://localhost:3000/teams/update_time_zone","prompt":"Update
+        team''s time zone.","data":[{"name":"team_id","value":null},{"name":"time_zone","value":null},{"name":"offset_team_times","value":null}]}],"items":[{"href":"http://localhost:3000/members/9","data":[{"name":"id","value":9},{"name":"type","value":"member"},{"name":"address_city","value":null},{"name":"address_state","value":null},{"name":"address_street1","value":null},{"name":"address_street2","value":null},{"name":"address_zip","value":null},{"name":"birthday","value":""},{"name":"first_name","value":"Uninvited
+        0"},{"name":"gender","value":null},{"name":"has_facebook_post_scores_enabled","value":false},{"name":"hide_address","value":null},{"name":"hide_age","value":null},{"name":"invitation_code","value":"8fd518a021c689241e7d73ba"},{"name":"invitation_declined","value":null},{"name":"is_activated","value":false},{"name":"is_invitable","value":true},{"name":"is_invited","value":true},{"name":"is_manager","value":false},{"name":"is_non_player","value":false},{"name":"is_owner","value":false},{"name":"is_ownership_pending","value":null},{"name":"jersey_number","value":null},{"name":"last_logged_in_at","value":null,"type":"DateTime"},{"name":"last_name","value":"Player"},{"name":"position","value":null},{"name":"team_id","value":1},{"name":"user_id","value":null},{"name":"updated_at","value":"2015-05-28T15:03:24Z","type":"DateTime"},{"name":"created_at","value":"2015-05-28T15:02:26Z","type":"DateTime"}],"links":[{"rel":"assignments","href":"http://localhost:3000/assignments/search?member_id=9"},{"rel":"availabilities","href":"http://localhost:3000/availabilities/search?member_id=9"},{"rel":"broadcast_emails","href":"http://localhost:3000/broadcast_emails/search?member_id=9"},{"rel":"broadcast_smses","href":"http://localhost:3000/broadcast_smses/search?member_id=9"},{"rel":"contact_email_addresses","href":"http://localhost:3000/contact_email_addresses/search?member_id=9"},{"rel":"contact_phone_numbers","href":"http://localhost:3000/contact_phone_numbers/search?member_id=9"},{"rel":"contacts","href":"http://localhost:3000/contacts/search?member_id=9"},{"rel":"custom_data","href":"http://localhost:3000/custom_data/search?member_id=9"},{"rel":"custom_fields","href":"http://localhost:3000/custom_fields/search?team_id=1"},{"rel":"league_custom_data","href":"http://localhost:3000/league_custom_data/search?member_id=9"},{"rel":"league_custom_fields","href":"http://localhost:3000/league_custom_fields/search?team_id=1"},{"rel":"forum_posts","href":"http://localhost:3000/forum_posts/search?member_id=9"},{"rel":"forum_subscriptions","href":"http://localhost:3000/forum_subscriptions/search?member_id=9"},{"rel":"forum_topics","href":"http://localhost:3000/forum_topics/search?team_id=1"},{"rel":"league_registrant_documents","href":"http://localhost:3000/league_registrant_documents/search?member_id=9"},{"rel":"member_email_addresses","href":"http://localhost:3000/member_email_addresses/search?member_id=9"},{"rel":"member_files","href":"http://localhost:3000/member_files/search?member_id=9"},{"rel":"member_links","href":"http://localhost:3000/member_links/search?member_id=9"},{"rel":"member_payments","href":"http://localhost:3000/member_payments/search?member_id=9"},{"rel":"member_phone_numbers","href":"http://localhost:3000/member_phone_numbers/search?member_id=9"},{"rel":"member_preferences","href":"http://localhost:3000/members_preferences/9"},{"rel":"statistic_data","href":"http://localhost:3000/statistic_data/search?member_id=9"},{"rel":"team","href":"http://localhost:3000/teams/1"},{"rel":"tracked_item_statuses","href":"http://localhost:3000/tracked_item_statuses/search?member_id=9"}]},{"href":"http://localhost:3000/members/11","data":[{"name":"id","value":11},{"name":"type","value":"member"},{"name":"address_city","value":null},{"name":"address_state","value":null},{"name":"address_street1","value":null},{"name":"address_street2","value":null},{"name":"address_zip","value":null},{"name":"birthday","value":""},{"name":"first_name","value":"Uninvited
+        2"},{"name":"gender","value":null},{"name":"has_facebook_post_scores_enabled","value":false},{"name":"hide_address","value":null},{"name":"hide_age","value":null},{"name":"invitation_code","value":"e700192478a9f687fdad9c7e"},{"name":"invitation_declined","value":null},{"name":"is_activated","value":false},{"name":"is_invitable","value":true},{"name":"is_invited","value":true},{"name":"is_manager","value":false},{"name":"is_non_player","value":false},{"name":"is_owner","value":false},{"name":"is_ownership_pending","value":null},{"name":"jersey_number","value":null},{"name":"last_logged_in_at","value":null,"type":"DateTime"},{"name":"last_name","value":"Player"},{"name":"position","value":null},{"name":"team_id","value":1},{"name":"user_id","value":null},{"name":"updated_at","value":"2015-05-28T15:03:24Z","type":"DateTime"},{"name":"created_at","value":"2015-05-28T15:02:26Z","type":"DateTime"}],"links":[{"rel":"assignments","href":"http://localhost:3000/assignments/search?member_id=11"},{"rel":"availabilities","href":"http://localhost:3000/availabilities/search?member_id=11"},{"rel":"broadcast_emails","href":"http://localhost:3000/broadcast_emails/search?member_id=11"},{"rel":"broadcast_smses","href":"http://localhost:3000/broadcast_smses/search?member_id=11"},{"rel":"contact_email_addresses","href":"http://localhost:3000/contact_email_addresses/search?member_id=11"},{"rel":"contact_phone_numbers","href":"http://localhost:3000/contact_phone_numbers/search?member_id=11"},{"rel":"contacts","href":"http://localhost:3000/contacts/search?member_id=11"},{"rel":"custom_data","href":"http://localhost:3000/custom_data/search?member_id=11"},{"rel":"custom_fields","href":"http://localhost:3000/custom_fields/search?team_id=1"},{"rel":"league_custom_data","href":"http://localhost:3000/league_custom_data/search?member_id=11"},{"rel":"league_custom_fields","href":"http://localhost:3000/league_custom_fields/search?team_id=1"},{"rel":"forum_posts","href":"http://localhost:3000/forum_posts/search?member_id=11"},{"rel":"forum_subscriptions","href":"http://localhost:3000/forum_subscriptions/search?member_id=11"},{"rel":"forum_topics","href":"http://localhost:3000/forum_topics/search?team_id=1"},{"rel":"league_registrant_documents","href":"http://localhost:3000/league_registrant_documents/search?member_id=11"},{"rel":"member_email_addresses","href":"http://localhost:3000/member_email_addresses/search?member_id=11"},{"rel":"member_files","href":"http://localhost:3000/member_files/search?member_id=11"},{"rel":"member_links","href":"http://localhost:3000/member_links/search?member_id=11"},{"rel":"member_payments","href":"http://localhost:3000/member_payments/search?member_id=11"},{"rel":"member_phone_numbers","href":"http://localhost:3000/member_phone_numbers/search?member_id=11"},{"rel":"member_preferences","href":"http://localhost:3000/members_preferences/11"},{"rel":"statistic_data","href":"http://localhost:3000/statistic_data/search?member_id=11"},{"rel":"team","href":"http://localhost:3000/teams/1"},{"rel":"tracked_item_statuses","href":"http://localhost:3000/tracked_item_statuses/search?member_id=11"}]}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/tracked_item_statuses?hmac_client_id=classic&hmac_nonce=5ce058f1-9a42-4d63-a777-c42667955acb&hmac_timestamp=1432825400
-  recorded_at: Thu, 28 May 2015 15:03:21 GMT
-- request:
-    method: get
-    uri: http://localhost:3000/tsl_metadata?hmac_client_id=classic&hmac_nonce=c2b955a7-6511-42b5-8087-de397c4019ed&hmac_timestamp=1432825400
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v0.9.1
-      X-Teamsnap-Hmac:
-      - 30302bb838e5c349afe8c3ebb688ecea949f7cfc90114fa4a4a4736f8505bee3
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/vnd.collection+json
-      Content-Length:
-      - '481'
-      X-Content-Type-Options:
-      - nosniff
-      ETag:
-      - '"bac15abc2c9c36d488f0d4ebe9402998"'
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      X-Request-Id:
-      - 77b4c30c-a950-44f0-819a-68f111e4a730
-      X-Runtime:
-      - '0.009147'
-      Connection:
-      - keep-alive
-      Server:
-      - thin
-    body:
-      encoding: UTF-8
-      string: '{"collection":{"version":"3.72.0","href":"http://localhost:3000/tsl_metadata","template":{"data":[{"name":"user_id","value":null}]},"links":[{"rel":"user","href":"http://localhost:3000/users"},{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/tsl_metadata"}],"queries":[{"rel":"search","href":"http://localhost:3000/tsl_metadata/search","data":[{"name":"user_id","value":null},{"name":"id","value":null},{"name":"version","value":null}]}]}}'
-    http_version: '1.1'
-    adapter_metadata:
-      effective_url: http://localhost:3000/tsl_metadata?hmac_client_id=classic&hmac_nonce=c2b955a7-6511-42b5-8087-de397c4019ed&hmac_timestamp=1432825400
-  recorded_at: Thu, 28 May 2015 15:03:21 GMT
-- request:
-    method: get
-    uri: http://localhost:3000/team_public_sites?hmac_client_id=classic&hmac_nonce=0f981403-2a55-4537-8525-03cc41640224&hmac_timestamp=1432825400
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v0.9.1
-      X-Teamsnap-Hmac:
-      - 5438798f470826d0af9e9a06b8f8e17855390a51d41b0fef2e321243687d063c
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/vnd.collection+json
-      Content-Length:
-      - '2017'
-      X-Content-Type-Options:
-      - nosniff
-      ETag:
-      - '"22c0c3c327744406183f4254282c67d0"'
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      X-Request-Id:
-      - 02ba733d-6c0a-460d-a9f0-0782616a9ed4
-      X-Runtime:
-      - '0.010666'
-      Connection:
-      - keep-alive
-      Server:
-      - thin
-    body:
-      encoding: UTF-8
-      string: '{"collection":{"version":"3.72.0","href":"http://localhost:3000/team_public_sites","template":{"data":[{"name":"custom_domain","value":null},{"name":"enable_assignments","value":null},{"name":"enable_availabilities","value":null},{"name":"enable_events","value":null},{"name":"enable_files","value":null},{"name":"enable_games","value":null},{"name":"enable_marketplace","value":null},{"name":"enable_members","value":null},{"name":"enable_messages","value":null},{"name":"enable_payments","value":null},{"name":"enable_photos","value":null},{"name":"enable_public_contact","value":null},{"name":"enable_public_email","value":null},{"name":"enable_schedule","value":null},{"name":"enable_statistics","value":null},{"name":"enabled","value":null},{"name":"hide_old_events","value":null},{"name":"hide_win_loss_record","value":null},{"name":"public_email_manager_only","value":null},{"name":"public_email_reply_to_list","value":null},{"name":"subdomain","value":null},{"name":"team_headline","value":null},{"name":"team_message","value":null}]},"links":[{"rel":"team","href":"http://localhost:3000/teams"},{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/team_public_sites"}],"queries":[{"rel":"search","href":"http://localhost:3000/team_public_sites/search","data":[{"name":"id","value":null},{"name":"team_id","value":null}]}],"commands":[{"rel":"upload_team_public_photo","href":"http://localhost:3000/team_public_sites/upload_team_public_photo","prompt":"Upload
-        a team public photo.","data":[{"name":"team_public_site_id","value":null},{"name":"file","value":null}]},{"rel":"remove_team_public_photo","href":"http://localhost:3000/team_public_sites/remove_team_public_photo","prompt":"Remove
-        a team public photo.","data":[{"name":"team_public_site_id","value":null}]},{"rel":"validate_subdomain","href":"http://localhost:3000/team_public_sites/validate_subdomain","prompt":"Check
-        to see if a subdomain is available and valid.","data":[{"name":"subdomain","value":null}]}]}}'
-    http_version: '1.1'
-    adapter_metadata:
-      effective_url: http://localhost:3000/team_public_sites?hmac_client_id=classic&hmac_nonce=0f981403-2a55-4537-8525-03cc41640224&hmac_timestamp=1432825400
-  recorded_at: Thu, 28 May 2015 15:03:21 GMT
-- request:
-    method: get
-    uri: http://localhost:3000/tracked_items?hmac_client_id=classic&hmac_nonce=4e244a47-5dea-4de4-a8e6-014d2cb33ec0&hmac_timestamp=1432825400
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v0.9.1
-      X-Teamsnap-Hmac:
-      - a2be521e9bc9211ac67ec45c4652525266301817bfb81f2deadd58530d15c0fb
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/vnd.collection+json
-      Content-Length:
-      - '566'
-      X-Content-Type-Options:
-      - nosniff
-      ETag:
-      - '"f33481500b005da67af62711f4fc0449"'
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      X-Request-Id:
-      - b5335dc9-3420-4a16-af2c-cc3d001ba2ae
-      X-Runtime:
-      - '0.009248'
-      Connection:
-      - keep-alive
-      Server:
-      - thin
-    body:
-      encoding: UTF-8
-      string: '{"collection":{"version":"3.72.0","href":"http://localhost:3000/tracked_items","template":{"data":[{"name":"name","value":null},{"name":"team_id","value":null}]},"links":[{"rel":"team","href":"http://localhost:3000/teams"},{"rel":"tracked_item_statuses","href":"http://localhost:3000/tracked_item_statuses"},{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/tracked_items"}],"queries":[{"rel":"search","href":"http://localhost:3000/tracked_items/search","data":[{"name":"team_id","value":null},{"name":"id","value":null}]}]}}'
-    http_version: '1.1'
-    adapter_metadata:
-      effective_url: http://localhost:3000/tracked_items?hmac_client_id=classic&hmac_nonce=4e244a47-5dea-4de4-a8e6-014d2cb33ec0&hmac_timestamp=1432825400
-  recorded_at: Thu, 28 May 2015 15:03:21 GMT
-- request:
-    method: get
-    uri: http://localhost:3000/tsl_photos?hmac_client_id=classic&hmac_nonce=ce9a7c15-400d-4f4d-88cd-712906eb2281&hmac_timestamp=1432825400
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v0.9.1
-      X-Teamsnap-Hmac:
-      - 5f43ed1c10fc051cb83ca154dfd4f5bf0e6029a3650aa6cecc6404fc55c71277
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/vnd.collection+json
-      Content-Length:
-      - '857'
-      X-Content-Type-Options:
-      - nosniff
-      ETag:
-      - '"bc8cb5b1df7b473f2177ee60f92f6e6b"'
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      X-Request-Id:
-      - 02a07aa6-911b-463e-8029-000ea521a559
-      X-Runtime:
-      - '0.009567'
-      Connection:
-      - keep-alive
-      Server:
-      - thin
-    body:
-      encoding: UTF-8
-      string: '{"collection":{"version":"3.72.0","href":"http://localhost:3000/tsl_photos","data":[{"name":"host_prefix","value":"https://7260a23d55820f6c1c20-f198c593f0f20eb7f7dca7d007f0f2d7.ssl.cf1.rackcdn.com"}],"links":[{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/tsl_photos"}],"commands":[{"rel":"upload","href":"https://storage101.dfw1.clouddrive.com/v1/MossoCloudFS_b16ebd19-d46d-4f34-88cc-4d869b1b56f4/rw_formpost_test","prompt":"Upload
-        TeamSnap Live photo","data":[{"name":"team_id","value":null},{"name":"event_id","value":null},{"name":"user_id","value":null},{"name":"redirect","value":""},{"name":"max_file_size","value":104857600},{"name":"max_file_count","value":1},{"name":"expires","value":1432827201},{"name":"signature","value":"43bbe2467efe0c0368d0a377104075b4666369c6"},{"name":"file1","value":null}]}]}}'
-    http_version: '1.1'
-    adapter_metadata:
-      effective_url: http://localhost:3000/tsl_photos?hmac_client_id=classic&hmac_nonce=ce9a7c15-400d-4f4d-88cd-712906eb2281&hmac_timestamp=1432825400
-  recorded_at: Thu, 28 May 2015 15:03:21 GMT
-- request:
-    method: get
-    uri: http://localhost:3000/users?hmac_client_id=classic&hmac_nonce=545903d1-b9da-441e-a4a9-43573a6c9a00&hmac_timestamp=1432825400
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v0.9.1
-      X-Teamsnap-Hmac:
-      - ac14582de39f3765e222977be57e78c158db9c20ab819dad3db9eb6ddba07c19
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/vnd.collection+json
-      Content-Length:
-      - '669'
-      X-Content-Type-Options:
-      - nosniff
-      ETag:
-      - '"d26107c6dc8fcf220d10c43d2a52546e"'
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      X-Request-Id:
-      - 8612c0d7-9c59-4cdb-a915-5d2cb11ad55b
-      X-Runtime:
-      - '0.009106'
-      Connection:
-      - keep-alive
-      Server:
-      - thin
-    body:
-      encoding: UTF-8
-      string: '{"collection":{"version":"3.72.0","href":"http://localhost:3000/users","template":{"data":[{"name":"first_name","value":null},{"name":"last_name","value":null},{"name":"password","value":null},{"name":"birthday","value":null},{"name":"email","value":null},{"name":"facebook_id","value":null},{"name":"facebook_access_token","value":null}]},"links":[{"rel":"members","href":"http://localhost:3000/members"},{"rel":"teams","href":"http://localhost:3000/teams"},{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/users"}],"queries":[{"rel":"search","href":"http://localhost:3000/users/search","data":[{"name":"id","value":null}]}]}}'
-    http_version: '1.1'
-    adapter_metadata:
-      effective_url: http://localhost:3000/users?hmac_client_id=classic&hmac_nonce=545903d1-b9da-441e-a4a9-43573a6c9a00&hmac_timestamp=1432825400
-  recorded_at: Thu, 28 May 2015 15:03:21 GMT
+      effective_url: http://localhost:3000/teams/invite
+  recorded_at: Thu, 28 May 2015 15:03:24 GMT
 recorded_with: VCR 2.9.3

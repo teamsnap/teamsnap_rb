@@ -75,25 +75,21 @@ module TeamSnap
     end
 
     def digest
-      @digest ||= OpenSSL::Digest.new("sha256")
+      OpenSSL::Digest.new("sha256")
     end
 
     def message_hash(env)
-      @message_hash ||= digest.hexdigest(
-        query_string(env) + sorted_message(env)
+      digest.hexdigest(
+        query_string(env) + message(env)
       )
     end
 
     def query_string(env)
-      @query_string ||= "/?" + env.url.query.to_s
+      "/?" + env.url.query.to_s
     end
 
-    def sorted_message(env)
-      @sorted_message ||= if env.body.is_a?(Hash)
-                            Faraday::Utils.build_query(env.body)
-                          else
-                            env.body
-                          end || ""
+    def message(env)
+      env.body || ""
     end
   end
 
@@ -162,15 +158,17 @@ module TeamSnap
              when :get
                client.send(via, href, args)
              when :post
-               client.send(via, href) { |req| req.body = Oj.dump(args) }
+               client.send(via, href) do |req|
+                 req.body = Oj.dump(args)
+               end
              else
                raise TeamSnap::Error.new("Don't know how to run `#{via}`")
              end
 
       if resp.success?
-        Oj.load(resp.body).fetch(:collection).tap do |collection|
+        Oj.load(resp.body).fetch(:collection).tap { |collection|
           TeamSnap.write_backup_file(opts[:backup_cache_file], collection)
-        end
+        }
       else
         if TeamSnap.backup_file_exists?(opts[:backup_cache_file])
           warn("Connection to API failed.. using backup cache file to initialize endpoints")
