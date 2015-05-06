@@ -1,0 +1,117 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:3000/events/search?id=1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.1
+      Authorization:
+      - Bearer 1-classic-dont_tell_the_cops
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/vnd.collection+json
+      Content-Length:
+      - '4638'
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      X-Content-Type-Options:
+      - nosniff
+      X-RateLimit-Limit:
+      - '5000'
+      X-RateLimit-Remaining:
+      - '4997'
+      X-RateLimit-Reset:
+      - '1430954308'
+      ETag:
+      - '"cc26ac10a47b12667d5d5a7f569e690f"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 0d7da4b6-f1f6-488f-889a-47426e86678f
+      X-Runtime:
+      - '0.041271'
+      X-Powered-By:
+      - Phusion Passenger 4.0.59
+      Date:
+      - Wed, 06 May 2015 22:18:28 GMT
+      Server:
+      - nginx/1.6.2 + Phusion Passenger 4.0.59
+    body:
+      encoding: UTF-8
+      string: '{"collection":{"version":"3.64.0","href":"http://localhost:3000/events","template":{"data":[{"name":"repeating_type_code","value":null},{"name":"is_game","value":null},{"name":"start_date","value":null},{"name":"is_tbd","value":null},{"name":"name","value":null},{"name":"label","value":null},{"name":"game_type_code","value":null},{"name":"icon_color","value":null},{"name":"minutes_to_arrive_early","value":null},{"name":"duration_in_minutes","value":null},{"name":"notes","value":null},{"name":"points_for_team","value":null},{"name":"points_for_opponent","value":null},{"name":"shootout_points_for_team","value":null},{"name":"shootout_points_for_opponent","value":null},{"name":"is_overtime","value":null},{"name":"is_shootout","value":null},{"name":"doesnt_count_towards_record","value":null},{"name":"results","value":null},{"name":"results_url","value":null},{"name":"tracks_availability","value":null},{"name":"uniform","value":null},{"name":"is_canceled","value":null},{"name":"notify_team","value":null},{"name":"notify_team_as_member_id","value":null},{"name":"team_id","value":null},{"name":"division_location_id","value":null},{"name":"location_id","value":null},{"name":"opponent_id","value":null},{"name":"repeating_until","value":null},{"name":"repeating_include","value":null}]},"links":[{"rel":"assignments","href":"http://localhost:3000/assignments"},{"rel":"availabilities","href":"http://localhost:3000/availabilities"},{"rel":"division_location","href":"http://localhost:3000/division_locations"},{"rel":"location","href":"http://localhost:3000/locations"},{"rel":"opponent","href":"http://localhost:3000/opponents"},{"rel":"team","href":"http://localhost:3000/teams"},{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/events/search?id=1"}],"queries":[{"rel":"search","href":"http://localhost:3000/events/search","data":[{"name":"team_id","value":null},{"name":"location_id","value":null},{"name":"opponent_id","value":null},{"name":"started_after","value":null},{"name":"started_before","value":null},{"name":"id","value":null}]},{"rel":"search_games","href":"http://localhost:3000/events/search_games","data":[{"name":"team_id","value":null}]}],"commands":[{"rel":"send_availability_reminders","href":"http://localhost:3000/events/send_availability_reminders","prompt":"members_to_notify
+        = (all|unset)","data":[{"name":"id","value":null},{"name":"members_to_notify","value":null},{"name":"notify_team_as_member_id","value":null}]}],"items":[{"href":"http://localhost:3000/events/1","data":[{"name":"id","value":1},{"name":"type","value":"event"},{"name":"arrival_date","value":"2015-01-01T00:00:00Z","type":"DateTime"},{"name":"division_location_id","value":null},{"name":"doesnt_count_towards_record","value":false},{"name":"duration_in_minutes","value":120},{"name":"end_date","value":"2015-01-01T02:00:00Z","type":"DateTime"},{"name":"formatted_results","value":null},{"name":"game_type","value":"Not
+        Specified"},{"name":"game_type_code","value":null},{"name":"icon_color","value":"blue"},{"name":"is_canceled","value":false},{"name":"is_game","value":false},{"name":"is_overtime","value":false},{"name":"is_shootout","value":false},{"name":"is_tbd","value":false},{"name":"label","value":null},{"name":"location_id","value":1},{"name":"minutes_to_arrive_early","value":null},{"name":"name","value":"March
+        Madness Game 1"},{"name":"notes","value":null},{"name":"opponent_id","value":1},{"name":"points_for_opponent","value":null},{"name":"points_for_team","value":null},{"name":"repeating_type","value":null},{"name":"repeating_type_code","value":null},{"name":"repeating_uuid","value":null},{"name":"results","value":null},{"name":"results_url","value":null},{"name":"shootout_points_for_opponent","value":null},{"name":"shootout_points_for_team","value":null},{"name":"start_date","value":"2015-01-01T00:00:00Z","type":"DateTime"},{"name":"team_id","value":1},{"name":"tracks_availability","value":true},{"name":"uniform","value":null},{"name":"is_league_controlled","value":false},{"name":"created_at","value":"2015-05-06T16:54:01Z","type":"DateTime"},{"name":"updated_at","value":"2015-05-06T21:08:13Z","type":"DateTime"}],"links":[{"rel":"assignments","href":"http://localhost:3000/assignments/search?event_id=1"},{"rel":"availabilities","href":"http://localhost:3000/availabilities/search?event_id=1"},{"rel":"division_location","href":"http://localhost:3000/division_locations/"},{"rel":"location","href":"http://localhost:3000/locations/1"},{"rel":"opponent","href":"http://localhost:3000/opponents/1"},{"rel":"team","href":"http://localhost:3000/teams/1"}]}]}}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: http://localhost:3000/events/search?id=1
+  recorded_at: Wed, 06 May 2015 22:18:28 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/teams/1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.1
+      Authorization:
+      - Bearer 1-classic-dont_tell_the_cops
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/vnd.collection+json
+      Content-Length:
+      - '9685'
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      X-Content-Type-Options:
+      - nosniff
+      X-RateLimit-Limit:
+      - '5000'
+      X-RateLimit-Remaining:
+      - '4996'
+      X-RateLimit-Reset:
+      - '1430954308'
+      ETag:
+      - '"ccb89a09bd0063284fc293e9805575cf"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 70b7d5ac-191c-44ef-9e84-880f0ea90470
+      X-Runtime:
+      - '0.044827'
+      X-Powered-By:
+      - Phusion Passenger 4.0.59
+      Date:
+      - Wed, 06 May 2015 22:18:28 GMT
+      Server:
+      - nginx/1.6.2 + Phusion Passenger 4.0.59
+    body:
+      encoding: UTF-8
+      string: '{"collection":{"version":"3.64.0","href":"http://localhost:3000/teams","template":{"data":[{"name":"name","value":null},{"name":"location_country","value":null},{"name":"location_postal_code","value":null},{"name":"time_zone","value":null},{"name":"sport_id","value":null},{"name":"division_name","value":null},{"name":"season_name","value":null},{"name":"league_name","value":null},{"name":"league_url","value":null}]},"links":[{"rel":"active_season_team","href":"http://localhost:3000/teams"},{"rel":"assignments","href":"http://localhost:3000/assignments"},{"rel":"availabilities","href":"http://localhost:3000/availabilities"},{"rel":"broadcast_emails","href":"http://localhost:3000/broadcast_emails"},{"rel":"broadcast_smses","href":"http://localhost:3000/broadcast_smses"},{"rel":"contact_email_addresses","href":"http://localhost:3000/contact_email_addresses"},{"rel":"contact_phone_numbers","href":"http://localhost:3000/contact_phone_numbers"},{"rel":"contacts","href":"http://localhost:3000/contacts"},{"rel":"custom_data","href":"http://localhost:3000/custom_data"},{"rel":"custom_fields","href":"http://localhost:3000/custom_fields"},{"rel":"league_custom_data","href":"http://localhost:3000/league_custom_data"},{"rel":"league_custom_fields","href":"http://localhost:3000/league_custom_fields"},{"rel":"division_locations","href":"http://localhost:3000/division_locations"},{"rel":"division_members","href":"http://localhost:3000/division_members"},{"rel":"events","href":"http://localhost:3000/events"},{"rel":"forum_posts","href":"http://localhost:3000/forum_posts"},{"rel":"forum_subscriptions","href":"http://localhost:3000/forum_subscriptions"},{"rel":"forum_topics","href":"http://localhost:3000/forum_topics"},{"rel":"league_registrant_documents","href":"http://localhost:3000/league_registrant_documents"},{"rel":"locations","href":"http://localhost:3000/locations"},{"rel":"managers","href":"http://localhost:3000/members"},{"rel":"member_email_addresses","href":"http://localhost:3000/member_email_addresses"},{"rel":"member_files","href":"http://localhost:3000/member_files"},{"rel":"member_links","href":"http://localhost:3000/member_links"},{"rel":"member_payments","href":"http://localhost:3000/member_payments"},{"rel":"member_phone_numbers","href":"http://localhost:3000/member_phone_numbers"},{"rel":"members","href":"http://localhost:3000/members"},{"rel":"members_preferences","href":"http://localhost:3000/members_preferences"},{"rel":"opponents","href":"http://localhost:3000/opponents"},{"rel":"opponents_results","href":"http://localhost:3000/opponents_results"},{"rel":"owner","href":"http://localhost:3000/members"},{"rel":"plan","href":"http://localhost:3000/plans"},{"rel":"sponsors","href":"http://localhost:3000/sponsors"},{"rel":"sport","href":"http://localhost:3000/sports"},{"rel":"team_fees","href":"http://localhost:3000/team_fees"},{"rel":"team_preferences","href":"http://localhost:3000/teams_preferences"},{"rel":"team_public_site","href":"http://localhost:3000/team_public_sites"},{"rel":"team_results","href":"http://localhost:3000/teams_results"},{"rel":"tracked_item_statuses","href":"http://localhost:3000/tracked_item_statuses"},{"rel":"tracked_items","href":"http://localhost:3000/tracked_items"},{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/teams/1"}],"queries":[{"rel":"search","href":"http://localhost:3000/teams/search","data":[{"name":"id","value":null},{"name":"team_id","value":null},{"name":"user_id","value":null},{"name":"division_id","value":null}]}],"commands":[{"rel":"invite","href":"http://localhost:3000/teams/invite","prompt":"invite
+        team members or contacts to join TeamSnap.","data":[{"name":"team_id","value":null},{"name":"contact_id","value":null},{"name":"member_id","value":null},{"name":"introduction","value":null},{"name":"notify_as_member_id","value":null}]},{"rel":"update_time_zone","href":"http://localhost:3000/teams/update_time_zone","prompt":"Update
+        team''s time zone.","data":[{"name":"team_id","value":null},{"name":"time_zone","value":null},{"name":"offset_team_times","value":null}]}],"items":[{"href":"http://localhost:3000/teams/1","data":[{"name":"id","value":1},{"name":"type","value":"team"},{"name":"division_name","value":null},{"name":"is_archived_season","value":false},{"name":"league_name","value":null},{"name":"league_url","value":null},{"name":"is_in_league","value":false},{"name":"location_country","value":"United
+        States"},{"name":"location_postal_code","value":"80951"},{"name":"location_latitude","value":""},{"name":"location_longitude","value":""},{"name":"name","value":"Base
+        Team"},{"name":"plan_id","value":14},{"name":"season_name","value":null},{"name":"sport_id","value":1},{"name":"time_zone_description","value":"Mountain
+        Time (US & Canada)"},{"name":"time_zone_iana_name","value":"America/Denver"},{"name":"time_zone_offset","value":"-07:00"},{"name":"updated_at","value":"2015-05-06T16:54:03Z","type":"DateTime"},{"name":"created_at","value":"2015-05-06T16:54:00Z","type":"DateTime"},{"name":"has_reached_roster_limit","value":false},{"name":"roster_limit","value":30},{"name":"has_exportable_media","value":false}],"links":[{"rel":"assignments","href":"http://localhost:3000/assignments/search?team_id=1"},{"rel":"availabilities","href":"http://localhost:3000/availabilities/search?team_id=1"},{"rel":"broadcast_emails","href":"http://localhost:3000/broadcast_emails/search?team_id=1"},{"rel":"broadcast_smses","href":"http://localhost:3000/broadcast_smses/search?team_id=1"},{"rel":"calendar_http","href":"http://86ed2e8eefaaee16c4b7-16391cffaf9272bff70e93998d553c16.r2.cf1.rackcdn.com/team_schedule/6ad5ef10-d63e-0132-853f-000c297f8dfc.ics"},{"rel":"calendar_http_games_only","href":"http://86ed2e8eefaaee16c4b7-16391cffaf9272bff70e93998d553c16.r2.cf1.rackcdn.com/team_schedule/filter/games/6ad5ef10-d63e-0132-853f-000c297f8dfc.ics"},{"rel":"calendar_webcal","href":"webcal://86ed2e8eefaaee16c4b7-16391cffaf9272bff70e93998d553c16.r2.cf1.rackcdn.com/team_schedule/6ad5ef10-d63e-0132-853f-000c297f8dfc.ics"},{"rel":"calendar_webcal_games_only","href":"webcal://86ed2e8eefaaee16c4b7-16391cffaf9272bff70e93998d553c16.r2.cf1.rackcdn.com/team_schedule/filter/games/6ad5ef10-d63e-0132-853f-000c297f8dfc.ics"},{"rel":"contact_email_addresses","href":"http://localhost:3000/contact_email_addresses/search?team_id=1"},{"rel":"contact_phone_numbers","href":"http://localhost:3000/contact_phone_numbers/search?team_id=1"},{"rel":"contacts","href":"http://localhost:3000/contacts/search?team_id=1"},{"rel":"custom_data","href":"http://localhost:3000/custom_data/search?team_id=1"},{"rel":"custom_fields","href":"http://localhost:3000/custom_fields/search?team_id=1"},{"rel":"league_custom_data","href":"http://localhost:3000/league_custom_data/search?team_id=1"},{"rel":"league_custom_fields","href":"http://localhost:3000/league_custom_fields/search?team_id=1"},{"rel":"division_locations","href":"http://localhost:3000/division_locations/search?team_id=1"},{"rel":"division_members","href":"http://localhost:3000/division_members/search?team_id=1"},{"rel":"forum_posts","href":"http://localhost:3000/forum_posts/search?team_id=1"},{"rel":"forum_subscriptions","href":"http://localhost:3000/forum_subscriptions/search?team_id=1"},{"rel":"forum_topics","href":"http://localhost:3000/forum_topics/search?team_id=1"},{"rel":"events","href":"http://localhost:3000/events/search?team_id=1"},{"rel":"events_csv_export","href":"http://localhost:3000/exports/events_csv?hs=YszGJFFtdkxT%252Ba08BS5xyp1dHMOjVVvQPmlGdCebDpZJEIA5ysqcsrI33JZZvAn%252FIn1Oib4Rr4I53n5pSftBsME2FdbuMfYeFFvKSDtIuEk%253D"},{"rel":"league_registrant_documents","href":"http://localhost:3000/league_registrant_documents/search?member_id=1"},{"rel":"locations","href":"http://localhost:3000/locations/search?team_id=1"},{"rel":"managers","href":"http://localhost:3000/members/managers?team_id=1"},{"rel":"member_email_addresses","href":"http://localhost:3000/member_email_addresses/search?team_id=1"},{"rel":"member_files","href":"http://localhost:3000/member_files/search?team_id=1"},{"rel":"member_links","href":"http://localhost:3000/member_links/search?team_id=1"},{"rel":"member_payments","href":"http://localhost:3000/member_payments/search?team_id=1"},{"rel":"member_phone_numbers","href":"http://localhost:3000/member_phone_numbers/search?team_id=1"},{"rel":"members","href":"http://localhost:3000/members/search?team_id=1"},{"rel":"members_csv_export","href":"http://localhost:3000/exports/members_csv?hs=YszGJFFtdkxT%252Ba08BS5xyp1dHMOjVVvQPmlGdCebDpZJEIA5ysqcsrI33JZZvAn%252FIn1Oib4Rr4I53n5pSftBsME2FdbuMfYeFFvKSDtIuEk%253D"},{"rel":"members_preferences","href":"http://localhost:3000/members_preferences/search?team_id=1"},{"rel":"opponents","href":"http://localhost:3000/opponents/search?team_id=1"},{"rel":"opponents_results","href":"http://localhost:3000/opponents_results/search?team_id=1"},{"rel":"owner","href":"http://localhost:3000/members/owner?team_id=1"},{"rel":"plan","href":"http://localhost:3000/plans/14"},{"rel":"sponsors","href":"http://localhost:3000/sponsors/search?team_id=1"},{"rel":"sport","href":"http://localhost:3000/sports/1"},{"rel":"team_fees","href":"http://localhost:3000/team_fees/search?team_id=1"},{"rel":"team_preferences","href":"http://localhost:3000/teams_preferences/1"},{"rel":"team_public_site","href":"http://localhost:3000/team_public_sites/1"},{"rel":"team_results","href":"http://localhost:3000/teams_results/1"},{"rel":"tracked_item_statuses","href":"http://localhost:3000/tracked_item_statuses/search?team_id=1"},{"rel":"tracked_items","href":"http://localhost:3000/tracked_items/search?team_id=1"}]}]}}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: http://localhost:3000/teams/1
+  recorded_at: Wed, 06 May 2015 22:18:28 GMT
+recorded_with: VCR 2.9.3

@@ -131,4 +131,31 @@ RSpec.describe "teamsnap_rb", :vcr => true do
 
     expect(m.href).to eq("http://localhost:3000/members/1")
   end
+
+  context "supports relations with expected behaviors" do
+    let(:event) { TeamSnap::Event.find(1) }
+
+    context "when a plural relation is called" do
+      it "responds with an array of objects when successful" do
+        a = event.availabilities
+        expect(a.class).to eq(Array)
+      end
+
+      it "responds with an empty array when no objects exist" do
+        a = event.assignments
+        expect(a.class).to eq(Array)
+      end
+    end
+    context "when a singular relation is called" do
+      it "responds with the object if it exists" do
+        a = event.team
+        expect(a.class).to eq(TeamSnap::Team)
+      end
+
+      it "responds with nil if it does NOT exist" do
+        a = event.division_location
+        expect(a.class).to eq(NilClass)
+      end
+    end
+  end
 end

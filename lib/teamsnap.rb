@@ -268,7 +268,7 @@ module TeamSnap
               coll = TeamSnap.load_items(
                 TeamSnap.run(:get, href)
               )
-              coll.size == 1 && is_singular ? coll.first : coll
+              is_singular ? coll.first : coll
             }.call
           )
         }
