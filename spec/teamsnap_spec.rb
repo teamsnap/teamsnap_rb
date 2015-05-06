@@ -138,11 +138,13 @@ RSpec.describe "teamsnap_rb", :vcr => true do
     context "when a plural relation is called" do
       it "responds with an array of objects when successful" do
         a = event.availabilities
+        expect(a.size).to be > 0
         expect(a.class).to eq(Array)
       end
 
       it "responds with an empty array when no objects exist" do
         a = event.assignments
+        expect(a.size).to eq(0)
         expect(a.class).to eq(Array)
       end
     end
