@@ -139,15 +139,16 @@ RSpec.describe "teamsnap_rb", :vcr => true do
       it "responds with an array of objects when successful" do
         a = event.availabilities
         expect(a.size).to be > 0
-        expect(a.class).to eq(Array)
+        expect(a).to be_an(Array)
       end
 
       it "responds with an empty array when no objects exist" do
         a = event.assignments
         expect(a.size).to eq(0)
-        expect(a.class).to eq(Array)
+        expect(a).to be_an(Array)
       end
     end
+
     context "when a singular relation is called" do
       it "responds with the object if it exists" do
         a = event.team
