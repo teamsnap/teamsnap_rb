@@ -152,12 +152,12 @@ RSpec.describe "teamsnap_rb", :vcr => true do
     context "when a singular relation is called" do
       it "responds with the object if it exists" do
         a = event.team
-        expect(a.class).to eq(TeamSnap::Team)
+        expect(a).to be_a(TeamSnap::Team)
       end
 
       it "responds with nil if it does NOT exist" do
         a = event.division_location
-        expect(a.class).to eq(NilClass)
+        expect(a).to be_a(NilClass)
       end
     end
   end
