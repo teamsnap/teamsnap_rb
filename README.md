@@ -13,25 +13,19 @@ _Note: You'll need an OAuth2 Token from TeamSnap. Checkout our API docs
 [here](http://developer.teamsnap.com/documentation/apiv3/)_
 
 ```
-λ git clone https://github.com/teamsnap/teamsnap_rb
-λ cd teamsnap_rb
-λ bundle install
-Fetching gem metadata from https://rubygems.org/..........
-...
-Your bundle is complete!
-Use `bundle show [gemname]` to see where a bundled gem is installed.
-λ bundle exec rake console
-[1] pry(main)> TeamSnap.init(:token => "abc123...", :url => "https://apiv3.teamsnap.com")
-[2] pry(main)> t = TeamSnap::Team.find(1)
+λ gem install teamsnap_rb
+λ irb
+> TeamSnap.init(:token => "abc123...", :url => "https://apiv3.teamsnap.com")
+> t = TeamSnap::Team.find(1)
 => #<TeamSnap::Team::...>
-[3] pry(main)> t.name
+> t.name
 => "TeamSnap"
-[4] pry(main)> rs = client.bulk_load(:team_id => 1, :types => "team,member")
+> rs = client.bulk_load(:team_id => 1, :types => "team,member")
 => [#<TeamSnap::Team:...>,
  #<TeamSnap::Member:...>,
  # ...
  #<TeamSnap::Member:...>]
-[5] pry(main)> rs[1].first_name
+> rs[1].first_name
 => "Andrew"
 ```
 
