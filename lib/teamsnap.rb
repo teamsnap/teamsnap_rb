@@ -116,7 +116,7 @@ module TeamSnap
         c.adapter :typhoeus
       end
 
-      collection = TeamSnap.run(:get, "/")
+      collection = TeamSnap.run(:get, "/", {}, opts)
 
       classes = []
       client.in_parallel do
@@ -131,15 +131,24 @@ module TeamSnap
       apply_endpoints(self, collection) && true
     end
 
-    def run(via, href, args = {})
+    def run(via, href, args = {}, opts = {})
       resp = client.send(via, href, args)
 
       if resp.status == 200
-        Oj.load(resp.body)
-          .fetch(:collection)
+        collection = Oj.load(resp.body).fetch(:collection)
+        if opts[:backup_cache]
+          File.open(opts[:backup_cache], "wb") do |f|
+            f.write Marshal.dump(collection)
+          end
+        end
+        collection
       else
-        error_message = parse_error(resp)
-        raise TeamSnap::Error.new(error_message)
+        if opts[:backup_cache] && File.exist?(opts[:backup_cache])
+          Marshal.load(File.binread(opts[:backup_cache]))
+        else
+          error_message = parse_error(resp)
+          raise TeamSnap::Error.new(error_message)
+        end
       end
     end
 
