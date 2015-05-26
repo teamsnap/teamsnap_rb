@@ -172,7 +172,7 @@ module TeamSnap
     end
 
     def backup_file_exists?(backup_cache_file)
-      !backup_cache_file.nil? && File.exist?(backup_cache_file)
+      !!backup_cache_file && File.exist?(backup_cache_file)
     end
 
     def parse_error(resp)
