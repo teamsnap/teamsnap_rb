@@ -193,7 +193,7 @@ RSpec.describe "teamsnap_rb", :vcr => true do
         end
 
         it "writes the file inside the directory provided" do
-          File.should_receive(:open).with(test_file_location, "w+")
+          expect(File).to receive(:open).with(test_file_location, "w+")
           TeamSnap.write_backup_file(test_file_location, collection)
         end
 
@@ -213,7 +213,7 @@ RSpec.describe "teamsnap_rb", :vcr => true do
         }
 
         it "issues a warning that the directory does not exist" do
-          TeamSnap.should_receive(:warn).with(warning_message)
+          expect(TeamSnap).to receive(:warn).with(warning_message)
           TeamSnap.write_backup_file(test_file_location, collection)
         end
       end
