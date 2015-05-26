@@ -104,6 +104,10 @@ module TeamSnap
         )
       end
 
+      unless opts.include?(:backup_cache) && opts[:backup_cache] == false
+        opts[:backup_cache_file] = TeamSnap.backup_file(opts[:backup_cache])
+      end
+
       self.client = Faraday.new(
         :url => opts.fetch(:url),
         :parallel_manager => Typhoeus::Hydra.new
@@ -136,20 +140,44 @@ module TeamSnap
 
       if resp.status == 200
         collection = Oj.load(resp.body).fetch(:collection)
-        if opts[:backup_cache]
-          File.open(opts[:backup_cache], "wb") do |f|
-            f.write Marshal.dump(collection)
-          end
+        if opts.include?(:backup_cache_file)
+          TeamSnap.write_backup_file(opts[:backup_cache_file], collection)
         end
         collection
       else
-        if opts[:backup_cache] && File.exist?(opts[:backup_cache])
-          Marshal.load(File.binread(opts[:backup_cache]))
+        if TeamSnap.backup_file_exists?(opts)
+          warn("Connection to API failed.. using backup cache file to initialize endpoints")
+          Oj.load(IO.read(opts[:backup_cache_file]))
         else
           error_message = parse_error(resp)
           raise TeamSnap::Error.new(error_message)
         end
       end
+    end
+
+    def backup_file(backup_cache)
+      case backup_cache
+      when true, nil
+        "./tmp/.teamsnap_rb"
+      else
+        backup_cache
+      end
+    end
+
+    def write_backup_file(file_location, collection)
+      dir_location = File.dirname(file_location)
+      if Dir.exist?(dir_location)
+        File.open(file_location, "w+") { |f| f.write Oj.dump(collection) }
+      else
+        warn(
+          "WARNING: Directory '#{dir_location}' does not exist. " +
+          "Backup cache functionality will not work until this is resolved."
+        )
+      end
+    end
+
+    def backup_file_exists?(opts)
+      opts.include?(:backup_cache_file) && File.exist?(opts[:backup_cache_file])
     end
 
     def parse_error(resp)

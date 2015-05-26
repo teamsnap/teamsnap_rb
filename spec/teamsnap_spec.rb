@@ -6,7 +6,8 @@ RSpec.describe "teamsnap_rb", :vcr => true do
     VCR.use_cassette("apiv3-init") do
       TeamSnap.init(
         :url => "http://localhost:3000",
-        :token => "1-classic-dont_tell_the_cops"
+        :token => "1-classic-dont_tell_the_cops",
+        :backup_cache => false
       )
     end
   end
@@ -158,6 +159,80 @@ RSpec.describe "teamsnap_rb", :vcr => true do
       it "responds with nil if it does NOT exist" do
         a = event.division_location
         expect(a).to be_a(NilClass)
+      end
+    end
+  end
+
+  context "supports using a backup file on init for when API cannot be reached" do
+    context ".backup_file" do
+      let(:default_file_location) { "./tmp/.teamsnap_rb" }
+
+      it "responds with the given file location if provided" do
+        file_location = "./some_dir/some_file.testing"
+        expect(TeamSnap.backup_file(file_location)).to eq(file_location)
+      end
+
+      it "responds with the default file location if not set" do
+        expect(TeamSnap.backup_file(nil)).to eq(default_file_location)
+      end
+
+      it "responds with the default file location if set to true" do
+        expect(TeamSnap.backup_file(true)).to eq(default_file_location)
+      end
+    end
+
+    context ".write_backup_file" do
+      let(:collection) { {:one => 1} }
+
+      context "when the given directory exists" do
+        let(:test_file_location) { "./tmp/.teamsnap_rb" }
+        let(:file_contents) { Oj.dump(collection) }
+
+        it "returns the number of characters written to the file" do
+          expect(TeamSnap.write_backup_file(test_file_location, collection)).to eq(file_contents.length)
+        end
+
+        it "writes the file inside the directory provided" do
+          File.should_receive(:open).with(test_file_location, "w+")
+          TeamSnap.write_backup_file(test_file_location, collection)
+        end
+
+        it "writes the file with the correct information" do
+          TeamSnap.write_backup_file(test_file_location, collection)
+          file_contents = Oj.load(IO.read(test_file_location))
+          expect(file_contents).to eq(collection)
+        end
+      end
+
+      context "when the given directory does NOT exist" do
+        let(:test_file_location) { "./directory_doesnt_exist/file" }
+        let(:test_dir_location) { File.dirname(test_file_location) }
+        let(:warning_message) {
+          "WARNING: Directory '#{test_dir_location}' does not exist. " +
+          "Backup cache functionality will not work until this is resolved."
+        }
+
+        it "issues a warning that the directory does not exist" do
+          TeamSnap.should_receive(:warn).with(warning_message)
+          TeamSnap.write_backup_file(test_file_location, collection)
+        end
+      end
+    end
+
+    context ".backup_file_exists?" do
+      it "returns false if backup_cache_file is NOT set" do
+        opts = {}
+        expect(TeamSnap.backup_file_exists?(opts)).to eq(false)
+      end
+
+      it "returns false if the file does NOT exist" do
+        opts = { :backup_cache_file => "./some_file_that_does_not_exist"}
+        expect(TeamSnap.backup_file_exists?(opts)).to eq(false)
+      end
+
+      it "returns true is the file exists" do
+        opts = { :backup_cache_file => "./Gemfile"}
+        expect(TeamSnap.backup_file_exists?(opts)).to eq(true)
       end
     end
   end
