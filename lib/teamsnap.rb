@@ -155,12 +155,7 @@ module TeamSnap
     end
 
     def backup_file_for(backup_cache)
-      case backup_cache
-      when true
-        "./tmp/.teamsnap_rb"
-      else
-        backup_cache
-      end
+      backup_cache == true ? "./tmp/.teamsnap_rb" : backup_cache
     end
 
     def write_backup_file(file_location, collection)
