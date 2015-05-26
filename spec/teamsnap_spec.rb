@@ -164,20 +164,16 @@ RSpec.describe "teamsnap_rb", :vcr => true do
   end
 
   context "supports using a backup file on init for when API cannot be reached" do
-    context ".backup_file" do
+    context ".backup_file_for" do
       let(:default_file_location) { "./tmp/.teamsnap_rb" }
 
       it "responds with the given file location if provided" do
         file_location = "./some_dir/some_file.testing"
-        expect(TeamSnap.backup_file(file_location)).to eq(file_location)
-      end
-
-      it "responds with the default file location if not set" do
-        expect(TeamSnap.backup_file(nil)).to eq(default_file_location)
+        expect(TeamSnap.backup_file_for(file_location)).to eq(file_location)
       end
 
       it "responds with the default file location if set to true" do
-        expect(TeamSnap.backup_file(true)).to eq(default_file_location)
+        expect(TeamSnap.backup_file_for(true)).to eq(default_file_location)
       end
     end
 
@@ -221,18 +217,15 @@ RSpec.describe "teamsnap_rb", :vcr => true do
 
     context ".backup_file_exists?" do
       it "returns false if backup_cache_file is NOT set" do
-        opts = {}
-        expect(TeamSnap.backup_file_exists?(opts)).to eq(false)
+        expect(TeamSnap.backup_file_exists?(nil)).to eq(false)
       end
 
       it "returns false if the file does NOT exist" do
-        opts = { :backup_cache_file => "./some_file_that_does_not_exist"}
-        expect(TeamSnap.backup_file_exists?(opts)).to eq(false)
+        expect(TeamSnap.backup_file_exists?("./some_file_that_does_not_exist")).to eq(false)
       end
 
       it "returns true is the file exists" do
-        opts = { :backup_cache_file => "./Gemfile"}
-        expect(TeamSnap.backup_file_exists?(opts)).to eq(true)
+        expect(TeamSnap.backup_file_exists?("./Gemfile")).to eq(true)
       end
     end
   end

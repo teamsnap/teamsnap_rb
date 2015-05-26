@@ -104,8 +104,9 @@ module TeamSnap
         )
       end
 
-      unless opts.include?(:backup_cache) && opts[:backup_cache] == false
-        opts[:backup_cache_file] = TeamSnap.backup_file(opts[:backup_cache])
+      opts[:backup_cache] = opts.fetch(:backup_cache) { true }
+      if opts[:backup_cache]
+        opts[:backup_cache_file] = TeamSnap.backup_file_for(opts[:backup_cache])
       end
 
       self.client = Faraday.new(
@@ -140,12 +141,10 @@ module TeamSnap
 
       if resp.status == 200
         collection = Oj.load(resp.body).fetch(:collection)
-        if opts.include?(:backup_cache_file)
-          TeamSnap.write_backup_file(opts[:backup_cache_file], collection)
-        end
+        TeamSnap.write_backup_file(opts[:backup_cache_file], collection)
         collection
       else
-        if TeamSnap.backup_file_exists?(opts)
+        if TeamSnap.backup_file_exists?(opts[:backup_cache_file])
           warn("Connection to API failed.. using backup cache file to initialize endpoints")
           Oj.load(IO.read(opts[:backup_cache_file]))
         else
@@ -155,9 +154,9 @@ module TeamSnap
       end
     end
 
-    def backup_file(backup_cache)
+    def backup_file_for(backup_cache)
       case backup_cache
-      when true, nil
+      when true
         "./tmp/.teamsnap_rb"
       else
         backup_cache
@@ -165,6 +164,7 @@ module TeamSnap
     end
 
     def write_backup_file(file_location, collection)
+      return unless file_location
       dir_location = File.dirname(file_location)
       if Dir.exist?(dir_location)
         File.open(file_location, "w+") { |f| f.write Oj.dump(collection) }
@@ -176,8 +176,8 @@ module TeamSnap
       end
     end
 
-    def backup_file_exists?(opts)
-      opts.include?(:backup_cache_file) && File.exist?(opts[:backup_cache_file])
+    def backup_file_exists?(backup_cache_file)
+      !backup_cache_file.nil? && File.exist?(backup_cache_file)
     end
 
     def parse_error(resp)
