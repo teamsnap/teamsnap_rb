@@ -104,6 +104,11 @@ module TeamSnap
         )
       end
 
+      opts[:backup_cache] = opts.fetch(:backup_cache) { true }
+      if opts[:backup_cache]
+        opts[:backup_cache_file] = TeamSnap.backup_file_for(opts[:backup_cache])
+      end
+
       self.client = Faraday.new(
         :url => opts.fetch(:url),
         :parallel_manager => Typhoeus::Hydra.new
@@ -116,7 +121,7 @@ module TeamSnap
         c.adapter :typhoeus
       end
 
-      collection = TeamSnap.run(:get, "/")
+      collection = TeamSnap.run(:get, "/", {}, opts)
 
       classes = []
       client.in_parallel do
@@ -131,16 +136,43 @@ module TeamSnap
       apply_endpoints(self, collection) && true
     end
 
-    def run(via, href, args = {})
+    def run(via, href, args = {}, opts = {})
       resp = client.send(via, href, args)
 
       if resp.status == 200
-        Oj.load(resp.body)
-          .fetch(:collection)
+        collection = Oj.load(resp.body).fetch(:collection)
+        TeamSnap.write_backup_file(opts[:backup_cache_file], collection)
+        collection
       else
-        error_message = parse_error(resp)
-        raise TeamSnap::Error.new(error_message)
+        if TeamSnap.backup_file_exists?(opts[:backup_cache_file])
+          warn("Connection to API failed.. using backup cache file to initialize endpoints")
+          Oj.load(IO.read(opts[:backup_cache_file]))
+        else
+          error_message = parse_error(resp)
+          raise TeamSnap::Error.new(error_message)
+        end
       end
+    end
+
+    def backup_file_for(backup_cache)
+      backup_cache == true ? "./tmp/.teamsnap_rb" : backup_cache
+    end
+
+    def write_backup_file(file_location, collection)
+      return unless file_location
+      dir_location = File.dirname(file_location)
+      if Dir.exist?(dir_location)
+        File.open(file_location, "w+") { |f| f.write Oj.dump(collection) }
+      else
+        warn(
+          "WARNING: Directory '#{dir_location}' does not exist. " +
+          "Backup cache functionality will not work until this is resolved."
+        )
+      end
+    end
+
+    def backup_file_exists?(backup_cache_file)
+      !!backup_cache_file && File.exist?(backup_cache_file)
     end
 
     def parse_error(resp)
