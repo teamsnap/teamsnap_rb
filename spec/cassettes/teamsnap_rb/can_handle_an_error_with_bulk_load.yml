@@ -2,15 +2,15 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:3000/bulk_load
+    uri: http://localhost:3000/bulk_load?hmac_client_id=classic&hmac_nonce=5e0ea46d-8b16-4877-b269-fdcaca961b98&hmac_timestamp=1432829871
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
       - Faraday v0.9.1
-      Authorization:
-      - Bearer 1-classic-dont_tell_the_cops
+      X-Teamsnap-Hmac:
+      - 39f399d8359508060e60a50bf9de1a506da9e52663c0023f64a8f490812dd54c
   response:
     status:
       code: 400
@@ -22,18 +22,12 @@ http_interactions:
       - '75'
       X-Content-Type-Options:
       - nosniff
-      X-RateLimit-Limit:
-      - '5000'
-      X-RateLimit-Remaining:
-      - '4870'
-      X-RateLimit-Reset:
-      - '1432828850'
       Cache-Control:
       - no-cache
       X-Request-Id:
-      - c3382dbc-e672-4a0e-adcf-5770c9917d1c
+      - 0cd3fabf-57bb-461c-898e-e72fab2ae735
       X-Runtime:
-      - '0.016384'
+      - '0.009722'
       Connection:
       - keep-alive
       Server:
@@ -43,6 +37,6 @@ http_interactions:
       string: '{"collection":{"error":{"message":"You must include a team_id parameter"}}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/bulk_load
-  recorded_at: Thu, 28 May 2015 15:03:24 GMT
+      effective_url: http://localhost:3000/bulk_load?hmac_client_id=classic&hmac_nonce=5e0ea46d-8b16-4877-b269-fdcaca961b98&hmac_timestamp=1432829871
+  recorded_at: Thu, 28 May 2015 16:17:51 GMT
 recorded_with: VCR 2.9.3

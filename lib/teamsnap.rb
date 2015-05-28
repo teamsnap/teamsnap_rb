@@ -111,46 +111,25 @@ module TeamSnap
       arr.inject({}) { |hash, (key, value)| hash[key] = value; hash }
     end
 
+    def auth_with(opts = {})
+      self.token = opts.fetch(:token) { nil }
+      self.client_id = opts.fetch(:client_id) { nil }
+      self.client_secret = opts.fetch(:client_secret) { nil }
+
+      validate_auth_args
+      establish_http_client
+    end
+
     def init(opts = {})
-      opts[:url] ||= DEFAULT_URL
-      unless opts.include?(:token) || (
-        opts.include?(:client_id) && opts.include?(:client_secret)
-      )
-        raise ArgumentError.new(
-          "You must provide a :token or :client_id and :client_secret pair to '.init'"
-        )
+      self.url = opts.fetch(:url) { DEFAULT_URL }
+      self.backup_cache = opts.fetch(:backup_cache) { :default_cache }
+
+      auth_with(opts)
+
+      unless initialized
+        config_backup
+        generate_gem_methods
       end
-
-      opts[:backup_cache] = opts.fetch(:backup_cache) { true }
-      if opts[:backup_cache]
-        opts[:backup_cache_file] = TeamSnap.backup_file_for(opts[:backup_cache])
-      end
-
-      self.client = Faraday.new(
-        :url => opts.fetch(:url),
-        :parallel_manager => Typhoeus::Hydra.new
-      ) do |c|
-        c.request :teamsnap_auth_middleware, {
-          :token => opts[:token],
-          :client_id => opts[:client_id],
-          :client_secret => opts[:client_secret]
-        }
-        c.adapter :typhoeus
-      end
-
-      collection = TeamSnap.run(:get, "/", {}, opts)
-
-      classes = []
-      client.in_parallel do
-        classes = collection
-          .fetch(:links)
-          .map { |link| classify_rel(link) }
-          .compact
-      end
-
-      classes.each { |cls| cls.parse_collection }
-
-      apply_endpoints(self, collection) && true
     end
 
     def run(via, href, args = {}, opts = {})
@@ -166,39 +145,18 @@ module TeamSnap
              end
 
       if resp.success?
-        Oj.load(resp.body).fetch(:collection).tap { |collection|
-          TeamSnap.write_backup_file(opts[:backup_cache_file], collection)
-        }
+        Oj.load(resp.body).fetch(:collection).tap do |collection|
+          write_backup_file(opts[:backup_cache_file], collection)
+        end
       else
-        if TeamSnap.backup_file_exists?(opts[:backup_cache_file])
+        if backup_file_exists?
           warn("Connection to API failed.. using backup cache file to initialize endpoints")
-          Oj.load(IO.read(opts[:backup_cache_file]))
+          Oj.load(IO.read(backup_cache_file))
         else
           error_message = parse_error(resp)
           raise TeamSnap::Error.new(error_message)
         end
       end
-    end
-
-    def backup_file_for(backup_cache)
-      backup_cache == true ? "./tmp/.teamsnap_rb" : backup_cache
-    end
-
-    def write_backup_file(file_location, collection)
-      return unless file_location
-      dir_location = File.dirname(file_location)
-      if Dir.exist?(dir_location)
-        File.open(file_location, "w+") { |f| f.write Oj.dump(collection) }
-      else
-        warn(
-          "WARNING: Directory '#{dir_location}' does not exist. " +
-          "Backup cache functionality will not work until this is resolved."
-        )
-      end
-    end
-
-    def backup_file_exists?(backup_cache_file)
-      !!backup_cache_file && File.exist?(backup_cache_file)
     end
 
     def parse_error(resp)
@@ -232,9 +190,81 @@ module TeamSnap
         .each { |endpoint| register_endpoint(obj, endpoint, :via => :post) }
     end
 
+    def write_backup_file(file_location, collection)
+      return unless file_location
+      dir_location = File.dirname(file_location)
+      if Dir.exist?(dir_location)
+        File.open(file_location, "w+") { |f| f.write Oj.dump(collection) }
+      else
+        warn(
+          "WARNING: Directory '#{dir_location}' does not exist. " +
+          "Backup cache functionality will not work until this is resolved."
+        )
+      end
+    end
+
+    def get_backup_file
+      if backup_cache == :default_cache
+        "./tmp/.teamsnap_rb"
+      else
+        backup_cache
+      end
+    end
+
+    def backup_file_exists?
+      !!backup_cache_file && File.exist?(backup_cache_file)
+    end
+
     private
 
-    attr_accessor :client
+    attr_accessor :client, :url, :token, :client_id, :client_secret,
+      :initialized, :backup_cache, :backup_cache_file
+
+    def establish_http_client
+      self.client = Faraday.new(
+        :url => url,
+        :parallel_manager => Typhoeus::Hydra.new
+      ) do |c|
+        c.request :teamsnap_auth_middleware, {
+          :token => token,
+          :client_id => client_id,
+          :client_secret => client_secret
+        }
+        c.adapter :typhoeus
+      end
+    end
+
+    def generate_gem_methods
+      collection = TeamSnap.run(
+        :get, "/", {}, { :backup_cache_file => backup_cache_file }
+      )
+
+      classes = []
+      client.in_parallel do
+        classes = collection
+          .fetch(:links)
+          .map { |link| classify_rel(link) }
+          .compact
+      end
+
+      classes.each { |cls| cls.parse_collection }
+
+      apply_endpoints(self, collection) && self.initialized = true
+    end
+
+    def validate_auth_args
+      unless token || (client_id && client_secret)
+        raise ArgumentError.new(
+          "You must provide a :token or :client_id and :client_secret pair to '.init'"
+        )
+      end
+    end
+
+    def config_backup
+      if backup_cache
+        self.backup_cache_file = TeamSnap.get_backup_file
+      end
+    end
 
     def classify_rel(link)
       return if EXCLUDED_RELS.include?(link.fetch(:rel))

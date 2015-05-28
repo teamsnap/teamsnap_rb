@@ -47,11 +47,7 @@ RSpec.describe "teamsnap_rb", :vcr => true do
   end
 
   it "handles executing an action via commands with multiple params" do
-    TeamSnap.init(
-      :url => ROOT_TEST_URL,
-      :backup_cache => false,
-      :token => "1-classic-dont_tell_the_cops"
-    )
+    TeamSnap.auth_with(:token => "1-classic-dont_tell_the_cops")
 
     ms = TeamSnap::Team.invite(
       :team_id => 1, :member_id => [9, 11], :notify_as_member_id => 3,
@@ -182,16 +178,18 @@ RSpec.describe "teamsnap_rb", :vcr => true do
   end
 
   context "supports using a backup file on init for when API cannot be reached" do
-    context ".backup_file_for" do
+    context ".get_backup_file" do
       let(:default_file_location) { "./tmp/.teamsnap_rb" }
 
       it "responds with the given file location if provided" do
         file_location = "./some_dir/some_file.testing"
-        expect(TeamSnap.backup_file_for(file_location)).to eq(file_location)
+        TeamSnap.stub(:backup_cache) { file_location }
+        expect(TeamSnap.get_backup_file).to eq(file_location)
       end
 
       it "responds with the default file location if set to true" do
-        expect(TeamSnap.backup_file_for(true)).to eq(default_file_location)
+        TeamSnap.stub(:backup_cache) { :default_cache }
+        expect(TeamSnap.get_backup_file).to eq(default_file_location)
       end
     end
 
@@ -235,15 +233,17 @@ RSpec.describe "teamsnap_rb", :vcr => true do
 
     context ".backup_file_exists?" do
       it "returns false if backup_cache_file is NOT set" do
-        expect(TeamSnap.backup_file_exists?(nil)).to eq(false)
+        expect(TeamSnap.backup_file_exists?).to eq(false)
       end
 
       it "returns false if the file does NOT exist" do
-        expect(TeamSnap.backup_file_exists?("./some_file_that_does_not_exist")).to eq(false)
+        TeamSnap.stub(:backup_cache_file) { "./some_file_that_does_not_exist" }
+        expect(TeamSnap.backup_file_exists?).to eq(false)
       end
 
       it "returns true is the file exists" do
-        expect(TeamSnap.backup_file_exists?("./Gemfile")).to eq(true)
+        TeamSnap.stub(:backup_cache_file) { "./Gemfile" }
+        expect(TeamSnap.backup_file_exists?).to eq(true)
       end
     end
   end

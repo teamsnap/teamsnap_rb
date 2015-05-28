@@ -2,15 +2,15 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:3000/bulk_load?team_id=0&types=team%2Cmember&hmac_client_id=classic&hmac_nonce=5910e347-825e-43de-84cb-a2de462bc46d&hmac_timestamp=1432825402
+    uri: http://localhost:3000/bulk_load?team_id=0&types=team%2Cmember
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
       - Faraday v0.9.1
-      X-Teamsnap-Hmac:
-      - 5d6bd8eddca84d9074a99a80ad8afd2b41197cc54e434d0a35fc5bcde52e625c
+      Authorization:
+      - Bearer 1-classic-dont_tell_the_cops
   response:
     status:
       code: 200
@@ -22,14 +22,20 @@ http_interactions:
       - '374'
       X-Content-Type-Options:
       - nosniff
+      X-RateLimit-Limit:
+      - '5000'
+      X-RateLimit-Remaining:
+      - '4998'
+      X-RateLimit-Reset:
+      - '1432833472'
       ETag:
       - '"0e298bf0965f331eb9e8883eac99cb34"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 246c1da3-5645-44af-8fd4-d34b24b34573
+      - f1f2fcf1-3035-4b52-b700-3b7729aa15da
       X-Runtime:
-      - '0.019284'
+      - '0.019706'
       Connection:
       - keep-alive
       Server:
@@ -39,6 +45,6 @@ http_interactions:
       string: '{"collection":{"version":"3.72.0","href":"http://localhost:3000/bulk_load","links":[{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/bulk_load?team_id=0&types=team%2Cmember"}],"queries":[{"rel":"bulk_load","href":"http://localhost:3000/bulk_load","data":[{"name":"team_id","value":null},{"name":"types","value":null}]}],"items":[]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/bulk_load?team_id=0&types=team%2Cmember&hmac_client_id=classic&hmac_nonce=5910e347-825e-43de-84cb-a2de462bc46d&hmac_timestamp=1432825402
-  recorded_at: Thu, 28 May 2015 15:03:22 GMT
+      effective_url: http://localhost:3000/bulk_load?team_id=0&types=team%2Cmember
+  recorded_at: Thu, 28 May 2015 16:17:52 GMT
 recorded_with: VCR 2.9.3

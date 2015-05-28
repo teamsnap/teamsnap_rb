@@ -2,15 +2,15 @@
 http_interactions:
 - request:
     method: post
-    uri: http://localhost:3000/members/disable_member
+    uri: http://localhost:3000/members/disable_member?hmac_client_id=classic&hmac_nonce=6dc93ca5-e59e-4283-b9d5-428042947c7b&hmac_timestamp=1432829871
     body:
       encoding: UTF-8
       string: "{}"
     headers:
       User-Agent:
       - Faraday v0.9.1
-      Authorization:
-      - Bearer 1-classic-dont_tell_the_cops
+      X-Teamsnap-Hmac:
+      - f387dd130ace20e3411a51bf1f2bbebf8d577e4751b345d029b240c58ec0d2c6
   response:
     status:
       code: 400
@@ -22,18 +22,12 @@ http_interactions:
       - '70'
       X-Content-Type-Options:
       - nosniff
-      X-RateLimit-Limit:
-      - '5000'
-      X-RateLimit-Remaining:
-      - '4875'
-      X-RateLimit-Reset:
-      - '1432828850'
       Cache-Control:
       - no-cache
       X-Request-Id:
-      - b150e51b-0564-49b0-a90c-198fb5cc4f5f
+      - 4427d2ab-bbd9-4016-94de-022e9571d915
       X-Runtime:
-      - '0.012453'
+      - '0.009926'
       Connection:
       - keep-alive
       Server:
@@ -43,6 +37,6 @@ http_interactions:
       string: '{"collection":{"error":{"message":"You must provide the member_id."}}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/members/disable_member
-  recorded_at: Thu, 28 May 2015 15:03:24 GMT
+      effective_url: http://localhost:3000/members/disable_member?hmac_client_id=classic&hmac_nonce=6dc93ca5-e59e-4283-b9d5-428042947c7b&hmac_timestamp=1432829871
+  recorded_at: Thu, 28 May 2015 16:17:51 GMT
 recorded_with: VCR 2.9.3
