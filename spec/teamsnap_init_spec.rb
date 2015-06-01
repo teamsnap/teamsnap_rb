@@ -27,5 +27,18 @@ RSpec.describe "teamsnap_rb", :vcr => true do
                       :backup_cache => false)
       }.to raise_error(TeamSnap::Error, /You are not authorized to access this resource/)
     end
+
+    it "allows url to be specified" do
+      connection = instance_double("Faraday::Connection")
+      response = instance_double("Faraday::Response")
+      allow(connection).to receive(:get) { response }
+      allow(response).to receive(:success?) { false }
+      allow(connection).to receive(:in_parallel) { false }
+
+      expect(Faraday).to receive(:new).with(hash_including(
+        :url => "https://api.example.com")) { connection }
+
+      TeamSnap.init(:token => "mytoken", :url => "https://api.example.com")
+    end
   end
 end
