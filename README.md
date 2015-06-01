@@ -15,7 +15,7 @@ _Note: You'll need an OAuth2 Token from TeamSnap. Checkout our API docs
 ```
 λ gem install teamsnap_rb
 λ irb
-> TeamSnap.init(:token => "abc123...", :url => "https://apiv3.teamsnap.com")
+> TeamSnap.init(:token => "abc123...")
 > t = TeamSnap::Team.find(1)
 => #<TeamSnap::Team::...>
 > t.name
