@@ -1,0 +1,57 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://apiv3.teamsnap.com/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.1
+      Authorization:
+      - Bearer mytoken
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Content-Type:
+      - application/vnd.collection+json
+      Content-Length:
+      - '138'
+      Connection:
+      - keep-alive
+      Status:
+      - 401 Unauthorized
+      X-Trace:
+      - 1BEFF3866028589CE764E5A9820D4EC7A9AE17449F0480402F37D4ACF2
+      X-Content-Type-Options:
+      - nosniff
+      X-RateLimit-Limit:
+      - '5000'
+      X-RateLimit-Remaining:
+      - '4997'
+      X-RateLimit-Reset:
+      - '1433190674'
+      Cache-Control:
+      - no-cache
+      X-Request-Id:
+      - ada3839c-f851-4bb7-b0f8-c32121a89300
+      X-Runtime:
+      - '0.014661'
+      X-Powered-By:
+      - Phusion Passenger 4.0.48
+      Date:
+      - Mon, 01 Jun 2015 19:40:07 GMT
+      Server:
+      - nginx/1.6.2 + Phusion Passenger 4.0.48
+    body:
+      encoding: UTF-8
+      string: '{"collection":{"error":{"message":"You are not authorized to access
+        this resource. Please ensure you''ve provided a valid access token."}}}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://apiv3.teamsnap.com/
+  recorded_at: Mon, 01 Jun 2015 19:40:15 GMT
+recorded_with: VCR 2.9.3
