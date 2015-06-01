@@ -1,7 +1,12 @@
-require "spec_helper"
 require "teamsnap"
 
-RSpec.describe "teamsnap_rb", :vcr => true do
+RSpec.describe "teamsnap_rb" do
+  let(:default_url) { TeamSnap::DEFAULT_URL }
+  let(:specified_url) { "https://url-fun-zone.com" }
+  let(:response) { Typhoeus::Response.new(
+    code: 200, body: { :collection => { :links => [] } }.to_json
+  ) }
+
   describe ".init" do
     it "requires token or client id and client secret" do
       expect {
@@ -10,9 +15,9 @@ RSpec.describe "teamsnap_rb", :vcr => true do
     end
 
     it "initializes with default url and token auth" do
-      expect {
-        TeamSnap.init(:token => "mytoken", :backup_cache => false)
-      }.to raise_error(TeamSnap::Error, /You are not authorized to access this resource/)
+      Typhoeus.stub(%r(#{default_url})).and_return(response)
+
+      TeamSnap.init(:token => "mytoken", :backup_cache => false)
     end
 
     it "requires client secret when given client id" do
@@ -22,23 +27,20 @@ RSpec.describe "teamsnap_rb", :vcr => true do
     end
 
     it "initializes with default url and hmac auth" do
-      expect {
-        TeamSnap.init(:client_id => "myclient", :client_secret => "mysecret",
-                      :backup_cache => false)
-      }.to raise_error(TeamSnap::Error, /You are not authorized to access this resource/)
+      Typhoeus.stub(/#{default_url}/).and_return(response)
+
+      TeamSnap.init(
+        :client_id => "myclient", :client_secret => "mysecret", :backup_cache => false
+      )
     end
 
     it "allows url to be specified" do
-      connection = instance_double("Faraday::Connection")
-      response = instance_double("Faraday::Response")
-      allow(connection).to receive(:get) { response }
-      allow(response).to receive(:success?) { false }
-      allow(connection).to receive(:in_parallel) { false }
+      Typhoeus.stub(/#{specified_url}/).and_return(response)
 
-      expect(Faraday).to receive(:new).with(hash_including(
-        :url => "https://api.example.com")) { connection }
-
-      TeamSnap.init(:token => "mytoken", :url => "https://api.example.com")
+      TeamSnap.init(
+        :client_id => "myclient", :client_secret => "mysecret", :backup_cache => false,
+        :url => specified_url
+      )
     end
   end
 end
