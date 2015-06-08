@@ -6,6 +6,7 @@ require "inflecto"
 require "virtus"
 require "date"
 require "securerandom"
+require "pry"
 
 require_relative "teamsnap/version"
 
@@ -121,11 +122,6 @@ module TeamSnap
         )
       end
 
-      opts[:backup_cache] = opts.fetch(:backup_cache) { true }
-      if opts[:backup_cache]
-        opts[:backup_cache_file] = TeamSnap.backup_file_for(opts[:backup_cache])
-      end
-
       self.client = Faraday.new(
         :url => opts.fetch(:url),
         :parallel_manager => Typhoeus::Hydra.new
@@ -138,7 +134,7 @@ module TeamSnap
         c.adapter :typhoeus
       end
 
-      collection = TeamSnap.run(:get, "/", {}, opts)
+      collection = TeamSnap.run_init(:get, "/", {})
 
       classes = []
       client.in_parallel do
@@ -153,26 +149,15 @@ module TeamSnap
       apply_endpoints(self, collection) && true
     end
 
-    def run(via, href, args = {}, opts = {})
-      resp = case via
-             when :get
-               client.send(via, href, args)
-             when :post
-               client.send(via, href) do |req|
-                 req.body = Oj.dump(args)
-               end
-             else
-               raise TeamSnap::Error.new("Don't know how to run `#{via}`")
-             end
-
-      if resp.success?
-        Oj.load(resp.body).fetch(:collection).tap { |collection|
-          TeamSnap.write_backup_file(opts[:backup_cache_file], collection)
-        }
+    def run_init(via, href, args = {}, opts = {})
+      begin
+        resp = client_send(via, href, args)
+      rescue Faraday::TimeoutError
+        warn("Connection to API failed. Initializing with empty class structure")
+        {:links => []}
       else
-        if TeamSnap.backup_file_exists?(opts[:backup_cache_file])
-          warn("Connection to API failed.. using backup cache file to initialize endpoints")
-          Oj.load(IO.read(opts[:backup_cache_file]))
+        if resp.success?
+          Oj.load(resp.body).fetch(:collection)
         else
           error_message = parse_error(resp)
           raise TeamSnap::Error.new(error_message)
@@ -180,25 +165,33 @@ module TeamSnap
       end
     end
 
-    def backup_file_for(backup_cache)
-      backup_cache == true ? "./tmp/.teamsnap_rb" : backup_cache
-    end
-
-    def write_backup_file(file_location, collection)
-      return unless file_location
-      dir_location = File.dirname(file_location)
-      if Dir.exist?(dir_location)
-        File.open(file_location, "w+") { |f| f.write Oj.dump(collection) }
+    def run(via, href, args = {})
+      resp = client_send(via, href, args)
+      if resp.success?
+        Oj.load(resp.body).fetch(:collection)
       else
-        warn(
-          "WARNING: Directory '#{dir_location}' does not exist. " +
-          "Backup cache functionality will not work until this is resolved."
-        )
+        if resp.headers["content-type"].match("json")
+          error_message = parse_error(resp)
+          raise TeamSnap::Error.new(error_message)
+        else
+          raise TeamSnap::Error.new("`#{via}` call was unsuccessful. " +
+            "Unexpected response content-type. " +
+            "Check TeamSnap APIv3 connection")
+        end
       end
     end
 
-    def backup_file_exists?(backup_cache_file)
-      !!backup_cache_file && File.exist?(backup_cache_file)
+    def client_send(via, href, args)
+      case via
+      when :get
+        client.send(via, href, args)
+      when :post
+        client.send(via, href) do |req|
+          req.body = Oj.dump(args)
+        end
+      else
+        raise TeamSnap::Error.new("Don't know how to run `#{via}`")
+      end
     end
 
     def parse_error(resp)
