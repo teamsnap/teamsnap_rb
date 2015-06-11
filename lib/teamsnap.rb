@@ -20,6 +20,7 @@ Faraday::Request.register_middleware(
 )
 
 Inflecto.inflections do |inflect|
+  inflect.irregular "broadcast_sms", "broadcast_smses"
   inflect.irregular "member_preferences", "member_preferences"
   inflect.irregular "member_preferences", "members_preferences"
   inflect.irregular "opponent_results", "opponent_results"
