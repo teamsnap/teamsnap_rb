@@ -226,6 +226,7 @@ module TeamSnap
         .map { |datum| datum.fetch(:name).to_sym }
       via = opts.fetch(:via)
 
+      #TODO: pass in connection
       obj.define_singleton_method(rel) do |*args|
         args = Hash[*args]
 
