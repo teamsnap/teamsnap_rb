@@ -8,6 +8,7 @@ module TeamSnap
       #TODO: mutex/syncrhonize/just do once
       TeamSnap.init(connection)
       TeamSnap.const_get(Inflecto.camelize(method))
+      #TODO: .me breaks
     end
 
     def respond_to?(method, include_all=false)
