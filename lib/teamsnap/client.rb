@@ -9,38 +9,13 @@ require "securerandom"
 
 module TeamSnap
   class Client
-    attr_accessor :access_token, :proxy
 
     # Initializes a new Client object
     def initialize(options = {})
-      yield(self) if block_given?
-    end
-
-    def connection
-      options = {
-        :headers => {'Accept' => "application/#{format}; charset=utf-8", 'User-Agent' => user_agent},
-        :proxy => proxy,
-        :url => endpoint,
-      }.merge(connection_options)
-
-      Faraday::Connection.new(options) do |connection|
-        #connection.use FaradayMiddleware::InstagramOAuth2, client_id, access_token
-        connection.use Faraday::Request::UrlEncoded
-        #connection.use FaradayMiddleware::Mashify unless raw
-        connection.use Faraday::Response::ParseJson
-        connection.use FaradayMiddleware::RaiseHttpException
-        #connection.use FaradayMiddleware::LoudLogger if loud_logger
-        connection.adapter(adapter)
-      end
+      yield(TeamSnap::Configuration.new(options)) if block_given?
     end
   end
 end
-
-Oj.default_options = {
-  :mode => :compat,
-  :symbol_keys => true,
-  :class_cache => true
-}
 
 Faraday::Request.register_middleware(
   :teamsnap_auth_middleware => -> { TeamSnap::AuthMiddleware }

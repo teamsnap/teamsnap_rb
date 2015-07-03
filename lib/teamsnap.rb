@@ -5,6 +5,12 @@ require "teamsnap/client"
 require "teamsnap/collection"
 require "teamsnap/item"
 
+Oj.default_options = {
+  :mode => :compat,
+  :symbol_keys => true,
+  :class_cache => true
+}
+
 module TeamSnap
   EXCLUDED_RELS = %w(me apiv2_root root self dude sweet random xyzzy)
 
