@@ -5,8 +5,9 @@ module TeamSnap
     end
 
     def method_missing(method, *args, &block)
-      #synchronize
-      #TeamSnap.init
+      #binding.pry
+      #mutex/synchronize
+      TeamSnap.init(connection)
     end
 
     def respond_to?(method, include_all=false)
@@ -15,5 +16,22 @@ module TeamSnap
     def configuration
       @configuration ||= Configuration.new
     end
+
+    def connection
+      @connection ||= begin
+        Faraday.new(
+          :url => configuration.url,
+          :parallel_manager => Typhoeus::Hydra.new
+        ) do |c|
+          c.request :teamsnap_auth_middleware, {
+            :token => configuration.token,
+            :client_id => configuration.client_id,
+            :client_secret => configuration.client_secret
+            }
+          c.adapter :typhoeus
+        end
+      end
+    end
+
   end
 end

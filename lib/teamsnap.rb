@@ -114,32 +114,11 @@ module TeamSnap
       arr.inject({}) { |hash, (key, value)| hash[key] = value; hash }
     end
 
-    def init(opts = {})
-      opts[:url] ||= DEFAULT_URL
-      unless opts.include?(:token) || (
-        opts.include?(:client_id) && opts.include?(:client_secret)
-      )
-        raise ArgumentError.new(
-          "You must provide a :token or :client_id and :client_secret pair to '.init'"
-        )
-      end
-
-      self.client = Faraday.new(
-        :url => opts.fetch(:url),
-        :parallel_manager => Typhoeus::Hydra.new
-      ) do |c|
-        c.request :teamsnap_auth_middleware, {
-          :token => opts[:token],
-          :client_id => opts[:client_id],
-          :client_secret => opts[:client_secret]
-        }
-        c.adapter :typhoeus
-      end
-
-      collection = TeamSnap.run_init(:get, "/", {})
+    def init(connection)
+      collection = TeamSnap.run_init(connection, :get, "/", {})
 
       classes = []
-      client.in_parallel do
+      connection.in_parallel do
         classes = collection
           .fetch(:links)
           .map { |link| classify_rel(link) }
@@ -151,9 +130,9 @@ module TeamSnap
       apply_endpoints(self, collection) && true
     end
 
-    def run_init(via, href, args = {}, opts = {})
+    def run_init(connection, via, href, args = {}, opts = {})
       begin
-        resp = client_send(via, href, args)
+        resp = client_send(connection, via, href, args)
       rescue Faraday::TimeoutError
         warn("Connection to API failed. Initializing with empty class structure")
         {:links => []}
@@ -183,12 +162,12 @@ module TeamSnap
       end
     end
 
-    def client_send(via, href, args)
+    def client_send(connection, via, href, args)
       case via
       when :get
-        client.send(via, href, args)
+        connection.send(via, href, args)
       when :post
-        client.send(via, href) do |req|
+        connection.send(via, href) do |req|
           req.body = Oj.dump(args)
         end
       else
@@ -228,8 +207,6 @@ module TeamSnap
     end
 
     private
-
-    attr_accessor :client
 
     def classify_rel(link)
       return if EXCLUDED_RELS.include?(link.fetch(:rel))

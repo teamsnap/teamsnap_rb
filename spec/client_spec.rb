@@ -31,9 +31,19 @@ RSpec.describe TeamSnap::Client do
       client = TeamSnap::Client.new do |config|
         config.client_id = "123"
         config.client_secret = "123"
-        config.url = "http://localhost:3000"
+        config.url = "https://url-fun-zone.com"
       end
-      expect(client.configuration.url).to eq("http://localhost:3000")
+      expect(client.configuration.url).to eq("https://url-fun-zone.com")
+    end
+  end
+
+  describe "#find", :vcr => true do
+    it "blah" do
+      client = TeamSnap::Client.new do |config|
+        config.token = "1-classic-dont_tell_the_cops"
+        config.url = ROOT_TEST_URL
+      end
+      t = client.team.find(1)
     end
   end
 end
