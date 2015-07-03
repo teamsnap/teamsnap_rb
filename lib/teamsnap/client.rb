@@ -1,10 +1,6 @@
 module TeamSnap
   class Client
-    attr_reader :configuration
-
-    # Initializes a new Client object
-    def initialize(options = {})
-      configuration = TeamSnap::Configuration.new(options)
+    def initialize
       yield(configuration) if block_given?
     end
 
@@ -16,8 +12,8 @@ module TeamSnap
     def respond_to?(method, include_all=false)
     end
 
-    private
-
-    attr_writer :configuration
+    def configuration
+      @configuration ||= Configuration.new
+    end
   end
 end
