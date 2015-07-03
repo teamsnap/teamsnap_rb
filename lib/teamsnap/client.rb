@@ -5,9 +5,9 @@ module TeamSnap
     end
 
     def method_missing(method, *args, &block)
-      #binding.pry
-      #mutex/synchronize
+      #TODO: mutex/syncrhonize/just do once
       TeamSnap.init(connection)
+      TeamSnap.const_get(Inflecto.camelize(method))
     end
 
     def respond_to?(method, include_all=false)
@@ -27,11 +27,11 @@ module TeamSnap
             :token => configuration.token,
             :client_id => configuration.client_id,
             :client_secret => configuration.client_secret
-            }
+          }
+          c.response :logger if configuration.log_requests
           c.adapter :typhoeus
         end
       end
     end
-
   end
 end

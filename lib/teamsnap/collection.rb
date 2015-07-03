@@ -8,12 +8,12 @@ module TeamSnap
       self.instance_variable_get(:@resp)
     end
 
-    def parse_collection
+    def parse_collection(connection)
       if resp.status == 200
         collection = Oj.load(resp.body)
           .fetch(:collection)
 
-        TeamSnap.apply_endpoints(self, collection)
+        TeamSnap.apply_endpoints(self, collection, connection)
         enable_find if respond_to?(:search)
       else
         error_message = TeamSnap.parse_error(resp)

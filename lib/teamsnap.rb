@@ -121,13 +121,13 @@ module TeamSnap
       connection.in_parallel do
         classes = collection
           .fetch(:links)
-          .map { |link| classify_rel(link) }
+          .map { |link| classify_rel(connection, link) }
           .compact
       end
 
-      classes.each { |cls| cls.parse_collection }
+      classes.each { |cls| cls.parse_collection(connection) }
 
-      apply_endpoints(self, collection) && true
+      apply_endpoints(self, collection, connection) && true
     end
 
     def run_init(connection, via, href, args = {}, opts = {})
@@ -146,8 +146,8 @@ module TeamSnap
       end
     end
 
-    def run(via, href, args = {})
-      resp = client_send(via, href, args)
+    def run(connection, via, href, args = {})
+      resp = client_send(connection, via, href, args)
       if resp.success?
         Oj.load(resp.body).fetch(:collection)
       else
@@ -196,32 +196,32 @@ module TeamSnap
         }
     end
 
-    def apply_endpoints(obj, collection)
+    def apply_endpoints(obj, collection, connection)
       collection
         .fetch(:queries) { [] }
-        .each { |endpoint| register_endpoint(obj, endpoint, :via => :get) }
+        .each { |endpoint| register_endpoint(obj, connection, endpoint, :via => :get) }
 
       collection
         .fetch(:commands) { [] }
-        .each { |endpoint| register_endpoint(obj, endpoint, :via => :post) }
+        .each { |endpoint| register_endpoint(obj, connection, endpoint, :via => :post) }
     end
 
     private
 
-    def classify_rel(link)
+    def classify_rel(connection, link)
       return if EXCLUDED_RELS.include?(link.fetch(:rel))
 
       rel = link.fetch(:rel)
       href = link.fetch(:href)
       name = Inflecto.classify(rel)
-      resp = client.get(href)
+      resp = connection.get(href)
 
       TeamSnap.const_set(
         name, Class.new { include TeamSnap.collection(href, resp) }
       ) unless TeamSnap.const_defined?(name, false)
     end
 
-    def register_endpoint(obj, endpoint, opts)
+    def register_endpoint(obj, connection, endpoint, opts)
       rel = endpoint.fetch(:rel)
       href = endpoint.fetch(:href)
       valid_args = endpoint.fetch(:data) { [] }
@@ -238,7 +238,7 @@ module TeamSnap
         end
 
         TeamSnap.load_items(
-          TeamSnap.run(via, href, args)
+          TeamSnap.run(connection, via, href, args)
         )
       end
     end
