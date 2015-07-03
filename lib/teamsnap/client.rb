@@ -9,11 +9,17 @@ require "securerandom"
 
 module TeamSnap
   class Client
+    attr_reader :configuration
 
     # Initializes a new Client object
     def initialize(options = {})
-      yield(TeamSnap::Configuration.new(options)) if block_given?
+      configuration = TeamSnap::Configuration.new(options)
+      yield(configuration) if block_given?
     end
+
+    private
+
+    attr_writer :configuration
   end
 end
 
