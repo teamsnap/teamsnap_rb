@@ -38,9 +38,6 @@ end
 
 module TeamSnap
   EXCLUDED_RELS = %w(me apiv2_root root self dude sweet random xyzzy)
-  DEFAULT_URL = "https://apiv3.teamsnap.com"
-  Error = Class.new(StandardError)
-  NotFound = Class.new(TeamSnap::Error)
 
   class AuthMiddleware < Faraday::Middleware
     def initialize(app, options)
@@ -304,66 +301,6 @@ module TeamSnap
           end
         end
       }
-    end
-  end
-
-  module Item
-    private
-
-    def load_links(links)
-      links.each do |link|
-        next if EXCLUDED_RELS.include?(link.fetch(:rel))
-
-        rel = link.fetch(:rel)
-        href = link.fetch(:href)
-        is_singular = rel == Inflecto.singularize(rel)
-
-        define_singleton_method(rel) {
-          instance_variable_get("@#{rel}") || instance_variable_set(
-            "@#{rel}", -> {
-              coll = TeamSnap.load_items(
-                TeamSnap.run(:get, href)
-              )
-              is_singular ? coll.first : coll
-            }.call
-          )
-        }
-      end
-    end
-  end
-
-  module Collection
-    def href
-      self.instance_variable_get(:@href)
-    end
-
-    def resp
-      self.instance_variable_get(:@resp)
-    end
-
-    def parse_collection
-      if resp.status == 200
-        collection = Oj.load(resp.body)
-          .fetch(:collection)
-
-        TeamSnap.apply_endpoints(self, collection)
-        enable_find if respond_to?(:search)
-      else
-        error_message = TeamSnap.parse_error(resp)
-        raise TeamSnap::Error.new(error_message)
-      end
-    end
-
-    private
-
-    def enable_find
-      define_singleton_method(:find) do |id|
-        search(:id => id).first.tap do |object|
-          raise TeamSnap::NotFound.new(
-            "Could not find a #{self} with an id of '#{id}'."
-          ) unless object
-        end
-      end
     end
   end
 end
