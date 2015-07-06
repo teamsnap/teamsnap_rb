@@ -37,6 +37,70 @@ end
 module TeamSnap
   EXCLUDED_RELS = %w(me apiv2_root root self dude sweet random xyzzy)
 
+  class Client
+    def initialize
+      yield(configuration) if block_given?
+    end
+
+    def configuration
+      @configuration ||= Configuration.new
+    end
+
+    private
+
+    @@rel_setup_mutex = Mutex.new
+
+    def self.register_endpoint(endpoint)
+      #TODO: define TeamSnap::Endpoint class
+      define_method(endpoint) do
+        #TODO: return TeamSnap::Endpoint instance with connection
+      end
+    end
+
+    def method_missing(method, *args, &block)
+      if defined?(@@ran_rel_setup)
+        super
+      else
+        setup_endpoints
+      end
+    end
+
+    def respond_to?(method, include_all=false)
+      super
+    end
+
+    def respond_to_missing?(method_name, include_private = false)
+      super
+    end
+
+    def setup_endpoints
+      @@endpoint_setup_mutex.synchronize do
+        #TODO: parse rels from API response
+        ["contacts", "events", "members", "events"].each do |endpoint|
+          self.class.register_endpoint(endpoint)
+        end
+        @@ran_endpoint_setup = true
+      end
+    end
+
+    def connection
+      @connection ||= begin
+        Faraday.new(
+          :url => configuration.url,
+          :parallel_manager => Typhoeus::Hydra.new
+        ) do |c|
+          c.request :teamsnap_auth_middleware, {
+            :token => configuration.token,
+            :client_id => configuration.client_id,
+            :client_secret => configuration.client_secret
+          }
+          c.response :logger if configuration.log_requests
+          c.adapter :typhoeus
+        end
+      end
+    end
+  end
+
   class AuthMiddleware < Faraday::Middleware
     def initialize(app, options)
       @options = options
@@ -226,7 +290,6 @@ module TeamSnap
         .map { |datum| datum.fetch(:name).to_sym }
       via = opts.fetch(:via)
 
-      #TODO: pass in connection
       obj.define_singleton_method(rel) do |*args|
         args = Hash[*args]
 
