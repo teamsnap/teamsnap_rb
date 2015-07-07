@@ -1,5 +1,6 @@
 require "teamsnap/version"
 require "teamsnap/configuration"
+require "teamsnap/request"
 
 require "faraday"
 require "typhoeus"
@@ -63,13 +64,13 @@ module TeamSnap
       super
     end
 
-    def respond_to_missing?(method_name, include_private = false)
+    def respond_to_missing?(method_name, include_private=false)
       super
     end
 
     def setup_collections
       @@collection_setup_mutex.synchronize do
-        collection = TeamSnap.run_init(connection, :get, "/", {})
+        collection = run_init
 
         links = []
         classes = []
@@ -86,6 +87,22 @@ module TeamSnap
         #apply_endpoints(self, collection, connection) && true
 
         @@ran_collection_setup = true
+      end
+    end
+
+    def run_init
+      begin
+        resp = TeamSnap::Request.new(connection, :get, "/", {}).execute
+      rescue Faraday::TimeoutError
+        warn("Connection to API failed. Initializing with empty class structure")
+        {:links => []}
+      else
+        if resp.success?
+          Oj.load(resp.body).fetch(:collection)
+        else
+          error_message = parse_error(resp)
+          raise TeamSnap::Error.new(error_message)
+        end
       end
     end
 
@@ -213,24 +230,8 @@ module TeamSnap
       arr.inject({}) { |hash, (key, value)| hash[key] = value; hash }
     end
 
-    def run_init(connection, via, href, args = {}, opts = {})
-      begin
-        resp = client_send(connection, via, href, args)
-      rescue Faraday::TimeoutError
-        warn("Connection to API failed. Initializing with empty class structure")
-        {:links => []}
-      else
-        if resp.success?
-          Oj.load(resp.body).fetch(:collection)
-        else
-          error_message = parse_error(resp)
-          raise TeamSnap::Error.new(error_message)
-        end
-      end
-    end
-
     def run(connection, via, href, args = {})
-      resp = client_send(connection, via, href, args)
+      resp = TeamSnap::Request.new(connection, via, href, args).execute
       if resp.success?
         Oj.load(resp.body).fetch(:collection)
       else
@@ -242,19 +243,6 @@ module TeamSnap
             "Unexpected response content-type. " +
             "Check TeamSnap APIv3 connection")
         end
-      end
-    end
-
-    def client_send(connection, via, href, args)
-      case via
-      when :get
-        connection.send(via, href, args)
-      when :post
-        connection.send(via, href) do |req|
-          req.body = Oj.dump(args)
-        end
-      else
-        raise TeamSnap::Error.new("Don't know how to run `#{via}`")
       end
     end
 
