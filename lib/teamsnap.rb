@@ -1,3 +1,7 @@
+require "teamsnap/version"
+require "teamsnap/configuration"
+require "teamsnap/request"
+
 require "faraday"
 require "typhoeus"
 require "typhoeus/adapters/faraday"
@@ -6,8 +10,6 @@ require "inflecto"
 require "virtus"
 require "date"
 require "securerandom"
-
-require_relative "teamsnap/version"
 
 Oj.default_options = {
   :mode => :compat,
@@ -33,9 +35,125 @@ end
 
 module TeamSnap
   EXCLUDED_RELS = %w(me apiv2_root root self dude sweet random xyzzy)
-  DEFAULT_URL = "https://apiv3.teamsnap.com"
   Error = Class.new(StandardError)
   NotFound = Class.new(TeamSnap::Error)
+
+  class Client
+    def initialize
+      yield(configuration) if block_given?
+    end
+
+    def configuration
+      @configuration ||= Configuration.new
+    end
+
+    private
+
+    @@collection_setup_mutex = Mutex.new
+
+    def method_missing(method, *args, &block)
+      if defined?(@@ran_collection_setup)
+        super
+      else
+        setup_collections
+        send(method)
+      end
+    end
+
+    def respond_to?(method, include_all=false)
+      super
+    end
+
+    def respond_to_missing?(method_name, include_private=false)
+      super
+    end
+
+    def setup_collections
+      @@collection_setup_mutex.synchronize do
+        collection = run_init
+
+        links = []
+        classes = []
+        connection.in_parallel do
+          links = collection
+            .fetch(:links)
+        end
+
+        classes = links.map { |link| classify_rel(link) }.compact
+        classes.each { |cls| cls.parse_collection }
+
+        links.each { |cls| define_rel(cls) }
+
+        #apply_endpoints(self, collection, connection) && true
+
+        @@ran_collection_setup = true
+      end
+    end
+
+    def run_init
+      begin
+        resp = TeamSnap::Request.new(connection, :get, "/", {}).execute
+      rescue Faraday::TimeoutError
+        warn("Connection to API failed. Initializing with empty class structure")
+        {:links => []}
+      else
+        if resp.success?
+          Oj.load(resp.body).fetch(:collection)
+        else
+          error_message = parse_error(resp)
+          raise TeamSnap::Error.new(error_message)
+        end
+      end
+    end
+
+    def classify_rel(link)
+      return if EXCLUDED_RELS.include?(link.fetch(:rel))
+
+      rel = link.fetch(:rel)
+      href = link.fetch(:href)
+      name = Inflecto.classify(rel)
+      resp = connection.get(href)
+
+      TeamSnap.const_set(name,
+        Class.new do
+          include TeamSnap.collection(href, resp)
+          attr_reader :cxn
+
+          define_method :initialize do |cxn|
+            @cxn = cxn
+          end
+        end
+      ) unless TeamSnap.const_defined?(name, false)
+    end
+
+    def define_rel(link)
+      return if EXCLUDED_RELS.include?(link.fetch(:rel))
+
+      rel = link.fetch(:rel)
+      name = Inflecto.singularize(rel)
+
+      self.class.send(:define_method, name) do
+        TeamSnap.const_get(Inflecto.camelize(name)).new(connection)
+      end
+    end
+
+    def connection
+      @connection ||= begin
+        Faraday.new(
+          :url => configuration.url,
+          :parallel_manager => Typhoeus::Hydra.new
+        ) do |c|
+          c.request :teamsnap_auth_middleware, {
+            :token => configuration.token,
+            :client_id => configuration.client_id,
+            :client_secret => configuration.client_secret
+          }
+          c.response :logger if configuration.log_requests
+          c.adapter :typhoeus
+        end
+      end
+    end
+  end
 
   class AuthMiddleware < Faraday::Middleware
     def initialize(app, options)
@@ -112,61 +230,8 @@ module TeamSnap
       arr.inject({}) { |hash, (key, value)| hash[key] = value; hash }
     end
 
-    def init(opts = {})
-      opts[:url] ||= DEFAULT_URL
-      unless opts.include?(:token) || (
-        opts.include?(:client_id) && opts.include?(:client_secret)
-      )
-        raise ArgumentError.new(
-          "You must provide a :token or :client_id and :client_secret pair to '.init'"
-        )
-      end
-
-      self.client = Faraday.new(
-        :url => opts.fetch(:url),
-        :parallel_manager => Typhoeus::Hydra.new
-      ) do |c|
-        c.request :teamsnap_auth_middleware, {
-          :token => opts[:token],
-          :client_id => opts[:client_id],
-          :client_secret => opts[:client_secret]
-        }
-        c.adapter :typhoeus
-      end
-
-      collection = TeamSnap.run_init(:get, "/", {})
-
-      classes = []
-      client.in_parallel do
-        classes = collection
-          .fetch(:links)
-          .map { |link| classify_rel(link) }
-          .compact
-      end
-
-      classes.each { |cls| cls.parse_collection }
-
-      apply_endpoints(self, collection) && true
-    end
-
-    def run_init(via, href, args = {}, opts = {})
-      begin
-        resp = client_send(via, href, args)
-      rescue Faraday::TimeoutError
-        warn("Connection to API failed. Initializing with empty class structure")
-        {:links => []}
-      else
-        if resp.success?
-          Oj.load(resp.body).fetch(:collection)
-        else
-          error_message = parse_error(resp)
-          raise TeamSnap::Error.new(error_message)
-        end
-      end
-    end
-
-    def run(via, href, args = {})
-      resp = client_send(via, href, args)
+    def run(connection, via, href, args = {})
+      resp = TeamSnap::Request.new(connection, via, href, args).execute
       if resp.success?
         Oj.load(resp.body).fetch(:collection)
       else
@@ -178,19 +243,6 @@ module TeamSnap
             "Unexpected response content-type. " +
             "Check TeamSnap APIv3 connection")
         end
-      end
-    end
-
-    def client_send(via, href, args)
-      case via
-      when :get
-        client.send(via, href, args)
-      when :post
-        client.send(via, href) do |req|
-          req.body = Oj.dump(args)
-        end
-      else
-        raise TeamSnap::Error.new("Don't know how to run `#{via}`")
       end
     end
 
@@ -215,34 +267,22 @@ module TeamSnap
         }
     end
 
-    def apply_endpoints(obj, collection)
-      collection
-        .fetch(:queries) { [] }
-        .each { |endpoint| register_endpoint(obj, endpoint, :via => :get) }
-
-      collection
-        .fetch(:commands) { [] }
-        .each { |endpoint| register_endpoint(obj, endpoint, :via => :post) }
-    end
-
     private
 
-    attr_accessor :client
-
-    def classify_rel(link)
+    def classify_rel(connection, link)
       return if EXCLUDED_RELS.include?(link.fetch(:rel))
 
       rel = link.fetch(:rel)
       href = link.fetch(:href)
       name = Inflecto.classify(rel)
-      resp = client.get(href)
+      resp = connection.get(href)
 
       TeamSnap.const_set(
         name, Class.new { include TeamSnap.collection(href, resp) }
       ) unless TeamSnap.const_defined?(name, false)
     end
 
-    def register_endpoint(obj, endpoint, opts)
+    def register_endpoint(obj, connection, endpoint, opts)
       rel = endpoint.fetch(:rel)
       href = endpoint.fetch(:href)
       valid_args = endpoint.fetch(:data) { [] }
@@ -259,7 +299,7 @@ module TeamSnap
         end
 
         TeamSnap.load_items(
-          TeamSnap.run(via, href, args)
+          TeamSnap.run(connection, via, href, args)
         )
       end
     end
@@ -352,12 +392,12 @@ module TeamSnap
     private
 
     def enable_find
-      define_singleton_method(:find) do |id|
+      define_method(:find) do |id|
         search(:id => id).first.tap do |object|
           raise TeamSnap::NotFound.new(
             "Could not find a #{self} with an id of '#{id}'."
-          ) unless object
-        end
+            ) unless object
+          end
       end
     end
   end
