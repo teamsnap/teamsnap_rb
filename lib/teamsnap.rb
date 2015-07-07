@@ -1,7 +1,5 @@
 require "teamsnap/version"
-require "teamsnap/error"
 require "teamsnap/configuration"
-require "teamsnap/client"
 
 require "faraday"
 require "typhoeus"
@@ -36,6 +34,8 @@ end
 
 module TeamSnap
   EXCLUDED_RELS = %w(me apiv2_root root self dude sweet random xyzzy)
+  Error = Class.new(StandardError)
+  NotFound = Class.new(TeamSnap::Error)
 
   class Client
     def initialize
@@ -48,20 +48,14 @@ module TeamSnap
 
     private
 
-    @@rel_setup_mutex = Mutex.new
-
-    def self.register_endpoint(endpoint)
-      #TODO: define TeamSnap::Endpoint class
-      define_method(endpoint) do
-        #TODO: return TeamSnap::Endpoint instance with connection
-      end
-    end
+    @@collection_setup_mutex = Mutex.new
 
     def method_missing(method, *args, &block)
-      if defined?(@@ran_rel_setup)
+      if defined?(@@ran_collection_setup)
         super
       else
-        setup_endpoints
+        setup_collections
+        send(method)
       end
     end
 
@@ -73,13 +67,56 @@ module TeamSnap
       super
     end
 
-    def setup_endpoints
-      @@endpoint_setup_mutex.synchronize do
-        #TODO: parse rels from API response
-        ["contacts", "events", "members", "events"].each do |endpoint|
-          self.class.register_endpoint(endpoint)
+    def setup_collections
+      @@collection_setup_mutex.synchronize do
+        collection = TeamSnap.run_init(connection, :get, "/", {})
+
+        links = []
+        classes = []
+        connection.in_parallel do
+          links = collection
+            .fetch(:links)
         end
-        @@ran_endpoint_setup = true
+
+        classes = links.map { |link| classify_rel(link) }.compact
+        classes.each { |cls| cls.parse_collection }
+
+        links.each { |cls| define_rel(cls) }
+
+        #apply_endpoints(self, collection, connection) && true
+
+        @@ran_collection_setup = true
+      end
+    end
+
+    def classify_rel(link)
+      return if EXCLUDED_RELS.include?(link.fetch(:rel))
+
+      rel = link.fetch(:rel)
+      href = link.fetch(:href)
+      name = Inflecto.classify(rel)
+      resp = connection.get(href)
+
+      TeamSnap.const_set(name,
+        Class.new do
+          include TeamSnap.collection(href, resp)
+          attr_reader :cxn
+
+          define_method :initialize do |cxn|
+            @cxn = cxn
+          end
+        end
+      ) unless TeamSnap.const_defined?(name, false)
+    end
+
+    def define_rel(link)
+      return if EXCLUDED_RELS.include?(link.fetch(:rel))
+
+      rel = link.fetch(:rel)
+      name = Inflecto.singularize(rel)
+
+      self.class.send(:define_method, name) do
+        TeamSnap.const_get(Inflecto.camelize(name)).new(connection)
       end
     end
 
@@ -258,16 +295,6 @@ module TeamSnap
         }
     end
 
-    def apply_endpoints(obj, collection, connection)
-      collection
-        .fetch(:queries) { [] }
-        .each { |endpoint| register_endpoint(obj, connection, endpoint, :via => :get) }
-
-      collection
-        .fetch(:commands) { [] }
-        .each { |endpoint| register_endpoint(obj, connection, endpoint, :via => :post) }
-    end
-
     private
 
     def classify_rel(connection, link)
@@ -377,12 +404,12 @@ module TeamSnap
       self.instance_variable_get(:@resp)
     end
 
-    def parse_collection(connection)
+    def parse_collection
       if resp.status == 200
         collection = Oj.load(resp.body)
           .fetch(:collection)
 
-        TeamSnap.apply_endpoints(self, collection, connection)
+        TeamSnap.apply_endpoints(self, collection)
         enable_find if respond_to?(:search)
       else
         error_message = TeamSnap.parse_error(resp)
@@ -393,7 +420,7 @@ module TeamSnap
     private
 
     def enable_find
-      define_singleton_method(:find) do |id|
+      define_method(:find) do |id|
         search(:id => id).first.tap do |object|
           raise TeamSnap::NotFound.new(
             "Could not find a #{self} with an id of '#{id}'."
