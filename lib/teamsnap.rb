@@ -213,22 +213,6 @@ module TeamSnap
       arr.inject({}) { |hash, (key, value)| hash[key] = value; hash }
     end
 
-    def init(connection)
-      collection = TeamSnap.run_init(connection, :get, "/", {})
-
-      classes = []
-      connection.in_parallel do
-        classes = collection
-          .fetch(:links)
-          .map { |link| classify_rel(connection, link) }
-          .compact
-      end
-
-      classes.each { |cls| cls.parse_collection(connection) }
-
-      apply_endpoints(self, collection, connection) && true
-    end
-
     def run_init(connection, via, href, args = {}, opts = {})
       begin
         resp = client_send(connection, via, href, args)
