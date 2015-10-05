@@ -195,10 +195,14 @@ module TeamSnap
     end
 
     def parse_error(resp)
-      Oj.load(resp.body)
-        .fetch(:collection)
-        .fetch(:error)
-        .fetch(:message)
+      begin
+        Oj.load(resp.body)
+          .fetch(:collection)
+          .fetch(:error)
+          .fetch(:message)
+      rescue KeyError
+        resp.body
+      end
     end
 
     def load_items(collection)
