@@ -140,12 +140,12 @@ module TeamSnap
       classes = []
 
       schema = collection
-        .fetch(:links) { {} }
+        .fetch(:links) { [] }
         .find { |link| link[:rel] == "schemas" } || {}
 
       if schema[:href]
         href_to_rel = collection
-          .fetch(:links) { {} }
+          .fetch(:links) { [] }
           .reject { |link| EXCLUDED_RELS.include?(link[:rel]) }
           .map { |link| [link[:href], link[:rel]]}
           .to_h
@@ -167,7 +167,7 @@ module TeamSnap
       else
         client.in_parallel do
           classes = collection
-            .fetch(:links) {}
+            .fetch(:links) { [] }
             .map { |link| classify_rel(link) }
             .compact
         end
@@ -380,7 +380,7 @@ module TeamSnap
       if resp
         if resp.status == 200
           collection = Oj.load(resp.body)
-            .fetch(:collection) {}
+            .fetch(:collection) { [] }
         else
           error_message = TeamSnap.parse_error(resp)
           raise TeamSnap::Error.new(error_message)
