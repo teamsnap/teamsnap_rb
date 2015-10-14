@@ -32,7 +32,7 @@ Inflecto.inflections do |inflect|
 end
 
 module TeamSnap
-  EXCLUDED_RELS = %w(me apiv2_root root self dude sweet random xyzzy)
+  EXCLUDED_RELS = %w(me apiv2_root root self dude sweet random xyzzy schemas)
   DEFAULT_URL = "https://apiv3.teamsnap.com"
   Error = Class.new(StandardError)
   NotFound = Class.new(TeamSnap::Error)

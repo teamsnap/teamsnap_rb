@@ -95,7 +95,7 @@ RSpec.describe "teamsnap_rb", :vcr => true do
     TeamSnap.init(
       :url => ROOT_TEST_URL,
       :backup_cache => false,
-      :token => "1-classic-dont_tell_the_cops"
+      :token => "6-classic-dont_tell_the_cops"
     )
 
     ms = TeamSnap::Team.invite(
