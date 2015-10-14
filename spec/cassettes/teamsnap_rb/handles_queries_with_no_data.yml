@@ -2,15 +2,15 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:3000/teams/search?id=0&hmac_client_id=classic&hmac_nonce=82a10cd0-f19b-4479-b50e-a092a90664f1&hmac_timestamp=1444784791
+    uri: http://localhost:3000/teams/search?id=0
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
       - Faraday v0.9.2
-      X-Teamsnap-Hmac:
-      - 4844c2c093287791ab140ac7762ea0865281bba207dc9c61aa7f1b7deb72e373
+      Authorization:
+      - Bearer 6-classic-dont_tell_the_cops
   response:
     status:
       code: 200
@@ -26,18 +26,24 @@ http_interactions:
       - 200 OK
       X-Content-Type-Options:
       - nosniff
+      X-RateLimit-Limit:
+      - '5000'
+      X-RateLimit-Remaining:
+      - '4883'
+      X-RateLimit-Reset:
+      - '1444790105'
       ETag:
       - '"25a2ab4f5c50b6dcefa22c365dcc2a61"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - ff18daac-a053-4150-9fcb-49e4a73fb3a4
+      - 018aad7a-2ae6-4773-ad1d-f7255df83622
       X-Runtime:
-      - '0.073177'
+      - '0.070455'
       X-Powered-By:
       - Phusion Passenger 4.0.48
       Date:
-      - Wed, 14 Oct 2015 01:06:31 GMT
+      - Wed, 14 Oct 2015 02:03:38 GMT
       Server:
       - nginx/1.6.2 + Phusion Passenger 4.0.48
     body:
@@ -50,6 +56,6 @@ http_interactions:
         all data, categories and groups for a given team_id","data":[{"name":"team_id","value":null}]}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/teams/search?id=0&hmac_client_id=classic&hmac_nonce=82a10cd0-f19b-4479-b50e-a092a90664f1&hmac_timestamp=1444784791
-  recorded_at: Wed, 14 Oct 2015 01:06:31 GMT
+      effective_url: http://localhost:3000/teams/search?id=0
+  recorded_at: Wed, 14 Oct 2015 02:03:38 GMT
 recorded_with: VCR 2.9.3
