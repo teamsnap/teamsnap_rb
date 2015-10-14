@@ -32,7 +32,7 @@ Inflecto.inflections do |inflect|
 end
 
 module TeamSnap
-  EXCLUDED_RELS = %w(me apiv2_root root self dude sweet random xyzzy)
+  EXCLUDED_RELS = %w(me apiv2_root root self dude sweet random xyzzy schemas)
   DEFAULT_URL = "https://apiv3.teamsnap.com"
   Error = Class.new(StandardError)
   NotFound = Class.new(TeamSnap::Error)
@@ -95,13 +95,14 @@ module TeamSnap
   end
 
   class << self
-    def collection(href, resp)
+    def collection(href, resp, parsed_collection)
       Module.new do
         define_singleton_method(:included) do |descendant|
           descendant.send(:include, TeamSnap::Item)
           descendant.extend(TeamSnap::Collection)
           descendant.instance_variable_set(:@href, href)
           descendant.instance_variable_set(:@resp, resp)
+          descendant.instance_variable_set(:@parsed_collection, parsed_collection)
         end
       end
     end
@@ -137,13 +138,40 @@ module TeamSnap
       collection = TeamSnap.run_init(:get, "/", {})
 
       classes = []
-      client.in_parallel do
-        classes = collection
-          .fetch(:links)
-          .map { |link| classify_rel(link) }
-          .compact
-      end
 
+      schema = collection
+        .fetch(:links) { [] }
+        .find { |link| link[:rel] == "schemas" } || {}
+
+      if schema[:href]
+        href_to_rel = collection
+          .fetch(:links) { [] }
+          .reject { |link| EXCLUDED_RELS.include?(link[:rel]) }
+          .map { |link| [link[:href], link[:rel]]}
+          .to_h
+
+        resp = client.get(schema[:href])
+        if resp.status == 200
+          collections = Oj.load(resp.body)
+          classes = collections.map { |collection|
+            col = collection.fetch(:collection) { {} }
+            if rel = href_to_rel[col[:href]]
+              create_collection_class(rel, col[:href], nil, col)
+            end
+          }
+          .compact
+        else
+          error_message = TeamSnap.parse_error(resp)
+          raise TeamSnap::Error.new(error_message)
+        end
+      else
+        client.in_parallel do
+          classes = collection
+            .fetch(:links) { [] }
+            .map { |link| classify_rel(link) }
+            .compact
+        end
+      end
       classes.each { |cls| cls.parse_collection }
 
       apply_endpoints(self, collection) && true
@@ -238,11 +266,15 @@ module TeamSnap
 
       rel = link.fetch(:rel)
       href = link.fetch(:href)
-      name = Inflecto.classify(rel)
       resp = client.get(href)
 
+      create_collection_class(rel, href, resp, nil)
+    end
+
+    def create_collection_class(rel, href, resp, collection)
+      name = Inflecto.classify(rel)
       TeamSnap.const_set(
-        name, Class.new { include TeamSnap.collection(href, resp) }
+        name, Class.new { include TeamSnap.collection(href, resp, collection) }
       ) unless TeamSnap.const_defined?(name, false)
     end
 
@@ -340,17 +372,25 @@ module TeamSnap
       self.instance_variable_get(:@resp)
     end
 
-    def parse_collection
-      if resp.status == 200
-        collection = Oj.load(resp.body)
-          .fetch(:collection)
+    def parsed_collection
+      self.instance_variable_get(:@parsed_collection)
+    end
 
-        TeamSnap.apply_endpoints(self, collection)
-        enable_find if respond_to?(:search)
-      else
-        error_message = TeamSnap.parse_error(resp)
-        raise TeamSnap::Error.new(error_message)
+    def parse_collection
+      if resp
+        if resp.status == 200
+          collection = Oj.load(resp.body)
+            .fetch(:collection) { [] }
+        else
+          error_message = TeamSnap.parse_error(resp)
+          raise TeamSnap::Error.new(error_message)
+        end
+      elsif parsed_collection
+        collection = parsed_collection
       end
+
+      TeamSnap.apply_endpoints(self, collection)
+      enable_find if respond_to?(:search)
     end
 
     private
