@@ -1,0 +1,110 @@
+module TeamSnap
+  module Item
+
+    class << self
+      def load_items(client, collection)
+#binding.pry
+        collection
+          .fetch(:items) { [] }
+          .map { |item|
+            data = parse_data(item).merge(:href => item[:href])
+            type = type_of(item)
+            cls = load_class(type, data)
+
+            cls.new(data).tap { |obj|
+              obj.send(:load_links, client, item.fetch(:links) { [] })
+            }
+          }
+      end
+
+      def parse_data(item)
+        data = item
+          .fetch(:data)
+          .map { |datum|
+            name = datum.fetch(:name)
+            value = datum.fetch(:value)
+            type = datum.fetch(:type) { :default }
+
+            value = DateTime.parse(value) if value && type == "DateTime"
+
+            [name, value]
+          }
+        hashify(data)
+      end
+
+      def type_of(item)
+        item
+          .fetch(:data)
+          .find { |datum| datum.fetch(:name) == "type" }
+          .fetch(:value)
+      end
+
+      def load_class(type, data)
+        TeamSnap.const_get(Inflecto.camelize(type), false).tap { |cls|
+          unless cls.include?(Virtus::Model::Core)
+            cls.class_eval do
+              include Virtus.value_object
+
+              values do
+                attribute :href, String
+                data.each { |name, value| attribute name, value.class }
+              end
+            end
+          end
+        }
+      end
+
+      def hashify(arr)
+        arr.to_h
+      rescue NoMethodError
+        arr.inject({}) { |hash, (key, value)| hash[key] = value; hash }
+      end
+
+    end
+
+    private
+
+    def load_links(client, links)
+      links.each do |link|
+        next if EXCLUDED_RELS.include?(link.fetch(:rel))
+
+        rel = link.fetch(:rel)
+        href = link.fetch(:href)
+        is_singular = rel == Inflecto.singularize(rel)
+
+        define_singleton_method(rel) {
+          instance_variable_get("@#{rel}") || instance_variable_set(
+            "@#{rel}", -> {
+              coll = TeamSnap::Item.load_items(
+                client,
+                TeamSnap.run(client, :get, href)
+              )
+              is_singular ? coll.first : coll
+            }.call
+          )
+        }
+      end
+
+      define_singleton_method(:update) { |attributes, safe_run = true|
+        #TeamSnap::Api.run(client, :path, instance_variable_get("@href"), attributes, true)
+        patch_attributes = TeamSnap::Api.template_attributes(attributes)
+        
+        if safe_run
+          TeamSnap.safe_run(client, :patch, instance_variable_get("@href"), patch_attributes)
+        else
+          response = TeamSnap.run(client, :patch, instance_variable_get("@href"), patch_attributes)
+          TeamSnap::Item.load_items(client, response).first
+        end
+      }
+
+      define_singleton_method(:delete) { |safe_run = true|
+        if safe_run
+          TeamSnap.safe_run(client, :delete, instance_variable_get("@href"), {})
+        else
+          response = TeamSnap.run(client, :delete, instance_variable_get("@href"), {})
+          TeamSnap::Item.load_items(client, response).first
+        end
+      }
+    end
+  end
+end
