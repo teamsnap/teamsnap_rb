@@ -3,7 +3,6 @@ module TeamSnap
 
     class << self
       def load_items(client, collection)
-#binding.pry
         collection
           .fetch(:items) { [] }
           .map { |item|
@@ -85,25 +84,16 @@ module TeamSnap
         }
       end
 
-      define_singleton_method(:update) { |attributes, safe_run = true|
-        #TeamSnap::Api.run(client, :path, instance_variable_get("@href"), attributes, true)
+      define_singleton_method(:update) { |attributes|
         patch_attributes = TeamSnap::Api.template_attributes(attributes)
-        
-        if safe_run
-          TeamSnap.safe_run(client, :patch, instance_variable_get("@href"), patch_attributes)
-        else
-          response = TeamSnap.run(client, :patch, instance_variable_get("@href"), patch_attributes)
-          TeamSnap::Item.load_items(client, response).first
-        end
+
+        response = TeamSnap.run(client, :patch, instance_variable_get("@href"), patch_attributes)
+        TeamSnap::Item.load_items(client, response).first
       }
 
-      define_singleton_method(:delete) { |safe_run = true|
-        if safe_run
-          TeamSnap.safe_run(client, :delete, instance_variable_get("@href"), {})
-        else
-          response = TeamSnap.run(client, :delete, instance_variable_get("@href"), {})
-          TeamSnap::Item.load_items(client, response).first
-        end
+      define_singleton_method(:delete) {
+        response = TeamSnap.run(client, :delete, instance_variable_get("@href"), {})
+        TeamSnap::Item.load_items(client, response).first
       }
     end
   end

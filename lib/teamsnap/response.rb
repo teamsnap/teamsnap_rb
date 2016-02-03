@@ -1,7 +1,7 @@
 module TeamSnap
   class Response
 
-    def self.check(resp, via, raise_on_error = true)
+    def self.check(resp, via)
       if resp.success?
         return Oj.load(resp.body).fetch(:collection)
       else

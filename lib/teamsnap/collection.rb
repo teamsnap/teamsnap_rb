@@ -37,34 +37,29 @@ module TeamSnap
       end
     end
 
-    def create(client, attributes = {}, safe_run = true)
+    def actions
+      actions = parsed_collection.fetch(:actions) {
+        %w(create read update delete search)
+      }
+      return actions.map(&:to_sym)
+    end
+
+    def create(client, attributes = {})
       post_attributes = TeamSnap::Api.template_attributes(attributes)
 
-      if safe_run
-        TeamSnap.safe_run(client, :post, href, post_attributes)
-      else
-        create_resp = TeamSnap.run(client, :post, href, post_attributes)
-        TeamSnap::Item.load_items(client, create_resp).first
-      end
+      create_resp = TeamSnap.run(client, :post, href, post_attributes)
+      TeamSnap::Item.load_items(client, create_resp).first
     end
 
-    def update(client, id, attributes = {}, safe_run = true)
+    def update(client, id, attributes = {})
       patch_attributes = TeamSnap::Api.template_attributes(attributes)
 
-      if safe_run
-        TeamSnap.safe_run(client, :patch, href+"/#{id}", patch_attributes)
-      else
-        update_resp = TeamSnap.run(client, :patch, href+"/#{id}", patch_attributes)
-        TeamSnap::Item.load_items(client, update_resp).first
-      end
+      update_resp = TeamSnap.run(client, :patch, href+"/#{id}", patch_attributes)
+      TeamSnap::Item.load_items(client, update_resp).first
     end
 
-    def delete(client, id, safe_run = true)
-      if safe_run
-        TeamSnap.safe_run(client, :delete, href+"/#{id}", {})
-      else
-        TeamSnap.run(client, :delete, href+"/#{id}", {})
-      end
+    def delete(client, id)
+      TeamSnap.run(client, :delete, href+"/#{id}", {})
     end
 
     def attribute_names

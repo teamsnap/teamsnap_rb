@@ -20,7 +20,6 @@ module TeamSnap
     attr_accessor :faraday_client
 
     def initialize(opts = {}, c_id = nil, c_secret = nil)
-#binding.pry
       self.faraday_client = TeamSnap::Client.set_faraday_client(
         TeamSnap.url,
         opts.fetch(:token, nil),
@@ -51,23 +50,3 @@ module TeamSnap
 
   end
 end
-
-
-#
-#rc = TeamSnap.root_client
-#
-#
-#rc.api(TeamSnap::ForumPost, :get, id)
-#
-#
-#search_hash = {:member_id => member_id}
-#rc.api(TeamSnap::ForumPost, :search, search_hash)
-#
-#
-#attributes_hash = {:message => "Some message"}
-#rc.api(TeamSnap::ForumPost, :post, attributes_hash, true)
-#rc.api(TeamSnap::ForumPost, :patch, attributes_hash, true)
-#
-#
-#rc.api(TeamSnap::ForumPost, :delete, id)
-#
