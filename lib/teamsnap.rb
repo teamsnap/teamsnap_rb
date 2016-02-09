@@ -45,22 +45,13 @@ module TeamSnap
         warn("Connection to API failed. Initializing with empty class structure")
         {:links => []}
       else
-        TeamSnap::Response.check(resp, via)
+        TeamSnap::Response.load_collection(resp, via)
       end
     end
 
     def run(client, via, href, args = {})
       resp = client_send(client, via, href, args)
-      TeamSnap::Response.check(resp, via)
-    end
-
-    def safe_run(client, via, href, args = {})
-      if true
-        resp = client_send(client, via, href, args)
-        TeamSnap::Response.process(client, resp, via, href, args)
-      else
-        TeamSnap::Api.run(client, via, href, args)
-      end
+      TeamSnap::Response.load_collection(resp, via)
     end
 
     def client_send(client, via, href, args)
