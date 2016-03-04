@@ -19,17 +19,21 @@ module TeamSnap
     attr_accessor :client_id, :client_secret, :root_client, :token, :url
 
     def init(opts = {})
+      unless opts[:token] || (opts[:client_id] && opts[:client_secret])
+        raise ArgumentError.new("You must provide a :token or :client_id and :client_secret pair to '.init'")
+      end
+
       ##   setup variables required
       self.client_id = opts.fetch(:client_id) {}
       self.client_secret = opts.fetch(:client_secret) {}
       self.token = opts.fetch(:token) {}
-      self.url = opts.fetch(:url) {}
+      self.url = opts.fetch(:url) { DEFAULT_URL }
 
       ##   create universally accessible TeamSnap.root_client
       self.root_client = TeamSnap::Client.new(:token => token)
 
       ##   Make the apiv3 root call. collection is parsed JSON
-      collection = TeamSnap.run_init(:get, "/", {})
+      collection = TeamSnap.run(root_client, :get, "/", {})
 
       ##   Setup Dynamic Classes from the collection
       TeamSnap::Structure.init(root_client, collection)
@@ -38,20 +42,12 @@ module TeamSnap
       TeamSnap::Collection.apply_endpoints(self, collection) && true
     end
 
-    def run_init(via, href, args = {}, opts = {})
-      begin
-        resp = client_send(root_client, via, href, args)
-      rescue Faraday::TimeoutError
-        warn("Connection to API failed. Initializing with empty class structure")
-        {:links => []}
-      else
-        TeamSnap::Response.load_collection(resp, via)
-      end
-    end
-
     def run(client, via, href, args = {})
       resp = client_send(client, via, href, args)
-      TeamSnap::Response.load_collection(resp, via)
+      return TeamSnap::Response.load_collection(resp)
+    rescue Faraday::TimeoutError
+      warn("Connection to API failed with TimeoutError")
+      {:links => []}
     end
 
     def client_send(client, via, href, args)

@@ -32,20 +32,14 @@ module TeamSnap
       self.faraday_client.send(method, *args, &block)
     end
 
-    def api(klass, via, args = {}, template_args = false)
-      href = klass.parsed_collection.fetch(:href) { "" }
-      case via
-      when :delete, :get
-        TeamSnap::Api.run(self, via, href+"/#{args}", {}, template_args)
-      when :patch
-        TeamSnap::Api.run(self, via, href+"/#{args.fetch(:id)}", args.except(:id), template_args)
-      when :post
-        TeamSnap::Api.run(self, via, href, args, template_args)
-      when :search
-        TeamSnap::Api.run(self, :get, href+"/search", args, template_args)
-      else
-        TeamSnap::Api.run(self, :post, href+"/#{via}", args, template_args)
-      end
+    def api(method, klass, sent_args = {})
+      TeamSnap::Api.run(
+        self,
+        method,
+        klass,
+        sent_args,
+        TeamSnap::Api.template_args?(method)
+      )
     end
 
   end

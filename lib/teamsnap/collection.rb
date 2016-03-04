@@ -44,6 +44,22 @@ module TeamSnap
       return actions.map(&:to_sym)
     end
 
+    def queries
+      parsed_collection.fetch(:queries) { [] }
+    end
+
+    def query_names
+      queries.map{ |q| q[:rel].to_sym }
+    end
+
+    def commands
+      parsed_collection.fetch(:commands) { [] }
+    end
+
+    def command_names
+      commands.map{ |q| q[:rel].to_sym }
+    end
+
     def create(client, attributes = {})
       post_attributes = TeamSnap::Api.template_attributes(attributes)
 

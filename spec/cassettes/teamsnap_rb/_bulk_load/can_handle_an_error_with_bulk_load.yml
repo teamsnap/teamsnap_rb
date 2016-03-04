@@ -1,0 +1,42 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:3000/bulk_load?hmac_client_id=classic&hmac_nonce=4167f38a-9aa9-4683-a754-869f688d26dd&hmac_timestamp=1456954345
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.1
+      X-Teamsnap-Hmac:
+      - 64039726e3ecff08eee431fc85f12a0fb9c2efcc3bec01fe627f18413ce7c730
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Content-Type:
+      - application/vnd.collection+json
+      Content-Length:
+      - '75'
+      X-Content-Type-Options:
+      - nosniff
+      Cache-Control:
+      - no-cache
+      X-Request-Id:
+      - 9375792d-a865-41ac-bdac-c644b1ddd3bc
+      X-Runtime:
+      - '0.057528'
+      Connection:
+      - keep-alive
+      Server:
+      - thin
+    body:
+      encoding: UTF-8
+      string: '{"collection":{"error":{"message":"You must include a team_id parameter"}}}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: http://localhost:3000/bulk_load?hmac_client_id=classic&hmac_nonce=4167f38a-9aa9-4683-a754-869f688d26dd&hmac_timestamp=1456954345
+  recorded_at: Wed, 02 Mar 2016 21:32:26 GMT
+recorded_with: VCR 2.9.3

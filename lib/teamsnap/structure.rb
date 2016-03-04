@@ -14,7 +14,7 @@ module TeamSnap
           classes = setup_model_classes(collection, resp)
         else
           client.in_parallel do
-            classes << collection
+            classes = collection
               .fetch(:links) { [] }
               .map { |link| classify_rel(client, link) }
           end

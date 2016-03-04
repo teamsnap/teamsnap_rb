@@ -1,0 +1,53 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:3000/bulk_load?team_id=0&types=team%2Cmember&hmac_client_id=classic&hmac_nonce=43fa25da-47bf-4136-877a-7b9e63a9cd0b&hmac_timestamp=1456954346
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.1
+      X-Teamsnap-Hmac:
+      - 836169aa1ee0978726f09447a902958b6ef29f2b1b8fb78fd51e3e64a3130d4c
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/vnd.collection+json
+      Content-Length:
+      - '1060'
+      X-Content-Type-Options:
+      - nosniff
+      ETag:
+      - '"43f0b193734c47ad2a43c1e58f275797"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 94898ef5-d1ae-4210-9928-f0d473f1b1c4
+      X-Runtime:
+      - '0.081509'
+      Connection:
+      - keep-alive
+      Server:
+      - thin
+    body:
+      encoding: UTF-8
+      string: '{"collection":{"version":"3.196.3","href":"http://localhost:3000/bulk_load","rel":"bulk_load","links":[{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/bulk_load?team_id=0&types=team%2Cmember"}],"queries":[{"rel":"bulk_load","href":"http://localhost:3000/bulk_load","prompt":"Returns
+        a heterogeneous collection of the specified types. Additional filters can
+        be passed into requested types by passing them in the url''s querystring as
+        type__filter=value (i.e. ?event__start_date=2015-01-01). Any filter can be
+        passed that is available on the search for the specified type.","data":[{"name":"scope_to","value":null,"prompt":"A
+        comma separated list of singular types that you would like to scope the rest
+        of the related result sets to. For instance, scoping assignments to events
+        and providing a filter on events will return only assignments for the events
+        returned."},{"name":"team_id","value":null},{"name":"types","value":null,"prompt":"A
+        comma separated list of singular types that you want returned."}]}],"items":[]}}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: http://localhost:3000/bulk_load?team_id=0&types=team%2Cmember&hmac_client_id=classic&hmac_nonce=43fa25da-47bf-4136-877a-7b9e63a9cd0b&hmac_timestamp=1456954346
+  recorded_at: Wed, 02 Mar 2016 21:32:26 GMT
+recorded_with: VCR 2.9.3

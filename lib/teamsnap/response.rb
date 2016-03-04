@@ -1,44 +1,47 @@
 module TeamSnap
   class Response
 
-    def self.load_collection(resp, via)
-      if resp.success?
-        return Oj.load(resp.body).fetch(:collection)
-      else
-        if resp.headers["content-type"].match("json")
-          if resp.status == 404
-            raise TeamSnap::NotFound.new("Object not found.")
+    class << self
+      def load_collection(resp)
+        if resp.success?
+          return Oj.load(resp.body).fetch(:collection)
+        else
+          content_type = resp.headers["content-type"]
+          if content_type && content_type.match("json")
+            if resp.status == 404
+              raise TeamSnap::NotFound.new("Object not found.")
+            else
+              raise TeamSnap::Error.new(
+                TeamSnap::Api.parse_error(resp)
+              )
+            end
           else
             raise TeamSnap::Error.new(
-              TeamSnap::Api.parse_error(resp)
-            )
+              "`#{resp.env.method}` call was unsuccessful. " +
+              "Unexpected response content-type. " +
+              "Check TeamSnap APIv3 connection")
           end
-        else
-          raise TeamSnap::Error.new(
-            "`#{via}` call was unsuccessful. " +
-            "Unexpected response content-type. " +
-            "Check TeamSnap APIv3 connection")
         end
       end
-    end
 
-    def self.process(client, resp, via, href, args)
-      response_object = self.new(
-        :args => args,
-        :client => client,
-        :href => href,
-        :resp => resp,
-        :status => resp.status,
-        :via => via
-      )
-      if resp.success?
-        if via == :get
-          response_object.process_info
+      def process(client, resp, via, href, args)
+        response_object = self.new(
+          :args => args,
+          :client => client,
+          :href => href,
+          :resp => resp,
+          :status => resp.status,
+          :via => via
+        )
+        if resp.success?
+          if via == :get
+            response_object.process_info
+          else
+            response_object.process_action
+          end
         else
-          response_object.process_action
+          response_object.process_error
         end
-      else
-        response_object.process_error
       end
     end
 
