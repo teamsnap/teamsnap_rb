@@ -31,7 +31,8 @@ module TeamSnap
           .fetch(:links) { [] }
           .reject { |link| EXCLUDED_RELS.include?(link[:rel]) }
           .map { |link| [link[:href], link[:rel]]}
-          .to_h
+
+        href_to_rel = Hash[*href_to_rel.flatten]
 
         Oj.load(response.body)
           .map { |collection|

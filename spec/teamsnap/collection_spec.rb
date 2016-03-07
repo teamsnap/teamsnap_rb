@@ -1,3 +1,6 @@
+require "spec_helper"
+require "teamsnap"
+
 RSpec.describe "teamsnap_rb", :vcr => true do
   before(:all) do
     VCR.use_cassette("apiv3-init") do

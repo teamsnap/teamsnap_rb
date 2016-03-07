@@ -54,7 +54,7 @@ module TeamSnap
       end
 
       def hashify(arr)
-        arr.to_h
+        Hash[*arr.flatten]
       rescue NoMethodError
         arr.inject({}) { |hash, (key, value)| hash[key] = value; hash }
       end

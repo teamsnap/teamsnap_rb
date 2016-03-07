@@ -26,6 +26,15 @@ RSpec.describe "client", :vcr => true do
     end
   end
 
+  context "when calling `via`'s on the client" do
+    it "passes them to the faraday_client using method_missing" do
+
+    end
+  end
+
   describe "#api" do
+    it "Sends the proper information to TeamSnap::Api.run" do
+
+    end
   end
 end

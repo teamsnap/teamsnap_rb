@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:3000/bulk_load?team_id=1&types=team%2Cmember&hmac_client_id=classic&hmac_nonce=67dd34b1-014f-49c2-b933-be375f6d1e83&hmac_timestamp=1456954346
+    uri: http://localhost:3000/bulk_load?team_id=1&types=team%2Cmember&hmac_client_id=classic&hmac_nonce=28a7ceeb-6e54-4988-aac2-9ab0b731c978&hmac_timestamp=1457140573
     body:
       encoding: US-ASCII
       string: ''
@@ -10,7 +10,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.9.1
       X-Teamsnap-Hmac:
-      - 16a5867c4d5ab001ed8255a67fdb506b3ab4f7c71b419269bd45e8d083557b6f
+      - 3e20c57615d24379f487a7db239b6db4713d4f54235edbc90732f899b47e5a1f
   response:
     status:
       code: 200
@@ -23,20 +23,20 @@ http_interactions:
       X-Content-Type-Options:
       - nosniff
       ETag:
-      - '"bb4da4f052884e15041720512f7f3b6f"'
+      - '"87e4eb80d556f9d78e1ff1fcf9258f98"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 9ca59963-dd59-4811-a3c8-b077f65b9586
+      - ca718d00-1c4e-477a-9d97-45245ca0ec01
       X-Runtime:
-      - '0.359091'
+      - '0.292749'
       Connection:
       - keep-alive
       Server:
       - thin
     body:
       encoding: UTF-8
-      string: '{"collection":{"version":"3.196.3","href":"http://localhost:3000/bulk_load","rel":"bulk_load","links":[{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/bulk_load?team_id=1&types=team%2Cmember"}],"queries":[{"rel":"bulk_load","href":"http://localhost:3000/bulk_load","prompt":"Returns
+      string: '{"collection":{"version":"3.199.3","href":"http://localhost:3000/bulk_load","rel":"bulk_load","links":[{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/bulk_load?team_id=1&types=team%2Cmember"}],"queries":[{"rel":"bulk_load","href":"http://localhost:3000/bulk_load","prompt":"Returns
         a heterogeneous collection of the specified types. Additional filters can
         be passed into requested types by passing them in the url''s querystring as
         type__filter=value (i.e. ?event__start_date=2015-01-01). Any filter can be
@@ -114,6 +114,6 @@ http_interactions:
         is deprecated and will be removed in a future version, use is_age_hidden instead."},{"name":"is_age_hidden","value":null},{"name":"invitation_code","value":null},{"name":"invitation_declined","value":null},{"name":"is_activated","value":false},{"name":"is_alertable","value":false},{"name":"is_emailable","value":false},{"name":"is_invitable","value":true},{"name":"is_invited","value":false},{"name":"is_manager","value":false},{"name":"is_non_player","value":true},{"name":"is_owner","value":false},{"name":"is_ownership_pending","value":null},{"name":"jersey_number","value":null},{"name":"last_logged_in_at","value":null,"type":"DateTime"},{"name":"last_name","value":"Email"},{"name":"position","value":null},{"name":"team_id","value":1},{"name":"user_id","value":null},{"name":"updated_at","value":"2016-02-08T20:04:08Z","type":"DateTime"},{"name":"created_at","value":"2016-02-08T20:04:08Z","type":"DateTime"}],"links":[{"rel":"assignments","href":"http://localhost:3000/assignments/search?member_id=18"},{"rel":"availabilities","href":"http://localhost:3000/availabilities/search?member_id=18"},{"rel":"broadcast_email_attachments","href":"http://localhost:3000/broadcast_email_attachments/search?member_id=18"},{"rel":"broadcast_emails","href":"http://localhost:3000/broadcast_emails/search?member_id=18"},{"rel":"broadcast_alerts","href":"http://localhost:3000/broadcast_alerts/search?member_id=18"},{"rel":"contact_email_addresses","href":"http://localhost:3000/contact_email_addresses/search?member_id=18"},{"rel":"contact_phone_numbers","href":"http://localhost:3000/contact_phone_numbers/search?member_id=18"},{"rel":"contacts","href":"http://localhost:3000/contacts/search?member_id=18"},{"rel":"custom_data","href":"http://localhost:3000/custom_data/search?member_id=18"},{"rel":"custom_fields","href":"http://localhost:3000/custom_fields/search?team_id=1"},{"rel":"league_custom_data","href":"http://localhost:3000/league_custom_data/search?member_id=18"},{"rel":"league_custom_fields","href":"http://localhost:3000/league_custom_fields/search?team_id=1"},{"rel":"forum_posts","href":"http://localhost:3000/forum_posts/search?member_id=18"},{"rel":"forum_subscriptions","href":"http://localhost:3000/forum_subscriptions/search?member_id=18"},{"rel":"forum_topics","href":"http://localhost:3000/forum_topics/search?team_id=1"},{"rel":"league_registrant_documents","href":"http://localhost:3000/league_registrant_documents/search?member_id=18"},{"rel":"member_balances","href":"http://localhost:3000/member_balances/search?member_id=18"},{"rel":"member_email_addresses","href":"http://localhost:3000/member_email_addresses/search?member_id=18"},{"rel":"member_files","href":"http://localhost:3000/member_files/search?member_id=18"},{"rel":"member_links","href":"http://localhost:3000/member_links/search?member_id=18"},{"rel":"member_payments","href":"http://localhost:3000/member_payments/search?member_id=18"},{"rel":"member_phone_numbers","href":"http://localhost:3000/member_phone_numbers/search?member_id=18"},{"rel":"member_preferences","href":"http://localhost:3000/members_preferences/18"},{"rel":"member_statistics","href":"http://localhost:3000/member_statistics/search?member_id=18"},{"rel":"statistic_data","href":"http://localhost:3000/statistic_data/search?member_id=18"},{"rel":"team","href":"http://localhost:3000/teams/1"},{"rel":"team_media","href":"http://localhost:3000/team_media/search?member_id=18"},{"rel":"team_medium_comments","href":"http://localhost:3000/team_medium_comments/search?member_id=18"},{"rel":"tracked_item_statuses","href":"http://localhost:3000/tracked_item_statuses/search?member_id=18"}],"rel":"member-18"}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/bulk_load?team_id=1&types=team%2Cmember&hmac_client_id=classic&hmac_nonce=67dd34b1-014f-49c2-b933-be375f6d1e83&hmac_timestamp=1456954346
-  recorded_at: Wed, 02 Mar 2016 21:32:26 GMT
+      effective_url: http://localhost:3000/bulk_load?team_id=1&types=team%2Cmember&hmac_client_id=classic&hmac_nonce=28a7ceeb-6e54-4988-aac2-9ab0b731c978&hmac_timestamp=1457140573
+  recorded_at: Sat, 05 Mar 2016 01:16:13 GMT
 recorded_with: VCR 2.9.3
