@@ -196,7 +196,15 @@ module TeamSnap
     def run(via, href, args = {})
       resp = client_send(via, href, args)
       if resp.success?
-        Oj.load(resp.body).fetch(:collection)
+        begin
+          Oj.load(resp.body).fetch(:collection)
+        rescue Oj::ParseError
+          raise TeamSnap::Error.new(
+            "Response successful, but could not not parsed. " +
+            "Content-type: #{resp.headers["content-type"]}" +
+            "Body: #{resp.body}"
+          )
+        end
       else
         if resp.headers["content-type"].match("json")
           error_message = parse_error(resp)
