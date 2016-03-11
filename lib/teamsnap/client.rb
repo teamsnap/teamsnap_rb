@@ -19,10 +19,15 @@ module TeamSnap
 
     attr_accessor :faraday_client
 
-    def initialize(opts = {}, c_id = nil, c_secret = nil)
+    def initialize(opts = {})
+      c_url = opts.fetch(:url) {}
+      c_token = opts.fetch(:token) {}
+      c_id = opts.fetch(:client_id) {}
+      c_secret = opts.fetch(:client_secret) {}
+
       self.faraday_client = TeamSnap::Client.set_faraday_client(
-        TeamSnap.url,
-        opts.fetch(:token, nil),
+        c_url || TeamSnap.url,
+        c_token,
         c_id || TeamSnap.client_id,
         c_secret || TeamSnap.client_secret
       )

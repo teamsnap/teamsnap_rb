@@ -10,7 +10,8 @@
   ).each { |x| require_relative x }
 
 module TeamSnap
-  EXCLUDED_RELS = %w(me apiv2_root root self dude sweet random xyzzy schemas)
+  EXCLUDED_RELS = %w(me apiv2_root root self dude sweet random xyzzy schemas
+                     authorization plans_all tsl_photos)
   DEFAULT_URL = "https://apiv3.teamsnap.com"
   Error = Class.new(StandardError)
   NotFound = Class.new(TeamSnap::Error)

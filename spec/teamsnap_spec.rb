@@ -79,7 +79,10 @@ RSpec.describe "teamsnap_rb", :vcr => true do
         )
       end
       TeamSnap.stub(:url).and_return(ROOT_TEST_URL)
-      client = TeamSnap::Client.new({}, client_id, client_secret)
+      client = TeamSnap::Client.new({
+        :client_id => client_id,
+        :client_secret => client_secret
+      })
       via = :get
       href = "/"
       args = {}
@@ -92,10 +95,16 @@ RSpec.describe "teamsnap_rb", :vcr => true do
   end
 
   describe ".client_send" do
+    let(:client) {
+      TeamSnap::Client.new({
+        :client_id => client_id,
+        :client_secret => client_secret
+      })
+    }
+
     context "when sent a known `via`" do
       it "calls GET on the given client" do
         TeamSnap.stub(:url).and_return(ROOT_TEST_URL)
-        client = TeamSnap::Client.new({}, client_id, client_secret)
         via = :get
         href = "/"
         args = {}
@@ -106,7 +115,6 @@ RSpec.describe "teamsnap_rb", :vcr => true do
 
       it "calls DELETE on the given client" do
         TeamSnap.stub(:url).and_return(ROOT_TEST_URL)
-        client = TeamSnap::Client.new({}, client_id, client_secret)
         via = :delete
         href = "/"
         args = {}
@@ -117,7 +125,6 @@ RSpec.describe "teamsnap_rb", :vcr => true do
 
       it "calls POST on the given client" do
         TeamSnap.stub(:url).and_return(ROOT_TEST_URL)
-        client = TeamSnap::Client.new({}, client_id, client_secret)
         via = :post
         href = "/"
         args = {}
@@ -128,7 +135,6 @@ RSpec.describe "teamsnap_rb", :vcr => true do
 
       it "calls PATCH on the given client" do
         TeamSnap.stub(:url).and_return(ROOT_TEST_URL)
-        client = TeamSnap::Client.new({}, client_id, client_secret)
         via = :patch
         href = "/"
         args = {}
@@ -141,7 +147,6 @@ RSpec.describe "teamsnap_rb", :vcr => true do
     context "when sent unknown `via`" do
       it "responds with an error" do
         TeamSnap.stub(:url).and_return(ROOT_TEST_URL)
-        client = TeamSnap::Client.new({}, client_id, client_secret)
 
         expect {
           TeamSnap.client_send(client, :unknown, "/", {})
@@ -153,7 +158,6 @@ RSpec.describe "teamsnap_rb", :vcr => true do
 
       it "responds with an error" do
         TeamSnap.stub(:url).and_return(ROOT_TEST_URL)
-        client = TeamSnap::Client.new({}, client_id, client_secret)
 
         expect {
           TeamSnap.client_send(client, :head, "/", {})
@@ -165,7 +169,6 @@ RSpec.describe "teamsnap_rb", :vcr => true do
 
       it "responds with an error" do
         TeamSnap.stub(:url).and_return(ROOT_TEST_URL)
-        client = TeamSnap::Client.new({}, client_id, client_secret)
 
         expect {
           TeamSnap.client_send(client, :options, "/", {})
@@ -177,7 +180,6 @@ RSpec.describe "teamsnap_rb", :vcr => true do
 
       it "responds with an error" do
         TeamSnap.stub(:url).and_return(ROOT_TEST_URL)
-        client = TeamSnap::Client.new({}, client_id, client_secret)
 
         expect {
           TeamSnap.client_send(client, :trace, "/", {})

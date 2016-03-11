@@ -78,7 +78,7 @@ module TeamSnap
       TeamSnap.run(client, :delete, href+"/#{id}", {})
     end
 
-    def attribute_names
+    def template_attributes
       template = parsed_collection.fetch(:template) {}
       data = template.fetch(:data) { [] }
       data

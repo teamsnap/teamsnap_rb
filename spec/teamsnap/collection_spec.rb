@@ -31,7 +31,7 @@ RSpec.describe "teamsnap_rb", :vcr => true do
       TeamSnap::Team.search(TeamSnap.root_client, :foo => :bar)
     }.to raise_error(
       ArgumentError,
-      "Invalid argument(s). Valid argument(s) are [:id, :team_id, :user_id, :division_id]"
+      "Invalid argument(s). Valid argument(s) are [:id, :team_id, :user_id, :division_id, :page_size, :page_number]"
     )
   end
 
@@ -43,14 +43,10 @@ RSpec.describe "teamsnap_rb", :vcr => true do
   end
 
   it "handles executing an action via commands with multiple params" do
-#    TeamSnap.init(
-#      :url => ROOT_TEST_URL,
-#      :backup_cache => false,
-#      :token => "6-classic-dont_tell_the_cops"
-#    )
+    user_client = TeamSnap::Client.new({:token => "6-classic-dont_tell_the_cops"})
 
     ms = TeamSnap::Team.invite(
-      TeamSnap.root_client, 
+      user_client,
       :team_id => 1, :member_id => [9, 11], :notify_as_member_id => 3,
       :introduction => "Welcome! This is our team\n ...the superstars!"
     )
@@ -69,12 +65,11 @@ RSpec.describe "teamsnap_rb", :vcr => true do
     )
   end
 
-  it "can handle no client sent to the command" do
+  it "raises an ArgumentError if no client sent to the command" do
     expect {
       TeamSnap::Member.disable_member
     }.to raise_error(
-      TeamSnap::Error,
-      "You must provide the member_id."
+      ArgumentError
     )
   end
 
@@ -120,7 +115,7 @@ RSpec.describe "teamsnap_rb", :vcr => true do
     t = TeamSnap::Team.find(TeamSnap.root_client, 1)
     ms = t.members
 
-    expect(ms.size).to eq(16)
+    expect(ms.size).to eq(17)
   end
 
   it "adds href to items" do
