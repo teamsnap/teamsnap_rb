@@ -1,7 +1,7 @@
 require "spec_helper"
 require "teamsnap"
 
-RSpec.describe "client", :vcr => true do
+RSpec.describe "teamsnap__client", :vcr => true do
   let(:client_id) { "classic" }
   let(:client_secret) { "dont_tell_the_cops" }
 

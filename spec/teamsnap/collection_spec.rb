@@ -1,12 +1,11 @@
 require "spec_helper"
 require "teamsnap"
 
-RSpec.describe "teamsnap_rb", :vcr => true do
+RSpec.describe "teamsnap__collection", :vcr => true do
   before(:all) do
     VCR.use_cassette("apiv3-init") do
       TeamSnap.init(
         :url => ROOT_TEST_URL,
-        :backup_cache => false,
         :client_id => "classic",
         :client_secret => "dont_tell_the_cops"
       )

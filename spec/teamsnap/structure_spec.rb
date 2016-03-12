@@ -1,7 +1,7 @@
 require "spec_helper"
 require "teamsnap"
 
-RSpec.describe "structure", :vcr => true do
+RSpec.describe "teamsnap__structure", :vcr => true do
 
   describe ".create_collection_class" do
     let(:client) {
