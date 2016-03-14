@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:3000/?hmac_client_id=classic&hmac_nonce=9f665c7f-9e7e-4a06-9690-418efaec3a42&hmac_timestamp=1457750068
+    uri: http://localhost:3000/?hmac_client_id=classic&hmac_nonce=b4fece7e-4fb8-4cd9-a1bf-a6fa4efa4a5b&hmac_timestamp=1457993766
     body:
       encoding: US-ASCII
       string: ''
@@ -10,7 +10,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.9.1
       X-Teamsnap-Hmac:
-      - 4c27730faed5bdad97243b7325f56ff601897decb7336a1097a42520bb6faef7
+      - 8937b9ff6126c5bae281ade1e25d0a044faa4503a1e56da6c60c596ae8aa5029
   response:
     status:
       code: 200
@@ -27,9 +27,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - f348d9f7-0956-407a-9646-4c4aaaa4b08a
+      - 0d9f3950-d0b1-4e1b-ac5e-d5e36ea6f598
       X-Runtime:
-      - '0.283986'
+      - '0.043072'
       Connection:
       - keep-alive
       Server:
@@ -64,11 +64,11 @@ http_interactions:
         a signup email to an unregistered user to start the registration process","data":[{"name":"email_address","value":null},{"name":"client_id","value":null},{"name":"redirect_uri","value":null}]}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/?hmac_client_id=classic&hmac_nonce=9f665c7f-9e7e-4a06-9690-418efaec3a42&hmac_timestamp=1457750068
-  recorded_at: Sat, 12 Mar 2016 02:34:29 GMT
+      effective_url: http://localhost:3000/?hmac_client_id=classic&hmac_nonce=b4fece7e-4fb8-4cd9-a1bf-a6fa4efa4a5b&hmac_timestamp=1457993766
+  recorded_at: Mon, 14 Mar 2016 22:16:06 GMT
 - request:
     method: get
-    uri: http://localhost:3000/?hmac_client_id=classic&hmac_nonce=e970807b-973e-4f32-8206-d777f6eb1bbd&hmac_timestamp=1457750221
+    uri: http://localhost:3000/?hmac_client_id=classic&hmac_nonce=84170a08-a03f-44ba-94ba-9f07452e4c69&hmac_timestamp=1457993767
     body:
       encoding: US-ASCII
       string: ''
@@ -76,7 +76,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.9.1
       X-Teamsnap-Hmac:
-      - ae7df3ed44e5c36601b9c846436abcb6393febff0e321f8bfaa2325bc01061c6
+      - 9950e69ef564ff8ce1144089ac088f023fa29b41f0acc8821494efc0d2562166
   response:
     status:
       code: 200
@@ -93,9 +93,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - a5556cbc-f5db-4a80-b362-75e473018875
+      - d0940ac1-22fe-4afb-a2aa-289d5df5f603
       X-Runtime:
-      - '0.133739'
+      - '0.063238'
       Connection:
       - keep-alive
       Server:
@@ -130,11 +130,11 @@ http_interactions:
         a signup email to an unregistered user to start the registration process","data":[{"name":"email_address","value":null},{"name":"client_id","value":null},{"name":"redirect_uri","value":null}]}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/?hmac_client_id=classic&hmac_nonce=e970807b-973e-4f32-8206-d777f6eb1bbd&hmac_timestamp=1457750221
-  recorded_at: Sat, 12 Mar 2016 02:37:01 GMT
+      effective_url: http://localhost:3000/?hmac_client_id=classic&hmac_nonce=84170a08-a03f-44ba-94ba-9f07452e4c69&hmac_timestamp=1457993767
+  recorded_at: Mon, 14 Mar 2016 22:16:07 GMT
 - request:
     method: get
-    uri: http://localhost:3000/?hmac_client_id=classic&hmac_nonce=b4a252fe-5f6b-40a5-aaa0-a0907adf83b9&hmac_timestamp=1457750283
+    uri: http://localhost:3000/?hmac_client_id=classic&hmac_nonce=e041cb2a-03c6-40b4-bc23-156e38976834&hmac_timestamp=1457993767
     body:
       encoding: US-ASCII
       string: ''
@@ -142,7 +142,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.9.1
       X-Teamsnap-Hmac:
-      - b0ee5c62c6312f0723d7abfe8df765ab713b7ce2754631af6004eaa1c2c5446f
+      - 80283e65f0c017efe62d2db533ad34112f5b2bb0aa3fd3ed3e7f4aa389ebd1fe
   response:
     status:
       code: 200
@@ -159,9 +159,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 5a868ffa-f9f1-4047-9974-1f51579a60ae
+      - d88b1ee2-4bb5-401b-aaf8-3136a68eab6b
       X-Runtime:
-      - '0.139832'
+      - '0.060198'
       Connection:
       - keep-alive
       Server:
@@ -196,11 +196,11 @@ http_interactions:
         a signup email to an unregistered user to start the registration process","data":[{"name":"email_address","value":null},{"name":"client_id","value":null},{"name":"redirect_uri","value":null}]}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/?hmac_client_id=classic&hmac_nonce=b4a252fe-5f6b-40a5-aaa0-a0907adf83b9&hmac_timestamp=1457750283
-  recorded_at: Sat, 12 Mar 2016 02:38:03 GMT
+      effective_url: http://localhost:3000/?hmac_client_id=classic&hmac_nonce=e041cb2a-03c6-40b4-bc23-156e38976834&hmac_timestamp=1457993767
+  recorded_at: Mon, 14 Mar 2016 22:16:07 GMT
 - request:
     method: get
-    uri: http://localhost:3000/?hmac_client_id=classic&hmac_nonce=d44816de-4440-45ac-923a-7aebe672fc13&hmac_timestamp=1457750322
+    uri: http://localhost:3000/?hmac_client_id=classic&hmac_nonce=beaee622-0aed-4152-a3d3-d92154bcb589&hmac_timestamp=1457993769
     body:
       encoding: US-ASCII
       string: ''
@@ -208,7 +208,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.9.1
       X-Teamsnap-Hmac:
-      - 92c300ca7e614fc55e21e124f2b5677f5456dc0cf6fc31f4b7d55a32b4c8e7ad
+      - b47bcd638464c3bf35fa31a29cf76e81528e4eb2fea7470943699818fd8a57a8
   response:
     status:
       code: 200
@@ -225,9 +225,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 03ec28fc-15c8-4026-80b0-d3bf11d82f44
+      - e70a876a-5df7-401b-9a8e-eaa152502d14
       X-Runtime:
-      - '0.042165'
+      - '0.062381'
       Connection:
       - keep-alive
       Server:
@@ -262,11 +262,11 @@ http_interactions:
         a signup email to an unregistered user to start the registration process","data":[{"name":"email_address","value":null},{"name":"client_id","value":null},{"name":"redirect_uri","value":null}]}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/?hmac_client_id=classic&hmac_nonce=d44816de-4440-45ac-923a-7aebe672fc13&hmac_timestamp=1457750322
-  recorded_at: Sat, 12 Mar 2016 02:38:42 GMT
+      effective_url: http://localhost:3000/?hmac_client_id=classic&hmac_nonce=beaee622-0aed-4152-a3d3-d92154bcb589&hmac_timestamp=1457993769
+  recorded_at: Mon, 14 Mar 2016 22:16:09 GMT
 - request:
     method: get
-    uri: http://localhost:3000/schemas?hmac_client_id=classic&hmac_nonce=bc3bb47f-88d1-46aa-8cb4-0a3b1ac47524&hmac_timestamp=1457750322
+    uri: http://localhost:3000/schemas?hmac_client_id=classic&hmac_nonce=a0ab3aeb-5e3e-4cbd-a11b-417dae1ed0f3&hmac_timestamp=1457993769
     body:
       encoding: US-ASCII
       string: ''
@@ -274,7 +274,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.9.1
       X-Teamsnap-Hmac:
-      - 950fdd6c7feba2f4a81621bc6b59a35f3e6af037773b4bda554566557c791a7d
+      - 93d7bc6c623ac019e27512db77cffe33d311a88716af89af22d974767b131b4e
   response:
     status:
       code: 200
@@ -287,13 +287,13 @@ http_interactions:
       X-Content-Type-Options:
       - nosniff
       ETag:
-      - '"dfa6088ff5d12b20d673e54c1186adda"'
+      - '"009616072c0f04098147f588b6bf7324"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 190f92dc-fec6-4463-9722-2ca146ada927
+      - d9d5c505-0548-4eb5-b940-63b3fae21d4f
       X-Runtime:
-      - '0.047358'
+      - '0.052251'
       Connection:
       - keep-alive
       Server:
@@ -967,8 +967,8 @@ http_interactions:
         Time (US & Canada)"},{"name":"iana_name","value":"America/New_York"},{"name":"offset","value":"-05:00"}],"rel":"TimeZone-eastern-time-us-canada"},{"href":"http://localhost:3000/time_zones/indiana-east","data":[{"name":"id","value":"indiana-east"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Indiana
         (East)"},{"name":"iana_name","value":"America/Indiana/Indianapolis"},{"name":"offset","value":"-05:00"}],"rel":"TimeZone-indiana-east"},{"href":"http://localhost:3000/time_zones/lima","data":[{"name":"id","value":"lima"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Lima"},{"name":"iana_name","value":"America/Lima"},{"name":"offset","value":"-05:00"}],"rel":"TimeZone-lima"},{"href":"http://localhost:3000/time_zones/quito","data":[{"name":"id","value":"quito"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Quito"},{"name":"iana_name","value":"America/Lima"},{"name":"offset","value":"-05:00"}],"rel":"TimeZone-quito"},{"href":"http://localhost:3000/time_zones/caracas","data":[{"name":"id","value":"caracas"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Caracas"},{"name":"iana_name","value":"America/Caracas"},{"name":"offset","value":"-04:30"}],"rel":"TimeZone-caracas"},{"href":"http://localhost:3000/time_zones/atlantic-time-canada","data":[{"name":"id","value":"atlantic-time-canada"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Atlantic
         Time (Canada)"},{"name":"iana_name","value":"America/Halifax"},{"name":"offset","value":"-04:00"}],"rel":"TimeZone-atlantic-time-canada"},{"href":"http://localhost:3000/time_zones/georgetown","data":[{"name":"id","value":"georgetown"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Georgetown"},{"name":"iana_name","value":"America/Guyana"},{"name":"offset","value":"-04:00"}],"rel":"TimeZone-georgetown"},{"href":"http://localhost:3000/time_zones/la-paz","data":[{"name":"id","value":"la-paz"},{"name":"type","value":"TimeZone"},{"name":"description","value":"La
-        Paz"},{"name":"iana_name","value":"America/La_Paz"},{"name":"offset","value":"-04:00"}],"rel":"TimeZone-la-paz"},{"href":"http://localhost:3000/time_zones/montevideo","data":[{"name":"id","value":"montevideo"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Montevideo"},{"name":"iana_name","value":"America/Montevideo"},{"name":"offset","value":"-03:30"}],"rel":"TimeZone-montevideo"},{"href":"http://localhost:3000/time_zones/newfoundland","data":[{"name":"id","value":"newfoundland"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Newfoundland"},{"name":"iana_name","value":"America/St_Johns"},{"name":"offset","value":"-03:30"}],"rel":"TimeZone-newfoundland"},{"href":"http://localhost:3000/time_zones/brasilia","data":[{"name":"id","value":"brasilia"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Brasilia"},{"name":"iana_name","value":"America/Sao_Paulo"},{"name":"offset","value":"-03:00"}],"rel":"TimeZone-brasilia"},{"href":"http://localhost:3000/time_zones/buenos-aires","data":[{"name":"id","value":"buenos-aires"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Buenos
-        Aires"},{"name":"iana_name","value":"America/Argentina/Buenos_Aires"},{"name":"offset","value":"-03:00"}],"rel":"TimeZone-buenos-aires"},{"href":"http://localhost:3000/time_zones/greenland","data":[{"name":"id","value":"greenland"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Greenland"},{"name":"iana_name","value":"America/Godthab"},{"name":"offset","value":"-03:00"}],"rel":"TimeZone-greenland"},{"href":"http://localhost:3000/time_zones/santiago","data":[{"name":"id","value":"santiago"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Santiago"},{"name":"iana_name","value":"America/Santiago"},{"name":"offset","value":"-03:00"}],"rel":"TimeZone-santiago"},{"href":"http://localhost:3000/time_zones/mid-atlantic","data":[{"name":"id","value":"mid-atlantic"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Mid-Atlantic"},{"name":"iana_name","value":"Atlantic/South_Georgia"},{"name":"offset","value":"-02:00"}],"rel":"TimeZone-mid-atlantic"},{"href":"http://localhost:3000/time_zones/azores","data":[{"name":"id","value":"azores"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Azores"},{"name":"iana_name","value":"Atlantic/Azores"},{"name":"offset","value":"-01:00"}],"rel":"TimeZone-azores"},{"href":"http://localhost:3000/time_zones/cape-verde-is","data":[{"name":"id","value":"cape-verde-is"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Cape
+        Paz"},{"name":"iana_name","value":"America/La_Paz"},{"name":"offset","value":"-04:00"}],"rel":"TimeZone-la-paz"},{"href":"http://localhost:3000/time_zones/newfoundland","data":[{"name":"id","value":"newfoundland"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Newfoundland"},{"name":"iana_name","value":"America/St_Johns"},{"name":"offset","value":"-03:30"}],"rel":"TimeZone-newfoundland"},{"href":"http://localhost:3000/time_zones/brasilia","data":[{"name":"id","value":"brasilia"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Brasilia"},{"name":"iana_name","value":"America/Sao_Paulo"},{"name":"offset","value":"-03:00"}],"rel":"TimeZone-brasilia"},{"href":"http://localhost:3000/time_zones/buenos-aires","data":[{"name":"id","value":"buenos-aires"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Buenos
+        Aires"},{"name":"iana_name","value":"America/Argentina/Buenos_Aires"},{"name":"offset","value":"-03:00"}],"rel":"TimeZone-buenos-aires"},{"href":"http://localhost:3000/time_zones/greenland","data":[{"name":"id","value":"greenland"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Greenland"},{"name":"iana_name","value":"America/Godthab"},{"name":"offset","value":"-03:00"}],"rel":"TimeZone-greenland"},{"href":"http://localhost:3000/time_zones/montevideo","data":[{"name":"id","value":"montevideo"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Montevideo"},{"name":"iana_name","value":"America/Montevideo"},{"name":"offset","value":"-03:00"}],"rel":"TimeZone-montevideo"},{"href":"http://localhost:3000/time_zones/santiago","data":[{"name":"id","value":"santiago"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Santiago"},{"name":"iana_name","value":"America/Santiago"},{"name":"offset","value":"-03:00"}],"rel":"TimeZone-santiago"},{"href":"http://localhost:3000/time_zones/mid-atlantic","data":[{"name":"id","value":"mid-atlantic"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Mid-Atlantic"},{"name":"iana_name","value":"Atlantic/South_Georgia"},{"name":"offset","value":"-02:00"}],"rel":"TimeZone-mid-atlantic"},{"href":"http://localhost:3000/time_zones/azores","data":[{"name":"id","value":"azores"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Azores"},{"name":"iana_name","value":"Atlantic/Azores"},{"name":"offset","value":"-01:00"}],"rel":"TimeZone-azores"},{"href":"http://localhost:3000/time_zones/cape-verde-is","data":[{"name":"id","value":"cape-verde-is"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Cape
         Verde Is."},{"name":"iana_name","value":"Atlantic/Cape_Verde"},{"name":"offset","value":"-01:00"}],"rel":"TimeZone-cape-verde-is"},{"href":"http://localhost:3000/time_zones/casablanca","data":[{"name":"id","value":"casablanca"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Casablanca"},{"name":"iana_name","value":"Africa/Casablanca"},{"name":"offset","value":"+00:00"}],"rel":"TimeZone-casablanca"},{"href":"http://localhost:3000/time_zones/dublin","data":[{"name":"id","value":"dublin"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Dublin"},{"name":"iana_name","value":"Europe/Dublin"},{"name":"offset","value":"+00:00"}],"rel":"TimeZone-dublin"},{"href":"http://localhost:3000/time_zones/lisbon","data":[{"name":"id","value":"lisbon"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Lisbon"},{"name":"iana_name","value":"Europe/Lisbon"},{"name":"offset","value":"+00:00"}],"rel":"TimeZone-lisbon"},{"href":"http://localhost:3000/time_zones/london","data":[{"name":"id","value":"london"},{"name":"type","value":"TimeZone"},{"name":"description","value":"London"},{"name":"iana_name","value":"Europe/London"},{"name":"offset","value":"+00:00"}],"rel":"TimeZone-london"},{"href":"http://localhost:3000/time_zones/monrovia","data":[{"name":"id","value":"monrovia"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Monrovia"},{"name":"iana_name","value":"Africa/Monrovia"},{"name":"offset","value":"+00:00"}],"rel":"TimeZone-monrovia"},{"href":"http://localhost:3000/time_zones/utc","data":[{"name":"id","value":"utc"},{"name":"type","value":"TimeZone"},{"name":"description","value":"UTC"},{"name":"iana_name","value":"Etc/UTC"},{"name":"offset","value":"+00:00"}],"rel":"TimeZone-utc"},{"href":"http://localhost:3000/time_zones/amsterdam","data":[{"name":"id","value":"amsterdam"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Amsterdam"},{"name":"iana_name","value":"Europe/Amsterdam"},{"name":"offset","value":"+01:00"}],"rel":"TimeZone-amsterdam"},{"href":"http://localhost:3000/time_zones/belgrade","data":[{"name":"id","value":"belgrade"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Belgrade"},{"name":"iana_name","value":"Europe/Belgrade"},{"name":"offset","value":"+01:00"}],"rel":"TimeZone-belgrade"},{"href":"http://localhost:3000/time_zones/berlin","data":[{"name":"id","value":"berlin"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Berlin"},{"name":"iana_name","value":"Europe/Berlin"},{"name":"offset","value":"+01:00"}],"rel":"TimeZone-berlin"},{"href":"http://localhost:3000/time_zones/bern","data":[{"name":"id","value":"bern"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Bern"},{"name":"iana_name","value":"Europe/Berlin"},{"name":"offset","value":"+01:00"}],"rel":"TimeZone-bern"},{"href":"http://localhost:3000/time_zones/bratislava","data":[{"name":"id","value":"bratislava"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Bratislava"},{"name":"iana_name","value":"Europe/Bratislava"},{"name":"offset","value":"+01:00"}],"rel":"TimeZone-bratislava"},{"href":"http://localhost:3000/time_zones/brussels","data":[{"name":"id","value":"brussels"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Brussels"},{"name":"iana_name","value":"Europe/Brussels"},{"name":"offset","value":"+01:00"}],"rel":"TimeZone-brussels"},{"href":"http://localhost:3000/time_zones/budapest","data":[{"name":"id","value":"budapest"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Budapest"},{"name":"iana_name","value":"Europe/Budapest"},{"name":"offset","value":"+01:00"}],"rel":"TimeZone-budapest"},{"href":"http://localhost:3000/time_zones/copenhagen","data":[{"name":"id","value":"copenhagen"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Copenhagen"},{"name":"iana_name","value":"Europe/Copenhagen"},{"name":"offset","value":"+01:00"}],"rel":"TimeZone-copenhagen"},{"href":"http://localhost:3000/time_zones/ljubljana","data":[{"name":"id","value":"ljubljana"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Ljubljana"},{"name":"iana_name","value":"Europe/Ljubljana"},{"name":"offset","value":"+01:00"}],"rel":"TimeZone-ljubljana"},{"href":"http://localhost:3000/time_zones/madrid","data":[{"name":"id","value":"madrid"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Madrid"},{"name":"iana_name","value":"Europe/Madrid"},{"name":"offset","value":"+01:00"}],"rel":"TimeZone-madrid"},{"href":"http://localhost:3000/time_zones/paris","data":[{"name":"id","value":"paris"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Paris"},{"name":"iana_name","value":"Europe/Paris"},{"name":"offset","value":"+01:00"}],"rel":"TimeZone-paris"},{"href":"http://localhost:3000/time_zones/prague","data":[{"name":"id","value":"prague"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Prague"},{"name":"iana_name","value":"Europe/Prague"},{"name":"offset","value":"+01:00"}],"rel":"TimeZone-prague"},{"href":"http://localhost:3000/time_zones/rome","data":[{"name":"id","value":"rome"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Rome"},{"name":"iana_name","value":"Europe/Rome"},{"name":"offset","value":"+01:00"}],"rel":"TimeZone-rome"},{"href":"http://localhost:3000/time_zones/sarajevo","data":[{"name":"id","value":"sarajevo"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Sarajevo"},{"name":"iana_name","value":"Europe/Sarajevo"},{"name":"offset","value":"+01:00"}],"rel":"TimeZone-sarajevo"},{"href":"http://localhost:3000/time_zones/skopje","data":[{"name":"id","value":"skopje"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Skopje"},{"name":"iana_name","value":"Europe/Skopje"},{"name":"offset","value":"+01:00"}],"rel":"TimeZone-skopje"},{"href":"http://localhost:3000/time_zones/stockholm","data":[{"name":"id","value":"stockholm"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Stockholm"},{"name":"iana_name","value":"Europe/Stockholm"},{"name":"offset","value":"+01:00"}],"rel":"TimeZone-stockholm"},{"href":"http://localhost:3000/time_zones/vienna","data":[{"name":"id","value":"vienna"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Vienna"},{"name":"iana_name","value":"Europe/Vienna"},{"name":"offset","value":"+01:00"}],"rel":"TimeZone-vienna"},{"href":"http://localhost:3000/time_zones/warsaw","data":[{"name":"id","value":"warsaw"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Warsaw"},{"name":"iana_name","value":"Europe/Warsaw"},{"name":"offset","value":"+01:00"}],"rel":"TimeZone-warsaw"},{"href":"http://localhost:3000/time_zones/west-central-africa","data":[{"name":"id","value":"west-central-africa"},{"name":"type","value":"TimeZone"},{"name":"description","value":"West
         Central Africa"},{"name":"iana_name","value":"Africa/Algiers"},{"name":"offset","value":"+01:00"}],"rel":"TimeZone-west-central-africa"},{"href":"http://localhost:3000/time_zones/zagreb","data":[{"name":"id","value":"zagreb"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Zagreb"},{"name":"iana_name","value":"Europe/Zagreb"},{"name":"offset","value":"+01:00"}],"rel":"TimeZone-zagreb"},{"href":"http://localhost:3000/time_zones/amman","data":[{"name":"id","value":"amman"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Amman"},{"name":"iana_name","value":"Asia/Amman"},{"name":"offset","value":"+02:00"}],"rel":"TimeZone-amman"},{"href":"http://localhost:3000/time_zones/athens","data":[{"name":"id","value":"athens"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Athens"},{"name":"iana_name","value":"Europe/Athens"},{"name":"offset","value":"+02:00"}],"rel":"TimeZone-athens"},{"href":"http://localhost:3000/time_zones/bucharest","data":[{"name":"id","value":"bucharest"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Bucharest"},{"name":"iana_name","value":"Europe/Bucharest"},{"name":"offset","value":"+02:00"}],"rel":"TimeZone-bucharest"},{"href":"http://localhost:3000/time_zones/cairo","data":[{"name":"id","value":"cairo"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Cairo"},{"name":"iana_name","value":"Africa/Cairo"},{"name":"offset","value":"+02:00"}],"rel":"TimeZone-cairo"},{"href":"http://localhost:3000/time_zones/harare","data":[{"name":"id","value":"harare"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Harare"},{"name":"iana_name","value":"Africa/Harare"},{"name":"offset","value":"+02:00"}],"rel":"TimeZone-harare"},{"href":"http://localhost:3000/time_zones/helsinki","data":[{"name":"id","value":"helsinki"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Helsinki"},{"name":"iana_name","value":"Europe/Helsinki"},{"name":"offset","value":"+02:00"}],"rel":"TimeZone-helsinki"},{"href":"http://localhost:3000/time_zones/istanbul","data":[{"name":"id","value":"istanbul"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Istanbul"},{"name":"iana_name","value":"Europe/Istanbul"},{"name":"offset","value":"+02:00"}],"rel":"TimeZone-istanbul"},{"href":"http://localhost:3000/time_zones/jerusalem","data":[{"name":"id","value":"jerusalem"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Jerusalem"},{"name":"iana_name","value":"Asia/Jerusalem"},{"name":"offset","value":"+02:00"}],"rel":"TimeZone-jerusalem"},{"href":"http://localhost:3000/time_zones/kaliningrad","data":[{"name":"id","value":"kaliningrad"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Kaliningrad"},{"name":"iana_name","value":"Europe/Kaliningrad"},{"name":"offset","value":"+02:00"}],"rel":"TimeZone-kaliningrad"},{"href":"http://localhost:3000/time_zones/kyiv","data":[{"name":"id","value":"kyiv"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Kyiv"},{"name":"iana_name","value":"Europe/Kiev"},{"name":"offset","value":"+02:00"}],"rel":"TimeZone-kyiv"},{"href":"http://localhost:3000/time_zones/pretoria","data":[{"name":"id","value":"pretoria"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Pretoria"},{"name":"iana_name","value":"Africa/Johannesburg"},{"name":"offset","value":"+02:00"}],"rel":"TimeZone-pretoria"},{"href":"http://localhost:3000/time_zones/riga","data":[{"name":"id","value":"riga"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Riga"},{"name":"iana_name","value":"Europe/Riga"},{"name":"offset","value":"+02:00"}],"rel":"TimeZone-riga"},{"href":"http://localhost:3000/time_zones/sofia","data":[{"name":"id","value":"sofia"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Sofia"},{"name":"iana_name","value":"Europe/Sofia"},{"name":"offset","value":"+02:00"}],"rel":"TimeZone-sofia"},{"href":"http://localhost:3000/time_zones/tallinn","data":[{"name":"id","value":"tallinn"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Tallinn"},{"name":"iana_name","value":"Europe/Tallinn"},{"name":"offset","value":"+02:00"}],"rel":"TimeZone-tallinn"},{"href":"http://localhost:3000/time_zones/vilnius","data":[{"name":"id","value":"vilnius"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Vilnius"},{"name":"iana_name","value":"Europe/Vilnius"},{"name":"offset","value":"+02:00"}],"rel":"TimeZone-vilnius"},{"href":"http://localhost:3000/time_zones/baghdad","data":[{"name":"id","value":"baghdad"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Baghdad"},{"name":"iana_name","value":"Asia/Baghdad"},{"name":"offset","value":"+03:00"}],"rel":"TimeZone-baghdad"},{"href":"http://localhost:3000/time_zones/kuwait","data":[{"name":"id","value":"kuwait"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Kuwait"},{"name":"iana_name","value":"Asia/Kuwait"},{"name":"offset","value":"+03:00"}],"rel":"TimeZone-kuwait"},{"href":"http://localhost:3000/time_zones/minsk","data":[{"name":"id","value":"minsk"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Minsk"},{"name":"iana_name","value":"Europe/Minsk"},{"name":"offset","value":"+03:00"}],"rel":"TimeZone-minsk"},{"href":"http://localhost:3000/time_zones/moscow","data":[{"name":"id","value":"moscow"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Moscow"},{"name":"iana_name","value":"Europe/Moscow"},{"name":"offset","value":"+03:00"}],"rel":"TimeZone-moscow"},{"href":"http://localhost:3000/time_zones/nairobi","data":[{"name":"id","value":"nairobi"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Nairobi"},{"name":"iana_name","value":"Africa/Nairobi"},{"name":"offset","value":"+03:00"}],"rel":"TimeZone-nairobi"},{"href":"http://localhost:3000/time_zones/riyadh","data":[{"name":"id","value":"riyadh"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Riyadh"},{"name":"iana_name","value":"Asia/Riyadh"},{"name":"offset","value":"+03:00"}],"rel":"TimeZone-riyadh"},{"href":"http://localhost:3000/time_zones/st-petersburg","data":[{"name":"id","value":"st-petersburg"},{"name":"type","value":"TimeZone"},{"name":"description","value":"St.
         Petersburg"},{"name":"iana_name","value":"Europe/Moscow"},{"name":"offset","value":"+03:00"}],"rel":"TimeZone-st-petersburg"},{"href":"http://localhost:3000/time_zones/volgograd","data":[{"name":"id","value":"volgograd"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Volgograd"},{"name":"iana_name","value":"Europe/Volgograd"},{"name":"offset","value":"+03:00"}],"rel":"TimeZone-volgograd"},{"href":"http://localhost:3000/time_zones/tehran","data":[{"name":"id","value":"tehran"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Tehran"},{"name":"iana_name","value":"Asia/Tehran"},{"name":"offset","value":"+03:30"}],"rel":"TimeZone-tehran"},{"href":"http://localhost:3000/time_zones/abu-dhabi","data":[{"name":"id","value":"abu-dhabi"},{"name":"type","value":"TimeZone"},{"name":"description","value":"Abu
@@ -1001,6 +1001,6 @@ http_interactions:
         by also providing the page_size parameter."}]}]}}]'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/schemas?hmac_client_id=classic&hmac_nonce=bc3bb47f-88d1-46aa-8cb4-0a3b1ac47524&hmac_timestamp=1457750322
-  recorded_at: Sat, 12 Mar 2016 02:38:42 GMT
+      effective_url: http://localhost:3000/schemas?hmac_client_id=classic&hmac_nonce=a0ab3aeb-5e3e-4cbd-a11b-417dae1ed0f3&hmac_timestamp=1457993769
+  recorded_at: Mon, 14 Mar 2016 22:16:09 GMT
 recorded_with: VCR 2.9.3

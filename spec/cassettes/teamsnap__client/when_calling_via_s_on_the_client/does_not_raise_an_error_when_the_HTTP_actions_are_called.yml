@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:3000/?hmac_client_id=classic&hmac_nonce=045cf7b1-7218-4b25-a96f-9c7690ea3a13&hmac_timestamp=1457993764
+    uri: http://localhost:3000/?hmac_client_id=classic&hmac_nonce=940bc966-aac6-4175-a1a9-b085c3c6989b&hmac_timestamp=1457993766
     body:
       encoding: US-ASCII
       string: ''
@@ -10,7 +10,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.9.1
       X-Teamsnap-Hmac:
-      - bec0f62c03dcab294a7487880d59b2617393d1d716d0a33276e1e9644e6967ba
+      - 7d476a7cffa7244777205eccebbe727ee324667112c323dffc5b555dbc741019
   response:
     status:
       code: 200
@@ -27,9 +27,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 869a6ee2-a099-4124-b828-f434550485a3
+      - 685487ac-17c0-429a-92dd-120c54789cfd
       X-Runtime:
-      - '0.045286'
+      - '0.041028'
       Connection:
       - keep-alive
       Server:
@@ -64,6 +64,6 @@ http_interactions:
         a signup email to an unregistered user to start the registration process","data":[{"name":"email_address","value":null},{"name":"client_id","value":null},{"name":"redirect_uri","value":null}]}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/?hmac_client_id=classic&hmac_nonce=045cf7b1-7218-4b25-a96f-9c7690ea3a13&hmac_timestamp=1457993764
-  recorded_at: Mon, 14 Mar 2016 22:16:04 GMT
+      effective_url: http://localhost:3000/?hmac_client_id=classic&hmac_nonce=940bc966-aac6-4175-a1a9-b085c3c6989b&hmac_timestamp=1457993766
+  recorded_at: Mon, 14 Mar 2016 22:16:07 GMT
 recorded_with: VCR 2.9.3

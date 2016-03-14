@@ -78,8 +78,9 @@ RSpec.describe "teamsnap_rb", :vcr => true do
           :client_secret => client_secret
         )
       end
-      TeamSnap.stub(:url).and_return(ROOT_TEST_URL)
+
       client = TeamSnap::Client.new({
+        :url => ROOT_TEST_URL,
         :client_id => client_id,
         :client_secret => client_secret
       })
@@ -97,6 +98,7 @@ RSpec.describe "teamsnap_rb", :vcr => true do
   describe ".client_send" do
     let(:client) {
       TeamSnap::Client.new({
+        :url => ROOT_TEST_URL,
         :client_id => client_id,
         :client_secret => client_secret
       })
@@ -104,7 +106,6 @@ RSpec.describe "teamsnap_rb", :vcr => true do
 
     context "when sent a known `via`" do
       it "calls GET on the given client" do
-        TeamSnap.stub(:url).and_return(ROOT_TEST_URL)
         via = :get
         href = "/"
         args = {}
@@ -114,7 +115,6 @@ RSpec.describe "teamsnap_rb", :vcr => true do
       end
 
       it "calls DELETE on the given client" do
-        TeamSnap.stub(:url).and_return(ROOT_TEST_URL)
         via = :delete
         href = "/"
         args = {}
@@ -124,7 +124,6 @@ RSpec.describe "teamsnap_rb", :vcr => true do
       end
 
       it "calls POST on the given client" do
-        TeamSnap.stub(:url).and_return(ROOT_TEST_URL)
         via = :post
         href = "/"
         args = {}
@@ -134,7 +133,6 @@ RSpec.describe "teamsnap_rb", :vcr => true do
       end
 
       it "calls PATCH on the given client" do
-        TeamSnap.stub(:url).and_return(ROOT_TEST_URL)
         via = :patch
         href = "/"
         args = {}
@@ -146,8 +144,6 @@ RSpec.describe "teamsnap_rb", :vcr => true do
 
     context "when sent unknown `via`" do
       it "responds with an error" do
-        TeamSnap.stub(:url).and_return(ROOT_TEST_URL)
-
         expect {
           TeamSnap.client_send(client, :unknown, "/", {})
         }.to raise_error(
@@ -157,8 +153,6 @@ RSpec.describe "teamsnap_rb", :vcr => true do
       end
 
       it "responds with an error" do
-        TeamSnap.stub(:url).and_return(ROOT_TEST_URL)
-
         expect {
           TeamSnap.client_send(client, :head, "/", {})
         }.to raise_error(
@@ -168,8 +162,6 @@ RSpec.describe "teamsnap_rb", :vcr => true do
       end
 
       it "responds with an error" do
-        TeamSnap.stub(:url).and_return(ROOT_TEST_URL)
-
         expect {
           TeamSnap.client_send(client, :options, "/", {})
         }.to raise_error(
@@ -179,8 +171,6 @@ RSpec.describe "teamsnap_rb", :vcr => true do
       end
 
       it "responds with an error" do
-        TeamSnap.stub(:url).and_return(ROOT_TEST_URL)
-
         expect {
           TeamSnap.client_send(client, :trace, "/", {})
         }.to raise_error(
@@ -247,5 +237,4 @@ RSpec.describe "teamsnap_rb", :vcr => true do
       )
     end
   end
-
- end
+end

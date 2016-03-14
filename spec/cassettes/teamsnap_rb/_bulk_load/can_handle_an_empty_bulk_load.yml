@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:3000/bulk_load?team_id=0&types=team%2Cmember&hmac_client_id=classic&hmac_nonce=ae95b3f4-6429-4ee8-9028-7d0b8704776c&hmac_timestamp=1457726125
+    uri: http://localhost:3000/bulk_load?team_id=0&types=team%2Cmember&hmac_client_id=classic&hmac_nonce=428c4627-2324-4455-ac51-c679e1d6c6a7&hmac_timestamp=1457993766
     body:
       encoding: US-ASCII
       string: ''
@@ -10,7 +10,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.9.1
       X-Teamsnap-Hmac:
-      - 13c5a8e78268ccf5b41522d2b45f93d064647e9543e7a2cab932b003c593e01f
+      - ef5a98b762745c1bd180f3866842d5bf980e0ff4da4496e2c3c59e9e0ae7b1d4
   response:
     status:
       code: 200
@@ -19,35 +19,37 @@ http_interactions:
       Content-Type:
       - application/vnd.collection+json
       Content-Length:
-      - '1060'
+      - '1197'
       X-Content-Type-Options:
       - nosniff
       ETag:
-      - '"2301ba2e904968956a5c8abd9b5f44f6"'
+      - '"80bb3d502e581dd6a408df76afd30309"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - faaa7aa0-3c07-4c37-b365-70208ca2e7f0
+      - b2f80c13-3c2c-4a2a-8d92-696d256d830c
       X-Runtime:
-      - '0.074655'
+      - '0.060007'
       Connection:
       - keep-alive
       Server:
       - thin
     body:
       encoding: UTF-8
-      string: '{"collection":{"version":"3.203.1","href":"http://localhost:3000/bulk_load","rel":"bulk_load","links":[{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/bulk_load?team_id=0&types=team%2Cmember"}],"queries":[{"rel":"bulk_load","href":"http://localhost:3000/bulk_load","prompt":"Returns
-        a heterogeneous collection of the specified types. Additional filters can
-        be passed into requested types by passing them in the url''s querystring as
-        type__filter=value (i.e. ?event__start_date=2015-01-01). Any filter can be
-        passed that is available on the search for the specified type.","data":[{"name":"scope_to","value":null,"prompt":"A
-        comma separated list of singular types that you would like to scope the rest
-        of the related result sets to. For instance, scoping assignments to events
-        and providing a filter on events will return only assignments for the events
-        returned."},{"name":"team_id","value":null},{"name":"types","value":null,"prompt":"A
-        comma separated list of singular types that you want returned."}]}],"items":[]}}'
+      string: '{"collection":{"version":"3.206.1","href":"http://localhost:3000/bulk_load","rel":"bulk_load","links":[{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/bulk_load?team_id=0&types=team%2Cmember"}],"queries":[{"rel":"bulk_load","href":"http://localhost:3000/bulk_load","prompt":"Returns
+        a heterogeneous collection of the specified types for a specified team or
+        teams. Additional filters can be passed into requested types by passing them
+        in the url''s querystring as type__filter=value (i.e. ?event__start_date=2015-01-01).
+        Any filter can be passed that is available on the search for the specified
+        type.","data":[{"name":"scope_to","value":null,"prompt":"A comma separated
+        list of singular types that you would like to scope the rest of the related
+        result sets to. For instance, scoping assignments to events and providing
+        a filter on events will return only assignments for the events returned."},{"name":"team_id","value":null,"prompt":"The
+        team_id(s) to return results for, this can be a single id or a comma-separated
+        list of ids."},{"name":"types","value":null,"prompt":"A comma separated list
+        of singular types that you want returned."}]}],"items":[]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/bulk_load?team_id=0&types=team%2Cmember&hmac_client_id=classic&hmac_nonce=ae95b3f4-6429-4ee8-9028-7d0b8704776c&hmac_timestamp=1457726125
-  recorded_at: Fri, 11 Mar 2016 19:55:25 GMT
+      effective_url: http://localhost:3000/bulk_load?team_id=0&types=team%2Cmember&hmac_client_id=classic&hmac_nonce=428c4627-2324-4455-ac51-c679e1d6c6a7&hmac_timestamp=1457993766
+  recorded_at: Mon, 14 Mar 2016 22:16:06 GMT
 recorded_with: VCR 2.9.3

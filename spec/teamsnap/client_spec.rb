@@ -49,7 +49,9 @@ RSpec.describe "teamsnap__client", :vcr => true do
     end
 
     it "passes them to the faraday_client using method_missing" do
-      TeamSnap::Client.any_instance.should_receive(:method_missing).with(any_args)
+      expect_any_instance_of(
+        TeamSnap::Client
+      ).to receive(:method_missing).with(any_args).and_call_original
       client.send(:get, "/", {})
     end
   end
@@ -66,7 +68,7 @@ RSpec.describe "teamsnap__client", :vcr => true do
     end
 
     it "Sends the proper information to TeamSnap::Api.run" do
-      TeamSnap::Api.should_receive(:run).with(TeamSnap.root_client, :find, TeamSnap::Team, 1, false)
+      expect(TeamSnap::Api).to receive(:run).with(TeamSnap.root_client, :find, TeamSnap::Team, 1, false)
       TeamSnap.root_client.api(:find, TeamSnap::Team, 1)
     end
   end

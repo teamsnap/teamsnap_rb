@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: delete
-    uri: http://localhost:3000/?hmac_client_id=classic&hmac_nonce=69c79be3-8ab7-4916-8615-86137a41bd36&hmac_timestamp=1457726125
+    uri: http://localhost:3000/?hmac_client_id=classic&hmac_nonce=92c3c999-50d2-4d35-a908-07bb873f403f&hmac_timestamp=1457993764
     body:
       encoding: US-ASCII
       string: ''
@@ -10,7 +10,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.9.1
       X-Teamsnap-Hmac:
-      - 6b038b69a41e5f43cf366e9d4c401e15c2f65fda3282bd59aa48a51d9d26a447
+      - 2a6b43d828e02b6a562a931bbd291f703db6b649024afe89f495925fbe1e5e8a
   response:
     status:
       code: 404
@@ -19,11 +19,11 @@ http_interactions:
       Content-Type:
       - text/html; charset=utf-8
       Content-Length:
-      - '211118'
+      - '211450'
       X-Request-Id:
-      - 8e536f29-e47c-439d-b094-0fa68d979ed3
+      - bea386cb-ae55-437b-ba8b-4b429c54db0f
       X-Runtime:
-      - '0.330792'
+      - '0.441722'
       Connection:
       - keep-alive
       Server:
@@ -235,7 +235,11 @@ http_interactions:
         \   GET\n  </td>\n  <td data-route-path='/bulk_load(.:format)' data-regexp='^\\/bulk_load(?:\\.([^\\/.?]+))?$'>\n
         \   /bulk_load(.:format)\n  </td>\n  <td data-route-reqs='BulkLoadApp'>\n
         \   BulkLoadApp\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
-        \ <td data-route-name='initiate_registration'>\n      initiate_registration<span
+        \ <td data-route-name='query'>\n      query<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/q(.:format)'
+        data-regexp='^\\/q(?:\\.([^\\/.?]+))?$'>\n    /q(.:format)\n  </td>\n  <td
+        data-route-reqs='QueryApp'>\n    QueryApp\n  </td>\n</tr>\n<tr class='route_row'
+        data-helper='path'>\n  <td data-route-name='initiate_registration'>\n      initiate_registration<span
         class='helper'>_path</span>\n  </td>\n  <td data-route-verb='POST'>\n    POST\n
         \ </td>\n  <td data-route-path='/initiate_registration(.:format)' data-regexp='^\\/initiate_registration(?:\\.([^\\/.?]+))?$'>\n
         \   /initiate_registration(.:format)\n  </td>\n  <td data-route-reqs='UserRegistrationApp'>\n
@@ -2396,6 +2400,6 @@ http_interactions:
         + noMatchText;\n      }\n    }\n  }\n\n  setupMatchPaths();\n  setupRouteToggleHelperLinks();\n</script>\n\n</div>\n\n\n</body>\n</html>\n"
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/?hmac_client_id=classic&hmac_nonce=69c79be3-8ab7-4916-8615-86137a41bd36&hmac_timestamp=1457726125
-  recorded_at: Fri, 11 Mar 2016 19:55:25 GMT
+      effective_url: http://localhost:3000/?hmac_client_id=classic&hmac_nonce=92c3c999-50d2-4d35-a908-07bb873f403f&hmac_timestamp=1457993764
+  recorded_at: Mon, 14 Mar 2016 22:16:04 GMT
 recorded_with: VCR 2.9.3
