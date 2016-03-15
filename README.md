@@ -16,11 +16,19 @@ _Note: You'll need an OAuth2 Token from TeamSnap. Checkout our API docs
     λ irb
     TeamSnap.init(:client_id => XXXXX, :client_secret => XXXXX)
     => true
-    t = TeamSnap::Team.find(1)
+
+    # Now you have your base connection to the API under:
+    TeamSnap.root_client
+    => #<TeamSnap::Client:...>
+
+    # The below imply usage of:
+    client = TeamSnap.root_client
+
+    t = TeamSnap::Team.find(client, 1)
     => #<TeamSnap::Team::...>
     t.name
     => "TeamSnap"
-    rs = client.bulk_load(:team_id => 1, :types => "team,member")
+    rs = client.bulk_load(client, {:team_id => 1, :types => "team,member"})
     => [
     =>   #<TeamSnap::Team:...>,
     =>   #<TeamSnap::Member:...>,
@@ -35,7 +43,7 @@ _Note: You'll need an OAuth2 Token from TeamSnap. Checkout our API docs
          Class Syntax
     #########################
      - raises error on exception
-     - returns object(TeamSnap::Class) / objects(Array) as response
+     - returns Object(TeamSnap::Class) / Objects(Array) as response
 
     # find
     team = TeamSnap::Team.find(client, XXX)
@@ -139,6 +147,4 @@ _Note: You'll need an OAuth2 Token from TeamSnap. Checkout our API docs
 
 ## Todo
 
-- Literate style docs?
 - Cache items with threadsafe Hash (https://github.com/headius/thread_safe).
-- Implement create, update and delete.

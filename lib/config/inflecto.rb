@@ -1,5 +1,7 @@
 Inflecto.inflections do |inflect|
   inflect.irregular "broadcast_sms", "broadcast_smses"
+  inflect.irregular "division_member_preferences", "division_members_preferences"
+  inflect.irregular "division_preferences", "divisions_preferences"
   inflect.irregular "member_preferences", "member_preferences"
   inflect.irregular "member_preferences", "members_preferences"
   inflect.irregular "opponent_results", "opponent_results"

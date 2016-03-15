@@ -82,8 +82,8 @@ module TeamSnap
       template = parsed_collection.fetch(:template) {}
       data = template.fetch(:data) { [] }
       data
-        .reject{|col| col.fetch(:name) == "type" }
-        .map{|col| col.fetch(:name) }
+        .reject{ |col| col.fetch(:name) == "type" }
+        .map{ |col| col.fetch(:name) }
     end
 
     def href
