@@ -83,7 +83,8 @@ module TeamSnap
     end
 
     def process_error
-      @collection = {}
+      body = Oj.load(@resp.body)
+      @collection = body.fetch(:collection) { {} }
       @message = TeamSnap::Api.parse_error(@resp)
       @objects = TeamSnap::Item.load_items(@client, @collection)
     end

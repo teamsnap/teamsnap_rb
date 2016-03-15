@@ -12,8 +12,6 @@
 _Note: You'll need an OAuth2 Token from TeamSnap. Checkout our API docs
 [here](http://developer.teamsnap.com/documentation/apiv3/)_
 
-
-
     λ gem install teamsnap_rb
     λ irb
     TeamSnap.init(:client_id => XXXXX, :client_secret => XXXXX)
@@ -56,7 +54,6 @@ _Note: You'll need an OAuth2 Token from TeamSnap. Checkout our API docs
 
     # command
     team = TeamSnap::Team.command_name(client, {:attr => val})
-
 
 
     #########################
@@ -104,7 +101,6 @@ _Note: You'll need an OAuth2 Token from TeamSnap. Checkout our API docs
     => #<TeamSnap::Response:...>
 
 
-
     #########################
        Client Object Calls
     #########################
@@ -139,18 +135,6 @@ _Note: You'll need an OAuth2 Token from TeamSnap. Checkout our API docs
     client.api(:query_name, :members, {})
     => #<TeamSnap::Response:...>
 
-
-
-## Backup Cache
-
-By default when calling TeamSnap.init(...), there is a backup cache of the API root response used
-to setup all relevant classes. This is primarily used so CI testing and deploy jobs do not have to 
-connect to the API to complete.
-
-This creates a .teamsnap\_rb file in your ./tmp directory (./tmp/.teamsnap_rb). If you would like to turn this functionality
-off, just set ```:backup_cache => false``` in your init options. Alternatively, you can set the location
-of the backup by passing a string location of where to store the file. e.g.
-```:backup_cache => "./another/location/.teamsnap_rb_file"```
 
 
 ## Todo
