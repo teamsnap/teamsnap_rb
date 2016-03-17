@@ -10,6 +10,7 @@ SimpleCov.start do
 end
 
 require "vcr"
+require "pry"
 
 ROOT_TEST_URL = "http://localhost:3000"
 
@@ -18,6 +19,7 @@ VCR.configure do |c|
   c.hook_into :typhoeus
   c.configure_rspec_metadata!
   c.default_cassette_options = {
+    :record => :all,
     :match_requests_on => [
       :method,
       VCR.request_matchers.uri_without_params(
