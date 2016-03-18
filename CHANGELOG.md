@@ -14,3 +14,9 @@ v1.3.3
 
 - Have the ability to search for a /schemas endpoint and create the collections
   off of the schema endpoint instead of hitting each endpoint individually
+
+v2.0.0.beta
+------
+
+- Full CRUD actions available along with TeamSnap::Response option for better
+  control-flow statements.
