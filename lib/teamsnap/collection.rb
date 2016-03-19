@@ -25,7 +25,7 @@ module TeamSnap
         obj.define_singleton_method(rel) do |client, *args|
           args = Hash[*args]
 
-          unless args.all? { |arg, _| valid_args.include?(arg) }
+          unless (args.keys & valid_args).any?
             raise ArgumentError.new(
               "Invalid argument(s). Valid argument(s) are #{valid_args.inspect}"
             )
