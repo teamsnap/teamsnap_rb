@@ -76,8 +76,8 @@ RSpec.describe "teamsnap__collection", :vcr => true do
     expect {
       TeamSnap::Member.disable_member(TeamSnap.root_client)
     }.to raise_error(
-      TeamSnap::Error,
-      "You must provide the member_id."
+      ArgumentError,
+      "Invalid argument(s). Valid argument(s) are [:member_id]"
     )
   end
 

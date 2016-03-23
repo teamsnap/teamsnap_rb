@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:3000/events/search?id=1&hmac_client_id=classic&hmac_nonce=2cf41ec4-78a0-4c58-adf1-f565810c8886&hmac_timestamp=1458331412
+    uri: http://localhost:3000/events/search?id=1&hmac_client_id=classic&hmac_nonce=85f069e0-66aa-42e7-adc9-07c9922331db&hmac_timestamp=1458775794
     body:
       encoding: US-ASCII
       string: ''
@@ -10,7 +10,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.9.2
       X-Teamsnap-Hmac:
-      - 82713454c10f363eaf529d826ab147ebb6441e5406efcb13ee9d9ac21767db66
+      - 661e1e1c53d8806be16aa0c706529fcc5af0d53d723270a626b559dc8cf2718d
   response:
     status:
       code: 200
@@ -23,13 +23,13 @@ http_interactions:
       X-Content-Type-Options:
       - nosniff
       ETag:
-      - '"32f6186a21fadd086dbfa956c3a795f5"'
+      - '"fc8dfdf58c6bfc1a57e5001982e2308e"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 9dc3ea45-7689-4eea-a17c-fbe472694f2f
+      - c09a63e8-b61d-49db-ab71-e8d24cf1f3ca
       X-Runtime:
-      - '0.088446'
+      - '0.067326'
       Connection:
       - keep-alive
       Server:
@@ -58,14 +58,14 @@ http_interactions:
         Specified"},{"name":"game_type_code","value":null},{"name":"icon_color","value":"blue"},{"name":"is_canceled","value":false},{"name":"is_game","value":false},{"name":"is_overtime","value":false},{"name":"is_shootout","value":false},{"name":"is_tbd","value":false},{"name":"label","value":null},{"name":"location_id","value":1},{"name":"minutes_to_arrive_early","value":null},{"name":"name","value":"March
         Madness Game 1"},{"name":"notes","value":null},{"name":"opponent_id","value":1},{"name":"points_for_opponent","value":null},{"name":"points_for_team","value":null},{"name":"repeating_type","value":null},{"name":"repeating_type_code","value":null},{"name":"repeating_uuid","value":null},{"name":"results","value":null},{"name":"results_url","value":null},{"name":"shootout_points_for_opponent","value":null},{"name":"shootout_points_for_team","value":null},{"name":"start_date","value":"2015-01-01T00:00:00Z","type":"DateTime"},{"name":"team_id","value":1},{"name":"time_zone","value":"Mountain
         Time (US & Canada)"},{"name":"time_zone_description","value":"Mountain Time
-        (US & Canada)"},{"name":"time_zone_iana_name","value":"America/Denver"},{"name":"time_zone_offset","value":"-07:00"},{"name":"source_time_zone_iana_name","value":"America/Denver"},{"name":"tracks_availability","value":true},{"name":"uniform","value":null},{"name":"is_league_controlled","value":false},{"name":"created_at","value":"2016-03-18T20:01:46Z","type":"DateTime"},{"name":"updated_at","value":"2016-03-18T20:01:47Z","type":"DateTime"}],"links":[{"rel":"assignments","href":"http://localhost:3000/assignments/search?event_id=1"},{"rel":"availabilities","href":"http://localhost:3000/availabilities/search?event_id=1"},{"rel":"calendar_single_event","href":"http://86ed2e8eefaaee16c4b7-16391cffaf9272bff70e93998d553c16.r2.cf1.rackcdn.com/team_schedule/event/1.ics"},{"rel":"division_location","href":"http://localhost:3000/division_locations/"},{"rel":"event_statistics","href":"http://localhost:3000/event_statistics/search?event_id=1"},{"rel":"location","href":"http://localhost:3000/locations/1"},{"rel":"opponent","href":"http://localhost:3000/opponents/1"},{"rel":"statistic_data","href":"http://localhost:3000/statistic_data/search?event_id=1"},{"rel":"team","href":"http://localhost:3000/teams/1"}],"rel":"event-1"}]}}'
+        (US & Canada)"},{"name":"time_zone_iana_name","value":"America/Denver"},{"name":"time_zone_offset","value":"-07:00"},{"name":"source_time_zone_iana_name","value":"America/Denver"},{"name":"tracks_availability","value":true},{"name":"uniform","value":null},{"name":"is_league_controlled","value":false},{"name":"created_at","value":"2016-03-23T23:07:48Z","type":"DateTime"},{"name":"updated_at","value":"2016-03-23T23:07:50Z","type":"DateTime"}],"links":[{"rel":"assignments","href":"http://localhost:3000/assignments/search?event_id=1"},{"rel":"availabilities","href":"http://localhost:3000/availabilities/search?event_id=1"},{"rel":"calendar_single_event","href":"http://86ed2e8eefaaee16c4b7-16391cffaf9272bff70e93998d553c16.r2.cf1.rackcdn.com/team_schedule/event/1.ics"},{"rel":"division_location","href":"http://localhost:3000/division_locations/"},{"rel":"event_statistics","href":"http://localhost:3000/event_statistics/search?event_id=1"},{"rel":"location","href":"http://localhost:3000/locations/1"},{"rel":"opponent","href":"http://localhost:3000/opponents/1"},{"rel":"statistic_data","href":"http://localhost:3000/statistic_data/search?event_id=1"},{"rel":"team","href":"http://localhost:3000/teams/1"}],"rel":"event-1"}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/events/search?id=1&hmac_client_id=classic&hmac_nonce=2cf41ec4-78a0-4c58-adf1-f565810c8886&hmac_timestamp=1458331412
-  recorded_at: Fri, 18 Mar 2016 20:03:32 GMT
+      effective_url: http://localhost:3000/events/search?id=1&hmac_client_id=classic&hmac_nonce=85f069e0-66aa-42e7-adc9-07c9922331db&hmac_timestamp=1458775794
+  recorded_at: Wed, 23 Mar 2016 23:29:54 GMT
 - request:
     method: get
-    uri: http://localhost:3000/division_locations/?hmac_client_id=classic&hmac_nonce=be428d09-c70b-4207-bd90-35c9cd8f1790&hmac_timestamp=1458331412
+    uri: http://localhost:3000/division_locations/?hmac_client_id=classic&hmac_nonce=6b695452-04be-469d-961f-e1ae553be874&hmac_timestamp=1458775794
     body:
       encoding: US-ASCII
       string: ''
@@ -73,7 +73,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.9.2
       X-Teamsnap-Hmac:
-      - a93de433137d2087ec88d75faf1b8db4ed631df5eb91e0686ef725e2cb51980f
+      - a1d0293fd2c7df18141b6fbaa80e41d1262db56f5af1ecf70a8964952d6688aa
   response:
     status:
       code: 200
@@ -90,9 +90,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 2c7a43d7-4944-47f8-a96e-f3e8cf084ab2
+      - 01d72929-9b36-44b9-a270-743c080dbff1
       X-Runtime:
-      - '0.044664'
+      - '0.062663'
       Connection:
       - keep-alive
       Server:
@@ -106,6 +106,6 @@ http_interactions:
         by also providing the page_size parameter."}]}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/division_locations/?hmac_client_id=classic&hmac_nonce=be428d09-c70b-4207-bd90-35c9cd8f1790&hmac_timestamp=1458331412
-  recorded_at: Fri, 18 Mar 2016 20:03:32 GMT
+      effective_url: http://localhost:3000/division_locations/?hmac_client_id=classic&hmac_nonce=6b695452-04be-469d-961f-e1ae553be874&hmac_timestamp=1458775794
+  recorded_at: Wed, 23 Mar 2016 23:29:54 GMT
 recorded_with: VCR 2.9.3

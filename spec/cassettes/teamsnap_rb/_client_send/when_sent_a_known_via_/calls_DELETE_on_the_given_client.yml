@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: delete
-    uri: http://localhost:3000/?hmac_client_id=classic&hmac_nonce=36c28248-9e0c-49f6-80e7-a63787b4ba4a&hmac_timestamp=1458331409
+    uri: http://localhost:3000/?hmac_client_id=classic&hmac_nonce=6dfe99ee-5f43-4cdf-8e68-aea3ec682887&hmac_timestamp=1458775795
     body:
       encoding: US-ASCII
       string: ''
@@ -10,7 +10,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.9.2
       X-Teamsnap-Hmac:
-      - 6e89d6419b44427b3b6930acd8911d99d4f5b82db47a634a4164e44bc7323e37
+      - e9697beb3c5c4620da10e96f70a4d3e32ed247a3ea632f0a037d957a4e128162
   response:
     status:
       code: 404
@@ -21,9 +21,9 @@ http_interactions:
       Content-Length:
       - '210961'
       X-Request-Id:
-      - 3c5f9fdf-d03f-4e3e-9434-813ab7f1df69
+      - 78dc8b40-d53b-450e-94c1-ce9bdc6cb644
       X-Runtime:
-      - '0.334135'
+      - '0.374758'
       Connection:
       - keep-alive
       Server:
@@ -2395,6 +2395,6 @@ http_interactions:
         + noMatchText;\n      }\n    }\n  }\n\n  setupMatchPaths();\n  setupRouteToggleHelperLinks();\n</script>\n\n</div>\n\n\n</body>\n</html>\n"
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/?hmac_client_id=classic&hmac_nonce=36c28248-9e0c-49f6-80e7-a63787b4ba4a&hmac_timestamp=1458331409
-  recorded_at: Fri, 18 Mar 2016 20:03:29 GMT
+      effective_url: http://localhost:3000/?hmac_client_id=classic&hmac_nonce=6dfe99ee-5f43-4cdf-8e68-aea3ec682887&hmac_timestamp=1458775795
+  recorded_at: Wed, 23 Mar 2016 23:29:55 GMT
 recorded_with: VCR 2.9.3

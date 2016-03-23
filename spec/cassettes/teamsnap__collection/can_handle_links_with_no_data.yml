@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:3000/members/search?id=1&hmac_client_id=classic&hmac_nonce=7d315327-09aa-4a05-a1f8-f7d9cb4c760b&hmac_timestamp=1458331412
+    uri: http://localhost:3000/members/search?id=1&hmac_client_id=classic&hmac_nonce=27df7200-71c3-4c7d-9188-84d1e61e0f52&hmac_timestamp=1458775792
     body:
       encoding: US-ASCII
       string: ''
@@ -10,7 +10,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.9.2
       X-Teamsnap-Hmac:
-      - 5ab90af094de6c77388262aa80fa8afd3b66b87466d731ee5f6429468a0dbcab
+      - d13b9227697187cc5e033879fe18b0622b948b5c7df83d75b81b6804598d28f8
   response:
     status:
       code: 200
@@ -23,13 +23,13 @@ http_interactions:
       X-Content-Type-Options:
       - nosniff
       ETag:
-      - '"a0df2356e98e68eab3e9b124d14c2c4f"'
+      - '"7b4645dad4b65990135ce8066916f192"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - a05cf99a-c110-4e35-9f56-25251ef4d516
+      - 16579c3f-e9a9-4793-9d1f-3846f3823e4d
       X-Runtime:
-      - '0.072343'
+      - '0.075565'
       Connection:
       - keep-alive
       Server:
@@ -54,14 +54,14 @@ http_interactions:
         will be returned.","data":[{"name":"source_member_ids","value":null},{"name":"destination_team_id","value":null}]}],"items":[{"href":"http://localhost:3000/members/1","data":[{"name":"id","value":1},{"name":"type","value":"member"},{"name":"address_city","value":null},{"name":"address_state","value":null},{"name":"address_street1","value":null},{"name":"address_street2","value":null},{"name":"address_zip","value":null},{"name":"birthday","value":""},{"name":"first_name","value":"Commie"},{"name":"gender","value":null},{"name":"has_facebook_post_scores_enabled","value":false},{"name":"hide_address","value":null,"deprecated":true,"prompt":"hide_address
         is deprecated and will be removed in a future version, use is_address_hidden
         instead."},{"name":"is_address_hidden","value":null},{"name":"hide_age","value":null,"deprecated":true,"prompt":"hide_age
-        is deprecated and will be removed in a future version, use is_age_hidden instead."},{"name":"is_age_hidden","value":null},{"name":"invitation_code","value":null},{"name":"invitation_declined","value":null},{"name":"is_activated","value":false},{"name":"is_pushable","value":false},{"name":"is_alertable","value":false},{"name":"is_emailable","value":true},{"name":"is_invitable","value":false},{"name":"is_invited","value":false},{"name":"is_manager","value":true},{"name":"is_non_player","value":true},{"name":"is_owner","value":true},{"name":"is_ownership_pending","value":null},{"name":"jersey_number","value":null},{"name":"last_logged_in_at","value":null,"type":"DateTime"},{"name":"last_name","value":"Commish"},{"name":"position","value":null},{"name":"team_id","value":null},{"name":"user_id","value":null},{"name":"updated_at","value":"2016-03-18T20:02:56Z","type":"DateTime"},{"name":"created_at","value":"2016-03-18T20:01:45Z","type":"DateTime"}],"links":[{"rel":"assignments","href":"http://localhost:3000/assignments/search?member_id=1"},{"rel":"availabilities","href":"http://localhost:3000/availabilities/search?member_id=1"},{"rel":"broadcast_email_attachments","href":"http://localhost:3000/broadcast_email_attachments/search?member_id=1"},{"rel":"broadcast_emails","href":"http://localhost:3000/broadcast_emails/search?member_id=1"},{"rel":"broadcast_alerts","href":"http://localhost:3000/broadcast_alerts/search?member_id=1"},{"rel":"contact_email_addresses","href":"http://localhost:3000/contact_email_addresses/search?member_id=1"},{"rel":"contact_phone_numbers","href":"http://localhost:3000/contact_phone_numbers/search?member_id=1"},{"rel":"contacts","href":"http://localhost:3000/contacts/search?member_id=1"},{"rel":"custom_data","href":"http://localhost:3000/custom_data/search?member_id=1"},{"rel":"custom_fields","href":"http://localhost:3000/custom_fields/search?"},{"rel":"league_custom_data","href":"http://localhost:3000/league_custom_data/search?member_id=1"},{"rel":"league_custom_fields","href":"http://localhost:3000/league_custom_fields/search?"},{"rel":"forum_posts","href":"http://localhost:3000/forum_posts/search?member_id=1"},{"rel":"forum_subscriptions","href":"http://localhost:3000/forum_subscriptions/search?member_id=1"},{"rel":"forum_topics","href":"http://localhost:3000/forum_topics/search?"},{"rel":"league_registrant_documents","href":"http://localhost:3000/league_registrant_documents/search?member_id=1"},{"rel":"member_balances","href":"http://localhost:3000/member_balances/search?member_id=1"},{"rel":"member_email_addresses","href":"http://localhost:3000/member_email_addresses/search?member_id=1"},{"rel":"member_files","href":"http://localhost:3000/member_files/search?member_id=1"},{"rel":"member_links","href":"http://localhost:3000/member_links/search?member_id=1"},{"rel":"member_payments","href":"http://localhost:3000/member_payments/search?member_id=1"},{"rel":"member_phone_numbers","href":"http://localhost:3000/member_phone_numbers/search?member_id=1"},{"rel":"member_preferences","href":"http://localhost:3000/members_preferences/1"},{"rel":"member_statistics","href":"http://localhost:3000/member_statistics/search?member_id=1"},{"rel":"statistic_data","href":"http://localhost:3000/statistic_data/search?member_id=1"},{"rel":"team","href":"http://localhost:3000/teams/"},{"rel":"team_media","href":"http://localhost:3000/team_media/search?member_id=1"},{"rel":"team_medium_comments","href":"http://localhost:3000/team_medium_comments/search?member_id=1"},{"rel":"tracked_item_statuses","href":"http://localhost:3000/tracked_item_statuses/search?member_id=1"}],"rel":"member-1"}]}}'
+        is deprecated and will be removed in a future version, use is_age_hidden instead."},{"name":"is_age_hidden","value":null},{"name":"invitation_code","value":null},{"name":"invitation_declined","value":null},{"name":"is_activated","value":false},{"name":"is_pushable","value":false},{"name":"is_alertable","value":false},{"name":"is_emailable","value":true},{"name":"is_invitable","value":false},{"name":"is_invited","value":false},{"name":"is_manager","value":true},{"name":"is_non_player","value":true},{"name":"is_owner","value":true},{"name":"is_ownership_pending","value":null},{"name":"jersey_number","value":null},{"name":"last_logged_in_at","value":null,"type":"DateTime"},{"name":"last_name","value":"Commish"},{"name":"position","value":null},{"name":"team_id","value":null},{"name":"user_id","value":null},{"name":"updated_at","value":"2016-03-23T23:28:41Z","type":"DateTime"},{"name":"created_at","value":"2016-03-23T23:07:48Z","type":"DateTime"}],"links":[{"rel":"assignments","href":"http://localhost:3000/assignments/search?member_id=1"},{"rel":"availabilities","href":"http://localhost:3000/availabilities/search?member_id=1"},{"rel":"broadcast_email_attachments","href":"http://localhost:3000/broadcast_email_attachments/search?member_id=1"},{"rel":"broadcast_emails","href":"http://localhost:3000/broadcast_emails/search?member_id=1"},{"rel":"broadcast_alerts","href":"http://localhost:3000/broadcast_alerts/search?member_id=1"},{"rel":"contact_email_addresses","href":"http://localhost:3000/contact_email_addresses/search?member_id=1"},{"rel":"contact_phone_numbers","href":"http://localhost:3000/contact_phone_numbers/search?member_id=1"},{"rel":"contacts","href":"http://localhost:3000/contacts/search?member_id=1"},{"rel":"custom_data","href":"http://localhost:3000/custom_data/search?member_id=1"},{"rel":"custom_fields","href":"http://localhost:3000/custom_fields/search?"},{"rel":"league_custom_data","href":"http://localhost:3000/league_custom_data/search?member_id=1"},{"rel":"league_custom_fields","href":"http://localhost:3000/league_custom_fields/search?"},{"rel":"forum_posts","href":"http://localhost:3000/forum_posts/search?member_id=1"},{"rel":"forum_subscriptions","href":"http://localhost:3000/forum_subscriptions/search?member_id=1"},{"rel":"forum_topics","href":"http://localhost:3000/forum_topics/search?"},{"rel":"league_registrant_documents","href":"http://localhost:3000/league_registrant_documents/search?member_id=1"},{"rel":"member_balances","href":"http://localhost:3000/member_balances/search?member_id=1"},{"rel":"member_email_addresses","href":"http://localhost:3000/member_email_addresses/search?member_id=1"},{"rel":"member_files","href":"http://localhost:3000/member_files/search?member_id=1"},{"rel":"member_links","href":"http://localhost:3000/member_links/search?member_id=1"},{"rel":"member_payments","href":"http://localhost:3000/member_payments/search?member_id=1"},{"rel":"member_phone_numbers","href":"http://localhost:3000/member_phone_numbers/search?member_id=1"},{"rel":"member_preferences","href":"http://localhost:3000/members_preferences/1"},{"rel":"member_statistics","href":"http://localhost:3000/member_statistics/search?member_id=1"},{"rel":"statistic_data","href":"http://localhost:3000/statistic_data/search?member_id=1"},{"rel":"team","href":"http://localhost:3000/teams/"},{"rel":"team_media","href":"http://localhost:3000/team_media/search?member_id=1"},{"rel":"team_medium_comments","href":"http://localhost:3000/team_medium_comments/search?member_id=1"},{"rel":"tracked_item_statuses","href":"http://localhost:3000/tracked_item_statuses/search?member_id=1"}],"rel":"member-1"}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/members/search?id=1&hmac_client_id=classic&hmac_nonce=7d315327-09aa-4a05-a1f8-f7d9cb4c760b&hmac_timestamp=1458331412
-  recorded_at: Fri, 18 Mar 2016 20:03:32 GMT
+      effective_url: http://localhost:3000/members/search?id=1&hmac_client_id=classic&hmac_nonce=27df7200-71c3-4c7d-9188-84d1e61e0f52&hmac_timestamp=1458775792
+  recorded_at: Wed, 23 Mar 2016 23:29:52 GMT
 - request:
     method: get
-    uri: http://localhost:3000/assignments/search?member_id=1&hmac_client_id=classic&hmac_nonce=12a151ff-8d20-4763-a012-ab14f30d0cd9&hmac_timestamp=1458331412
+    uri: http://localhost:3000/assignments/search?member_id=1&hmac_client_id=classic&hmac_nonce=58866340-4390-4e12-a12c-8e34756fd98b&hmac_timestamp=1458775792
     body:
       encoding: US-ASCII
       string: ''
@@ -69,7 +69,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.9.2
       X-Teamsnap-Hmac:
-      - e568d61f1e90b687a1be003eab0262f43e3ec3e09ebc0428c7c63d6f7ccd0bb0
+      - dd37d3acff3cfea21d675b08a854aae71a7aa890f6099bcd2e09b41b6867033c
   response:
     status:
       code: 200
@@ -86,9 +86,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 107c1207-9588-4709-b860-da4f9848f3a4
+      - f16faa57-462f-49ec-89f1-5aa393be77df
       X-Runtime:
-      - '0.047908'
+      - '0.063505'
       Connection:
       - keep-alive
       Server:
@@ -102,6 +102,6 @@ http_interactions:
         by also providing the page_size parameter."}]}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/assignments/search?member_id=1&hmac_client_id=classic&hmac_nonce=12a151ff-8d20-4763-a012-ab14f30d0cd9&hmac_timestamp=1458331412
-  recorded_at: Fri, 18 Mar 2016 20:03:32 GMT
+      effective_url: http://localhost:3000/assignments/search?member_id=1&hmac_client_id=classic&hmac_nonce=58866340-4390-4e12-a12c-8e34756fd98b&hmac_timestamp=1458775792
+  recorded_at: Wed, 23 Mar 2016 23:29:52 GMT
 recorded_with: VCR 2.9.3
