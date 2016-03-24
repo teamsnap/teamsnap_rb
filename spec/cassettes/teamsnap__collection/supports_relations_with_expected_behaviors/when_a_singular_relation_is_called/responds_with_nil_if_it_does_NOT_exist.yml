@@ -2,15 +2,15 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:3000/events/search?id=1&hmac_client_id=classic&hmac_nonce=f5229e49-06cd-4c2f-b05c-9c82918b4b58&hmac_timestamp=1457993769
+    uri: http://localhost:3000/events/search?id=1&hmac_client_id=classic&hmac_nonce=85f069e0-66aa-42e7-adc9-07c9922331db&hmac_timestamp=1458775794
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Faraday v0.9.1
+      - Faraday v0.9.2
       X-Teamsnap-Hmac:
-      - d469ce49095e7993d0b84869e82fe1bf5a4fb5276aff86df267553f4f092bdfd
+      - 661e1e1c53d8806be16aa0c706529fcc5af0d53d723270a626b559dc8cf2718d
   response:
     status:
       code: 200
@@ -23,20 +23,20 @@ http_interactions:
       X-Content-Type-Options:
       - nosniff
       ETag:
-      - '"26c350748bd245446b2a0af66423c4fb"'
+      - '"fc8dfdf58c6bfc1a57e5001982e2308e"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - c68e401c-555b-4fc7-b85a-7899684b0a99
+      - c09a63e8-b61d-49db-ab71-e8d24cf1f3ca
       X-Runtime:
-      - '0.060234'
+      - '0.067326'
       Connection:
       - keep-alive
       Server:
       - thin
     body:
       encoding: UTF-8
-      string: '{"collection":{"version":"3.206.1","href":"http://localhost:3000/events","rel":"events","template":{"data":[{"name":"type","value":"event"},{"name":"additional_location_details","value":null},{"name":"browser_time_zone","value":null},{"name":"division_location_id","value":null},{"name":"doesnt_count_towards_record","value":null},{"name":"duration_in_minutes","value":null},{"name":"game_type_code","value":null},{"name":"icon_color","value":null},{"name":"is_canceled","value":null},{"name":"is_game","value":null},{"name":"is_overtime","value":null},{"name":"is_shootout","value":null},{"name":"is_tbd","value":null},{"name":"label","value":null},{"name":"location_id","value":null},{"name":"minutes_to_arrive_early","value":null},{"name":"name","value":null},{"name":"notes","value":null},{"name":"notify_opponent","value":null},{"name":"notify_opponent_contacts_email","value":null},{"name":"notify_opponent_contacts_name","value":null},{"name":"notify_opponent_notes","value":null},{"name":"notify_team","value":null},{"name":"notify_team_as_member_id","value":null},{"name":"opponent_id","value":null},{"name":"points_for_opponent","value":null},{"name":"points_for_team","value":null},{"name":"repeating_include","value":null,"prompt":"When
+      string: '{"collection":{"version":"3.207.1","href":"http://localhost:3000/events","rel":"events","template":{"data":[{"name":"type","value":"event"},{"name":"additional_location_details","value":null},{"name":"browser_time_zone","value":null},{"name":"division_location_id","value":null},{"name":"doesnt_count_towards_record","value":null},{"name":"duration_in_minutes","value":null},{"name":"game_type_code","value":null},{"name":"icon_color","value":null},{"name":"is_canceled","value":null},{"name":"is_game","value":null},{"name":"is_overtime","value":null},{"name":"is_shootout","value":null},{"name":"is_tbd","value":null},{"name":"label","value":null},{"name":"location_id","value":null},{"name":"minutes_to_arrive_early","value":null},{"name":"name","value":null},{"name":"notes","value":null},{"name":"notify_opponent","value":null},{"name":"notify_opponent_contacts_email","value":null},{"name":"notify_opponent_contacts_name","value":null},{"name":"notify_opponent_notes","value":null},{"name":"notify_team","value":null},{"name":"notify_team_as_member_id","value":null},{"name":"opponent_id","value":null},{"name":"points_for_opponent","value":null},{"name":"points_for_team","value":null},{"name":"repeating_include","value":null,"prompt":"When
         updating a repeating event, this is a required field. Values are: \"all\"
         - updates all events in this series, \"future\" - updates this event and all
         that occur after, \"none\" - only updates a single event."},{"name":"repeating_type_code","value":null,"prompt":"A
@@ -58,22 +58,22 @@ http_interactions:
         Specified"},{"name":"game_type_code","value":null},{"name":"icon_color","value":"blue"},{"name":"is_canceled","value":false},{"name":"is_game","value":false},{"name":"is_overtime","value":false},{"name":"is_shootout","value":false},{"name":"is_tbd","value":false},{"name":"label","value":null},{"name":"location_id","value":1},{"name":"minutes_to_arrive_early","value":null},{"name":"name","value":"March
         Madness Game 1"},{"name":"notes","value":null},{"name":"opponent_id","value":1},{"name":"points_for_opponent","value":null},{"name":"points_for_team","value":null},{"name":"repeating_type","value":null},{"name":"repeating_type_code","value":null},{"name":"repeating_uuid","value":null},{"name":"results","value":null},{"name":"results_url","value":null},{"name":"shootout_points_for_opponent","value":null},{"name":"shootout_points_for_team","value":null},{"name":"start_date","value":"2015-01-01T00:00:00Z","type":"DateTime"},{"name":"team_id","value":1},{"name":"time_zone","value":"Mountain
         Time (US & Canada)"},{"name":"time_zone_description","value":"Mountain Time
-        (US & Canada)"},{"name":"time_zone_iana_name","value":"America/Denver"},{"name":"time_zone_offset","value":"-07:00"},{"name":"source_time_zone_iana_name","value":"America/Denver"},{"name":"tracks_availability","value":true},{"name":"uniform","value":null},{"name":"is_league_controlled","value":false},{"name":"created_at","value":"2016-02-08T20:04:07Z","type":"DateTime"},{"name":"updated_at","value":"2016-02-08T20:04:07Z","type":"DateTime"}],"links":[{"rel":"assignments","href":"http://localhost:3000/assignments/search?event_id=1"},{"rel":"availabilities","href":"http://localhost:3000/availabilities/search?event_id=1"},{"rel":"calendar_single_event","href":"http://86ed2e8eefaaee16c4b7-16391cffaf9272bff70e93998d553c16.r2.cf1.rackcdn.com/team_schedule/event/1.ics"},{"rel":"division_location","href":"http://localhost:3000/division_locations/"},{"rel":"event_statistics","href":"http://localhost:3000/event_statistics/search?event_id=1"},{"rel":"location","href":"http://localhost:3000/locations/1"},{"rel":"opponent","href":"http://localhost:3000/opponents/1"},{"rel":"statistic_data","href":"http://localhost:3000/statistic_data/search?event_id=1"},{"rel":"team","href":"http://localhost:3000/teams/1"}],"rel":"event-1"}]}}'
+        (US & Canada)"},{"name":"time_zone_iana_name","value":"America/Denver"},{"name":"time_zone_offset","value":"-07:00"},{"name":"source_time_zone_iana_name","value":"America/Denver"},{"name":"tracks_availability","value":true},{"name":"uniform","value":null},{"name":"is_league_controlled","value":false},{"name":"created_at","value":"2016-03-23T23:07:48Z","type":"DateTime"},{"name":"updated_at","value":"2016-03-23T23:07:50Z","type":"DateTime"}],"links":[{"rel":"assignments","href":"http://localhost:3000/assignments/search?event_id=1"},{"rel":"availabilities","href":"http://localhost:3000/availabilities/search?event_id=1"},{"rel":"calendar_single_event","href":"http://86ed2e8eefaaee16c4b7-16391cffaf9272bff70e93998d553c16.r2.cf1.rackcdn.com/team_schedule/event/1.ics"},{"rel":"division_location","href":"http://localhost:3000/division_locations/"},{"rel":"event_statistics","href":"http://localhost:3000/event_statistics/search?event_id=1"},{"rel":"location","href":"http://localhost:3000/locations/1"},{"rel":"opponent","href":"http://localhost:3000/opponents/1"},{"rel":"statistic_data","href":"http://localhost:3000/statistic_data/search?event_id=1"},{"rel":"team","href":"http://localhost:3000/teams/1"}],"rel":"event-1"}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/events/search?id=1&hmac_client_id=classic&hmac_nonce=f5229e49-06cd-4c2f-b05c-9c82918b4b58&hmac_timestamp=1457993769
-  recorded_at: Mon, 14 Mar 2016 22:16:09 GMT
+      effective_url: http://localhost:3000/events/search?id=1&hmac_client_id=classic&hmac_nonce=85f069e0-66aa-42e7-adc9-07c9922331db&hmac_timestamp=1458775794
+  recorded_at: Wed, 23 Mar 2016 23:29:54 GMT
 - request:
     method: get
-    uri: http://localhost:3000/division_locations/?hmac_client_id=classic&hmac_nonce=b4415485-9879-461c-832c-52295932ee3d&hmac_timestamp=1457993769
+    uri: http://localhost:3000/division_locations/?hmac_client_id=classic&hmac_nonce=6b695452-04be-469d-961f-e1ae553be874&hmac_timestamp=1458775794
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Faraday v0.9.1
+      - Faraday v0.9.2
       X-Teamsnap-Hmac:
-      - ecf14e5ce053faca68d19ca275232d21ee327981cb1c8acb31ea98c17426f665
+      - a1d0293fd2c7df18141b6fbaa80e41d1262db56f5af1ecf70a8964952d6688aa
   response:
     status:
       code: 200
@@ -86,26 +86,26 @@ http_interactions:
       X-Content-Type-Options:
       - nosniff
       ETag:
-      - '"93b40e52a49bb3f26bd64a3579db40fc"'
+      - '"e5bfa451623665606221d824b5c13897"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - b3ab99e8-4873-4985-baca-6f3d6187d143
+      - 01d72929-9b36-44b9-a270-743c080dbff1
       X-Runtime:
-      - '0.033522'
+      - '0.062663'
       Connection:
       - keep-alive
       Server:
       - thin
     body:
       encoding: UTF-8
-      string: '{"collection":{"version":"3.206.1","href":"http://localhost:3000/division_locations","rel":"division_locations","links":[{"rel":"events","href":"http://localhost:3000/events"},{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/division_locations"}],"queries":[{"rel":"search","href":"http://localhost:3000/division_locations/search","data":[{"name":"division_id","value":null},{"name":"team_id","value":null},{"name":"id","value":null},{"name":"page_size","value":null,"prompt":"The
+      string: '{"collection":{"version":"3.207.1","href":"http://localhost:3000/division_locations","rel":"division_locations","links":[{"rel":"events","href":"http://localhost:3000/events"},{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/division_locations"}],"queries":[{"rel":"search","href":"http://localhost:3000/division_locations/search","data":[{"name":"division_id","value":null},{"name":"team_id","value":null},{"name":"id","value":null},{"name":"page_size","value":null,"prompt":"The
         number of items to return for each page. Sending this parameter with the query
         will enable paging for the returned collection."},{"name":"page_number","value":null,"prompt":"The
         number of the page to be returned. This requires that paging be turned on
         by also providing the page_size parameter."}]}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/division_locations/?hmac_client_id=classic&hmac_nonce=b4415485-9879-461c-832c-52295932ee3d&hmac_timestamp=1457993769
-  recorded_at: Mon, 14 Mar 2016 22:16:09 GMT
+      effective_url: http://localhost:3000/division_locations/?hmac_client_id=classic&hmac_nonce=6b695452-04be-469d-961f-e1ae553be874&hmac_timestamp=1458775794
+  recorded_at: Wed, 23 Mar 2016 23:29:54 GMT
 recorded_with: VCR 2.9.3

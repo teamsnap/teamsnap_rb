@@ -232,6 +232,18 @@ RSpec.describe "teamsnap_rb", :vcr => true do
       expect {
         TeamSnap.bulk_load(TeamSnap.root_client)
       }.to raise_error(
+        ArgumentError,
+        "Invalid argument(s). Valid argument(s) are [:team_id, :scope_to, :types]"
+      )
+    end
+
+    it "can handle an error with bulk load without a team_id" do
+      expect {
+        TeamSnap.bulk_load(
+          TeamSnap.root_client,
+          :types => "team,member"
+        )
+      }.to raise_error(
         TeamSnap::Error,
         "You must include a team_id parameter"
       )

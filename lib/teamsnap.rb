@@ -12,7 +12,7 @@
 module TeamSnap
   EXCLUDED_RELS = %w(me apiv2_root root self dude sweet random xyzzy schemas
                      authorization plans_all tsl_photos)
-  DEFAULT_URL = "https://apiv3.teamsnap.com"
+  DEFAULT_URL = "https://api.teamsnap.com/v3"
   Error = Class.new(StandardError)
   NotFound = Class.new(TeamSnap::Error)
 
@@ -34,7 +34,7 @@ module TeamSnap
       self.root_client = TeamSnap::Client.new(:token => token)
 
       ##   Make the apiv3 root call. collection is parsed JSON
-      collection = TeamSnap.run(root_client, :get, "/", {})
+      collection = TeamSnap.run(root_client, :get, self.url, {})
 
       ##   Setup Dynamic Classes from the collection
       TeamSnap::Structure.init(root_client, collection)

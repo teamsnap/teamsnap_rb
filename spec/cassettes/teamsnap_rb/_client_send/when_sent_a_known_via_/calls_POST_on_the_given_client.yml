@@ -2,15 +2,15 @@
 http_interactions:
 - request:
     method: post
-    uri: http://localhost:3000/?hmac_client_id=classic&hmac_nonce=bf7de77e-43b9-4c5b-adca-adb3568c2c97&hmac_timestamp=1457993763
+    uri: http://localhost:3000/?hmac_client_id=classic&hmac_nonce=b5b56e97-94bb-46b9-ba52-488440a89240&hmac_timestamp=1458775794
     body:
       encoding: UTF-8
       string: "{}"
     headers:
       User-Agent:
-      - Faraday v0.9.1
+      - Faraday v0.9.2
       X-Teamsnap-Hmac:
-      - a7620c73d620b1c344ddc0d35216252698ac1f8947a9a648ad6efbf4c5b8c3a2
+      - 73ce36b925c113a8bf319d1e40899537ab2a58d955c5964985f3badfe1b5bf37
   response:
     status:
       code: 404
@@ -19,11 +19,11 @@ http_interactions:
       Content-Type:
       - text/html; charset=utf-8
       Content-Length:
-      - '211448'
+      - '210959'
       X-Request-Id:
-      - 0db1647c-4aa7-4c5f-9fe0-95384a5d90f5
+      - 9ee55b09-fbdd-4e4a-9538-711cf18e8bfe
       X-Runtime:
-      - '0.689838'
+      - '0.670414'
       Connection:
       - keep-alive
       Server:
@@ -72,7 +72,8 @@ http_interactions:
         \   }\n    var toggleEnvDump = function() {\n      return toggle('env_dump');\n
         \   }\n  </script>\n</head>\n<body>\n\n<header>\n  <h1>Routing Error</h1>\n</header>\n<div
         id=\"container\">\n  <h2>No route matches [POST] &quot;/&quot;</h2>\n\n  \n<p><code>Rails.root:
-        /home/jjmocko/apiv3</code></p>\n\n<div id=\"traces\">\n    <a href=\"#\" onclick=\"hide(&#39;Framework-Trace&#39;);hide(&#39;Full-Trace&#39;);show(&#39;Application-Trace&#39;);;
+        /home/dustinmccraw/apiv3</code></p>\n\n<div id=\"traces\">\n    <a href=\"#\"
+        onclick=\"hide(&#39;Framework-Trace&#39;);hide(&#39;Full-Trace&#39;);show(&#39;Application-Trace&#39;);;
         return false;\">Application Trace</a> |\n    <a href=\"#\" onclick=\"hide(&#39;Application-Trace&#39;);hide(&#39;Full-Trace&#39;);show(&#39;Framework-Trace&#39;);;
         return false;\">Framework Trace</a> |\n    <a href=\"#\" onclick=\"hide(&#39;Application-Trace&#39;);hide(&#39;Framework-Trace&#39;);show(&#39;Full-Trace&#39;);;
         return false;\">Full Trace</a> \n\n    <div id=\"Application-Trace\" style=\"display:
@@ -111,7 +112,6 @@ http_interactions:
         `call&#39;\nvendor/bundle/ruby/2.1.0/gems/railties-4.1.14.2/lib/rails/engine.rb:514:in
         `call&#39;\nvendor/bundle/ruby/2.1.0/gems/railties-4.1.14.2/lib/rails/application.rb:144:in
         `call&#39;\nvendor/bundle/ruby/2.1.0/gems/newrelic_rpm-3.14.2.312/lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in
-        `call&#39;\nvendor/bundle/ruby/2.1.0/gems/rack-1.5.5/lib/rack/content_length.rb:14:in
         `call&#39;\nvendor/bundle/ruby/2.1.0/gems/thin-1.6.3/lib/thin/connection.rb:86:in
         `block in pre_process&#39;\nvendor/bundle/ruby/2.1.0/gems/thin-1.6.3/lib/thin/connection.rb:84:in
         `catch&#39;\nvendor/bundle/ruby/2.1.0/gems/thin-1.6.3/lib/thin/connection.rb:84:in
@@ -121,15 +121,11 @@ http_interactions:
         `run_machine&#39;\nvendor/bundle/ruby/2.1.0/gems/eventmachine-1.0.7/lib/eventmachine.rb:187:in
         `run&#39;\nvendor/bundle/ruby/2.1.0/gems/thin-1.6.3/lib/thin/backends/base.rb:73:in
         `start&#39;\nvendor/bundle/ruby/2.1.0/gems/thin-1.6.3/lib/thin/server.rb:162:in
-        `start&#39;\nvendor/bundle/ruby/2.1.0/gems/rack-1.5.5/lib/rack/handler/thin.rb:16:in
-        `run&#39;\nvendor/bundle/ruby/2.1.0/gems/rack-1.5.5/lib/rack/server.rb:264:in
-        `start&#39;\nvendor/bundle/ruby/2.1.0/gems/railties-4.1.14.2/lib/rails/commands/server.rb:69:in
-        `start&#39;\nvendor/bundle/ruby/2.1.0/gems/railties-4.1.14.2/lib/rails/commands/commands_tasks.rb:81:in
-        `block in server&#39;\nvendor/bundle/ruby/2.1.0/gems/railties-4.1.14.2/lib/rails/commands/commands_tasks.rb:76:in
-        `tap&#39;\nvendor/bundle/ruby/2.1.0/gems/railties-4.1.14.2/lib/rails/commands/commands_tasks.rb:76:in
-        `server&#39;\nvendor/bundle/ruby/2.1.0/gems/railties-4.1.14.2/lib/rails/commands/commands_tasks.rb:40:in
-        `run_command!&#39;\nvendor/bundle/ruby/2.1.0/gems/railties-4.1.14.2/lib/rails/commands.rb:17:in
-        `&lt;top (required)&gt;&#39;\nbin/rails:4:in `require&#39;\nbin/rails:4:in
+        `start&#39;\nvendor/bundle/ruby/2.1.0/gems/thin-1.6.3/lib/thin/controllers/controller.rb:87:in
+        `start&#39;\nvendor/bundle/ruby/2.1.0/gems/thin-1.6.3/lib/thin/runner.rb:200:in
+        `run_command&#39;\nvendor/bundle/ruby/2.1.0/gems/thin-1.6.3/lib/thin/runner.rb:156:in
+        `run!&#39;\nvendor/bundle/ruby/2.1.0/gems/thin-1.6.3/bin/thin:6:in `&lt;top
+        (required)&gt;&#39;\nvendor/bundle/ruby/2.1.0/bin/thin:23:in `load&#39;\nvendor/bundle/ruby/2.1.0/bin/thin:23:in
         `&lt;main&gt;&#39;</code></pre>\n    </div>\n    <div id=\"Full-Trace\" style=\"display:
         none;\">\n      <pre><code>vendor/bundle/ruby/2.1.0/gems/actionpack-4.1.14.2/lib/action_dispatch/middleware/debug_exceptions.rb:21:in
         `call&#39;\nvendor/bundle/ruby/2.1.0/gems/newrelic_rpm-3.14.2.312/lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in
@@ -165,7 +161,6 @@ http_interactions:
         `call&#39;\nvendor/bundle/ruby/2.1.0/gems/railties-4.1.14.2/lib/rails/engine.rb:514:in
         `call&#39;\nvendor/bundle/ruby/2.1.0/gems/railties-4.1.14.2/lib/rails/application.rb:144:in
         `call&#39;\nvendor/bundle/ruby/2.1.0/gems/newrelic_rpm-3.14.2.312/lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in
-        `call&#39;\nvendor/bundle/ruby/2.1.0/gems/rack-1.5.5/lib/rack/content_length.rb:14:in
         `call&#39;\nvendor/bundle/ruby/2.1.0/gems/thin-1.6.3/lib/thin/connection.rb:86:in
         `block in pre_process&#39;\nvendor/bundle/ruby/2.1.0/gems/thin-1.6.3/lib/thin/connection.rb:84:in
         `catch&#39;\nvendor/bundle/ruby/2.1.0/gems/thin-1.6.3/lib/thin/connection.rb:84:in
@@ -175,15 +170,11 @@ http_interactions:
         `run_machine&#39;\nvendor/bundle/ruby/2.1.0/gems/eventmachine-1.0.7/lib/eventmachine.rb:187:in
         `run&#39;\nvendor/bundle/ruby/2.1.0/gems/thin-1.6.3/lib/thin/backends/base.rb:73:in
         `start&#39;\nvendor/bundle/ruby/2.1.0/gems/thin-1.6.3/lib/thin/server.rb:162:in
-        `start&#39;\nvendor/bundle/ruby/2.1.0/gems/rack-1.5.5/lib/rack/handler/thin.rb:16:in
-        `run&#39;\nvendor/bundle/ruby/2.1.0/gems/rack-1.5.5/lib/rack/server.rb:264:in
-        `start&#39;\nvendor/bundle/ruby/2.1.0/gems/railties-4.1.14.2/lib/rails/commands/server.rb:69:in
-        `start&#39;\nvendor/bundle/ruby/2.1.0/gems/railties-4.1.14.2/lib/rails/commands/commands_tasks.rb:81:in
-        `block in server&#39;\nvendor/bundle/ruby/2.1.0/gems/railties-4.1.14.2/lib/rails/commands/commands_tasks.rb:76:in
-        `tap&#39;\nvendor/bundle/ruby/2.1.0/gems/railties-4.1.14.2/lib/rails/commands/commands_tasks.rb:76:in
-        `server&#39;\nvendor/bundle/ruby/2.1.0/gems/railties-4.1.14.2/lib/rails/commands/commands_tasks.rb:40:in
-        `run_command!&#39;\nvendor/bundle/ruby/2.1.0/gems/railties-4.1.14.2/lib/rails/commands.rb:17:in
-        `&lt;top (required)&gt;&#39;\nbin/rails:4:in `require&#39;\nbin/rails:4:in
+        `start&#39;\nvendor/bundle/ruby/2.1.0/gems/thin-1.6.3/lib/thin/controllers/controller.rb:87:in
+        `start&#39;\nvendor/bundle/ruby/2.1.0/gems/thin-1.6.3/lib/thin/runner.rb:200:in
+        `run_command&#39;\nvendor/bundle/ruby/2.1.0/gems/thin-1.6.3/lib/thin/runner.rb:156:in
+        `run!&#39;\nvendor/bundle/ruby/2.1.0/gems/thin-1.6.3/bin/thin:6:in `&lt;top
+        (required)&gt;&#39;\nvendor/bundle/ruby/2.1.0/bin/thin:23:in `load&#39;\nvendor/bundle/ruby/2.1.0/bin/thin:23:in
         `&lt;main&gt;&#39;</code></pre>\n    </div>\n</div>\n\n\n    <h2>\n      Routes\n
         \   </h2>\n\n    <p>\n      Routes match in priority from top to bottom\n
         \   </p>\n\n    \n<table id='route_table' class='route_table'>\n  <thead>\n
@@ -2274,35 +2265,40 @@ http_interactions:
         \     search_users<span class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n
         \   GET\n  </td>\n  <td data-route-path='/users/search(.:format)' data-regexp='^\\/users\\/search(?:\\.([^\\/.?]+))?$'>\n
         \   /users/search(.:format)\n  </td>\n  <td data-route-reqs='UserApp'>\n    UserApp\n
-        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name='generate_firebase_token'>\n
-        \     generate_firebase_token<span class='helper'>_path</span>\n  </td>\n
-        \ <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/generate_firebase_token(.:format)'
-        data-regexp='^\\/generate_firebase_token(?:\\.([^\\/.?]+))?$'>\n    /generate_firebase_token(.:format)\n
-        \ </td>\n  <td data-route-reqs='GenerateFirebaseTokenApp'>\n    GenerateFirebaseTokenApp\n
-        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name='tsl_metadata'>\n
-        \     tsl_metadata<span class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n
-        \   GET\n  </td>\n  <td data-route-path='/tsl_metadata(.:format)' data-regexp='^\\/tsl_metadata(?:\\.([^\\/.?]+))?$'>\n
-        \   /tsl_metadata(.:format)\n  </td>\n  <td data-route-reqs='TslMetadatumApp'>\n
-        \   TslMetadatumApp\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
-        \ <td data-route-name='search_tsl_metadata'>\n      search_tsl_metadata<span
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name='send_trial_expiring_reminder'>\n
+        \     send_trial_expiring_reminder<span class='helper'>_path</span>\n  </td>\n
+        \ <td data-route-verb='POST'>\n    POST\n  </td>\n  <td data-route-path='/users/send_trial_expiring_reminder(.:format)'
+        data-regexp='^\\/users\\/send_trial_expiring_reminder(?:\\.([^\\/.?]+))?$'>\n
+        \   /users/send_trial_expiring_reminder(.:format)\n  </td>\n  <td data-route-reqs='UserApp'>\n
+        \   UserApp\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td
+        data-route-name='generate_firebase_token'>\n      generate_firebase_token<span
         class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n    GET\n
-        \ </td>\n  <td data-route-path='/tsl_metadata/search(.:format)' data-regexp='^\\/tsl_metadata\\/search(?:\\.([^\\/.?]+))?$'>\n
-        \   /tsl_metadata/search(.:format)\n  </td>\n  <td data-route-reqs='TslMetadatumApp'>\n
-        \   TslMetadatumApp\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
-        \ <td data-route-name='tsl_metadatum'>\n      tsl_metadatum<span class='helper'>_path</span>\n
-        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/tsl_metadata/:id(.:format)'
-        data-regexp='^\\/tsl_metadata\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n    /tsl_metadata/:id(.:format)\n
+        \ </td>\n  <td data-route-path='/generate_firebase_token(.:format)' data-regexp='^\\/generate_firebase_token(?:\\.([^\\/.?]+))?$'>\n
+        \   /generate_firebase_token(.:format)\n  </td>\n  <td data-route-reqs='GenerateFirebaseTokenApp'>\n
+        \   GenerateFirebaseTokenApp\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='tsl_metadata'>\n      tsl_metadata<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/tsl_metadata(.:format)'
+        data-regexp='^\\/tsl_metadata(?:\\.([^\\/.?]+))?$'>\n    /tsl_metadata(.:format)\n
         \ </td>\n  <td data-route-reqs='TslMetadatumApp'>\n    TslMetadatumApp\n  </td>\n</tr>\n<tr
-        class='route_row' data-helper='path'>\n  <td data-route-name='tsl_photos'>\n
-        \     tsl_photos<span class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n
-        \   GET\n  </td>\n  <td data-route-path='/tsl_photos(.:format)' data-regexp='^\\/tsl_photos(?:\\.([^\\/.?]+))?$'>\n
-        \   /tsl_photos(.:format)\n  </td>\n  <td data-route-reqs='TslPhotoApp'>\n
-        \   TslPhotoApp\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
-        \ <td data-route-name='tsl_chats'>\n      tsl_chats<span class='helper'>_path</span>\n
-        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/tsl_chats(.:format)'
-        data-regexp='^\\/tsl_chats(?:\\.([^\\/.?]+))?$'>\n    /tsl_chats(.:format)\n
-        \ </td>\n  <td data-route-reqs='TslChatApp'>\n    TslChatApp\n  </td>\n</tr>\n<tr
-        class='route_row' data-helper='path'>\n  <td data-route-name='send_tsl_chat_push'>\n
+        class='route_row' data-helper='path'>\n  <td data-route-name='search_tsl_metadata'>\n
+        \     search_tsl_metadata<span class='helper'>_path</span>\n  </td>\n  <td
+        data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/tsl_metadata/search(.:format)'
+        data-regexp='^\\/tsl_metadata\\/search(?:\\.([^\\/.?]+))?$'>\n    /tsl_metadata/search(.:format)\n
+        \ </td>\n  <td data-route-reqs='TslMetadatumApp'>\n    TslMetadatumApp\n  </td>\n</tr>\n<tr
+        class='route_row' data-helper='path'>\n  <td data-route-name='tsl_metadatum'>\n
+        \     tsl_metadatum<span class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n
+        \   GET\n  </td>\n  <td data-route-path='/tsl_metadata/:id(.:format)' data-regexp='^\\/tsl_metadata\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n
+        \   /tsl_metadata/:id(.:format)\n  </td>\n  <td data-route-reqs='TslMetadatumApp'>\n
+        \   TslMetadatumApp\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='tsl_photos'>\n      tsl_photos<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/tsl_photos(.:format)'
+        data-regexp='^\\/tsl_photos(?:\\.([^\\/.?]+))?$'>\n    /tsl_photos(.:format)\n
+        \ </td>\n  <td data-route-reqs='TslPhotoApp'>\n    TslPhotoApp\n  </td>\n</tr>\n<tr
+        class='route_row' data-helper='path'>\n  <td data-route-name='tsl_chats'>\n
+        \     tsl_chats<span class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n
+        \   GET\n  </td>\n  <td data-route-path='/tsl_chats(.:format)' data-regexp='^\\/tsl_chats(?:\\.([^\\/.?]+))?$'>\n
+        \   /tsl_chats(.:format)\n  </td>\n  <td data-route-reqs='TslChatApp'>\n    TslChatApp\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name='send_tsl_chat_push'>\n
         \     send_tsl_chat_push<span class='helper'>_path</span>\n  </td>\n  <td
         data-route-verb='POST'>\n    POST\n  </td>\n  <td data-route-path='/tsl_chats/send_push(.:format)'
         data-regexp='^\\/tsl_chats\\/send_push(?:\\.([^\\/.?]+))?$'>\n    /tsl_chats/send_push(.:format)\n
@@ -2399,6 +2395,6 @@ http_interactions:
         + noMatchText;\n      }\n    }\n  }\n\n  setupMatchPaths();\n  setupRouteToggleHelperLinks();\n</script>\n\n</div>\n\n\n</body>\n</html>\n"
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/?hmac_client_id=classic&hmac_nonce=bf7de77e-43b9-4c5b-adca-adb3568c2c97&hmac_timestamp=1457993763
-  recorded_at: Mon, 14 Mar 2016 22:16:04 GMT
+      effective_url: http://localhost:3000/?hmac_client_id=classic&hmac_nonce=b5b56e97-94bb-46b9-ba52-488440a89240&hmac_timestamp=1458775794
+  recorded_at: Wed, 23 Mar 2016 23:29:55 GMT
 recorded_with: VCR 2.9.3
