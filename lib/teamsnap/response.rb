@@ -76,7 +76,7 @@ module TeamSnap
     end
 
     def process_action
-      body = Oj.load(@resp.body)
+      body = Oj.load(@resp.body) || {}
       @collection = body.fetch(:collection) { {} }
       @message = "`#{@via}` call was successful"
       @objects = TeamSnap::Item.load_items(@client, @collection)
