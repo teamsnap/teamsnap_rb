@@ -8,9 +8,3 @@ rvm:
   - 2.1.5
   - 2.2.0
   - rbx-2
-  - ruby-head
-notifications:
-  email:
-    recipients:
-      - shane@teamsnap.com
-      - kyle.ries@teamsnap.com
