@@ -83,10 +83,17 @@ module TeamSnap
     end
 
     def process_error
-      body = Oj.load(@resp.body)
-      @collection = body.fetch(:collection) { {} }
-      @message = TeamSnap::Api.parse_error(@resp)
-      @objects = TeamSnap::Item.load_items(@client, @collection)
+      if @resp.headers["content-type"].match("json")
+        body = Oj.load(@resp.body)
+        @collection = body.fetch(:collection) { {} }
+        @message = TeamSnap::Api.parse_error(@resp)
+        @objects = TeamSnap::Item.load_items(@client, @collection)
+      else
+        raise TeamSnap::Error.new(
+          "`#{@via}` call with arguments #{@args} was unsuccessful. " +
+            "The server returned a status of #{@status}."
+        )
+      end
     end
 
     def success?
