@@ -71,7 +71,7 @@ module TeamSnap
         href = link.fetch(:href)
         is_singular = rel == Inflecto.singularize(rel)
 
-        define_singleton_method(rel+"_url") { href }
+        define_singleton_method("#{rel}_url") { href }
         define_singleton_method(rel) {
           instance_variable_get("@#{rel}") || instance_variable_set(
             "@#{rel}", -> {
