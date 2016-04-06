@@ -249,4 +249,28 @@ RSpec.describe "teamsnap_rb", :vcr => true do
       )
     end
   end
+
+  describe "_server_error" do
+    before(:all) do
+      VCR.use_cassette("apiv3-error") do
+        TeamSnap.init(
+          :url => ROOT_TEST_URL,
+          :client_id => "classic",
+          :client_secret => "dont_tell_the_cops"
+        )
+      end
+    end
+
+    it "Specifies call and endpoint that was unsuccessful" do
+      expect {
+        TeamSnap
+          .root_client
+          .api(:search, TeamSnap::DivisionLocation, {:division_id => 0})
+      }.to raise_error(
+        TeamSnap::Error,
+        "`get` call with arguments {:division_id=>0} was unsuccessful. " +
+          "The server returned a status of 500."
+      )
+    end
+  end
 end
