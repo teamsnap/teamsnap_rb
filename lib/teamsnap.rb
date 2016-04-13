@@ -15,6 +15,7 @@ module TeamSnap
   DEFAULT_URL = "https://apiv3.teamsnap.com"
   Error = Class.new(StandardError)
   NotFound = Class.new(TeamSnap::Error)
+  InitializationError = Class.new(TeamSnap::Error)
 
   class << self
     attr_accessor :client_id, :client_secret, :root_client, :token, :url
@@ -34,7 +35,10 @@ module TeamSnap
       self.root_client = TeamSnap::Client.new(:token => token)
 
       ##   Make the apiv3 root call. collection is parsed JSON
-      collection = TeamSnap.run(root_client, :get, self.url, {})
+      collection = TeamSnap.run(root_client, :get, self.url, {}) do
+        self.root_client = nil
+        raise TeamSnap::InitializationError
+      end
 
       ##   Setup Dynamic Classes from the collection
       TeamSnap::Structure.init(root_client, collection)
@@ -43,12 +47,19 @@ module TeamSnap
       TeamSnap::Collection.apply_endpoints(self, collection) && true
     end
 
-    def run(client, via, href, args = {})
+    def run(client, via, href, args = {}, &block)
+      timeout_error = block || default_timeout_error
       resp = client_send(client, via, href, args)
       return TeamSnap::Response.load_collection(resp)
     rescue Faraday::TimeoutError
-      warn("Connection to API failed with TimeoutError")
-      {:links => []}
+      timeout_error.call
+    end
+
+    def default_timeout_error
+      -> {
+        warn("Connection to API failed with TimeoutError")
+        {:links => []}
+      }
     end
 
     def client_send(client, via, href, args)
