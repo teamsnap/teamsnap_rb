@@ -84,7 +84,7 @@ module TeamSnap
 
     def process_error
       if @resp.headers["content-type"].match("json")
-        body = Oj.load(@resp.body)
+        body = Oj.load(@resp.body) || {}
         @collection = body.fetch(:collection) { {} }
         @message = TeamSnap::Api.parse_error(@resp)
         @objects = TeamSnap::Item.load_items(@client, @collection)
