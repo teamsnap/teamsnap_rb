@@ -6,7 +6,9 @@ module TeamSnap
         collection
           .fetch(:items) { [] }
           .map { |item|
-            data = parse_data(item).merge(:href => item[:href])
+            data = parse_data(item)
+              .merge(:href => item[:href])
+              .merge(url_attributes(item))
             type = type_of(item)
             cls = load_class(type, data)
 
@@ -53,12 +55,18 @@ module TeamSnap
         }
       end
 
+      def url_attributes(item)
+        links = item
+          .fetch(:links) { [] }
+          .map { |link| ["#{link.fetch(:rel)}_url", link.fetch(:href)] }
+        hashify(links)
+      end
+
       def hashify(arr)
         Hash[*arr.flatten]
       rescue NoMethodError
         arr.inject({}) { |hash, (key, value)| hash[key] = value; hash }
       end
-
     end
 
     private
@@ -71,7 +79,6 @@ module TeamSnap
         href = link.fetch(:href)
         is_singular = rel == Inflecto.singularize(rel)
 
-        define_singleton_method("#{rel}_url") { href }
         define_singleton_method(rel) {
           instance_variable_get("@#{rel}") || instance_variable_set(
             "@#{rel}", -> {
