@@ -20,3 +20,8 @@ v2.0.0.beta
 
 - Full CRUD actions available along with TeamSnap::Response option for better
   control-flow statements.
+
+v2.0.0.beta6
+------
+
+- Handle errors when response body is an empty string
