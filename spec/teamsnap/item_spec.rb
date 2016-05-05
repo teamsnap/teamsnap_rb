@@ -142,14 +142,22 @@ RSpec.describe "teamsnap__item", :vcr => true do
                 :name => "humanized_media_storage_used",
                 :value => "0 B"
               }
+            ],
+            :links => [
+              {
+                :rel => "logo",
+                :href => "http://example.com/logo.png"
+              }
             ]
           }
         ]
       }
 
-      expect(
-        TeamSnap::Item.load_items(TeamSnap.root_client, collection)[0].class
-      ).to eq(TeamSnap::Team)
+      item = TeamSnap::Item.load_items(TeamSnap.root_client, collection)[0]
+
+      expect(item.class).to eq(TeamSnap::Team)
+      expect(item.logo_url).to eq("http://example.com/logo.png")
+      expect(item.attributes[:logo_url]).to eq("http://example.com/logo.png")
     end
   end
 end
