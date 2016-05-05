@@ -73,6 +73,8 @@ module TeamSnap
 
     def self.parse_error(resp)
       return "Object Not Found (404)" if resp.status == 404
+      return "Forbidden (403)" if resp.status == 403 && resp.body == ""
+
       begin
         Oj.load(resp.body)
           .fetch(:collection)
