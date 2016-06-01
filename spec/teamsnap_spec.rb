@@ -224,7 +224,7 @@ RSpec.describe "teamsnap_rb", :vcr => true do
         TeamSnap.bulk_load
       }.to raise_error(
         ArgumentError,
-        "wrong number of arguments (given 0, expected 1+)"
+        "wrong number of arguments (0 for 1+)"
       )
     end
 
