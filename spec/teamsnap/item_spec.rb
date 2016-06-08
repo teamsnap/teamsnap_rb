@@ -159,5 +159,40 @@ RSpec.describe "teamsnap__item", :vcr => true do
       expect(item.logo_url).to eq("http://example.com/logo.png")
       expect(item.attributes[:logo_url]).to eq("http://example.com/logo.png")
     end
+
+    it "adds new attributes for items" do
+      collection = {
+        :items => [
+          {
+            :href => "http://localhost:3000/teams/10",
+            :data => [
+              {:name => "id", :value => 10},
+              {:name => "type", :value => "team"}
+            ]
+          }
+        ]
+      }
+      next_collection = {
+        :items => [
+          {
+            :href => "http://localhost:3000/teams/10",
+            :data => [
+              {:name => "id", :value => 11},
+              {:name => "type", :value => "team"},
+              {:name => "new_attr", :value => "new_value"}
+            ]
+          }
+        ]
+      }
+
+      item = TeamSnap::Item.load_items(TeamSnap.root_client, collection)[0]
+      expect(item.class).to eq(TeamSnap::Team)
+      expect(item.id).to eq(10)
+
+      item = TeamSnap::Item.load_items(TeamSnap.root_client, next_collection)[0]
+      expect(item.class).to eq(TeamSnap::Team)
+      expect(item.id).to eq(11)
+      expect(item.new_attr).to eq("new_value")
+    end
   end
 end

@@ -25,3 +25,8 @@ v2.0.0.beta6
 ------
 
 - Handle errors when response body is an empty string
+
+v2.0.0.beta7
+------
+
+- Add attibutes to an Item if it's missing them

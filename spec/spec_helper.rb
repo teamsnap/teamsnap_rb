@@ -1,5 +1,6 @@
 require "simplecov"
 require "coveralls"
+require "awesome_print"
 
 SimpleCov::Formatter::MultiFormatter[
   SimpleCov::Formatter::HTMLFormatter,
