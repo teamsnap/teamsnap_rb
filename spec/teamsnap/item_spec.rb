@@ -194,5 +194,24 @@ RSpec.describe "teamsnap__item", :vcr => true do
       expect(item.id).to eq(11)
       expect(item.new_attr).to eq("new_value")
     end
+
+    it "handles array values" do
+      collection = {
+        :items => [
+          {
+            :href => "http://localhost:3000/teams/10",
+            :data => [
+              {:name => "id", :value => 10},
+              {:name => "type", :value => "team"},
+              {:name => "array", :value => ["value", "value2"]}
+            ]
+          }
+        ]
+      }
+
+      item = TeamSnap::Item.load_items(TeamSnap.root_client, collection)[0]
+      expect(item.class).to eq(TeamSnap::Team)
+      expect(item.array).to eq(["value", "value2"])
+    end
   end
 end
