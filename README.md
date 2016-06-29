@@ -14,7 +14,7 @@ _Note: You'll need an OAuth2 Token from TeamSnap. Checkout our API docs
 
     λ gem install teamsnap_rb
     λ irb
-    TeamSnap.init(:client_id => XXXXX, :client_secret => XXXXX)
+    TeamSnap.init(:token => XXXXX)
     => true
 
     # Now you have your base connection to the API under:
