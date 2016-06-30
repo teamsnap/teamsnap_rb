@@ -7,6 +7,7 @@ module TeamSnap
           :url => url,
           :parallel_manager => Typhoeus::Hydra.new
         ) do |c|
+          c.request :multipart
           c.request :teamsnap_auth_middleware, {
             :token => token,
             :client_id => client_id,
