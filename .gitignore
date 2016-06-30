@@ -20,6 +20,7 @@ pickle-email-*.html
 config/initializers/secret_token.rb
 config/*.yml
 .ruby-version
+.ruby-gemset
 .rbenv-version
 /bin/stubs
 /bin

@@ -68,7 +68,11 @@ module TeamSnap
         client.send(via, href, args)
       when :patch, :post
         client.send(via, href) do |req|
-          req.body = Oj.dump(args)
+          if args.values.any? { |a| a.kind_of?(File) }
+            req.body = args
+          else
+            req.body = Oj.dump(args)
+          end
         end
       else
         raise TeamSnap::Error.new("Don't know how to run `#{via}`")
