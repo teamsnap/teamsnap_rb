@@ -30,3 +30,8 @@ v2.0.0.beta7
 ------
 
 - Add attibutes to an Item if it's missing them
+
+v2.0.0.beta10
+------
+
+- Allow uploading of Files or Tempfiles

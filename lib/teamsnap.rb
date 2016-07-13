@@ -68,7 +68,7 @@ module TeamSnap
         client.send(via, href, args)
       when :patch, :post
         client.send(via, href) do |req|
-          if args.values.any? { |a| a.kind_of?(File) }
+          if args.values.any? { |a| a.kind_of?(File) || a.kind_of?(Tempfile) }
             req.body = args
           else
             req.body = Oj.dump(args)
