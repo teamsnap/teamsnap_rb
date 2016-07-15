@@ -28,4 +28,14 @@ RSpec.describe "uploading files", :vcr => true do
       .upload_member_photo(client, :member_id => "6", :file => file)
     expect(response.first).to be_a(TeamSnap::Member)
   end
+
+  it "uploads a tempfile" do
+    file = File.open("support/teamsnap.png", "r")
+    tempfile = Tempfile.open(["teamsnap",".png"])
+    tempfile.write(file.read)
+
+    response = TeamSnap::Member
+      .upload_member_photo(client, :member_id => "6", :file => tempfile)
+    expect(response.first).to be_a(TeamSnap::Member)
+  end
 end
