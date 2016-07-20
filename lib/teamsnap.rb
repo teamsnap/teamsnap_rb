@@ -68,9 +68,7 @@ module TeamSnap
         client.send(via, href, args)
       when :patch, :post
         client.send(via, href) do |req|
-          if valid_file_types.any? { |type|
-            args.values.any? { |a| defined?(type) && a.kind_of?(type) }
-          }
+          if use_multipart?(args)
             req.body = args
           else
             req.body = Oj.dump(args)
@@ -82,6 +80,12 @@ module TeamSnap
     end
 
     private
+
+    def use_multipart?(args)
+      valid_file_types.any? { |type|
+        args.values.any? { |a| defined?(type) && a.kind_of?(type) }
+      }
+    end
 
     def valid_file_types
       [File, Tempfile, Rack::Test::UploadedFile]
