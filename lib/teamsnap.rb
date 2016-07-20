@@ -84,7 +84,7 @@ module TeamSnap
     private
 
     def valid_file_types
-      [File, Tempfile, Rack::Test::UploadFile]
+      [File, Tempfile, Rack::Test::UploadedFile]
     end
   end
 end
