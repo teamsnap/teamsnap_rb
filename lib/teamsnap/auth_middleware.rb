@@ -52,7 +52,7 @@ module TeamSnap
     end
 
     def message(env)
-      env.body || ""
+      env.body.to_s || ""
     end
   end
 end

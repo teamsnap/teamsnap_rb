@@ -140,6 +140,19 @@ RSpec.describe "teamsnap_rb", :vcr => true do
         expect(client).to receive(via).with(href).and_call_original
         TeamSnap.client_send(client, via, href, args)
       end
+
+      it "accepts test file arg when creating HMAC" do
+        via = :patch
+        href = "/"
+        args = {
+          :file => Rack::Test::UploadedFile.new(
+            File.expand_path(File.dirname(__FILE__)) +
+              "/spec_helper.rb", "txt/csv")
+        }
+
+        expect(client).to receive(via).with(href).and_call_original
+        TeamSnap.client_send(client, via, href, args)
+      end
     end
 
     context "when sent unknown `via`" do
@@ -224,7 +237,7 @@ RSpec.describe "teamsnap_rb", :vcr => true do
         TeamSnap.bulk_load
       }.to raise_error(
         ArgumentError,
-        "wrong number of arguments (0 for 1+)"
+        "wrong number of arguments (given 0, expected 1+)"
       )
     end
 

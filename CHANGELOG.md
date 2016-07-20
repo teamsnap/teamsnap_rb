@@ -35,3 +35,8 @@ v2.0.0.beta10
 ------
 
 - Allow uploading of Files or Tempfiles
+
+v2.0.0.beta11
+------
+
+- Allow uploading Rack::Test::UploadFile for testing purposes
