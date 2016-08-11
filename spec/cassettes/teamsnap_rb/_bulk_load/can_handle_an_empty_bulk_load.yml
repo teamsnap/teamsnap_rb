@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:3000/bulk_load?team_id=0&types=team%2Cmember&hmac_client_id=classic&hmac_nonce=2ff2e60e-aae0-4a56-a257-6f3be0999623&hmac_timestamp=1464801845
+    uri: http://localhost:3000/bulk_load?team_id=0&types=team%2Cmember&hmac_client_id=classic&hmac_nonce=77ef9372-d534-45cd-b839-af0120f87384&hmac_timestamp=1470941471
     body:
       encoding: US-ASCII
       string: ''
@@ -10,7 +10,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.9.2
       X-Teamsnap-Hmac:
-      - 4afa5846e6ab5540bf0d914befe847385931a42011aeb656b054a27f84a13840
+      - 49b1af63ee76a25fc6a3a08a6324f74b44ced82213e32fccc04d1aaa2fda38c1
   response:
     status:
       code: 200
@@ -23,20 +23,20 @@ http_interactions:
       X-Content-Type-Options:
       - nosniff
       ETag:
-      - '"818d3a8d8681b81b9e2b3cb547ee6460"'
+      - '"7cdab40d98a5fb98681df4ca537da9d0"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - aaea4e8b-e5dd-4110-9e00-534073844437
+      - 4704e3f3-9692-4071-8564-9a2f8149ff2f
       X-Runtime:
-      - '0.109536'
+      - '0.082258'
       Connection:
       - keep-alive
       Server:
       - thin
     body:
       encoding: UTF-8
-      string: '{"collection":{"version":"3.276.0","href":"http://localhost:3000/bulk_load","rel":"bulk_load","links":[{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/bulk_load?team_id=0&types=team%2Cmember"}],"queries":[{"rel":"bulk_load","href":"http://localhost:3000/bulk_load","prompt":"Returns
+      string: '{"collection":{"version":"3.306.2","href":"http://localhost:3000/bulk_load","rel":"bulk_load","links":[{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/bulk_load?team_id=0&types=team%2Cmember"}],"queries":[{"rel":"bulk_load","href":"http://localhost:3000/bulk_load","prompt":"Returns
         a heterogeneous collection of the specified types for a specified team or
         teams. Additional filters can be passed into requested types by passing them
         in the url''s querystring as type__filter=value (i.e. ?event__start_date=2015-01-01).
@@ -50,6 +50,6 @@ http_interactions:
         of singular types that you want returned."}]}],"items":[]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/bulk_load?team_id=0&types=team%2Cmember&hmac_client_id=classic&hmac_nonce=2ff2e60e-aae0-4a56-a257-6f3be0999623&hmac_timestamp=1464801845
-  recorded_at: Wed, 01 Jun 2016 17:24:05 GMT
+      effective_url: http://localhost:3000/bulk_load?team_id=0&types=team%2Cmember&hmac_client_id=classic&hmac_nonce=77ef9372-d534-45cd-b839-af0120f87384&hmac_timestamp=1470941471
+  recorded_at: Thu, 11 Aug 2016 18:51:11 GMT
 recorded_with: VCR 2.9.3
