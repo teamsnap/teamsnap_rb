@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: delete
-    uri: http://localhost:3000/?hmac_client_id=classic&hmac_nonce=4f3fd43f-1412-4f2a-9d7b-2973004324e8&hmac_timestamp=1464801844
+    uri: http://localhost:3000/?hmac_client_id=classic&hmac_nonce=ab15c4ff-67dc-4b4f-a959-1f397a0e81ba&hmac_timestamp=1470941469
     body:
       encoding: US-ASCII
       string: ''
@@ -10,7 +10,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.9.2
       X-Teamsnap-Hmac:
-      - df594fb261ed581b4601b253a3ce6a4ab7c3af9290653e256d343d123db47aac
+      - e3a91829bb2dc95e3137a6bb2554d551f2e24345f39278c0071ec1cb25cca71d
   response:
     status:
       code: 404
@@ -19,11 +19,11 @@ http_interactions:
       Content-Type:
       - text/html; charset=utf-8
       Content-Length:
-      - '224665'
+      - '233935'
       X-Request-Id:
-      - 01b7fd6a-bb22-48a3-a787-cca33dcf7144
+      - 20a461c8-5b04-4d07-9186-c3d9eacce55f
       X-Runtime:
-      - '0.707858'
+      - '0.571368'
       Connection:
       - keep-alive
       Server:
@@ -72,8 +72,8 @@ http_interactions:
         \   }\n    var toggleEnvDump = function() {\n      return toggle('env_dump');\n
         \   }\n  </script>\n</head>\n<body>\n\n<header>\n  <h1>Routing Error</h1>\n</header>\n<div
         id=\"container\">\n  <h2>No route matches [DELETE] &quot;/&quot;</h2>\n\n
-        \ \n<p><code>Rails.root: /home/dustinmccraw/apiv3</code></p>\n\n<div id=\"traces\">\n
-        \   <a href=\"#\" onclick=\"hide(&#39;Framework-Trace&#39;);hide(&#39;Full-Trace&#39;);show(&#39;Application-Trace&#39;);;
+        \ \n<p><code>Rails.root: /Users/dustinmccraw/git/apiv3</code></p>\n\n<div
+        id=\"traces\">\n    <a href=\"#\" onclick=\"hide(&#39;Framework-Trace&#39;);hide(&#39;Full-Trace&#39;);show(&#39;Application-Trace&#39;);;
         return false;\">Application Trace</a> |\n    <a href=\"#\" onclick=\"hide(&#39;Application-Trace&#39;);hide(&#39;Full-Trace&#39;);show(&#39;Framework-Trace&#39;);;
         return false;\">Framework Trace</a> |\n    <a href=\"#\" onclick=\"hide(&#39;Application-Trace&#39;);hide(&#39;Framework-Trace&#39;);show(&#39;Full-Trace&#39;);;
         return false;\">Full Trace</a> \n\n    <div id=\"Application-Trace\" style=\"display:
@@ -112,6 +112,7 @@ http_interactions:
         `call&#39;\nvendor/bundle/ruby/2.1.0/gems/railties-4.1.14.2/lib/rails/engine.rb:514:in
         `call&#39;\nvendor/bundle/ruby/2.1.0/gems/railties-4.1.14.2/lib/rails/application.rb:144:in
         `call&#39;\nvendor/bundle/ruby/2.1.0/gems/newrelic_rpm-3.14.2.312/lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in
+        `call&#39;\nvendor/bundle/ruby/2.1.0/gems/rack-1.5.5/lib/rack/content_length.rb:14:in
         `call&#39;\nvendor/bundle/ruby/2.1.0/gems/thin-1.6.3/lib/thin/connection.rb:86:in
         `block in pre_process&#39;\nvendor/bundle/ruby/2.1.0/gems/thin-1.6.3/lib/thin/connection.rb:84:in
         `catch&#39;\nvendor/bundle/ruby/2.1.0/gems/thin-1.6.3/lib/thin/connection.rb:84:in
@@ -121,11 +122,15 @@ http_interactions:
         `run_machine&#39;\nvendor/bundle/ruby/2.1.0/gems/eventmachine-1.0.7/lib/eventmachine.rb:187:in
         `run&#39;\nvendor/bundle/ruby/2.1.0/gems/thin-1.6.3/lib/thin/backends/base.rb:73:in
         `start&#39;\nvendor/bundle/ruby/2.1.0/gems/thin-1.6.3/lib/thin/server.rb:162:in
-        `start&#39;\nvendor/bundle/ruby/2.1.0/gems/thin-1.6.3/lib/thin/controllers/controller.rb:87:in
-        `start&#39;\nvendor/bundle/ruby/2.1.0/gems/thin-1.6.3/lib/thin/runner.rb:200:in
-        `run_command&#39;\nvendor/bundle/ruby/2.1.0/gems/thin-1.6.3/lib/thin/runner.rb:156:in
-        `run!&#39;\nvendor/bundle/ruby/2.1.0/gems/thin-1.6.3/bin/thin:6:in `&lt;top
-        (required)&gt;&#39;\nvendor/bundle/ruby/2.1.0/bin/thin:23:in `load&#39;\nvendor/bundle/ruby/2.1.0/bin/thin:23:in
+        `start&#39;\nvendor/bundle/ruby/2.1.0/gems/rack-1.5.5/lib/rack/handler/thin.rb:16:in
+        `run&#39;\nvendor/bundle/ruby/2.1.0/gems/rack-1.5.5/lib/rack/server.rb:264:in
+        `start&#39;\nvendor/bundle/ruby/2.1.0/gems/railties-4.1.14.2/lib/rails/commands/server.rb:69:in
+        `start&#39;\nvendor/bundle/ruby/2.1.0/gems/railties-4.1.14.2/lib/rails/commands/commands_tasks.rb:81:in
+        `block in server&#39;\nvendor/bundle/ruby/2.1.0/gems/railties-4.1.14.2/lib/rails/commands/commands_tasks.rb:76:in
+        `tap&#39;\nvendor/bundle/ruby/2.1.0/gems/railties-4.1.14.2/lib/rails/commands/commands_tasks.rb:76:in
+        `server&#39;\nvendor/bundle/ruby/2.1.0/gems/railties-4.1.14.2/lib/rails/commands/commands_tasks.rb:40:in
+        `run_command!&#39;\nvendor/bundle/ruby/2.1.0/gems/railties-4.1.14.2/lib/rails/commands.rb:17:in
+        `&lt;top (required)&gt;&#39;\nbin/rails:4:in `require&#39;\nbin/rails:4:in
         `&lt;main&gt;&#39;</code></pre>\n    </div>\n    <div id=\"Full-Trace\" style=\"display:
         none;\">\n      <pre><code>vendor/bundle/ruby/2.1.0/gems/actionpack-4.1.14.2/lib/action_dispatch/middleware/debug_exceptions.rb:21:in
         `call&#39;\nvendor/bundle/ruby/2.1.0/gems/newrelic_rpm-3.14.2.312/lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in
@@ -161,6 +166,7 @@ http_interactions:
         `call&#39;\nvendor/bundle/ruby/2.1.0/gems/railties-4.1.14.2/lib/rails/engine.rb:514:in
         `call&#39;\nvendor/bundle/ruby/2.1.0/gems/railties-4.1.14.2/lib/rails/application.rb:144:in
         `call&#39;\nvendor/bundle/ruby/2.1.0/gems/newrelic_rpm-3.14.2.312/lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in
+        `call&#39;\nvendor/bundle/ruby/2.1.0/gems/rack-1.5.5/lib/rack/content_length.rb:14:in
         `call&#39;\nvendor/bundle/ruby/2.1.0/gems/thin-1.6.3/lib/thin/connection.rb:86:in
         `block in pre_process&#39;\nvendor/bundle/ruby/2.1.0/gems/thin-1.6.3/lib/thin/connection.rb:84:in
         `catch&#39;\nvendor/bundle/ruby/2.1.0/gems/thin-1.6.3/lib/thin/connection.rb:84:in
@@ -170,11 +176,15 @@ http_interactions:
         `run_machine&#39;\nvendor/bundle/ruby/2.1.0/gems/eventmachine-1.0.7/lib/eventmachine.rb:187:in
         `run&#39;\nvendor/bundle/ruby/2.1.0/gems/thin-1.6.3/lib/thin/backends/base.rb:73:in
         `start&#39;\nvendor/bundle/ruby/2.1.0/gems/thin-1.6.3/lib/thin/server.rb:162:in
-        `start&#39;\nvendor/bundle/ruby/2.1.0/gems/thin-1.6.3/lib/thin/controllers/controller.rb:87:in
-        `start&#39;\nvendor/bundle/ruby/2.1.0/gems/thin-1.6.3/lib/thin/runner.rb:200:in
-        `run_command&#39;\nvendor/bundle/ruby/2.1.0/gems/thin-1.6.3/lib/thin/runner.rb:156:in
-        `run!&#39;\nvendor/bundle/ruby/2.1.0/gems/thin-1.6.3/bin/thin:6:in `&lt;top
-        (required)&gt;&#39;\nvendor/bundle/ruby/2.1.0/bin/thin:23:in `load&#39;\nvendor/bundle/ruby/2.1.0/bin/thin:23:in
+        `start&#39;\nvendor/bundle/ruby/2.1.0/gems/rack-1.5.5/lib/rack/handler/thin.rb:16:in
+        `run&#39;\nvendor/bundle/ruby/2.1.0/gems/rack-1.5.5/lib/rack/server.rb:264:in
+        `start&#39;\nvendor/bundle/ruby/2.1.0/gems/railties-4.1.14.2/lib/rails/commands/server.rb:69:in
+        `start&#39;\nvendor/bundle/ruby/2.1.0/gems/railties-4.1.14.2/lib/rails/commands/commands_tasks.rb:81:in
+        `block in server&#39;\nvendor/bundle/ruby/2.1.0/gems/railties-4.1.14.2/lib/rails/commands/commands_tasks.rb:76:in
+        `tap&#39;\nvendor/bundle/ruby/2.1.0/gems/railties-4.1.14.2/lib/rails/commands/commands_tasks.rb:76:in
+        `server&#39;\nvendor/bundle/ruby/2.1.0/gems/railties-4.1.14.2/lib/rails/commands/commands_tasks.rb:40:in
+        `run_command!&#39;\nvendor/bundle/ruby/2.1.0/gems/railties-4.1.14.2/lib/rails/commands.rb:17:in
+        `&lt;top (required)&gt;&#39;\nbin/rails:4:in `require&#39;\nbin/rails:4:in
         `&lt;main&gt;&#39;</code></pre>\n    </div>\n</div>\n\n\n    <h2>\n      Routes\n
         \   </h2>\n\n    <p>\n      Routes match in priority from top to bottom\n
         \   </p>\n\n    \n<table id='route_table' class='route_table'>\n  <thead>\n
@@ -268,6 +278,11 @@ http_interactions:
         data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/apn_devices/search(.:format)'
         data-regexp='^\\/apn_devices\\/search(?:\\.([^\\/.?]+))?$'>\n    /apn_devices/search(.:format)\n
         \ </td>\n  <td data-route-reqs='ApnDeviceApp'>\n    ApnDeviceApp\n  </td>\n</tr>\n<tr
+        class='route_row' data-helper='path'>\n  <td data-route-name='send_apn_devices_push'>\n
+        \     send_apn_devices_push<span class='helper'>_path</span>\n  </td>\n  <td
+        data-route-verb='POST'>\n    POST\n  </td>\n  <td data-route-path='/apn_devices/send_push(.:format)'
+        data-regexp='^\\/apn_devices\\/send_push(?:\\.([^\\/.?]+))?$'>\n    /apn_devices/send_push(.:format)\n
+        \ </td>\n  <td data-route-reqs='ApnDeviceApp'>\n    ApnDeviceApp\n  </td>\n</tr>\n<tr
         class='route_row' data-helper='path'>\n  <td data-route-name='availabilities'>\n
         \     availabilities<span class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n
         \   GET\n  </td>\n  <td data-route-path='/availabilities(.:format)' data-regexp='^\\/availabilities(?:\\.([^\\/.?]+))?$'>\n
@@ -325,6 +340,11 @@ http_interactions:
         \     search_broadcast_emails<span class='helper'>_path</span>\n  </td>\n
         \ <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/broadcast_emails/search(.:format)'
         data-regexp='^\\/broadcast_emails\\/search(?:\\.([^\\/.?]+))?$'>\n    /broadcast_emails/search(.:format)\n
+        \ </td>\n  <td data-route-reqs='BroadcastEmailApp'>\n    BroadcastEmailApp\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name='broadcast_emails_bulk_delete'>\n
+        \     broadcast_emails_bulk_delete<span class='helper'>_path</span>\n  </td>\n
+        \ <td data-route-verb='POST'>\n    POST\n  </td>\n  <td data-route-path='/broadcast_emails/bulk_delete(.:format)'
+        data-regexp='^\\/broadcast_emails\\/bulk_delete(?:\\.([^\\/.?]+))?$'>\n    /broadcast_emails/bulk_delete(.:format)\n
         \ </td>\n  <td data-route-reqs='BroadcastEmailApp'>\n    BroadcastEmailApp\n
         \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name='broadcast_email_attachments'>\n
         \     broadcast_email_attachments<span class='helper'>_path</span>\n  </td>\n
@@ -529,6 +549,10 @@ http_interactions:
         class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n    GET\n
         \ </td>\n  <td data-route-path='/league_custom_data/:id(.:format)' data-regexp='^\\/league_custom_data\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n
         \   /league_custom_data/:id(.:format)\n  </td>\n  <td data-route-reqs='LeagueCustomDatumApp'>\n
+        \   LeagueCustomDatumApp\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name=''>\n  </td>\n  <td data-route-verb='POST'>\n    POST\n
+        \ </td>\n  <td data-route-path='/league_custom_data(.:format)' data-regexp='^\\/league_custom_data(?:\\.([^\\/.?]+))?$'>\n
+        \   /league_custom_data(.:format)\n  </td>\n  <td data-route-reqs='LeagueCustomDatumApp'>\n
         \   LeagueCustomDatumApp\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
         \ <td data-route-name=''>\n  </td>\n  <td data-route-verb='PATCH'>\n    PATCH\n
         \ </td>\n  <td data-route-path='/league_custom_data/:id(.:format)' data-regexp='^\\/league_custom_data\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n
@@ -950,31 +974,54 @@ http_interactions:
         \ </td>\n  <td data-route-path='/division_events_imports/:id(.:format)' data-regexp='^\\/division_events_imports\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n
         \   /division_events_imports/:id(.:format)\n  </td>\n  <td data-route-reqs='DivisionEventsImportApp'>\n
         \   DivisionEventsImportApp\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name=''>\n  </td>\n  <td data-route-verb='DELETE'>\n    DELETE\n
+        \ </td>\n  <td data-route-path='/division_events_imports/:id(.:format)' data-regexp='^\\/division_events_imports\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n
+        \   /division_events_imports/:id(.:format)\n  </td>\n  <td data-route-reqs='DivisionEventsImportApp'>\n
+        \   DivisionEventsImportApp\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
         \ <td data-route-name='search_division_events_imports'>\n      search_division_events_imports<span
         class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n    GET\n
         \ </td>\n  <td data-route-path='/division_events_imports/search(.:format)'
         data-regexp='^\\/division_events_imports\\/search(?:\\.([^\\/.?]+))?$'>\n
         \   /division_events_imports/search(.:format)\n  </td>\n  <td data-route-reqs='DivisionEventsImportApp'>\n
         \   DivisionEventsImportApp\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
-        \ <td data-route-name='event_statistics'>\n      event_statistics<span class='helper'>_path</span>\n
-        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/event_statistics(.:format)'
-        data-regexp='^\\/event_statistics(?:\\.([^\\/.?]+))?$'>\n    /event_statistics(.:format)\n
-        \ </td>\n  <td data-route-reqs='EventStatisticApp'>\n    EventStatisticApp\n
-        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name='search_event_statistics'>\n
-        \     search_event_statistics<span class='helper'>_path</span>\n  </td>\n
-        \ <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/event_statistics/search(.:format)'
-        data-regexp='^\\/event_statistics\\/search(?:\\.([^\\/.?]+))?$'>\n    /event_statistics/search(.:format)\n
-        \ </td>\n  <td data-route-reqs='EventStatisticApp'>\n    EventStatisticApp\n
-        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name='events'>\n
-        \     events<span class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n
-        \   GET\n  </td>\n  <td data-route-path='/events(.:format)' data-regexp='^\\/events(?:\\.([^\\/.?]+))?$'>\n
-        \   /events(.:format)\n  </td>\n  <td data-route-reqs='EventApp'>\n    EventApp\n
-        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name='event'>\n
-        \     event<span class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n
-        \   GET\n  </td>\n  <td data-route-path='/events/:id(.:format)' data-regexp='^\\/events\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n
-        \   /events/:id(.:format)\n  </td>\n  <td data-route-reqs='EventApp'>\n    EventApp\n
-        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name=''>\n
-        \ </td>\n  <td data-route-verb='POST'>\n    POST\n  </td>\n  <td data-route-path='/events(.:format)'
+        \ <td data-route-name='create_events_import'>\n      create_events_import<span
+        class='helper'>_path</span>\n  </td>\n  <td data-route-verb='POST'>\n    POST\n
+        \ </td>\n  <td data-route-path='/division_events_imports/create_events_import(.:format)'
+        data-regexp='^\\/division_events_imports\\/create_events_import(?:\\.([^\\/.?]+))?$'>\n
+        \   /division_events_imports/create_events_import(.:format)\n  </td>\n  <td
+        data-route-reqs='DivisionEventsImportApp'>\n    DivisionEventsImportApp\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name='process_import'>\n
+        \     process_import<span class='helper'>_path</span>\n  </td>\n  <td data-route-verb='POST'>\n
+        \   POST\n  </td>\n  <td data-route-path='/division_events_imports/process_import/:id(.:format)'
+        data-regexp='^\\/division_events_imports\\/process_import\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n
+        \   /division_events_imports/process_import/:id(.:format)\n  </td>\n  <td
+        data-route-reqs='DivisionEventsImportApp'>\n    DivisionEventsImportApp\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name='undo_imported_events'>\n
+        \     undo_imported_events<span class='helper'>_path</span>\n  </td>\n  <td
+        data-route-verb='POST'>\n    POST\n  </td>\n  <td data-route-path='/division_events_imports/delete_imported_events(.:format)'
+        data-regexp='^\\/division_events_imports\\/delete_imported_events(?:\\.([^\\/.?]+))?$'>\n
+        \   /division_events_imports/delete_imported_events(.:format)\n  </td>\n  <td
+        data-route-reqs='DivisionEventsImportApp'>\n    DivisionEventsImportApp\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name='event_statistics'>\n
+        \     event_statistics<span class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n
+        \   GET\n  </td>\n  <td data-route-path='/event_statistics(.:format)' data-regexp='^\\/event_statistics(?:\\.([^\\/.?]+))?$'>\n
+        \   /event_statistics(.:format)\n  </td>\n  <td data-route-reqs='EventStatisticApp'>\n
+        \   EventStatisticApp\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='search_event_statistics'>\n      search_event_statistics<span
+        class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n    GET\n
+        \ </td>\n  <td data-route-path='/event_statistics/search(.:format)' data-regexp='^\\/event_statistics\\/search(?:\\.([^\\/.?]+))?$'>\n
+        \   /event_statistics/search(.:format)\n  </td>\n  <td data-route-reqs='EventStatisticApp'>\n
+        \   EventStatisticApp\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='events'>\n      events<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/events(.:format)'
+        data-regexp='^\\/events(?:\\.([^\\/.?]+))?$'>\n    /events(.:format)\n  </td>\n
+        \ <td data-route-reqs='EventApp'>\n    EventApp\n  </td>\n</tr>\n<tr class='route_row'
+        data-helper='path'>\n  <td data-route-name='event'>\n      event<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/events/:id(.:format)'
+        data-regexp='^\\/events\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n    /events/:id(.:format)\n
+        \ </td>\n  <td data-route-reqs='EventApp'>\n    EventApp\n  </td>\n</tr>\n<tr
+        class='route_row' data-helper='path'>\n  <td data-route-name=''>\n  </td>\n
+        \ <td data-route-verb='POST'>\n    POST\n  </td>\n  <td data-route-path='/events(.:format)'
         data-regexp='^\\/events(?:\\.([^\\/.?]+))?$'>\n    /events(.:format)\n  </td>\n
         \ <td data-route-reqs='EventApp'>\n    EventApp\n  </td>\n</tr>\n<tr class='route_row'
         data-helper='path'>\n  <td data-route-name=''>\n  </td>\n  <td data-route-verb='PATCH'>\n
@@ -1163,6 +1210,11 @@ http_interactions:
         \ </td>\n  <td data-route-path='/gcm_devices/search(.:format)' data-regexp='^\\/gcm_devices\\/search(?:\\.([^\\/.?]+))?$'>\n
         \   /gcm_devices/search(.:format)\n  </td>\n  <td data-route-reqs='GcmDeviceApp'>\n
         \   GcmDeviceApp\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='send_gcm_devices_push'>\n      send_gcm_devices_push<span
+        class='helper'>_path</span>\n  </td>\n  <td data-route-verb='POST'>\n    POST\n
+        \ </td>\n  <td data-route-path='/gcm_devices/send_push(.:format)' data-regexp='^\\/gcm_devices\\/send_push(?:\\.([^\\/.?]+))?$'>\n
+        \   /gcm_devices/send_push(.:format)\n  </td>\n  <td data-route-reqs='GcmDeviceApp'>\n
+        \   GcmDeviceApp\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
         \ <td data-route-name='geocoded_locations'>\n      geocoded_locations<span
         class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n    GET\n
         \ </td>\n  <td data-route-path='/geocoded_locations(.:format)' data-regexp='^\\/geocoded_locations(?:\\.([^\\/.?]+))?$'>\n
@@ -1321,6 +1373,42 @@ http_interactions:
         \ </td>\n  <td data-route-path='/members/import_from_team(.:format)' data-regexp='^\\/members\\/import_from_team(?:\\.([^\\/.?]+))?$'>\n
         \   /members/import_from_team(.:format)\n  </td>\n  <td data-route-reqs='MemberApp'>\n
         \   MemberApp\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='division_search'>\n      division_search<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='POST'>\n    POST\n  </td>\n  <td data-route-path='/members/division_search(.:format)'
+        data-regexp='^\\/members\\/division_search(?:\\.([^\\/.?]+))?$'>\n    /members/division_search(.:format)\n
+        \ </td>\n  <td data-route-reqs='MemberApp'>\n    MemberApp\n  </td>\n</tr>\n<tr
+        class='route_row' data-helper='path'>\n  <td data-route-name='member_assignments'>\n
+        \     member_assignments<span class='helper'>_path</span>\n  </td>\n  <td
+        data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/member_assignments(.:format)'
+        data-regexp='^\\/member_assignments(?:\\.([^\\/.?]+))?$'>\n    /member_assignments(.:format)\n
+        \ </td>\n  <td data-route-reqs='MemberAssignmentApp'>\n    MemberAssignmentApp\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name='member_assignment'>\n
+        \     member_assignment<span class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n
+        \   GET\n  </td>\n  <td data-route-path='/member_assignments/:id(.:format)'
+        data-regexp='^\\/member_assignments\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n
+        \   /member_assignments/:id(.:format)\n  </td>\n  <td data-route-reqs='MemberAssignmentApp'>\n
+        \   MemberAssignmentApp\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name=''>\n  </td>\n  <td data-route-verb='POST'>\n    POST\n
+        \ </td>\n  <td data-route-path='/member_assignments(.:format)' data-regexp='^\\/member_assignments(?:\\.([^\\/.?]+))?$'>\n
+        \   /member_assignments(.:format)\n  </td>\n  <td data-route-reqs='MemberAssignmentApp'>\n
+        \   MemberAssignmentApp\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name=''>\n  </td>\n  <td data-route-verb='PATCH'>\n    PATCH\n
+        \ </td>\n  <td data-route-path='/member_assignments/:id(.:format)' data-regexp='^\\/member_assignments\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n
+        \   /member_assignments/:id(.:format)\n  </td>\n  <td data-route-reqs='MemberAssignmentApp'>\n
+        \   MemberAssignmentApp\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name=''>\n  </td>\n  <td data-route-verb='PUT'>\n    PUT\n
+        \ </td>\n  <td data-route-path='/member_assignments/:id(.:format)' data-regexp='^\\/member_assignments\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n
+        \   /member_assignments/:id(.:format)\n  </td>\n  <td data-route-reqs='MemberAssignmentApp'>\n
+        \   MemberAssignmentApp\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name=''>\n  </td>\n  <td data-route-verb='DELETE'>\n    DELETE\n
+        \ </td>\n  <td data-route-path='/member_assignments/:id(.:format)' data-regexp='^\\/member_assignments\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n
+        \   /member_assignments/:id(.:format)\n  </td>\n  <td data-route-reqs='MemberAssignmentApp'>\n
+        \   MemberAssignmentApp\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='search_member_assignments'>\n      search_member_assignments<span
+        class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n    GET\n
+        \ </td>\n  <td data-route-path='/member_assignments/search(.:format)' data-regexp='^\\/member_assignments\\/search(?:\\.([^\\/.?]+))?$'>\n
+        \   /member_assignments/search(.:format)\n  </td>\n  <td data-route-reqs='MemberAssignmentApp'>\n
+        \   MemberAssignmentApp\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
         \ <td data-route-name='member_balances'>\n      member_balances<span class='helper'>_path</span>\n
         \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/member_balances(.:format)'
         data-regexp='^\\/member_balances(?:\\.([^\\/.?]+))?$'>\n    /member_balances(.:format)\n
@@ -1463,6 +1551,11 @@ http_interactions:
         \ </td>\n  <td data-route-path='/member_photos/search(.:format)' data-regexp='^\\/member_photos\\/search(?:\\.([^\\/.?]+))?$'>\n
         \   /member_photos/search(.:format)\n  </td>\n  <td data-route-reqs='MemberPhotoApp'>\n
         \   MemberPhotoApp\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='member_photo_file'>\n      member_photo_file<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/member_photo_files/:id(.:format)'
+        data-regexp='^\\/member_photo_files\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n
+        \   /member_photo_files/:id(.:format)\n  </td>\n  <td data-route-reqs='MemberPhotoFileApp'>\n
+        \   MemberPhotoFileApp\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
         \ <td data-route-name='message_data'>\n      message_data<span class='helper'>_path</span>\n
         \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/message_data(.:format)'
         data-regexp='^\\/message_data(?:\\.([^\\/.?]+))?$'>\n    /message_data(.:format)\n
@@ -1734,25 +1827,31 @@ http_interactions:
         data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/assignments/search(.:format)'
         data-regexp='^\\/assignments\\/search(?:\\.([^\\/.?]+))?$'>\n    /assignments/search(.:format)\n
         \ </td>\n  <td data-route-reqs='AssignmentApp'>\n    AssignmentApp\n  </td>\n</tr>\n<tr
-        class='route_row' data-helper='path'>\n  <td data-route-name='sms_gateways'>\n
-        \     sms_gateways<span class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n
-        \   GET\n  </td>\n  <td data-route-path='/sms_gateways(.:format)' data-regexp='^\\/sms_gateways(?:\\.([^\\/.?]+))?$'>\n
-        \   /sms_gateways(.:format)\n  </td>\n  <td data-route-reqs='SmsGatewayApp'>\n
-        \   SmsGatewayApp\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
-        \ <td data-route-name='search_sms_gateways'>\n      search_sms_gateways<span
-        class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n    GET\n
-        \ </td>\n  <td data-route-path='/sms_gateways/search(.:format)' data-regexp='^\\/sms_gateways\\/search(?:\\.([^\\/.?]+))?$'>\n
-        \   /sms_gateways/search(.:format)\n  </td>\n  <td data-route-reqs='SmsGatewayApp'>\n
-        \   SmsGatewayApp\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
-        \ <td data-route-name='sms_gateway'>\n      sms_gateway<span class='helper'>_path</span>\n
-        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/sms_gateways/:id(.:format)'
-        data-regexp='^\\/sms_gateways\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n    /sms_gateways/:id(.:format)\n
+        class='route_row' data-helper='path'>\n  <td data-route-name='send_assignment_emails'>\n
+        \     send_assignment_emails<span class='helper'>_path</span>\n  </td>\n  <td
+        data-route-verb='POST'>\n    POST\n  </td>\n  <td data-route-path='/assignments/send_assignment_emails(.:format)'
+        data-regexp='^\\/assignments\\/send_assignment_emails(?:\\.([^\\/.?]+))?$'>\n
+        \   /assignments/send_assignment_emails(.:format)\n  </td>\n  <td data-route-reqs='AssignmentApp'>\n
+        \   AssignmentApp\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='sms_gateways'>\n      sms_gateways<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/sms_gateways(.:format)'
+        data-regexp='^\\/sms_gateways(?:\\.([^\\/.?]+))?$'>\n    /sms_gateways(.:format)\n
         \ </td>\n  <td data-route-reqs='SmsGatewayApp'>\n    SmsGatewayApp\n  </td>\n</tr>\n<tr
-        class='route_row' data-helper='path'>\n  <td data-route-name='sponsors'>\n
-        \     sponsors<span class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n
-        \   GET\n  </td>\n  <td data-route-path='/sponsors(.:format)' data-regexp='^\\/sponsors(?:\\.([^\\/.?]+))?$'>\n
-        \   /sponsors(.:format)\n  </td>\n  <td data-route-reqs='SponsorApp'>\n    SponsorApp\n
-        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name='sponsor'>\n
+        class='route_row' data-helper='path'>\n  <td data-route-name='search_sms_gateways'>\n
+        \     search_sms_gateways<span class='helper'>_path</span>\n  </td>\n  <td
+        data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/sms_gateways/search(.:format)'
+        data-regexp='^\\/sms_gateways\\/search(?:\\.([^\\/.?]+))?$'>\n    /sms_gateways/search(.:format)\n
+        \ </td>\n  <td data-route-reqs='SmsGatewayApp'>\n    SmsGatewayApp\n  </td>\n</tr>\n<tr
+        class='route_row' data-helper='path'>\n  <td data-route-name='sms_gateway'>\n
+        \     sms_gateway<span class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n
+        \   GET\n  </td>\n  <td data-route-path='/sms_gateways/:id(.:format)' data-regexp='^\\/sms_gateways\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n
+        \   /sms_gateways/:id(.:format)\n  </td>\n  <td data-route-reqs='SmsGatewayApp'>\n
+        \   SmsGatewayApp\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='sponsors'>\n      sponsors<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/sponsors(.:format)'
+        data-regexp='^\\/sponsors(?:\\.([^\\/.?]+))?$'>\n    /sponsors(.:format)\n
+        \ </td>\n  <td data-route-reqs='SponsorApp'>\n    SponsorApp\n  </td>\n</tr>\n<tr
+        class='route_row' data-helper='path'>\n  <td data-route-name='sponsor'>\n
         \     sponsor<span class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n
         \   GET\n  </td>\n  <td data-route-path='/sponsors/:id(.:format)' data-regexp='^\\/sponsors\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n
         \   /sponsors/:id(.:format)\n  </td>\n  <td data-route-reqs='SponsorApp'>\n
@@ -1997,6 +2096,11 @@ http_interactions:
         \     change_owner<span class='helper'>_path</span>\n  </td>\n  <td data-route-verb='POST'>\n
         \   POST\n  </td>\n  <td data-route-path='/teams/change_owner(.:format)' data-regexp='^\\/teams\\/change_owner(?:\\.([^\\/.?]+))?$'>\n
         \   /teams/change_owner(.:format)\n  </td>\n  <td data-route-reqs='TeamApp'>\n
+        \   TeamApp\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td
+        data-route-name='division_search_teams'>\n      division_search_teams<span
+        class='helper'>_path</span>\n  </td>\n  <td data-route-verb='POST'>\n    POST\n
+        \ </td>\n  <td data-route-path='/teams/division_search(.:format)' data-regexp='^\\/teams\\/division_search(?:\\.([^\\/.?]+))?$'>\n
+        \   /teams/division_search(.:format)\n  </td>\n  <td data-route-reqs='TeamApp'>\n
         \   TeamApp\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td
         data-route-name='exports_members_csv'>\n      exports_members_csv<span class='helper'>_path</span>\n
         \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/exports/members_csv(.:format)'
@@ -2552,6 +2656,6 @@ http_interactions:
         + noMatchText;\n      }\n    }\n  }\n\n  setupMatchPaths();\n  setupRouteToggleHelperLinks();\n</script>\n\n</div>\n\n\n</body>\n</html>\n"
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/?hmac_client_id=classic&hmac_nonce=4f3fd43f-1412-4f2a-9d7b-2973004324e8&hmac_timestamp=1464801844
-  recorded_at: Wed, 01 Jun 2016 17:24:05 GMT
+      effective_url: http://localhost:3000/?hmac_client_id=classic&hmac_nonce=ab15c4ff-67dc-4b4f-a959-1f397a0e81ba&hmac_timestamp=1470941469
+  recorded_at: Thu, 11 Aug 2016 18:51:09 GMT
 recorded_with: VCR 2.9.3

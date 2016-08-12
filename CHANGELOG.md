@@ -40,3 +40,8 @@ v2.0.0.beta11
 ------
 
 - Allow uploading Rack::Test::UploadFile for testing purposes
+
+v2.0.0.beta12
+------
+
+- Use different criteria to determine if a :put, :patch is a multipart upload.

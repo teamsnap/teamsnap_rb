@@ -82,13 +82,11 @@ module TeamSnap
     private
 
     def use_multipart?(args)
-      valid_file_types.any? { |type|
-        args.values.any? { |a| defined?(type) && a.kind_of?(type) }
-      }
+      args.values.any? { |a| is_file?(a) }
     end
 
-    def valid_file_types
-      [File, Tempfile, Rack::Test::UploadedFile]
+    def is_file?(arg)
+      arg.respond_to?(:path) && File.file?(arg)
     end
   end
 end
