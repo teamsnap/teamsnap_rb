@@ -198,13 +198,14 @@ module TeamSnap
       if resp.success?
         Oj.load(resp.body).fetch(:collection)
       else
-        if resp.headers["content-type"].match("json")
+        if resp.headers.fetch("content-type") { "" }.match("json")
           error_message = parse_error(resp)
           raise TeamSnap::Error.new(error_message)
         else
           raise TeamSnap::Error.new("`#{via}` call was unsuccessful. " +
             "Unexpected response content-type. " +
-            "Check TeamSnap APIv3 connection")
+            "Check TeamSnap API connection\n status code: " + resp.status +
+            "returned body:\n" + resp.body)
         end
       end
     end
