@@ -28,7 +28,7 @@ _Note: You'll need an OAuth2 Token from TeamSnap. Checkout our API docs
     => #<TeamSnap::Team::...>
     t.name
     => "TeamSnap"
-    rs = client.bulk_load(client, {:team_id => 1, :types => "team,member"})
+    rs = TeamSnap.bulk_load(client, {:team_id => 1, :types => "team,member"})
     => [
     =>   #<TeamSnap::Team:...>,
     =>   #<TeamSnap::Member:...>,
