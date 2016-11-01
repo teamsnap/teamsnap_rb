@@ -55,9 +55,10 @@ RSpec.describe "teamsnap__structure", :vcr => true do
 
       links.each do |obj|
         expect {
-          Object.const_get("TeamSnap::" + Inflecto.classify(obj[:rel]))
+          ["TeamSnap", Inflecto.classify(obj[:rel])]
+            .inject(Object) { |base, klass| base.const_get(klass) }
         }.to_not raise_error
       end
     end
-  end  
+  end
 end
