@@ -152,4 +152,11 @@ RSpec.describe "teamsnap__collection", :vcr => true do
       end
     end
   end
+
+  describe ".items" do
+    it "returns all items for a base collection" do
+      sports = TeamSnap::Sport.items(TeamSnap.root_client).map(&:name)
+      expect(sports).to include("Basketball")
+    end
+  end
 end

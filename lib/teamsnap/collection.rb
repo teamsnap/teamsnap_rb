@@ -86,8 +86,9 @@ module TeamSnap
         .map{ |col| col.fetch(:name) }
     end
 
-    def items
-      @items ||= TeamSnap::Item.load_items(TeamSnap.root_client, parsed_collection)
+    def items(client = TeamSnap.root_client)
+      resp = TeamSnap.run(client, :get, href, {})
+      TeamSnap::Item.load_items(client, resp)
     end
 
     def href

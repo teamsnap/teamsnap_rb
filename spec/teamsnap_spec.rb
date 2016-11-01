@@ -235,10 +235,7 @@ RSpec.describe "teamsnap_rb", :vcr => true do
     it "expects a client as the first parameter" do
       expect {
         TeamSnap.bulk_load
-      }.to raise_error(
-        ArgumentError,
-        "wrong number of arguments (0 for 1+)"
-      )
+      }.to raise_error(ArgumentError)
     end
 
     it "can handle an error with bulk load" do
