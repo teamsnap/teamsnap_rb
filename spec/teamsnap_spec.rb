@@ -175,6 +175,17 @@ RSpec.describe "teamsnap_rb", :vcr => true do
     end
   end
 
+  it "can send arbitrary parameters to bulk load" do
+    cs = TeamSnap.bulk_load(
+      :team_id => 1, :types => "member", :member__id => 67,
+      :skip_parameter_validation => true
+    )
+
+    expect(cs).to_not be_empty
+    expect(cs[0]).to be_a(TeamSnap::Member)
+    expect(cs[0].id).to eq(67)
+  end
+
   it "can handle an empty bulk load" do
     cs = TeamSnap.bulk_load(:team_id => 0, :types => "team,member")
 

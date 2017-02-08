@@ -289,8 +289,9 @@ module TeamSnap
 
       obj.define_singleton_method(rel) do |*args|
         args = Hash[*args]
+        skip_parameter_validation = args.delete(:skip_parameter_validation) { false }
 
-        unless args.all? { |arg, _| valid_args.include?(arg) }
+        unless args.all? { |arg, _| valid_args.include?(arg) } || skip_parameter_validation
           raise ArgumentError.new(
             "Invalid argument(s). Valid argument(s) are #{valid_args.inspect}"
           )
