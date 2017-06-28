@@ -1,10 +1,9 @@
 language: ruby
 before_install:
   - rvm @global do gem uninstall bundler -ax
-  - gem install bundler -v 1.10.2
+  - gem install bundler -v 1.15.1
 rvm:
-  - 1.9.3
   - 2.0.0
   - 2.1.5
   - 2.2.0
-  - rbx-2
+  - 2.3.3

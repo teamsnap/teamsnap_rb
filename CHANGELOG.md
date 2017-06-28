@@ -45,3 +45,8 @@ v2.0.0.beta12
 ------
 
 - Use different criteria to determine if a :put, :patch is a multipart upload.
+
+v2.0.0.beta15
+------
+
+- Drop support for Ruby < 2. Updates rspec gem.
