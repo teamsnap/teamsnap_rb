@@ -45,3 +45,18 @@ v2.0.0.beta12
 ------
 
 - Use different criteria to determine if a :put, :patch is a multipart upload.
+
+v2.0.0.beta13
+------
+
+- Allow loading of root items with a client.
+
+v2.0.0.beta14
+------
+
+- Fix so that OJ can properly parse ActiveSupport::TimeWithZone.
+
+v2.0.0
+------
+
+- Drop support for Ruby < 2. Updates rspec gem. Drops beta tag.
