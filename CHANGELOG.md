@@ -60,3 +60,8 @@ v2.0.0
 ------
 
 - Drop support for Ruby < 2. Updates rspec gem. Drops beta tag.
+
+[v2.0.1](https://github.com/teamsnap/teamsnap_rb/pull/97)
+
+- Add in the ability to specify a feature flag via the header option when creating a new client.
+- Add in support for the `ghost_contact` feature via the header option.
