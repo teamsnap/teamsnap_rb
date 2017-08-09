@@ -18,7 +18,8 @@ module TeamSnap
   InitializationError = Class.new(TeamSnap::Error)
 
   class << self
-    attr_accessor :client_id, :client_secret, :root_client, :token, :url
+    attr_accessor :client_id, :client_secret, :root_client, :token, :url,
+      :header
 
     def init(opts = {})
       unless opts[:token] || (opts[:client_id] && opts[:client_secret])
@@ -33,6 +34,15 @@ module TeamSnap
 
       ##   create universally accessible TeamSnap.root_client
       self.root_client = TeamSnap::Client.new(:token => token)
+
+      ##   include any feature headers
+      if opts[:header]
+        if opts.fetch(:header) == "ghost_contact"
+          self.root_client.headers = self.root_client.headers.merge(
+          {"X-Teamsnap-Api-Features" => "ghost_contact"}
+        )
+        end
+      end
 
       ##   Make the apiv3 root call. collection is parsed JSON
       collection = TeamSnap.run(root_client, :get, self.url, {}) do
