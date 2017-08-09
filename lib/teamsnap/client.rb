@@ -1,19 +1,18 @@
 module TeamSnap
   class Client
-
     class << self
       def set_faraday_client(url, token, client_id, client_secret)
         Faraday.new(
           :url => url,
           :parallel_manager => Typhoeus::Hydra.new
-        ) do |c|
-          c.request :multipart
-          c.request :teamsnap_auth_middleware, {
+        ) do |con|
+          con.request :multipart
+          con.request :teamsnap_auth_middleware, {
             :token => token,
             :client_id => client_id,
             :client_secret => client_secret
           }
-          c.adapter :typhoeus
+          con.adapter :typhoeus
         end
       end
     end
@@ -21,16 +20,16 @@ module TeamSnap
     attr_accessor :faraday_client
 
     def initialize(opts = {})
-      c_url = opts.fetch(:url) {}
-      c_token = opts.fetch(:token) {}
-      c_id = opts.fetch(:client_id) {}
-      c_secret = opts.fetch(:client_secret) {}
+      con_url = opts.fetch(:url) {}
+      con_token = opts.fetch(:token) {}
+      con_id = opts.fetch(:client_id) {}
+      con_secret = opts.fetch(:client_secret) {}
 
       self.faraday_client = TeamSnap::Client.set_faraday_client(
-        c_url || TeamSnap.url,
-        c_token,
-        c_id || TeamSnap.client_id,
-        c_secret || TeamSnap.client_secret
+        con_url || TeamSnap.url,
+        con_token,
+        con_id || TeamSnap.client_id,
+        con_secret || TeamSnap.client_secret,
       )
     end
 
@@ -47,6 +46,5 @@ module TeamSnap
         TeamSnap::Api.template_args?(method)
       )
     end
-
   end
 end
