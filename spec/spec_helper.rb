@@ -3,6 +3,8 @@ require "coveralls"
 require "awesome_print"
 require "rack/test"
 
+Coveralls.wear!
+
 SimpleCov::Formatter::MultiFormatter[
   SimpleCov::Formatter::HTMLFormatter,
   Coveralls::SimpleCov::Formatter
