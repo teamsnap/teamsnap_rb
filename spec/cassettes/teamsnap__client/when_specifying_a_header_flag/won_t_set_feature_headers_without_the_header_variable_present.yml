@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:3000?hmac_client_id=classic&hmac_nonce=ad0364df-8a32-49b9-a9a2-ceb1c007f84f&hmac_timestamp=1502320139
+    uri: http://localhost:3000?hmac_client_id=classic&hmac_nonce=8127d2af-df81-47b6-819c-033f8c459b6d&hmac_timestamp=1502378716
     body:
       encoding: US-ASCII
       string: ''
@@ -10,7 +10,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.11.0
       X-Teamsnap-Hmac:
-      - 280ae222646391eb26f41d14512c1c5179a296464c48af5b0cab2d93fde6951d
+      - 84ada8b730500fc0d433a7ca5e17fcc12c8564f99db563b7233ea565b5bc9dd2
       Expect:
       - ''
   response:
@@ -25,13 +25,13 @@ http_interactions:
       X-Content-Type-Options:
       - nosniff
       ETag:
-      - W/"482be5ce18545ae3142076a2981e3d7c"
+      - W/"f7156f741f0b27433a239ec016298bed"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 02cf6099-f22e-4adb-855e-8afa8bc9dfda
+      - d482f27e-daa1-4f72-881e-18a5e68f4080
       X-Runtime:
-      - '0.051692'
+      - '0.055598'
       Connection:
       - keep-alive
       Server:
@@ -45,7 +45,7 @@ http_interactions:
         is deprecated and will be removed in a future version, use contact_email_addresses
         instead."},{"rel":"member_balances","href":"http://localhost:3000/member_balances"},{"rel":"member_files","href":"http://localhost:3000/member_files"},{"rel":"member_links","href":"http://localhost:3000/member_links"},{"rel":"member_payments","href":"http://localhost:3000/member_payments"},{"rel":"member_phone_numbers","href":"http://localhost:3000/member_phone_numbers","prompt":"member_phone_numbers
         is deprecated and will be removed in a future version, use contact_phone_numbers
-        instead."},{"rel":"member_photos","href":"http://localhost:3000/member_photos"},{"rel":"member_registration_signups","href":"http://localhost:3000/member_registration_signups"},{"rel":"member_statistics","href":"http://localhost:3000/member_statistics"},{"rel":"members","href":"http://localhost:3000/members"},{"rel":"members_preferences","href":"http://localhost:3000/members_preferences"},{"rel":"message_data","href":"http://localhost:3000/message_data"},{"rel":"messages","href":"http://localhost:3000/messages"},{"rel":"opponents","href":"http://localhost:3000/opponents"},{"rel":"opponents_results","href":"http://localhost:3000/opponents_results"},{"rel":"payment_method_wepay_credit_cards","href":"http://localhost:3000/payment_method_wepay_credit_cards"},{"rel":"payment_notes","href":"http://localhost:3000/payment_notes"},{"rel":"payment_providers","href":"http://localhost:3000/payment_providers"},{"rel":"paypal_currencies","href":"http://localhost:3000/paypal_currencies"},{"rel":"plans","href":"http://localhost:3000/plans"},{"rel":"plans_all","href":"http://localhost:3000/plans/all"},{"rel":"public_features","href":"http://localhost:3000/public_features"},{"rel":"registration_signup_statuses","href":"http://localhost:3000/registration_signup_statuses"},{"rel":"registration_forms","href":"http://localhost:3000/registration_forms"},{"rel":"registration_form_line_items","href":"http://localhost:3000/registration_form_line_items"},{"rel":"registration_form_line_item_options","href":"http://localhost:3000/registration_form_line_item_options"},{"rel":"schemas","href":"http://localhost:3000/schemas"},{"rel":"sms_gateways","href":"http://localhost:3000/sms_gateways"},{"rel":"sponsors","href":"http://localhost:3000/sponsors"},{"rel":"sports","href":"http://localhost:3000/sports"},{"rel":"statistics","href":"http://localhost:3000/statistics"},{"rel":"statistic_aggregates","href":"http://localhost:3000/statistic_aggregates"},{"rel":"statistic_data","href":"http://localhost:3000/statistic_data"},{"rel":"statistic_groups","href":"http://localhost:3000/statistic_groups"},{"rel":"team_fees","href":"http://localhost:3000/team_fees"},{"rel":"team_media","href":"http://localhost:3000/team_media"},{"rel":"team_medium_comments","href":"http://localhost:3000/team_medium_comments"},{"rel":"team_media_groups","href":"http://localhost:3000/team_media_groups"},{"rel":"team_photos","href":"http://localhost:3000/team_photos"},{"rel":"team_public_sites","href":"http://localhost:3000/team_public_sites"},{"rel":"teams","href":"http://localhost:3000/teams"},{"rel":"teams_paypal_preferences","href":"http://localhost:3000/teams_paypal_preferences"},{"rel":"teams_preferences","href":"http://localhost:3000/teams_preferences"},{"rel":"teams_results","href":"http://localhost:3000/teams_results"},{"rel":"team_statistics","href":"http://localhost:3000/team_statistics"},{"rel":"time_zones","href":"http://localhost:3000/time_zones"},{"rel":"tracked_item_statuses","href":"http://localhost:3000/tracked_item_statuses"},{"rel":"tracked_items","href":"http://localhost:3000/tracked_items"},{"rel":"tsl_metadata","href":"http://localhost:3000/tsl_metadata"},{"rel":"tsl_chats","href":"http://localhost:3000/tsl_chats"},{"rel":"tsl_photos","href":"http://localhost:3000/tsl_photos"},{"rel":"tsl_scores","href":"http://localhost:3000/tsl_scores"},{"rel":"users","href":"http://localhost:3000/users"},{"rel":"wepay_accounts","href":"http://localhost:3000/wepay_accounts"},{"rel":"dude","href":"http://localhost:3000/dude"},{"rel":"sweet","href":"http://localhost:3000/sweet"},{"rel":"random","href":"http://localhost:3000/random"},{"rel":"xyzzy","href":"http://localhost:3000/xyzzy"},{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/?hmac_nonce=ad0364df-8a32-49b9-a9a2-ceb1c007f84f&hmac_timestamp=1502320139"}],"queries":[{"rel":"bulk_load","href":"http://localhost:3000/bulk_load","prompt":"Returns
+        instead."},{"rel":"member_photos","href":"http://localhost:3000/member_photos"},{"rel":"member_registration_signups","href":"http://localhost:3000/member_registration_signups"},{"rel":"member_statistics","href":"http://localhost:3000/member_statistics"},{"rel":"members","href":"http://localhost:3000/members"},{"rel":"members_preferences","href":"http://localhost:3000/members_preferences"},{"rel":"message_data","href":"http://localhost:3000/message_data"},{"rel":"messages","href":"http://localhost:3000/messages"},{"rel":"opponents","href":"http://localhost:3000/opponents"},{"rel":"opponents_results","href":"http://localhost:3000/opponents_results"},{"rel":"payment_method_wepay_credit_cards","href":"http://localhost:3000/payment_method_wepay_credit_cards"},{"rel":"payment_notes","href":"http://localhost:3000/payment_notes"},{"rel":"payment_providers","href":"http://localhost:3000/payment_providers"},{"rel":"paypal_currencies","href":"http://localhost:3000/paypal_currencies"},{"rel":"plans","href":"http://localhost:3000/plans"},{"rel":"plans_all","href":"http://localhost:3000/plans/all"},{"rel":"public_features","href":"http://localhost:3000/public_features"},{"rel":"registration_signup_statuses","href":"http://localhost:3000/registration_signup_statuses"},{"rel":"registration_forms","href":"http://localhost:3000/registration_forms"},{"rel":"registration_form_line_items","href":"http://localhost:3000/registration_form_line_items"},{"rel":"registration_form_line_item_options","href":"http://localhost:3000/registration_form_line_item_options"},{"rel":"schemas","href":"http://localhost:3000/schemas"},{"rel":"sms_gateways","href":"http://localhost:3000/sms_gateways"},{"rel":"sponsors","href":"http://localhost:3000/sponsors"},{"rel":"sports","href":"http://localhost:3000/sports"},{"rel":"statistics","href":"http://localhost:3000/statistics"},{"rel":"statistic_aggregates","href":"http://localhost:3000/statistic_aggregates"},{"rel":"statistic_data","href":"http://localhost:3000/statistic_data"},{"rel":"statistic_groups","href":"http://localhost:3000/statistic_groups"},{"rel":"team_fees","href":"http://localhost:3000/team_fees"},{"rel":"team_media","href":"http://localhost:3000/team_media"},{"rel":"team_medium_comments","href":"http://localhost:3000/team_medium_comments"},{"rel":"team_media_groups","href":"http://localhost:3000/team_media_groups"},{"rel":"team_photos","href":"http://localhost:3000/team_photos"},{"rel":"team_public_sites","href":"http://localhost:3000/team_public_sites"},{"rel":"teams","href":"http://localhost:3000/teams"},{"rel":"teams_paypal_preferences","href":"http://localhost:3000/teams_paypal_preferences"},{"rel":"teams_preferences","href":"http://localhost:3000/teams_preferences"},{"rel":"teams_results","href":"http://localhost:3000/teams_results"},{"rel":"team_statistics","href":"http://localhost:3000/team_statistics"},{"rel":"time_zones","href":"http://localhost:3000/time_zones"},{"rel":"tracked_item_statuses","href":"http://localhost:3000/tracked_item_statuses"},{"rel":"tracked_items","href":"http://localhost:3000/tracked_items"},{"rel":"tsl_metadata","href":"http://localhost:3000/tsl_metadata"},{"rel":"tsl_chats","href":"http://localhost:3000/tsl_chats"},{"rel":"tsl_photos","href":"http://localhost:3000/tsl_photos"},{"rel":"tsl_scores","href":"http://localhost:3000/tsl_scores"},{"rel":"users","href":"http://localhost:3000/users"},{"rel":"wepay_accounts","href":"http://localhost:3000/wepay_accounts"},{"rel":"dude","href":"http://localhost:3000/dude"},{"rel":"sweet","href":"http://localhost:3000/sweet"},{"rel":"random","href":"http://localhost:3000/random"},{"rel":"xyzzy","href":"http://localhost:3000/xyzzy"},{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/?hmac_nonce=8127d2af-df81-47b6-819c-033f8c459b6d&hmac_timestamp=1502378716"}],"queries":[{"rel":"bulk_load","href":"http://localhost:3000/bulk_load","prompt":"Returns
         a heterogeneous collection of the specified types for a specified team or
         teams. Additional filters can be passed into requested types by passing them
         in the url''s querystring as type__filter=value (i.e. ?event__start_date=2015-01-01).
@@ -75,11 +75,11 @@ http_interactions:
         a signup email to an unregistered user to start the registration process","data":[{"name":"email_address","value":null},{"name":"client_id","value":null},{"name":"redirect_uri","value":null}]}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/?hmac_client_id=classic&hmac_nonce=ad0364df-8a32-49b9-a9a2-ceb1c007f84f&hmac_timestamp=1502320139
-  recorded_at: Wed, 09 Aug 2017 23:08:59 GMT
+      effective_url: http://localhost:3000/?hmac_client_id=classic&hmac_nonce=8127d2af-df81-47b6-819c-033f8c459b6d&hmac_timestamp=1502378716
+  recorded_at: Thu, 10 Aug 2017 15:25:16 GMT
 - request:
     method: get
-    uri: http://localhost:3000/schemas?hmac_client_id=classic&hmac_nonce=213030db-49a4-42eb-8664-24b204192e5d&hmac_timestamp=1502320139
+    uri: http://localhost:3000/schemas?hmac_client_id=classic&hmac_nonce=933c24f2-ac7d-4fc4-9c44-6c5465de1dcb&hmac_timestamp=1502378716
     body:
       encoding: US-ASCII
       string: ''
@@ -87,7 +87,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.11.0
       X-Teamsnap-Hmac:
-      - 4295c48f8b7f92eb7da8b9c0ba79bb05151df02d2e5f00ae3e7474dd40cbdd68
+      - 9395b9885d892ad78e2319e21592bbc23224b8f27e800ac57bf9e91a37e9fa7b
       Expect:
       - ''
   response:
@@ -106,9 +106,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 223d6e5b-c06a-431a-ad6a-7f6d27967db9
+      - 2216306c-35ab-47a2-987c-eba5359a9c5b
       X-Runtime:
-      - '0.048571'
+      - '0.052752'
       Connection:
       - keep-alive
       Server:
@@ -853,6 +853,6 @@ http_interactions:
         by also providing the page_size parameter."}]}]}}]'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/schemas?hmac_client_id=classic&hmac_nonce=213030db-49a4-42eb-8664-24b204192e5d&hmac_timestamp=1502320139
-  recorded_at: Wed, 09 Aug 2017 23:08:59 GMT
+      effective_url: http://localhost:3000/schemas?hmac_client_id=classic&hmac_nonce=933c24f2-ac7d-4fc4-9c44-6c5465de1dcb&hmac_timestamp=1502378716
+  recorded_at: Thu, 10 Aug 2017 15:25:17 GMT
 recorded_with: VCR 2.9.3

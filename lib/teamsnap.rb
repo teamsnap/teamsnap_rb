@@ -37,10 +37,8 @@ module TeamSnap
 
       ##   include any feature headers
       if opts[:header]
-        if opts.fetch(:header) == "ghost_contact"
-          self.root_client.headers = self.root_client.headers.merge(
-          {"X-Teamsnap-Api-Features" => "ghost_contact"}
-        )
+        if header = opts.fetch(:header)
+          self.root_client.headers = self.root_client.headers.merge(header)
         end
       end
 

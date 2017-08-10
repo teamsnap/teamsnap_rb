@@ -79,23 +79,11 @@ RSpec.describe "teamsnap__client", :vcr => true do
         :url => ROOT_TEST_URL,
         :client_id => client_id,
         :client_secret => client_secret,
-        :header => "ghost_contact"
+        :header => {"X-Teamsnap-Api-Features" => "ghost_contact"}
       )
 
       headers = TeamSnap.root_client.headers
       expect(headers["X-Teamsnap-Api-Features"]).to eq("ghost_contact")
-    end
-
-    it "won't set unknown feature headers" do
-      client = TeamSnap.init(
-        :url => ROOT_TEST_URL,
-        :client_id => client_id,
-        :client_secret => client_secret,
-        :header => "new_feature"
-      )
-
-      headers = TeamSnap.root_client.headers
-      expect(headers["X-Teamsnap-Api-Features"]).to_not eq("new_feature")
     end
 
     it "won't set feature headers without the header variable present" do
