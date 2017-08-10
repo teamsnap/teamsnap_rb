@@ -63,5 +63,4 @@ v2.0.0
 
 [v2.0.1](https://github.com/teamsnap/teamsnap_rb/pull/97)
 
-- Add in the ability to specify a feature flag via the header option when creating a new client.
-- Add in support for the `ghost_contact` feature via the header option.
+- Add in the ability to specify a the header option when creating a new client.  This feature is primarily to be used to support feature flags.
