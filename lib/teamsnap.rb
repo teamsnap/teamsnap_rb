@@ -19,7 +19,7 @@ module TeamSnap
 
   class << self
     attr_accessor :client_id, :client_secret, :root_client, :token, :url,
-      :header
+      :headers
 
     def init(opts = {})
       unless opts[:token] || (opts[:client_id] && opts[:client_secret])
@@ -36,9 +36,9 @@ module TeamSnap
       self.root_client = TeamSnap::Client.new(:token => token)
 
       ##   include any feature headers
-      if opts[:header]
-        if header = opts.fetch(:header)
-          self.root_client.headers = self.root_client.headers.merge(header)
+      if opts[:headers]
+        if headers = opts.fetch(:headers)
+          self.root_client.headers = self.root_client.headers.merge(headers)
         end
       end
 

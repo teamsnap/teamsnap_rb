@@ -73,13 +73,13 @@ RSpec.describe "teamsnap__client", :vcr => true do
     end
   end
 
-  context "when specifying a header flag" do
+  context "when specifying a headers flag" do
     it "correctly sets the ghost header flag" do
       client = TeamSnap.init(
         :url => ROOT_TEST_URL,
         :client_id => client_id,
         :client_secret => client_secret,
-        :header => {"X-Teamsnap-Api-Features" => "ghost_contact"}
+        :headers => {"X-Teamsnap-Api-Features" => "ghost_contact"}
       )
 
       headers = TeamSnap.root_client.headers
