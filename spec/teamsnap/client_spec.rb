@@ -72,4 +72,29 @@ RSpec.describe "teamsnap__client", :vcr => true do
       TeamSnap.root_client.api(:find, TeamSnap::Team, 1)
     end
   end
+
+  context "when specifying a headers flag" do
+    it "correctly sets the ghost header flag" do
+      client = TeamSnap.init(
+        :url => ROOT_TEST_URL,
+        :client_id => client_id,
+        :client_secret => client_secret,
+        :headers => {"X-Teamsnap-Api-Features" => "ghost_contact"}
+      )
+
+      headers = TeamSnap.root_client.headers
+      expect(headers["X-Teamsnap-Api-Features"]).to eq("ghost_contact")
+    end
+
+    it "won't set feature headers without the header variable present" do
+      client = TeamSnap.init(
+        :url => ROOT_TEST_URL,
+        :client_id => client_id,
+        :client_secret => client_secret
+      )
+
+      headers = TeamSnap.root_client.headers
+      expect(headers["X-Teamsnap-Api-Features"]).to eq(nil)
+    end
+  end
 end
