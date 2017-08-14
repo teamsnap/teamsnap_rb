@@ -61,6 +61,7 @@ v2.0.0
 
 - Drop support for Ruby < 2. Updates rspec gem. Drops beta tag.
 
-[v2.0.1](https://github.com/teamsnap/teamsnap_rb/pull/97)
+[v2.1.0](https://github.com/teamsnap/teamsnap_rb/pull/97)
+------
 
-- Add in the ability to specify a the header option when creating a new client.  This feature is primarily to be used to support feature flags.
+- Add in the ability to specify a header option when creating a new client.  This feature is primarily to be used to support feature flags.
