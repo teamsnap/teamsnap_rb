@@ -65,3 +65,8 @@ v2.0.0
 ------
 
 - Add in the ability to specify a header option when creating a new client.  This feature is primarily to be used to support feature flags.
+
+[v2.1.1](https://github.com/teamsnap/teamsnap_rb/pull/99)
+------
+
+- Update some of the out of date gem dependencies.
