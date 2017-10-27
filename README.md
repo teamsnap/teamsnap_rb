@@ -54,7 +54,7 @@ _Note: You'll need an OAuth2 Token from TeamSnap. Checkout our API docs
     team = TeamSnap::Team.create(client, {:attribute_name => value})
 
     # update
-    team = TeamSnap::Team.update(client, {:id => XXX, :attribute_name => value})
+    team = TeamSnap::Team.update(client, id, {:attribute_name => value})
 
     # delete
     no_team = TeamSnap::Team.delete(client, id)
