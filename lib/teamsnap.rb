@@ -19,7 +19,7 @@ module TeamSnap
 
   class << self
     attr_accessor :client_id, :client_secret, :root_client, :token, :url,
-      :headers
+      :headers, :generate_transaction_uuids
 
     def init(opts = {})
       unless opts[:token] || (opts[:client_id] && opts[:client_secret])
@@ -31,6 +31,8 @@ module TeamSnap
       self.client_secret = opts.fetch(:client_secret) {}
       self.token = opts.fetch(:token) {}
       self.url = opts.fetch(:url) { DEFAULT_URL }
+      self.generate_transaction_uuids = opts
+        .fetch(:generate_transaction_uuids) { false }
 
       ##   create universally accessible TeamSnap.root_client
       self.root_client = TeamSnap::Client.new(:token => token)
@@ -73,13 +75,20 @@ module TeamSnap
     def client_send(client, via, href, args)
       case via
       when :get, :delete
-        client.send(via, href, args)
+        client.send(via, href, args) do |req|
+          if self.generate_transaction_uuids
+            req.headers['X-CLASSIC-SESSIONID'] = SecureRandom.uuid
+          end
+        end
       when :patch, :post
         client.send(via, href) do |req|
           if use_multipart?(args)
             req.body = args
           else
             req.body = Oj.dump(args)
+          end
+          if self.generate_transaction_uuids
+            req.headers['X-CLASSIC-SESSIONID'] = SecureRandom.uuid
           end
         end
       else
