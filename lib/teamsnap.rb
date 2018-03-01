@@ -12,7 +12,8 @@
 module TeamSnap
   EXCLUDED_RELS = %w(me apiv2_root root self dude sweet random xyzzy schemas
                      authorization plans_all tsl_photos)
-  DEFAULT_URL = "https://apiv3.teamsnap.com"
+  DEFAULT_SNAPI_VERSION = "v3"
+  DEFAULT_URL = "https://api.teamsnap.com/#{DEFAULT_SNAPI_VERSION}"
   Error = Class.new(StandardError)
   NotFound = Class.new(TeamSnap::Error)
   InitializationError = Class.new(TeamSnap::Error)
@@ -42,7 +43,7 @@ module TeamSnap
         end
       end
 
-      ##   Make the apiv3 root call. collection is parsed JSON
+      ##   Make the Snapi v3 root call. collection is parsed JSON
       collection = TeamSnap.run(root_client, :get, self.url, {}) do
         self.root_client = nil
         raise TeamSnap::InitializationError
