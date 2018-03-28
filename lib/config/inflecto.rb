@@ -10,4 +10,6 @@ Inflecto.inflections do |inflect|
   inflect.irregular "team_preferences", "teams_preferences"
   inflect.irregular "team_results", "team_results"
   inflect.irregular "team_results", "teams_results"
+  inflect.irregular "partner_preferences", "partner_preferences"
+  inflect.irregular "partner_preferences", "partners_preferences"
 end
