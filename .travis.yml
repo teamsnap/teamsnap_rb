@@ -1,6 +1,6 @@
 language: ruby
 before_install:
-  - rvm @global do gem uninstall bundler -ax
+  - "find /home/travis/.rvm/rubies -wholename '*default/bundler-*.gemspec' -delete"
   - gem install bundler -v 1.15.1
 rvm:
   - 2.0.0
