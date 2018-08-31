@@ -71,7 +71,8 @@ v2.0.0
 
 - Update some of the out of date gem dependencies.
 
-[v2.1.3]()
+[v2.1.3](https://github.com/teamsnap/teamsnap_rb/pull/104)
 ------
 
 - Update some of the out of date gem dependencies.
+- Handle 204 responses with no body

@@ -32,7 +32,9 @@ module TeamSnap
           end
 
           resp = TeamSnap.run(client, via, href, args)
-          TeamSnap::Item.load_items(client, resp)
+          if resp
+            TeamSnap::Item.load_items(client, resp)
+          end
         end
       end
     end

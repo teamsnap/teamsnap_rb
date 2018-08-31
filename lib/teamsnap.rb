@@ -58,7 +58,9 @@ module TeamSnap
     def run(client, via, href, args = {}, &block)
       timeout_error = block || default_timeout_error
       resp = client_send(client, via, href, args)
-      return TeamSnap::Response.load_collection(resp)
+      unless resp.status == 204
+        TeamSnap::Response.load_collection(resp)
+      end
     rescue Faraday::TimeoutError
       timeout_error.call
     end
