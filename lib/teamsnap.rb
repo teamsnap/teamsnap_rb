@@ -199,8 +199,12 @@ module TeamSnap
         Oj.load(resp.body).fetch(:collection)
       else
         if resp.headers.fetch("content-type") { "" }.match("json")
-          error_message = parse_error(resp)
-          raise TeamSnap::Error.new(error_message)
+          if resp.status == 404
+            raise TeamSnap::NotFound.new("Object not found.")
+          else
+            error_message = parse_error(resp)
+            raise TeamSnap::Error.new(error_message)
+          end
         else
           raise TeamSnap::Error.new("`#{via}` call was unsuccessful. " +
             "Unexpected response content-type. " +
