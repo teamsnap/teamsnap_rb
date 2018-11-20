@@ -70,3 +70,8 @@ v2.0.0
 ------
 
 - Update some of the out of date gem dependencies.
+
+[v2.1.3](https://github.com/teamsnap/teamsnap_rb/pull/)
+------
+
+- Update Rack dependency to patch CVE-2018-16471
