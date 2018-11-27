@@ -70,3 +70,13 @@ v2.0.0
 ------
 
 - Update some of the out of date gem dependencies.
+
+[v2.1.2](https://github.com/teamsnap/teamsnap_rb/pull/103)
+------
+
+- Update plural inflection for `partner_preferences`
+
+[v2.1.3](https://github.com/teamsnap/teamsnap_rb/pull/106)
+------
+
+- Update Rack dependency to patch CVE-2018-16471
