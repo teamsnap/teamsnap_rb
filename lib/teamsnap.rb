@@ -207,9 +207,8 @@ module TeamSnap
           end
         else
           raise TeamSnap::Error.new("`#{via}` call was unsuccessful. " +
-            "Unexpected response content-type. " +
+            "Unexpected response content-type: #{resp.headers.fetch("content-type")}. " +
             "Check TeamSnap API connection\n status code: #{resp.status}\n" +
-            "Additional Information: #{resp.return_message}\n" +
             "returned body:\n#{resp.body}")
         end
       end

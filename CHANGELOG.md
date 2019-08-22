@@ -24,3 +24,8 @@ v1.3.5
 ------
 
 - Raise a `TeamSnap::NotFound` error when the API returns a 404 status.
+
+v1.3.6
+------
+
+- Fix undefined method `return_message` when the API returns an error.
