@@ -1,6 +1,5 @@
 # teamsnap_rb
 
-[![Dependencies](http://img.shields.io/gemnasium/teamsnap/teamsnap_rb.svg)](https://gemnasium.com/teamsnap/teamsnap_rb)
 [![Quality](http://img.shields.io/codeclimate/github/teamsnap/teamsnap_rb.svg)](https://codeclimate.com/github/teamsnap/teamsnap_rb)
 [![Coverage](http://img.shields.io/coveralls/teamsnap/teamsnap_rb.svg)](https://coveralls.io/r/teamsnap/teamsnap_rb)
 [![Build](http://img.shields.io/travis-ci/teamsnap/teamsnap_rb.svg)](https://travis-ci.org/teamsnap/teamsnap_rb)
