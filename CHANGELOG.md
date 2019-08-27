@@ -80,3 +80,8 @@ v2.0.0
 ------
 
 - Update Rack dependency to patch CVE-2018-16471
+
+[v2.2.0](https://github.com/teamsnap/teamsnap_rb/pull/108)
+------
+
+- Require Ruby version 2.3+
