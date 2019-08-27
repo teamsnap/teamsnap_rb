@@ -85,3 +85,9 @@ v2.0.0
 ------
 
 - Require Ruby version 2.3+
+
+[v2.3.0](https://github.com/teamsnap/teamsnap_rb/pull/107)
+------
+
+- Update faraday dependency to version 0.15
+- Update oj dependency to version 3
