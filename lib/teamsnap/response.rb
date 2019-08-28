@@ -4,7 +4,7 @@ module TeamSnap
     class << self
       def load_collection(resp)
         if resp.success?
-          return Oj.load(resp.body).fetch(:collection)
+          Oj.load(resp.body).fetch(:collection)
         else
           content_type = resp.headers["content-type"]
           if content_type && content_type.match("json")
