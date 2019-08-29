@@ -1,0 +1,43 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://localhost:3000/user_team_experiences/record_occurrence?hmac_client_id=classic&hmac_nonce=67509223-a69f-40a6-8fee-9431383f1b43&hmac_timestamp=1567057141
+    body:
+      encoding: UTF-8
+      string: '{"team_id":1,"experience":"experience1"}'
+    headers:
+      User-Agent:
+      - Faraday v0.15.4
+      X-Teamsnap-Hmac:
+      - fb89f617ace0e51b954e469c0086b07aac59e2499409d5c57e166cad11f3847f
+      Expect:
+      - ''
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Content-Type:
+      - application/vnd.collection+json
+      X-Content-Type-Options:
+      - nosniff
+      Cache-Control:
+      - no-cache
+      X-Request-Id:
+      - 0cf6dd98-8be4-4dee-bfde-70a685f51952
+      X-Runtime:
+      - '1.256118'
+      Vary:
+      - Origin
+      Content-Length:
+      - '138'
+    body:
+      encoding: UTF-8
+      string: '{"collection":{"error":{"message":"You are not authorized to access
+        this resource. Please ensure you''ve provided a valid access token."}}}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: http://localhost:3000/user_team_experiences/record_occurrence?hmac_client_id=classic&hmac_nonce=67509223-a69f-40a6-8fee-9431383f1b43&hmac_timestamp=1567057141
+  recorded_at: Thu, 29 Aug 2019 05:39:02 GMT
+recorded_with: VCR 2.9.3

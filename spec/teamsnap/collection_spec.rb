@@ -25,6 +25,15 @@ RSpec.describe "teamsnap__collection", :vcr => true do
     expect(ts).to be_empty
   end
 
+  it "handles commands with no data" do
+    ts = TeamSnap::UserTeamExperience.record_occurrence_user_team_experience(TeamSnap.root_client, {
+      :team_id => 1,
+      :experience => "experience1"
+    })
+
+    expect(ts).to be_empty
+  end
+
   it "raises an exception when a query is invalid" do
     expect {
       TeamSnap::Team.search(TeamSnap.root_client, :foo => :bar)
