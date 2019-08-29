@@ -57,28 +57,15 @@ module TeamSnap
 
     def run(client, via, href, args = {}, &block)
       timeout_error = block || default_timeout_error
-      parse_error = block || default_parse_error
       resp = client_send(client, via, href, args)
       TeamSnap::Response.load_collection(resp)
     rescue Faraday::TimeoutError
       timeout_error.call
-    rescue Oj::ParseError
-      puts "================= ParseError ================"
-      puts resp.status
-      puts resp.body
-      parse_error.call
     end
 
     def default_timeout_error
       -> {
         warn("Connection to API failed with TimeoutError")
-        {:links => []}
-      }
-    end
-
-    def default_parse_error
-      -> {
-        warn("API Response could not be parsed")
         {:links => []}
       }
     end

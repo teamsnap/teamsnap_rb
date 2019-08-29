@@ -99,3 +99,8 @@ v2.0.0
 - Update typhoeus from 1.1 to 1.3
 - Update rspec from 3.6 to 3.8
 - Update vcr from 2.9 to 5.0
+
+[v2.3.2](https://github.com/teamsnap/teamsnap_rb/pull/109)
+------
+
+- Handle 204 responses on commands with an empty body
