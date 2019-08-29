@@ -98,3 +98,4 @@ v2.0.0
 - Update bundler from 1.15 to 1.17
 - Update typhoeus from 1.1 to 1.3
 - Update rspec from 3.6 to 3.8
+- Update vcr from 2.9 to 5.0
