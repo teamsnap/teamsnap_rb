@@ -22,7 +22,7 @@ RSpec.describe "teamsnap__api", :vcr => true do
     it "returns a proper error message" do
       response = Faraday::Response.new(
         :status => 403,
-        :body => Oj.dump("collection" => { :error => { :message => "Error Message"}})
+        :body => JSON.generate("collection" => { :error => { :message => "Error Message"}})
       )
       expect(TeamSnap::Api.parse_error(response)).to eq("Error Message")
     end

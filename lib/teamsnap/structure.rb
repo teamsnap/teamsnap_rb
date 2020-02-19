@@ -34,7 +34,7 @@ module TeamSnap
 
         href_to_rel = Hash[*href_to_rel.flatten]
 
-        Oj.load(response.body)
+        JSON.parse(response.body)
           .map { |collection|
             col = collection.fetch(:collection) { {} }
             if rel = href_to_rel[col[:href]]

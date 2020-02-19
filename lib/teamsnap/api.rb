@@ -76,7 +76,7 @@ module TeamSnap
       return "Forbidden (403)" if resp.status == 403 && resp.body == ""
 
       begin
-        Oj.load(resp.body)
+        JSON.parse(resp.body)
           .fetch(:collection)
           .fetch(:error)
           .fetch(:message)

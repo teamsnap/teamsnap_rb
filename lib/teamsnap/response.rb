@@ -4,7 +4,7 @@ module TeamSnap
     class << self
       def load_collection(resp)
         if resp.success?
-          return Oj.load(resp.body).fetch(:collection)
+          return JSON.parse(resp.body).fetch(:collection)
         else
           content_type = resp.headers["content-type"]
           if content_type && content_type.match("json")
@@ -69,14 +69,14 @@ module TeamSnap
     end
 
     def process_info
-      body = Oj.load(@resp.body)
+      body = JSON.parse(@resp.body)
       @collection = body.fetch(:collection) { {} }
       @message = "Data retrieved successfully"
       @objects = TeamSnap::Item.load_items(@client, @collection)
     end
 
     def process_action
-      body = Oj.load(@resp.body) || {}
+      body = JSON.parse(@resp.body) || {}
       @collection = body.fetch(:collection) { {} }
       @message = "`#{@via}` call was successful"
       @objects = TeamSnap::Item.load_items(@client, @collection)
@@ -84,7 +84,7 @@ module TeamSnap
 
     def process_error
       if @resp.headers["content-type"].match("json")
-        body = Oj.load(@resp.body) || {}
+        body = JSON.parse(@resp.body) || {}
         @collection = body.fetch(:collection) { {} }
         @message = TeamSnap::Api.parse_error(@resp)
         @objects = TeamSnap::Item.load_items(@client, @collection)
