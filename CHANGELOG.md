@@ -104,3 +104,4 @@ v2.0.0
 ------
 
 - Remove Oj gem dependency
+- Update faraday dependency to allow version 0.17
