@@ -106,7 +106,7 @@ module TeamSnap
     def parse_collection
       if resp
         TeamSnap.response_check(resp, :get)
-        collection = Oj.load(resp.body).fetch(:collection) { [] }
+        collection = JSON.parse(resp.body, :symbolize_names => true).fetch(:collection) { [] }
       elsif parsed_collection
         collection = parsed_collection
       end

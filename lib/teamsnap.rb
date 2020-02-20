@@ -1,10 +1,10 @@
 %w(
-    faraday typhoeus typhoeus/adapters/faraday oj inflecto virtus
+    faraday typhoeus typhoeus/adapters/faraday inflecto virtus
     date securerandom
   ).each { |x| require x }
 
 %w(
-    config/inflecto config/oj teamsnap/version teamsnap/api
+    config/inflecto teamsnap/version teamsnap/api
     teamsnap/auth_middleware teamsnap/client teamsnap/collection teamsnap/item
     teamsnap/response teamsnap/structure
   ).each { |x| require_relative x }
@@ -79,7 +79,7 @@ module TeamSnap
           if use_multipart?(args)
             req.body = args
           else
-            req.body = Oj.dump(args)
+            req.body = JSON.generate(args)
           end
         end
       else

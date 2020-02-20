@@ -24,9 +24,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rspec",   "~> 3.8.0"
   spec.add_development_dependency "vcr",     "~> 5.0.0"
 
-  spec.add_dependency "faraday",  "~> 0.15.0"
+  spec.add_dependency "faraday",  "~> 0.17", "< 1.0"
   spec.add_dependency "typhoeus", "~> 1.3.0"
-  spec.add_dependency "oj",       "~> 3.9.0"
   spec.add_dependency "inflecto", "~> 0.0.2"
   spec.add_dependency "virtus",   "~> 1.0.4"
 end
