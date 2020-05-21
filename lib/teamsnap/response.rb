@@ -69,6 +69,7 @@ module TeamSnap
     end
 
     def process_info
+      raise @resp.body
       body = JSON.parse(@resp.body, :symbolize_names => true)
       @collection = body.fetch(:collection) { {} }
       @message = "Data retrieved successfully"
