@@ -68,7 +68,7 @@ RSpec.describe "teamsnap__client", :vcr => true do
     end
 
     it "Sends the proper information to TeamSnap::Api.run" do
-      expect(TeamSnap::Api).to receive(:run).with(TeamSnap.root_client, :find, TeamSnap::Team, 1, false)
+      expect(TeamSnap::Api).to receive(:run).with(TeamSnap.root_client, :find, TeamSnap::Team, 1, false).and_call_original
       TeamSnap.root_client.api(:find, TeamSnap::Team, 1)
     end
   end
