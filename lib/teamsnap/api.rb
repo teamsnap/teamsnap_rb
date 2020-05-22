@@ -40,7 +40,8 @@ module TeamSnap
     def self.href(base_href, method, args = {})
       case method
       when :find, :delete
-        if [Integer, String].include?(args.class)
+        integer_class = 1.class
+        if [integer_class, String].include?(args.class)
           base_href + "/#{args}"
         elsif args.class == Hash
           base_href + "/#{args.fetch(:id)}"

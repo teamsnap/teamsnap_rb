@@ -13,8 +13,8 @@ RSpec.describe "teamsnap__api", :vcr => true do
       end
     end
 
-    context "when request is create" do
-      context "when request is successful" do
+    context "when creating" do
+      context "when successful" do
         it "can parse the json" do
           response = TeamSnap::Api.run(
             TeamSnap.root_client,
@@ -34,15 +34,15 @@ RSpec.describe "teamsnap__api", :vcr => true do
       end
     end
 
-    context "when request is delete" do
-      context "when request is successful" do
+    context "when deleting" do
+      context "when successful" do
         it "handles empty response body" do
           expect {
             TeamSnap::Api.run(
               TeamSnap.root_client,
               :delete,
               TeamSnap::Event,
-              10
+              1
             )
           }.to_not raise_error
         end
