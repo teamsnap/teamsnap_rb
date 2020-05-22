@@ -2,7 +2,32 @@ require "spec_helper"
 require "teamsnap"
 
 RSpec.describe "teamsnap__api", :vcr => true do
-  context ".parse_error" do
+  describe ".run" do
+    before(:all) do
+      VCR.use_cassette("apiv3-init") do
+        TeamSnap.init(
+          :url => ROOT_TEST_URL,
+          :client_id => "classic_service",
+          :client_secret => "dont_tell_the_cops"
+        )
+      end
+    end
+
+    context "when method is delete" do
+      it "can handle empty response" do
+        expect {
+          TeamSnap::Api.run(
+            TeamSnap.root_client,
+            :delete,
+            TeamSnap::Event,
+            1
+          )
+        }.to_not raise_error(JSON::ParserError)
+      end
+    end
+  end
+
+  describe ".parse_error" do
     it "returns error message on a 403 and an empty body" do
       response = Faraday::Response.new(
         :status => 403,
