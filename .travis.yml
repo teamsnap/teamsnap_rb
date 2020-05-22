@@ -1,10 +1,10 @@
 language: ruby
 before_install:
-  - "find /home/travis/.rvm/rubies -wholename '*default/bundler-*.gemspec' -delete"
-  - gem install bundler -v 1.17.2
+  - gem install bundler -v 1.17.3
+script: bundle exec rspec spec
 rvm:
   - 2.3.1
   - 2.3.8
-  - 2.4.6
-  - 2.5.5
-  - 2.6.3
+  - 2.4.10
+  - 2.5.8
+  - 2.6.6
