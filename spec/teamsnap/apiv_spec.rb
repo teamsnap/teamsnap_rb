@@ -13,16 +13,39 @@ RSpec.describe "teamsnap__api", :vcr => true do
       end
     end
 
-    context "when method is delete" do
-      it "can handle empty response" do
-        expect {
-          TeamSnap::Api.run(
+    context "when request is create" do
+      context "when request is successful" do
+        it "can parse the json" do
+          response = TeamSnap::Api.run(
             TeamSnap.root_client,
-            :delete,
+            :create,
             TeamSnap::Event,
-            1
+            {
+              :start_date => "2020-12-31",
+              :team_id => 1,
+              :location_id => 1,
+              :name => "Practice"
+            },
+            true
           )
-        }.to_not raise_error
+          expect(response.status).to eq(201)
+          expect(response.collection.fetch(:items).count).to eq(1)
+        end
+      end
+    end
+
+    context "when request is delete" do
+      context "when request is successful" do
+        it "handles empty response body" do
+          expect {
+            TeamSnap::Api.run(
+              TeamSnap.root_client,
+              :delete,
+              TeamSnap::Event,
+              10
+            )
+          }.to_not raise_error
+        end
       end
     end
   end

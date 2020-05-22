@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: delete
-    uri: http://localhost:3000/events/1?hmac_client_id=classic_service&hmac_nonce=a207fe52-9f76-4fc0-97bc-a134d58cea0c&hmac_timestamp=1590177519
+    uri: http://localhost:3000/events/10?hmac_client_id=classic_service&hmac_nonce=a4328ef7-70b2-4886-8a97-8a2c31711277&hmac_timestamp=1590181484
     body:
       encoding: US-ASCII
       string: ''
@@ -10,7 +10,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.17.3
       X-Teamsnap-Hmac:
-      - b95cc4bf3008e8ba3fcf14156db42bc97b645b2f3b44002547e5624e3ba7b211
+      - c6d1b65ad224fde0fde241349eb18392e07a50cb1a68fa8713cff26f733d8749
       Expect:
       - ''
   response:
@@ -23,9 +23,9 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Request-Id:
-      - 40cd3cd9-0648-4b27-a445-c50ed872a859
+      - 147ebc05-e858-4a34-87ea-5f600c646c9c
       X-Runtime:
-      - '0.522123'
+      - '0.502827'
       Vary:
       - Origin
     body:
@@ -33,6 +33,6 @@ http_interactions:
       string: ''
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/events/1?hmac_client_id=classic_service&hmac_nonce=a207fe52-9f76-4fc0-97bc-a134d58cea0c&hmac_timestamp=1590177519
-  recorded_at: Fri, 22 May 2020 19:58:39 GMT
+      effective_url: http://localhost:3000/events/10?hmac_client_id=classic_service&hmac_nonce=a4328ef7-70b2-4886-8a97-8a2c31711277&hmac_timestamp=1590181484
+  recorded_at: Fri, 22 May 2020 21:04:45 GMT
 recorded_with: VCR 5.1.0
