@@ -105,3 +105,6 @@ v2.0.0
 
 - Remove Oj gem dependency
 - Update faraday dependency to allow version 0.17
+
+[v2.4.1](https://github.com/teamsnap/teamsnap_rb/pull/118)
+------
