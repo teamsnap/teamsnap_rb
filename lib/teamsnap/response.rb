@@ -76,7 +76,11 @@ module TeamSnap
     end
 
     def process_action
-      body = (@resp.body.nil? || @resp.body.empty?) ? {} : JSON.parse(@resp.body, :symbolize_names => true) || {}
+      body = if @resp.body.nil? || @resp.body.empty?
+               {}
+             else
+               JSON.parse(@resp.body, :symbolize_names => true) || {}
+             end
       @collection = body.fetch(:collection) { {} }
       @message = "`#{@via}` call was successful"
       @objects = TeamSnap::Item.load_items(@client, @collection)
