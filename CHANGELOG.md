@@ -108,3 +108,7 @@ v2.0.0
 
 [v2.4.1](https://github.com/teamsnap/teamsnap_rb/pull/118)
 ------
+
+- Fix bug with json gem not parsing empty resopnse body
+- Fix bug with OpenSSL on Ruby 2.5+
+- Fix deprecation on ::Fixnum constant
