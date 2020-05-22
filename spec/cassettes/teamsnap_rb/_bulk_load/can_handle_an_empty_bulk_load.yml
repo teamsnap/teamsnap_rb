@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:3000/bulk_load?team_id=0&types=team%2Cmember&hmac_client_id=classic_service&hmac_nonce=1ce7dbc3-7214-4060-9d83-2f20ace4b5af&hmac_timestamp=1590129854
+    uri: http://localhost:3000/bulk_load?team_id=0&types=team%2Cmember&hmac_client_id=classic_service&hmac_nonce=daac81c0-ad16-49de-8362-24e9a541992b&hmac_timestamp=1590177529
     body:
       encoding: US-ASCII
       string: ''
@@ -10,7 +10,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.17.3
       X-Teamsnap-Hmac:
-      - cfea128a27f5f0ceb5da551461dbb77268589705a170f1a96e017c7c6569e788
+      - ab25fafc62f4f622b3e88e7d35ff69cfe2f6fdd88e94a040fb4fe04794ff5621
       Expect:
       - ''
   response:
@@ -27,9 +27,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - f73beb4b-eac4-4537-a54d-1f78804e8691
+      - c83f930c-7046-4e83-970d-b44331a5cd8b
       X-Runtime:
-      - '0.766401'
+      - '0.723140'
       Vary:
       - Origin
       Content-Length:
@@ -50,6 +50,6 @@ http_interactions:
         of singular types that you want returned."}]}],"items":[]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/bulk_load?team_id=0&types=team%2Cmember&hmac_client_id=classic_service&hmac_nonce=1ce7dbc3-7214-4060-9d83-2f20ace4b5af&hmac_timestamp=1590129854
-  recorded_at: Fri, 22 May 2020 06:44:15 GMT
-recorded_with: VCR 5.0.0
+      effective_url: http://localhost:3000/bulk_load?team_id=0&types=team%2Cmember&hmac_client_id=classic_service&hmac_nonce=daac81c0-ad16-49de-8362-24e9a541992b&hmac_timestamp=1590177529
+  recorded_at: Fri, 22 May 2020 19:58:50 GMT
+recorded_with: VCR 5.1.0

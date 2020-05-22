@@ -2,10 +2,10 @@
 http_interactions:
 - request:
     method: patch
-    uri: http://localhost:3000/?hmac_client_id=classic_service&hmac_nonce=8ffbc64f-d0f8-4e18-881b-f68824b649c3&hmac_timestamp=1590129851
+    uri: http://localhost:3000/?hmac_client_id=classic_service&hmac_nonce=c71f0b31-8497-4f77-b59c-2d136a6fe553&hmac_timestamp=1590177534
     body:
       encoding: UTF-8
-      string: "-------------RubyMultipartPost-3259f3d9c63d6772d240c717f20ba02c\r\nContent-Disposition:
+      string: "-------------RubyMultipartPost-a30cc1ea0088df4fd27c6aa4d308c051\r\nContent-Disposition:
         form-data; name=\"file\"; filename=\"spec_helper.rb\"\r\nContent-Length: 865\r\nContent-Type:
         txt/csv\r\nContent-Transfer-Encoding: binary\r\n\r\nrequire \"simplecov\"\nrequire
         \"coveralls\"\nrequire \"awesome_print\"\nrequire \"rack/test\"\n\nCoveralls.wear!\n\nSimpleCov::Formatter::MultiFormatter[\n
@@ -18,16 +18,16 @@ http_interactions:
         :hmac_nonce, :hmac_timestamp\n      )\n    ]\n  }\n  c.before_record do |i|\n
         \   i.response.body.force_encoding('UTF-8')\n  end\nend\n\nRSpec.configure
         do |c|\n  c.expose_dsl_globally = false\n  c.order = \"random\"\n  c.backtrace_inclusion_patterns
-        = []\nend\n\r\n-------------RubyMultipartPost-3259f3d9c63d6772d240c717f20ba02c--\r\n"
+        = []\nend\n\r\n-------------RubyMultipartPost-a30cc1ea0088df4fd27c6aa4d308c051--\r\n"
     headers:
       User-Agent:
       - Faraday v0.17.3
       Content-Type:
-      - multipart/form-data; boundary=-----------RubyMultipartPost-3259f3d9c63d6772d240c717f20ba02c
+      - multipart/form-data; boundary=-----------RubyMultipartPost-a30cc1ea0088df4fd27c6aa4d308c051
       Content-Length:
       - '1152'
       X-Teamsnap-Hmac:
-      - 1717bf867b732b0268dda1ad7d1e699c652748e34bd036933fb5236ba60a682b
+      - 600aa754d511e1f5e5d75d6e40ff39759d1b2140a7e48a69cabf8388732d1ae4
       Expect:
       - ''
   response:
@@ -38,9 +38,9 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       X-Request-Id:
-      - 42124b87-4be9-405e-b4c6-763ce959b791
+      - 42428a1e-1ab5-4a92-9786-61b1dc57263a
       X-Runtime:
-      - '0.586770'
+      - '0.603519'
       Vary:
       - Origin
       Content-Length:
@@ -101,6 +101,6 @@ http_interactions:
         (2.2.2) lib/logging/diagnostic_context.rb:474:in `block in create_with_logging_context''"}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/?hmac_client_id=classic_service&hmac_nonce=8ffbc64f-d0f8-4e18-881b-f68824b649c3&hmac_timestamp=1590129851
-  recorded_at: Fri, 22 May 2020 06:44:11 GMT
-recorded_with: VCR 5.0.0
+      effective_url: http://localhost:3000/?hmac_client_id=classic_service&hmac_nonce=c71f0b31-8497-4f77-b59c-2d136a6fe553&hmac_timestamp=1590177534
+  recorded_at: Fri, 22 May 2020 19:58:54 GMT
+recorded_with: VCR 5.1.0

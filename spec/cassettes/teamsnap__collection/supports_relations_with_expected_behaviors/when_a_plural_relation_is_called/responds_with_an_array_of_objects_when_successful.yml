@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:3000/events/search?id=1&hmac_client_id=classic_service&hmac_nonce=849a9243-4bf7-40cd-ab9e-f801ef79630d&hmac_timestamp=1590130032
+    uri: http://localhost:3000/events/search?id=1&hmac_client_id=classic_service&hmac_nonce=ab2d3d58-6e68-4eb9-95f9-f6643668d171&hmac_timestamp=1590177512
     body:
       encoding: US-ASCII
       string: ''
@@ -10,7 +10,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.17.3
       X-Teamsnap-Hmac:
-      - 95ccae77d22bce29cd3ce01e71e065f98c673727693c12694a6c29a7c1470a00
+      - 3686111be96c80d26ce9666998e0ca9d221529a6d8eb30b67235c91df78bc39c
       Expect:
       - ''
   response:
@@ -21,17 +21,17 @@ http_interactions:
       Content-Type:
       - application/vnd.collection+json
       Last-Modified:
-      - Fri, 22 May 2020 05:21:25 GMT
+      - Fri, 22 May 2020 19:56:15 GMT
       Cache-Control:
       - max-age=0, private, must-revalidate
       ETag:
-      - '"10a4eb0dc2927249943b726ed2d4269c1025febc9a86de88a77b7c0a4149f280"'
+      - '"c92e1457ff76e82f7a183dc57d3d82b152a91747ef7ac24673d23972415cea67"'
       X-Content-Type-Options:
       - nosniff
       X-Request-Id:
-      - e1b4d78b-9a5a-4533-9cd7-874eb0810aee
+      - 0e96d094-2e7b-4df8-b228-c1be6879aa87
       X-Runtime:
-      - '0.631908'
+      - '0.461997'
       Vary:
       - Origin
       Content-Length:
@@ -67,14 +67,14 @@ http_interactions:
         Time (US & Canada)","type":"String"},{"name":"time_zone_description","value":"Mountain
         Time (US & Canada)","type":"String"},{"name":"time_zone_iana_name","value":"America/Denver","type":"String"},{"name":"time_zone_offset","value":"-07:00","type":"String"},{"name":"source_time_zone_iana_name","value":"America/Denver","type":"String"},{"name":"tracks_availability","value":true,"type":"Boolean"},{"name":"uniform","value":null,"type":"String"},{"name":"is_league_controlled","value":false,"type":"Boolean"},{"name":"opponent_name","value":null,"type":"String"},{"name":"location_name","value":"BoulderHQ","type":"String"},{"name":"formatted_title","value":"March
         Madness Game 1","type":"String"},{"name":"formatted_title_for_multi_team","value":"Base
-        Team March Madness Game 1","type":"String"},{"name":"created_at","value":"2020-05-22T05:21:24Z","type":"DateTime"},{"name":"updated_at","value":"2020-05-22T05:21:25Z","type":"DateTime"}],"links":[{"rel":"assignments","href":"http://localhost:3000/assignments/search?event_id=1"},{"rel":"assignments_team","href":"http://localhost:3000/assignments/search?event_id=1&team_id=1"},{"rel":"availabilities","href":"http://localhost:3000/availabilities/search?event_id=1"},{"rel":"calendar_single_event","href":"http://86ed2e8eefaaee16c4b7-16391cffaf9272bff70e93998d553c16.r2.cf1.rackcdn.com/team_schedule/event/1.ics"},{"rel":"division_location","href":"http://localhost:3000/division_locations/"},{"rel":"event_lineups","href":"http://localhost:3000/event_lineups/search?event_id=1"},{"rel":"event_statistics","href":"http://localhost:3000/event_statistics/search?event_id=1"},{"rel":"location","href":"http://localhost:3000/locations/1"},{"rel":"statistic_data","href":"http://localhost:3000/statistic_data/search?event_id=1"},{"rel":"suggested_assignments","href":"http://localhost:3000/suggested_assignments/search?team_id=1"},{"rel":"team","href":"http://localhost:3000/teams/1"}],"rel":"event-1"}]}}'
+        Team March Madness Game 1","type":"String"},{"name":"created_at","value":"2020-05-22T19:56:14Z","type":"DateTime"},{"name":"updated_at","value":"2020-05-22T19:56:15Z","type":"DateTime"}],"links":[{"rel":"assignments","href":"http://localhost:3000/assignments/search?event_id=1"},{"rel":"assignments_team","href":"http://localhost:3000/assignments/search?event_id=1&team_id=1"},{"rel":"availabilities","href":"http://localhost:3000/availabilities/search?event_id=1"},{"rel":"calendar_single_event","href":"http://86ed2e8eefaaee16c4b7-16391cffaf9272bff70e93998d553c16.r2.cf1.rackcdn.com/team_schedule/event/1.ics"},{"rel":"division_location","href":"http://localhost:3000/division_locations/"},{"rel":"event_lineups","href":"http://localhost:3000/event_lineups/search?event_id=1"},{"rel":"event_statistics","href":"http://localhost:3000/event_statistics/search?event_id=1"},{"rel":"location","href":"http://localhost:3000/locations/1"},{"rel":"statistic_data","href":"http://localhost:3000/statistic_data/search?event_id=1"},{"rel":"suggested_assignments","href":"http://localhost:3000/suggested_assignments/search?team_id=1"},{"rel":"team","href":"http://localhost:3000/teams/1"}],"rel":"event-1"}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/events/search?id=1&hmac_client_id=classic_service&hmac_nonce=849a9243-4bf7-40cd-ab9e-f801ef79630d&hmac_timestamp=1590130032
-  recorded_at: Fri, 22 May 2020 06:47:13 GMT
+      effective_url: http://localhost:3000/events/search?id=1&hmac_client_id=classic_service&hmac_nonce=ab2d3d58-6e68-4eb9-95f9-f6643668d171&hmac_timestamp=1590177512
+  recorded_at: Fri, 22 May 2020 19:58:32 GMT
 - request:
     method: get
-    uri: http://localhost:3000/availabilities/search?event_id=1&hmac_client_id=classic_service&hmac_nonce=db5d9d96-8b44-4cfc-b74b-52f576aef347&hmac_timestamp=1590130033
+    uri: http://localhost:3000/availabilities/search?event_id=1&hmac_client_id=classic_service&hmac_nonce=e2a8b21d-a940-4300-b35a-00229bddcab2&hmac_timestamp=1590177512
     body:
       encoding: US-ASCII
       string: ''
@@ -82,7 +82,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.17.3
       X-Teamsnap-Hmac:
-      - 93e892c81c03fb4d744fc71cdea49ea8e59caf1b362101f91d9ed80f2a19ff5b
+      - 06f38969525c692ef8ec4501d6538cf38da6a723fa61ce21c4418c04aeab1d8e
       Expect:
       - ''
   response:
@@ -93,17 +93,17 @@ http_interactions:
       Content-Type:
       - application/vnd.collection+json
       Last-Modified:
-      - Fri, 22 May 2020 05:21:25 GMT
+      - Fri, 22 May 2020 19:56:15 GMT
       Cache-Control:
       - max-age=0, private, must-revalidate
       ETag:
-      - '"22d3d21bd11e8bbc28837de4755667a49646c97885fe7007096bc16e2f3c7959"'
+      - '"242b0fa45447320e9f208e2d483d7ba5eca9d9e237c2e1552050edf9d52b173f"'
       X-Content-Type-Options:
       - nosniff
       X-Request-Id:
-      - b4a3fb87-6c38-435d-adcd-cc9525e422b4
+      - 13174593-919d-4099-9433-c481ddc5478e
       X-Runtime:
-      - '0.637403'
+      - '0.559119'
       Vary:
       - Origin
       Content-Length:
@@ -120,12 +120,12 @@ http_interactions:
         dataset based on the start_date field, valid values are ''asc'' or ''desc''."}]}],"commands":[{"rel":"bulk_mark_unset_availabilities","href":"http://localhost:3000/availabilities/bulk_mark_unset_availabilities","prompt":"Mark
         all future unset availabilities to specified status_code for the specified
         member_id","data":[{"name":"status_code","value":null},{"name":"member_id","value":null},{"name":"started_after","value":null}]}],"items":[{"href":"http://localhost:3000/availabilities/69-1","data":[{"name":"id","value":"69-1","type":"String"},{"name":"type","value":"availability","type":"String"},{"name":"event_id","value":1,"type":"String"},{"name":"member_id","value":69,"type":"String"},{"name":"notes","value":null,"type":"String"},{"name":"notes_author_member_id","value":null,"type":"String"},{"name":"status","value":"Yes.
-        I will be there.","type":"String"},{"name":"status_code","value":1,"type":"Integer"},{"name":"team_id","value":1,"type":"String"},{"name":"is_current_user","value":false,"type":"Boolean"},{"name":"created_at","value":"2020-05-22T05:21:24Z","type":"DateTime"},{"name":"updated_at","value":"2020-05-22T05:21:24Z","type":"DateTime"}],"links":[{"rel":"event","href":"http://localhost:3000/events/1"},{"rel":"member","href":"http://localhost:3000/members/69"},{"rel":"team","href":"http://localhost:3000/teams/1"}],"rel":"availability-69-1"},{"href":"http://localhost:3000/availabilities/70-1","data":[{"name":"id","value":"70-1","type":"String"},{"name":"type","value":"availability","type":"String"},{"name":"event_id","value":1,"type":"String"},{"name":"member_id","value":70,"type":"String"},{"name":"notes","value":null,"type":"String"},{"name":"notes_author_member_id","value":null,"type":"String"},{"name":"status","value":"Yes.
-        I will be there.","type":"String"},{"name":"status_code","value":1,"type":"Integer"},{"name":"team_id","value":1,"type":"String"},{"name":"is_current_user","value":false,"type":"Boolean"},{"name":"created_at","value":"2020-05-22T05:21:24Z","type":"DateTime"},{"name":"updated_at","value":"2020-05-22T05:21:24Z","type":"DateTime"}],"links":[{"rel":"event","href":"http://localhost:3000/events/1"},{"rel":"member","href":"http://localhost:3000/members/70"},{"rel":"team","href":"http://localhost:3000/teams/1"}],"rel":"availability-70-1"},{"href":"http://localhost:3000/availabilities/73-1","data":[{"name":"id","value":"73-1","type":"String"},{"name":"type","value":"availability","type":"String"},{"name":"event_id","value":1,"type":"String"},{"name":"member_id","value":73,"type":"String"},{"name":"notes","value":null,"type":"String"},{"name":"notes_author_member_id","value":null,"type":"String"},{"name":"status","value":"Maybe.
-        I''m not sure yet.","type":"String"},{"name":"status_code","value":2,"type":"Integer"},{"name":"team_id","value":1,"type":"String"},{"name":"is_current_user","value":false,"type":"Boolean"},{"name":"created_at","value":"2020-05-22T05:21:25Z","type":"DateTime"},{"name":"updated_at","value":"2020-05-22T05:21:25Z","type":"DateTime"}],"links":[{"rel":"event","href":"http://localhost:3000/events/1"},{"rel":"member","href":"http://localhost:3000/members/73"},{"rel":"team","href":"http://localhost:3000/teams/1"}],"rel":"availability-73-1"},{"href":"http://localhost:3000/availabilities/74-1","data":[{"name":"id","value":"74-1","type":"String"},{"name":"type","value":"availability","type":"String"},{"name":"event_id","value":1,"type":"String"},{"name":"member_id","value":74,"type":"String"},{"name":"notes","value":null,"type":"String"},{"name":"notes_author_member_id","value":null,"type":"String"},{"name":"status","value":"No.
-        I can''t make it.","type":"String"},{"name":"status_code","value":0,"type":"Integer"},{"name":"team_id","value":1,"type":"String"},{"name":"is_current_user","value":false,"type":"Boolean"},{"name":"created_at","value":"2020-05-22T05:21:25Z","type":"DateTime"},{"name":"updated_at","value":"2020-05-22T05:21:25Z","type":"DateTime"}],"links":[{"rel":"event","href":"http://localhost:3000/events/1"},{"rel":"member","href":"http://localhost:3000/members/74"},{"rel":"team","href":"http://localhost:3000/teams/1"}],"rel":"availability-74-1"}]}}'
+        I will be there.","type":"String"},{"name":"status_code","value":1,"type":"Integer"},{"name":"team_id","value":1,"type":"String"},{"name":"is_current_user","value":false,"type":"Boolean"},{"name":"created_at","value":"2020-05-22T19:56:14Z","type":"DateTime"},{"name":"updated_at","value":"2020-05-22T19:56:14Z","type":"DateTime"}],"links":[{"rel":"event","href":"http://localhost:3000/events/1"},{"rel":"member","href":"http://localhost:3000/members/69"},{"rel":"team","href":"http://localhost:3000/teams/1"}],"rel":"availability-69-1"},{"href":"http://localhost:3000/availabilities/70-1","data":[{"name":"id","value":"70-1","type":"String"},{"name":"type","value":"availability","type":"String"},{"name":"event_id","value":1,"type":"String"},{"name":"member_id","value":70,"type":"String"},{"name":"notes","value":null,"type":"String"},{"name":"notes_author_member_id","value":null,"type":"String"},{"name":"status","value":"Yes.
+        I will be there.","type":"String"},{"name":"status_code","value":1,"type":"Integer"},{"name":"team_id","value":1,"type":"String"},{"name":"is_current_user","value":false,"type":"Boolean"},{"name":"created_at","value":"2020-05-22T19:56:14Z","type":"DateTime"},{"name":"updated_at","value":"2020-05-22T19:56:14Z","type":"DateTime"}],"links":[{"rel":"event","href":"http://localhost:3000/events/1"},{"rel":"member","href":"http://localhost:3000/members/70"},{"rel":"team","href":"http://localhost:3000/teams/1"}],"rel":"availability-70-1"},{"href":"http://localhost:3000/availabilities/73-1","data":[{"name":"id","value":"73-1","type":"String"},{"name":"type","value":"availability","type":"String"},{"name":"event_id","value":1,"type":"String"},{"name":"member_id","value":73,"type":"String"},{"name":"notes","value":null,"type":"String"},{"name":"notes_author_member_id","value":null,"type":"String"},{"name":"status","value":"Maybe.
+        I''m not sure yet.","type":"String"},{"name":"status_code","value":2,"type":"Integer"},{"name":"team_id","value":1,"type":"String"},{"name":"is_current_user","value":false,"type":"Boolean"},{"name":"created_at","value":"2020-05-22T19:56:15Z","type":"DateTime"},{"name":"updated_at","value":"2020-05-22T19:56:15Z","type":"DateTime"}],"links":[{"rel":"event","href":"http://localhost:3000/events/1"},{"rel":"member","href":"http://localhost:3000/members/73"},{"rel":"team","href":"http://localhost:3000/teams/1"}],"rel":"availability-73-1"},{"href":"http://localhost:3000/availabilities/74-1","data":[{"name":"id","value":"74-1","type":"String"},{"name":"type","value":"availability","type":"String"},{"name":"event_id","value":1,"type":"String"},{"name":"member_id","value":74,"type":"String"},{"name":"notes","value":null,"type":"String"},{"name":"notes_author_member_id","value":null,"type":"String"},{"name":"status","value":"No.
+        I can''t make it.","type":"String"},{"name":"status_code","value":0,"type":"Integer"},{"name":"team_id","value":1,"type":"String"},{"name":"is_current_user","value":false,"type":"Boolean"},{"name":"created_at","value":"2020-05-22T19:56:15Z","type":"DateTime"},{"name":"updated_at","value":"2020-05-22T19:56:15Z","type":"DateTime"}],"links":[{"rel":"event","href":"http://localhost:3000/events/1"},{"rel":"member","href":"http://localhost:3000/members/74"},{"rel":"team","href":"http://localhost:3000/teams/1"}],"rel":"availability-74-1"}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/availabilities/search?event_id=1&hmac_client_id=classic_service&hmac_nonce=db5d9d96-8b44-4cfc-b74b-52f576aef347&hmac_timestamp=1590130033
-  recorded_at: Fri, 22 May 2020 06:47:13 GMT
-recorded_with: VCR 5.0.0
+      effective_url: http://localhost:3000/availabilities/search?event_id=1&hmac_client_id=classic_service&hmac_nonce=e2a8b21d-a940-4300-b35a-00229bddcab2&hmac_timestamp=1590177512
+  recorded_at: Fri, 22 May 2020 19:58:33 GMT
+recorded_with: VCR 5.1.0

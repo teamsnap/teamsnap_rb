@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:3000/bulk_load?types=team%2Cmember&hmac_client_id=classic_service&hmac_nonce=36243428-73a5-4d03-8218-45ba9f8d4c17&hmac_timestamp=1590129855
+    uri: http://localhost:3000/bulk_load?types=team%2Cmember&hmac_client_id=classic_service&hmac_nonce=4192e6fd-bbdc-4d6a-8ba0-5f19f3ce9af6&hmac_timestamp=1590177531
     body:
       encoding: US-ASCII
       string: ''
@@ -10,7 +10,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.17.3
       X-Teamsnap-Hmac:
-      - 64ea2cc0ec1036d9dd986b8306f57b14c0fdfca79bdbfe704179f9d88ec4c3fd
+      - 8a83bdd33eae0c58a5fdb7a57ebb11a99949b30a5ce7dade8ec6e9cc44df59a6
       Expect:
       - ''
   response:
@@ -25,9 +25,9 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Request-Id:
-      - b9c7216f-2a9b-4565-b9c9-7321cd7de404
+      - 2fa105b6-b7bb-47dd-94bd-efdec55ec93c
       X-Runtime:
-      - '0.384816'
+      - '0.375527'
       Vary:
       - Origin
       Content-Length:
@@ -37,6 +37,6 @@ http_interactions:
       string: '{"collection":{"error":{"message":"You must include a team_id parameter"}}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/bulk_load?types=team%2Cmember&hmac_client_id=classic_service&hmac_nonce=36243428-73a5-4d03-8218-45ba9f8d4c17&hmac_timestamp=1590129855
-  recorded_at: Fri, 22 May 2020 06:44:15 GMT
-recorded_with: VCR 5.0.0
+      effective_url: http://localhost:3000/bulk_load?types=team%2Cmember&hmac_client_id=classic_service&hmac_nonce=4192e6fd-bbdc-4d6a-8ba0-5f19f3ce9af6&hmac_timestamp=1590177531
+  recorded_at: Fri, 22 May 2020 19:58:51 GMT
+recorded_with: VCR 5.1.0

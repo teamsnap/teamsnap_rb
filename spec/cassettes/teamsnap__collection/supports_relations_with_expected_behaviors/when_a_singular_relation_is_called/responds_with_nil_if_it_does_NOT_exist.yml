@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:3000/events/search?id=1&hmac_client_id=classic_service&hmac_nonce=c25275db-578a-402a-9ab1-ffd9a5c573c6&hmac_timestamp=1590130033
+    uri: http://localhost:3000/events/search?id=1&hmac_client_id=classic_service&hmac_nonce=97fe83e6-f93b-4aed-b625-9f267b0a530a&hmac_timestamp=1590177508
     body:
       encoding: US-ASCII
       string: ''
@@ -10,7 +10,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.17.3
       X-Teamsnap-Hmac:
-      - 2cffac4cdd528f41d8ed0ec0d01cec236a985becd09470c6c85e4887f3b28283
+      - 1680cceddd13aa8cd672a7400872e1218477a97dafceaa6a564a7f3231e64144
       Expect:
       - ''
   response:
@@ -21,17 +21,17 @@ http_interactions:
       Content-Type:
       - application/vnd.collection+json
       Last-Modified:
-      - Fri, 22 May 2020 05:21:25 GMT
+      - Fri, 22 May 2020 19:56:15 GMT
       Cache-Control:
       - max-age=0, private, must-revalidate
       ETag:
-      - '"10a4eb0dc2927249943b726ed2d4269c1025febc9a86de88a77b7c0a4149f280"'
+      - '"c92e1457ff76e82f7a183dc57d3d82b152a91747ef7ac24673d23972415cea67"'
       X-Content-Type-Options:
       - nosniff
       X-Request-Id:
-      - a94efba0-b9f8-4631-aee0-9506c400fffd
+      - e660f79e-890b-4e50-9002-633bf2851213
       X-Runtime:
-      - '0.699564'
+      - '0.638476'
       Vary:
       - Origin
       Content-Length:
@@ -67,14 +67,14 @@ http_interactions:
         Time (US & Canada)","type":"String"},{"name":"time_zone_description","value":"Mountain
         Time (US & Canada)","type":"String"},{"name":"time_zone_iana_name","value":"America/Denver","type":"String"},{"name":"time_zone_offset","value":"-07:00","type":"String"},{"name":"source_time_zone_iana_name","value":"America/Denver","type":"String"},{"name":"tracks_availability","value":true,"type":"Boolean"},{"name":"uniform","value":null,"type":"String"},{"name":"is_league_controlled","value":false,"type":"Boolean"},{"name":"opponent_name","value":null,"type":"String"},{"name":"location_name","value":"BoulderHQ","type":"String"},{"name":"formatted_title","value":"March
         Madness Game 1","type":"String"},{"name":"formatted_title_for_multi_team","value":"Base
-        Team March Madness Game 1","type":"String"},{"name":"created_at","value":"2020-05-22T05:21:24Z","type":"DateTime"},{"name":"updated_at","value":"2020-05-22T05:21:25Z","type":"DateTime"}],"links":[{"rel":"assignments","href":"http://localhost:3000/assignments/search?event_id=1"},{"rel":"assignments_team","href":"http://localhost:3000/assignments/search?event_id=1&team_id=1"},{"rel":"availabilities","href":"http://localhost:3000/availabilities/search?event_id=1"},{"rel":"calendar_single_event","href":"http://86ed2e8eefaaee16c4b7-16391cffaf9272bff70e93998d553c16.r2.cf1.rackcdn.com/team_schedule/event/1.ics"},{"rel":"division_location","href":"http://localhost:3000/division_locations/"},{"rel":"event_lineups","href":"http://localhost:3000/event_lineups/search?event_id=1"},{"rel":"event_statistics","href":"http://localhost:3000/event_statistics/search?event_id=1"},{"rel":"location","href":"http://localhost:3000/locations/1"},{"rel":"statistic_data","href":"http://localhost:3000/statistic_data/search?event_id=1"},{"rel":"suggested_assignments","href":"http://localhost:3000/suggested_assignments/search?team_id=1"},{"rel":"team","href":"http://localhost:3000/teams/1"}],"rel":"event-1"}]}}'
+        Team March Madness Game 1","type":"String"},{"name":"created_at","value":"2020-05-22T19:56:14Z","type":"DateTime"},{"name":"updated_at","value":"2020-05-22T19:56:15Z","type":"DateTime"}],"links":[{"rel":"assignments","href":"http://localhost:3000/assignments/search?event_id=1"},{"rel":"assignments_team","href":"http://localhost:3000/assignments/search?event_id=1&team_id=1"},{"rel":"availabilities","href":"http://localhost:3000/availabilities/search?event_id=1"},{"rel":"calendar_single_event","href":"http://86ed2e8eefaaee16c4b7-16391cffaf9272bff70e93998d553c16.r2.cf1.rackcdn.com/team_schedule/event/1.ics"},{"rel":"division_location","href":"http://localhost:3000/division_locations/"},{"rel":"event_lineups","href":"http://localhost:3000/event_lineups/search?event_id=1"},{"rel":"event_statistics","href":"http://localhost:3000/event_statistics/search?event_id=1"},{"rel":"location","href":"http://localhost:3000/locations/1"},{"rel":"statistic_data","href":"http://localhost:3000/statistic_data/search?event_id=1"},{"rel":"suggested_assignments","href":"http://localhost:3000/suggested_assignments/search?team_id=1"},{"rel":"team","href":"http://localhost:3000/teams/1"}],"rel":"event-1"}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/events/search?id=1&hmac_client_id=classic_service&hmac_nonce=c25275db-578a-402a-9ab1-ffd9a5c573c6&hmac_timestamp=1590130033
-  recorded_at: Fri, 22 May 2020 06:47:14 GMT
+      effective_url: http://localhost:3000/events/search?id=1&hmac_client_id=classic_service&hmac_nonce=97fe83e6-f93b-4aed-b625-9f267b0a530a&hmac_timestamp=1590177508
+  recorded_at: Fri, 22 May 2020 19:58:29 GMT
 - request:
     method: get
-    uri: http://localhost:3000/division_locations/?hmac_client_id=classic_service&hmac_nonce=bee9ed39-160b-4ad6-b5db-0d73fc754463&hmac_timestamp=1590130034
+    uri: http://localhost:3000/division_locations/?hmac_client_id=classic_service&hmac_nonce=45b2eb04-36e0-462e-a466-63c13773090a&hmac_timestamp=1590177509
     body:
       encoding: US-ASCII
       string: ''
@@ -82,7 +82,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.17.3
       X-Teamsnap-Hmac:
-      - b2acf46d73f32e3e76f91d1c3a644bde3cbde1531e456118ae21923283de3858
+      - 0dfd43e8e3961b5cea8a942d7a8522560157e2a5a2272b5a66cabdde487c090f
       Expect:
       - ''
   response:
@@ -99,9 +99,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 1596d4db-d951-4746-ba39-30f40963bd55
+      - 593c8524-ec82-4189-bac1-22dcb5e5c24c
       X-Runtime:
-      - '0.497420'
+      - '0.442151'
       Vary:
       - Origin
       Content-Length:
@@ -116,6 +116,6 @@ http_interactions:
         the specified ''source_division_location_ids'' to the specified ''destination_division_id''.","data":[{"name":"destination_division_id","value":null},{"name":"source_location_ids","value":null}]}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/division_locations/?hmac_client_id=classic_service&hmac_nonce=bee9ed39-160b-4ad6-b5db-0d73fc754463&hmac_timestamp=1590130034
-  recorded_at: Fri, 22 May 2020 06:47:14 GMT
-recorded_with: VCR 5.0.0
+      effective_url: http://localhost:3000/division_locations/?hmac_client_id=classic_service&hmac_nonce=45b2eb04-36e0-462e-a466-63c13773090a&hmac_timestamp=1590177509
+  recorded_at: Fri, 22 May 2020 19:58:29 GMT
+recorded_with: VCR 5.1.0

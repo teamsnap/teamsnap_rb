@@ -46,12 +46,12 @@ RSpec.describe "teamsnap__collection", :vcr => true do
 
     ms = TeamSnap::Team.invite(
       user_client,
-      :team_id => 1, :member_id => [9, 11], :notify_as_member_id => 3,
+      :team_id => 1, :member_id => [75, 76], :notify_as_member_id => 3,
       :introduction => "Welcome! This is our team\n ...the superstars!"
     )
 
     expect(ms.size).to eq(2)
-    expect(ms.map(&:id)).to eq([9, 11])
+    expect(ms.map(&:id)).to eq([75, 76])
     expect(ms.map(&:is_invited)).to eq([true, true])
   end
 

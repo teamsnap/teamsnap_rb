@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: patch
-    uri: http://localhost:3000/?hmac_client_id=classic_service&hmac_nonce=94d9f815-515b-4eb8-a223-8d3fc8d7ffb2&hmac_timestamp=1590129852
+    uri: http://localhost:3000/?hmac_client_id=classic_service&hmac_nonce=debef35e-c799-44a7-8b90-28019153cfd9&hmac_timestamp=1590177533
     body:
       encoding: UTF-8
       string: "{}"
@@ -10,7 +10,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.17.3
       X-Teamsnap-Hmac:
-      - f7c0265b94116a606004f9044246c80999ad16eddc5df05c428a8c3b2297f5ea
+      - ab27881863f28ad9c46274c016aeeda0818d59fa16cf7c983e4548fc00b43752
       Expect:
       - ''
   response:
@@ -21,9 +21,9 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       X-Request-Id:
-      - 3056b0f0-9310-4eb3-a544-ba0e4c6e9b12
+      - 3fede1d7-0f13-4280-aae8-6186c4e7eff5
       X-Runtime:
-      - '0.596289'
+      - '0.639444'
       Vary:
       - Origin
       Content-Length:
@@ -84,6 +84,6 @@ http_interactions:
         (2.2.2) lib/logging/diagnostic_context.rb:474:in `block in create_with_logging_context''"}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/?hmac_client_id=classic_service&hmac_nonce=94d9f815-515b-4eb8-a223-8d3fc8d7ffb2&hmac_timestamp=1590129852
-  recorded_at: Fri, 22 May 2020 06:44:12 GMT
-recorded_with: VCR 5.0.0
+      effective_url: http://localhost:3000/?hmac_client_id=classic_service&hmac_nonce=debef35e-c799-44a7-8b90-28019153cfd9&hmac_timestamp=1590177533
+  recorded_at: Fri, 22 May 2020 19:58:54 GMT
+recorded_with: VCR 5.1.0
