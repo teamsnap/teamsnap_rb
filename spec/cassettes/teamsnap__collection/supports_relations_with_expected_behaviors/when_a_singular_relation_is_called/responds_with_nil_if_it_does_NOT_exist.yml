@@ -2,15 +2,17 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:3000/events/search?id=1&hmac_client_id=classic&hmac_nonce=a85b7a9d-0fe1-46a9-ab10-1df6fe42fe53&hmac_timestamp=1470941487
+    uri: http://localhost:3000/events/search?id=1&hmac_client_id=classic_service&hmac_nonce=a4e5e4f1-e4d5-4a12-bfdd-b4c948aa3dc7&hmac_timestamp=1590126255
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Faraday v0.9.2
+      - Faraday v0.17.3
       X-Teamsnap-Hmac:
-      - 5c96b33ff23123df0bab453edf105cb558584a90e44ff94259b8af72052a5c24
+      - 0aba178713854f94a319b4866d7bcbd405749c3d93d42e819e289a82d2f6746a
+      Expect:
+      - ''
   response:
     status:
       code: 200
@@ -18,25 +20,25 @@ http_interactions:
     headers:
       Content-Type:
       - application/vnd.collection+json
-      Content-Length:
-      - '7979'
-      X-Content-Type-Options:
-      - nosniff
-      ETag:
-      - '"8c2c173df95de409c806e789216eee4a"'
+      Last-Modified:
+      - Fri, 22 May 2020 05:21:25 GMT
       Cache-Control:
       - max-age=0, private, must-revalidate
+      ETag:
+      - '"10a4eb0dc2927249943b726ed2d4269c1025febc9a86de88a77b7c0a4149f280"'
+      X-Content-Type-Options:
+      - nosniff
       X-Request-Id:
-      - e5334a5c-b6e4-4d92-9721-02929f3b5267
+      - 6e00acbd-de71-483f-b27b-bfe04d1b64cf
       X-Runtime:
-      - '0.056510'
-      Connection:
-      - keep-alive
-      Server:
-      - thin
+      - '0.783181'
+      Vary:
+      - Origin
+      Content-Length:
+      - '9768'
     body:
       encoding: UTF-8
-      string: '{"collection":{"version":"3.306.2","href":"http://localhost:3000/events","rel":"events","template":{"data":[{"name":"type","value":"event"},{"name":"additional_location_details","value":null},{"name":"browser_time_zone","value":null},{"name":"division_location_id","value":null},{"name":"doesnt_count_towards_record","value":null},{"name":"duration_in_minutes","value":null},{"name":"game_type_code","value":null},{"name":"icon_color","value":null},{"name":"is_canceled","value":null},{"name":"is_game","value":null},{"name":"is_overtime","value":null},{"name":"is_shootout","value":null},{"name":"is_tbd","value":null},{"name":"label","value":null},{"name":"location_id","value":null},{"name":"minutes_to_arrive_early","value":null},{"name":"name","value":null},{"name":"notes","value":null},{"name":"notify_opponent","value":null},{"name":"notify_opponent_contacts_email","value":null},{"name":"notify_opponent_contacts_name","value":null},{"name":"notify_opponent_notes","value":null},{"name":"notify_team","value":null},{"name":"notify_team_as_member_id","value":null},{"name":"opponent_id","value":null},{"name":"points_for_opponent","value":null},{"name":"points_for_team","value":null},{"name":"repeating_include","value":null,"prompt":"When
+      string: '{"collection":{"version":"3.854.0","href":"http://localhost:3000/events","rel":"events","template":{"data":[{"name":"type","value":"event"},{"name":"additional_location_details","value":null},{"name":"browser_time_zone","value":null},{"name":"division_location_id","value":null},{"name":"doesnt_count_towards_record","value":null},{"name":"duration_in_minutes","value":null},{"name":"game_type_code","value":null},{"name":"icon_color","value":null},{"name":"is_canceled","value":null},{"name":"is_game","value":null},{"name":"is_overtime","value":null},{"name":"is_shootout","value":null},{"name":"is_tbd","value":null},{"name":"label","value":null},{"name":"location_id","value":null},{"name":"minutes_to_arrive_early","value":null},{"name":"name","value":null},{"name":"notes","value":null},{"name":"notify_opponent","value":null},{"name":"notify_opponent_contacts_email","value":null},{"name":"notify_opponent_contacts_name","value":null},{"name":"notify_opponent_notes","value":null},{"name":"notify_team","value":null},{"name":"notify_team_as_member_id","value":null},{"name":"opponent_id","value":null},{"name":"points_for_opponent","value":null},{"name":"points_for_team","value":null},{"name":"repeating_include","value":null,"prompt":"When
         updating a repeating event, this is a required field. Values are: \"all\"
         - updates all events in this series, \"future\" - updates this event and all
         that occur after, \"none\" - only updates a single event."},{"name":"repeating_type_code","value":null,"prompt":"A
@@ -46,36 +48,43 @@ http_interactions:
         date when the repeating event should end, this is inclusive so an event will
         be created on this day if it falls before the next event specified by \"repeating_type_code\".
         This attribute is required with \"repeating_type_code\" when creating a repeating
-        event."},{"name":"results","value":null},{"name":"results_url","value":null},{"name":"shootout_points_for_opponent","value":null},{"name":"shootout_points_for_team","value":null},{"name":"start_date","value":null},{"name":"team_id","value":null},{"name":"time_zone","value":null},{"name":"tracks_availability","value":null},{"name":"uniform","value":null}]},"links":[{"rel":"assignments","href":"http://localhost:3000/assignments"},{"rel":"availabilities","href":"http://localhost:3000/availabilities"},{"rel":"division_location","href":"http://localhost:3000/division_locations"},{"rel":"event_statistics","href":"http://localhost:3000/event_statistics"},{"rel":"location","href":"http://localhost:3000/locations"},{"rel":"opponent","href":"http://localhost:3000/opponents"},{"rel":"statistic_data","href":"http://localhost:3000/statistic_data"},{"rel":"team","href":"http://localhost:3000/teams"},{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/events/search?id=1"}],"queries":[{"rel":"search","sort":["start_date"],"href":"http://localhost:3000/events/search","data":[{"name":"team_id","value":null},{"name":"location_id","value":null},{"name":"opponent_id","value":null},{"name":"started_after","value":null},{"name":"started_before","value":null},{"name":"id","value":null},{"name":"page_size","value":null,"prompt":"The
+        event."},{"name":"results","value":null},{"name":"results_url","value":null},{"name":"shootout_points_for_opponent","value":null},{"name":"shootout_points_for_team","value":null},{"name":"start_date","value":null},{"name":"team_id","value":null},{"name":"time_zone","value":null},{"name":"tracks_availability","value":null},{"name":"uniform","value":null}]},"links":[{"rel":"assignments","href":"http://localhost:3000/assignments"},{"rel":"availabilities","href":"http://localhost:3000/availabilities"},{"rel":"division_location","href":"http://localhost:3000/division_locations"},{"rel":"event_lineups","href":"http://localhost:3000/event_lineups"},{"rel":"event_statistics","href":"http://localhost:3000/event_statistics"},{"rel":"location","href":"http://localhost:3000/locations"},{"rel":"opponent","href":"http://localhost:3000/opponents"},{"rel":"statistic_data","href":"http://localhost:3000/statistic_data"},{"rel":"suggested_assignments","href":"http://localhost:3000/suggested_assignments"},{"rel":"team","href":"http://localhost:3000/teams"},{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/events/search?id=1"}],"queries":[{"rel":"search","sort":["start_date"],"href":"http://localhost:3000/events/search","data":[{"name":"team_id","value":null},{"name":"user_id","value":null},{"name":"location_id","value":null},{"name":"opponent_id","value":null},{"name":"started_after","value":null},{"name":"started_before","value":null},{"name":"repeating_uuid","value":null},{"name":"id","value":null},{"name":"is_game","value":null},{"name":"updated_since","value":null},{"name":"page_size","value":null,"prompt":"The
         number of items to return for each page. Sending this parameter with the query
         will enable paging for the returned collection."},{"name":"page_number","value":null,"prompt":"The
         number of the page to be returned. This requires that paging be turned on
         by also providing the page_size parameter."},{"name":"sort_start_date","value":null,"prompt":"Sort
         the returned dataset based on the start_date field, valid values are ''asc''
-        or ''desc''."}]},{"rel":"search_games","href":"http://localhost:3000/events/search_games","data":[{"name":"team_id","value":null}]},{"rel":"overview","href":"http://localhost:3000/events/overview","data":[{"name":"team_id","value":null}]}],"commands":[{"rel":"send_availability_reminders","href":"http://localhost:3000/events/send_availability_reminders","prompt":"members_to_notify
+        or ''desc''."}]},{"rel":"search_games","href":"http://localhost:3000/events/search_games","data":[{"name":"team_id","value":null},{"name":"page_size","value":null,"prompt":"The
+        number of items to return for each page. Sending this parameter with the query
+        will enable paging for the returned collection."},{"name":"page_number","value":null,"prompt":"The
+        number of the page to be returned. This requires that paging be turned on
+        by also providing the page_size parameter."}]},{"rel":"overview","href":"http://localhost:3000/events/overview","data":[{"name":"team_id","value":null}]}],"commands":[{"rel":"send_availability_reminders","href":"http://localhost:3000/events/send_availability_reminders","prompt":"members_to_notify
         = [member_id, member_id]","data":[{"name":"id","value":null},{"name":"members_to_notify","value":null},{"name":"notify_team_as_member_id","value":null}]},{"rel":"update_final_score","href":"http://localhost:3000/events/update_final_score","prompt":"Update
         the final score for an event","data":[{"name":"id","value":null},{"name":"points_for_team","value":null},{"name":"points_for_opponent","value":null},{"name":"shootout_points_for_team","value":null},{"name":"shootout_points_for_opponent","value":null},{"name":"is_overtime","value":null},{"name":"is_shootout","value":null},{"name":"results","value":null},{"name":"results_url","value":null}]},{"rel":"bulk_create","href":"http://localhost:3000/events/bulk_create","prompt":"event_ids
-        = [event_id, event_id]","data":[{"name":"templates","value":null},{"name":"team_id","value":null},{"name":"notify_team_as_member_id","value":null},{"name":"notify_team","value":null}]}],"items":[{"href":"http://localhost:3000/events/1","data":[{"name":"id","value":1},{"name":"type","value":"event"},{"name":"additional_location_details","value":"Court
-        #1"},{"name":"arrival_date","value":"2015-01-01T08:00:00Z","type":"DateTime"},{"name":"division_location_id","value":null},{"name":"doesnt_count_towards_record","value":false},{"name":"duration_in_minutes","value":120},{"name":"end_date","value":"2015-01-01T10:00:00Z","type":"DateTime"},{"name":"formatted_results","value":null},{"name":"game_type","value":"Not
-        Specified"},{"name":"game_type_code","value":null},{"name":"icon_color","value":"blue"},{"name":"is_canceled","value":false},{"name":"is_game","value":false},{"name":"is_overtime","value":false},{"name":"is_shootout","value":false},{"name":"is_tbd","value":false},{"name":"label","value":null},{"name":"location_id","value":1},{"name":"minutes_to_arrive_early","value":null},{"name":"name","value":"March
-        Madness Game 1"},{"name":"notes","value":null},{"name":"opponent_id","value":1},{"name":"points_for_opponent","value":null},{"name":"points_for_team","value":null},{"name":"repeating_type","value":null},{"name":"repeating_type_code","value":null},{"name":"repeating_uuid","value":null},{"name":"results","value":null},{"name":"results_url","value":null},{"name":"shootout_points_for_opponent","value":null},{"name":"shootout_points_for_team","value":null},{"name":"start_date","value":"2015-01-01T08:00:00Z","type":"DateTime"},{"name":"team_id","value":1},{"name":"time_zone","value":"Mountain
-        Time (US & Canada)"},{"name":"time_zone_description","value":"Mountain Time
-        (US & Canada)"},{"name":"time_zone_iana_name","value":"America/Denver"},{"name":"time_zone_offset","value":"-07:00"},{"name":"source_time_zone_iana_name","value":"America/Denver"},{"name":"tracks_availability","value":true},{"name":"uniform","value":null},{"name":"is_league_controlled","value":false},{"name":"created_at","value":"2016-08-10T23:47:21Z","type":"DateTime"},{"name":"updated_at","value":"2016-08-10T23:47:22Z","type":"DateTime"}],"links":[{"rel":"assignments","href":"http://localhost:3000/assignments/search?event_id=1"},{"rel":"availabilities","href":"http://localhost:3000/availabilities/search?event_id=1"},{"rel":"calendar_single_event","href":"http://86ed2e8eefaaee16c4b7-16391cffaf9272bff70e93998d553c16.r2.cf1.rackcdn.com/team_schedule/event/1.ics"},{"rel":"division_location","href":"http://localhost:3000/division_locations/"},{"rel":"event_statistics","href":"http://localhost:3000/event_statistics/search?event_id=1"},{"rel":"location","href":"http://localhost:3000/locations/1"},{"rel":"opponent","href":"http://localhost:3000/opponents/1"},{"rel":"statistic_data","href":"http://localhost:3000/statistic_data/search?event_id=1"},{"rel":"team","href":"http://localhost:3000/teams/1"}],"rel":"event-1"}]}}'
+        = [event_id, event_id]","data":[{"name":"templates","value":null},{"name":"team_id","value":null},{"name":"notify_team_as_member_id","value":null},{"name":"notify_team","value":null}]}],"items":[{"href":"http://localhost:3000/events/1","data":[{"name":"id","value":1,"type":"String"},{"name":"type","value":"event","type":"String"},{"name":"additional_location_details","value":null,"type":"String"},{"name":"arrival_date","value":"2015-01-01T00:00:00Z","type":"DateTime"},{"name":"division_location_id","value":null,"type":"String"},{"name":"doesnt_count_towards_record","value":false,"type":"Boolean"},{"name":"duration_in_minutes","value":120,"type":"Integer"},{"name":"end_date","value":"2015-01-01T02:00:00Z","type":"DateTime"},{"name":"formatted_results","value":null,"type":"String"},{"name":"game_type","value":"Not
+        Specified","type":"String"},{"name":"game_type_code","value":null,"type":"Integer"},{"name":"icon_color","value":"blue","type":"String"},{"name":"is_canceled","value":false,"type":"Boolean"},{"name":"is_game","value":false,"type":"Boolean"},{"name":"is_overtime","value":false,"type":"Boolean"},{"name":"is_shootout","value":false,"type":"Boolean"},{"name":"is_tbd","value":false,"type":"Boolean"},{"name":"label","value":null,"type":"String"},{"name":"location_id","value":1,"type":"String"},{"name":"minutes_to_arrive_early","value":null,"type":"Integer"},{"name":"name","value":"March
+        Madness Game 1","type":"String"},{"name":"notes","value":null,"type":"String"},{"name":"opponent_id","value":null,"type":"String"},{"name":"points_for_opponent","value":null,"type":"Integer"},{"name":"points_for_team","value":null,"type":"Integer"},{"name":"repeating_type","value":null,"type":"String"},{"name":"repeating_type_code","value":null,"type":"Integer"},{"name":"repeating_uuid","value":null,"type":"String"},{"name":"results","value":null,"type":"String"},{"name":"results_url","value":null,"type":"String"},{"name":"shootout_points_for_opponent","value":null,"type":"Integer"},{"name":"shootout_points_for_team","value":null,"type":"Integer"},{"name":"start_date","value":"2015-01-01T00:00:00Z","type":"DateTime"},{"name":"team_id","value":1,"type":"String"},{"name":"time_zone","value":"Mountain
+        Time (US & Canada)","type":"String"},{"name":"time_zone_description","value":"Mountain
+        Time (US & Canada)","type":"String"},{"name":"time_zone_iana_name","value":"America/Denver","type":"String"},{"name":"time_zone_offset","value":"-07:00","type":"String"},{"name":"source_time_zone_iana_name","value":"America/Denver","type":"String"},{"name":"tracks_availability","value":true,"type":"Boolean"},{"name":"uniform","value":null,"type":"String"},{"name":"is_league_controlled","value":false,"type":"Boolean"},{"name":"opponent_name","value":null,"type":"String"},{"name":"location_name","value":"BoulderHQ","type":"String"},{"name":"formatted_title","value":"March
+        Madness Game 1","type":"String"},{"name":"formatted_title_for_multi_team","value":"Base
+        Team March Madness Game 1","type":"String"},{"name":"created_at","value":"2020-05-22T05:21:24Z","type":"DateTime"},{"name":"updated_at","value":"2020-05-22T05:21:25Z","type":"DateTime"}],"links":[{"rel":"assignments","href":"http://localhost:3000/assignments/search?event_id=1"},{"rel":"assignments_team","href":"http://localhost:3000/assignments/search?event_id=1&team_id=1"},{"rel":"availabilities","href":"http://localhost:3000/availabilities/search?event_id=1"},{"rel":"calendar_single_event","href":"http://86ed2e8eefaaee16c4b7-16391cffaf9272bff70e93998d553c16.r2.cf1.rackcdn.com/team_schedule/event/1.ics"},{"rel":"division_location","href":"http://localhost:3000/division_locations/"},{"rel":"event_lineups","href":"http://localhost:3000/event_lineups/search?event_id=1"},{"rel":"event_statistics","href":"http://localhost:3000/event_statistics/search?event_id=1"},{"rel":"location","href":"http://localhost:3000/locations/1"},{"rel":"statistic_data","href":"http://localhost:3000/statistic_data/search?event_id=1"},{"rel":"suggested_assignments","href":"http://localhost:3000/suggested_assignments/search?team_id=1"},{"rel":"team","href":"http://localhost:3000/teams/1"}],"rel":"event-1"}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/events/search?id=1&hmac_client_id=classic&hmac_nonce=a85b7a9d-0fe1-46a9-ab10-1df6fe42fe53&hmac_timestamp=1470941487
-  recorded_at: Thu, 11 Aug 2016 18:51:27 GMT
+      effective_url: http://localhost:3000/events/search?id=1&hmac_client_id=classic_service&hmac_nonce=a4e5e4f1-e4d5-4a12-bfdd-b4c948aa3dc7&hmac_timestamp=1590126255
+  recorded_at: Fri, 22 May 2020 05:44:15 GMT
 - request:
     method: get
-    uri: http://localhost:3000/division_locations/?hmac_client_id=classic&hmac_nonce=aa645ff5-470e-4637-a264-9e4dae924897&hmac_timestamp=1470941487
+    uri: http://localhost:3000/division_locations/?hmac_client_id=classic_service&hmac_nonce=65fb6877-90c6-49e6-84b2-363a2d1dbba8&hmac_timestamp=1590126255
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Faraday v0.9.2
+      - Faraday v0.17.3
       X-Teamsnap-Hmac:
-      - de823f28fbf855ece336a6ea36d55e4541e1c1ff28a0d8bc11813c6eef35b9f2
+      - 8a822417ca38c1bfd3382641f402431aeb9a7dbf8a39bec6fbfa44526ff4d8d6
+      Expect:
+      - ''
   response:
     status:
       code: 200
@@ -83,25 +92,23 @@ http_interactions:
     headers:
       Content-Type:
       - application/vnd.collection+json
-      Content-Length:
-      - '1396'
       X-Content-Type-Options:
       - nosniff
       ETag:
-      - '"d201adee377933f6a5b9e71379c05c0d"'
+      - W/"3be825bc444ebea281428d139aba7145"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - c6016bda-e2cb-47b9-bd0c-937842e6e2fe
+      - 46948a69-118b-468e-9ef4-bb4468d366e7
       X-Runtime:
-      - '0.032594'
-      Connection:
-      - keep-alive
-      Server:
-      - thin
+      - '0.692546'
+      Vary:
+      - Origin
+      Content-Length:
+      - '1476'
     body:
       encoding: UTF-8
-      string: '{"collection":{"version":"3.306.2","href":"http://localhost:3000/division_locations","rel":"division_locations","template":{"data":[{"name":"name","value":null},{"name":"url","value":null},{"name":"phone","value":null},{"name":"notes","value":null},{"name":"address","value":null},{"name":"division_id","value":null},{"name":"type","value":"division_location"}]},"links":[{"rel":"events","href":"http://localhost:3000/events"},{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/division_locations"}],"queries":[{"rel":"search","href":"http://localhost:3000/division_locations/search","data":[{"name":"division_id","value":null},{"name":"team_id","value":null},{"name":"id","value":null},{"name":"page_size","value":null,"prompt":"The
+      string: '{"collection":{"version":"3.854.0","href":"http://localhost:3000/division_locations","rel":"division_locations","template":{"data":[{"name":"name","value":null},{"name":"url","value":null},{"name":"phone","value":null},{"name":"notes","value":null},{"name":"address","value":null},{"name":"division_id","value":null},{"name":"type","value":"division_location"}]},"links":[{"rel":"events","href":"http://localhost:3000/events"},{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/division_locations"}],"queries":[{"rel":"search","href":"http://localhost:3000/division_locations/search","data":[{"name":"division_id","value":null},{"name":"team_id","value":null},{"name":"id","value":null},{"name":"persistent_uuid","value":null},{"name":"organization_id","value":null},{"name":"page_size","value":null,"prompt":"The
         number of items to return for each page. Sending this parameter with the query
         will enable paging for the returned collection."},{"name":"page_number","value":null,"prompt":"The
         number of the page to be returned. This requires that paging be turned on
@@ -109,6 +116,6 @@ http_interactions:
         the specified ''source_division_location_ids'' to the specified ''destination_division_id''.","data":[{"name":"destination_division_id","value":null},{"name":"source_location_ids","value":null}]}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/division_locations/?hmac_client_id=classic&hmac_nonce=aa645ff5-470e-4637-a264-9e4dae924897&hmac_timestamp=1470941487
-  recorded_at: Thu, 11 Aug 2016 18:51:27 GMT
-recorded_with: VCR 2.9.3
+      effective_url: http://localhost:3000/division_locations/?hmac_client_id=classic_service&hmac_nonce=65fb6877-90c6-49e6-84b2-363a2d1dbba8&hmac_timestamp=1590126255
+  recorded_at: Fri, 22 May 2020 05:44:16 GMT
+recorded_with: VCR 5.0.0

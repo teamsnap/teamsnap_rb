@@ -25,3 +25,4 @@ config/*.yml
 /bin/stubs
 /bin
 /pkg
+.DS_Store
