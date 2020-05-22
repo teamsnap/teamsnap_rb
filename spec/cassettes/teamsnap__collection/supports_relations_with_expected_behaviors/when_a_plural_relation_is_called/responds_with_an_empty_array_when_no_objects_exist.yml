@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:3000/events/search?id=1&hmac_client_id=classic_service&hmac_nonce=c2199c12-23c0-4500-9bf9-58d59a197684&hmac_timestamp=1590126252
+    uri: http://localhost:3000/events/search?id=1&hmac_client_id=classic_service&hmac_nonce=fc5add2c-c625-4d0d-82c0-1c82eed42686&hmac_timestamp=1590130031
     body:
       encoding: US-ASCII
       string: ''
@@ -10,7 +10,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.17.3
       X-Teamsnap-Hmac:
-      - 870c455f244c9bb57f17b11f005c14e44bbd210ae30af6670920e9e2968ba84d
+      - f6438cb159049c418c087f74436af872292ef220de7f6f9644b75ff93c8f0bc5
       Expect:
       - ''
   response:
@@ -29,9 +29,9 @@ http_interactions:
       X-Content-Type-Options:
       - nosniff
       X-Request-Id:
-      - ca23380c-9069-4245-be25-bdc2c999dfda
+      - a01d6990-675c-440b-9316-1278c8d88425
       X-Runtime:
-      - '0.613396'
+      - '0.735885'
       Vary:
       - Origin
       Content-Length:
@@ -70,11 +70,11 @@ http_interactions:
         Team March Madness Game 1","type":"String"},{"name":"created_at","value":"2020-05-22T05:21:24Z","type":"DateTime"},{"name":"updated_at","value":"2020-05-22T05:21:25Z","type":"DateTime"}],"links":[{"rel":"assignments","href":"http://localhost:3000/assignments/search?event_id=1"},{"rel":"assignments_team","href":"http://localhost:3000/assignments/search?event_id=1&team_id=1"},{"rel":"availabilities","href":"http://localhost:3000/availabilities/search?event_id=1"},{"rel":"calendar_single_event","href":"http://86ed2e8eefaaee16c4b7-16391cffaf9272bff70e93998d553c16.r2.cf1.rackcdn.com/team_schedule/event/1.ics"},{"rel":"division_location","href":"http://localhost:3000/division_locations/"},{"rel":"event_lineups","href":"http://localhost:3000/event_lineups/search?event_id=1"},{"rel":"event_statistics","href":"http://localhost:3000/event_statistics/search?event_id=1"},{"rel":"location","href":"http://localhost:3000/locations/1"},{"rel":"statistic_data","href":"http://localhost:3000/statistic_data/search?event_id=1"},{"rel":"suggested_assignments","href":"http://localhost:3000/suggested_assignments/search?team_id=1"},{"rel":"team","href":"http://localhost:3000/teams/1"}],"rel":"event-1"}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/events/search?id=1&hmac_client_id=classic_service&hmac_nonce=c2199c12-23c0-4500-9bf9-58d59a197684&hmac_timestamp=1590126252
-  recorded_at: Fri, 22 May 2020 05:44:12 GMT
+      effective_url: http://localhost:3000/events/search?id=1&hmac_client_id=classic_service&hmac_nonce=fc5add2c-c625-4d0d-82c0-1c82eed42686&hmac_timestamp=1590130031
+  recorded_at: Fri, 22 May 2020 06:47:11 GMT
 - request:
     method: get
-    uri: http://localhost:3000/assignments/search?event_id=1&hmac_client_id=classic_service&hmac_nonce=e362ba57-ee0a-439d-8611-54395aa62d4d&hmac_timestamp=1590126252
+    uri: http://localhost:3000/assignments/search?event_id=1&hmac_client_id=classic_service&hmac_nonce=66e3ccfb-f363-4046-a7ed-9c3e649b9ce7&hmac_timestamp=1590130031
     body:
       encoding: US-ASCII
       string: ''
@@ -82,7 +82,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.17.3
       X-Teamsnap-Hmac:
-      - 17944bc1a3b1a72e1d81a20db6defeda06bcb95606e24018ad0a11f47c5de227
+      - 3626603ee2bfa99cf94d7cd586f848461137ca4c45f860ae34d405b004ac78c5
       Expect:
       - ''
   response:
@@ -99,9 +99,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 6266c509-2ad2-41b5-a029-41c97804b4a7
+      - '08b7f971-613a-4057-ae23-95d4bbdc3419'
       X-Runtime:
-      - '0.625439'
+      - '0.679350'
       Vary:
       - Origin
       Content-Length:
@@ -123,6 +123,6 @@ http_interactions:
         array of the ids in the order that they are to be moved to"}]}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/assignments/search?event_id=1&hmac_client_id=classic_service&hmac_nonce=e362ba57-ee0a-439d-8611-54395aa62d4d&hmac_timestamp=1590126252
-  recorded_at: Fri, 22 May 2020 05:44:13 GMT
+      effective_url: http://localhost:3000/assignments/search?event_id=1&hmac_client_id=classic_service&hmac_nonce=66e3ccfb-f363-4046-a7ed-9c3e649b9ce7&hmac_timestamp=1590130031
+  recorded_at: Fri, 22 May 2020 06:47:12 GMT
 recorded_with: VCR 5.0.0

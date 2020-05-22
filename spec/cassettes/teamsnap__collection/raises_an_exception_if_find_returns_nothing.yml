@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:3000/teams/search?id=0&hmac_client_id=classic_service&hmac_nonce=26a55b5a-b648-46bd-815d-a61e8404b1c1&hmac_timestamp=1590126249
+    uri: http://localhost:3000/teams/search?id=0&hmac_client_id=classic_service&hmac_nonce=114a5d1a-a920-419c-963a-40f489992034&hmac_timestamp=1590130028
     body:
       encoding: US-ASCII
       string: ''
@@ -10,7 +10,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.17.3
       X-Teamsnap-Hmac:
-      - bc13cb0c409edd759739e4fa774c356f637500f4322ad8b79e62fd6c7b0112a9
+      - db7da62b9d8646f54a696fcb367ca852ff288a05d5547b40c5a98e56bd916b68
       Expect:
       - ''
   response:
@@ -27,9 +27,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 95e05953-7220-4974-8dd8-f1a956ffc9c4
+      - ed2764fb-7f5a-4f3c-b971-749a55540de2
       X-Runtime:
-      - '0.636264'
+      - '0.448298'
       Vary:
       - Origin
       Content-Length:
@@ -74,6 +74,6 @@ http_interactions:
         goal.","data":[{"name":"team_id","value":null},{"name":"goal_cents","value":null}]}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/teams/search?id=0&hmac_client_id=classic_service&hmac_nonce=26a55b5a-b648-46bd-815d-a61e8404b1c1&hmac_timestamp=1590126249
-  recorded_at: Fri, 22 May 2020 05:44:10 GMT
+      effective_url: http://localhost:3000/teams/search?id=0&hmac_client_id=classic_service&hmac_nonce=114a5d1a-a920-419c-963a-40f489992034&hmac_timestamp=1590130028
+  recorded_at: Fri, 22 May 2020 06:47:09 GMT
 recorded_with: VCR 5.0.0

@@ -2,32 +2,32 @@
 http_interactions:
 - request:
     method: patch
-    uri: http://localhost:3000/?hmac_client_id=classic_service&hmac_nonce=817235ef-1204-498d-8ca1-f3a4558bea84&hmac_timestamp=1590126239
+    uri: http://localhost:3000/?hmac_client_id=classic_service&hmac_nonce=8ffbc64f-d0f8-4e18-881b-f68824b649c3&hmac_timestamp=1590129851
     body:
       encoding: UTF-8
-      string: "-------------RubyMultipartPost-b9118db6361c790a93c63ffbfbd96212\r\nContent-Disposition:
-        form-data; name=\"file\"; filename=\"spec_helper.rb\"\r\nContent-Length: 881\r\nContent-Type:
+      string: "-------------RubyMultipartPost-3259f3d9c63d6772d240c717f20ba02c\r\nContent-Disposition:
+        form-data; name=\"file\"; filename=\"spec_helper.rb\"\r\nContent-Length: 865\r\nContent-Type:
         txt/csv\r\nContent-Transfer-Encoding: binary\r\n\r\nrequire \"simplecov\"\nrequire
-        \"coveralls\"\nrequire \"awesome_print\"\nrequire \"rack/test\"\n\n# Coveralls.wear!\n\n#
-        SimpleCov::Formatter::MultiFormatter[\n#   SimpleCov::Formatter::HTMLFormatter,\n#
-        \  Coveralls::SimpleCov::Formatter\n# ]\n# SimpleCov.start do\n#   add_filter
-        \"vendor\"\n# end\n\nrequire \"vcr\"\nrequire \"pry\"\n\nROOT_TEST_URL = \"http://localhost:3000\"\n\nVCR.configure
-        do |c|\n  c.cassette_library_dir = \"spec/cassettes\"\n  c.hook_into :typhoeus\n
-        \ c.configure_rspec_metadata!\n  c.default_cassette_options = {\n    :record
-        => :once,\n    :match_requests_on => [\n      :method,\n      VCR.request_matchers.uri_without_params(\n
-        \       :hmac_client_id, :hmac_nonce, :hmac_timestamp\n      )\n    ]\n  }\n
-        \ c.before_record do |i|\n    i.response.body.force_encoding('UTF-8')\n  end\nend\n\nRSpec.configure
+        \"coveralls\"\nrequire \"awesome_print\"\nrequire \"rack/test\"\n\nCoveralls.wear!\n\nSimpleCov::Formatter::MultiFormatter[\n
+        \ SimpleCov::Formatter::HTMLFormatter,\n  Coveralls::SimpleCov::Formatter\n]\nSimpleCov.start
+        do\n  add_filter \"vendor\"\nend\n\nrequire \"vcr\"\nrequire \"pry\"\n\nROOT_TEST_URL
+        = \"http://localhost:3000\"\n\nVCR.configure do |c|\n  c.cassette_library_dir
+        = \"spec/cassettes\"\n  c.hook_into :typhoeus\n  c.configure_rspec_metadata!\n
+        \ c.default_cassette_options = {\n    :record => :once,\n    :match_requests_on
+        => [\n      :method,\n      VCR.request_matchers.uri_without_params(\n        :hmac_client_id,
+        :hmac_nonce, :hmac_timestamp\n      )\n    ]\n  }\n  c.before_record do |i|\n
+        \   i.response.body.force_encoding('UTF-8')\n  end\nend\n\nRSpec.configure
         do |c|\n  c.expose_dsl_globally = false\n  c.order = \"random\"\n  c.backtrace_inclusion_patterns
-        = []\nend\n\r\n-------------RubyMultipartPost-b9118db6361c790a93c63ffbfbd96212--\r\n"
+        = []\nend\n\r\n-------------RubyMultipartPost-3259f3d9c63d6772d240c717f20ba02c--\r\n"
     headers:
       User-Agent:
       - Faraday v0.17.3
       Content-Type:
-      - multipart/form-data; boundary=-----------RubyMultipartPost-b9118db6361c790a93c63ffbfbd96212
+      - multipart/form-data; boundary=-----------RubyMultipartPost-3259f3d9c63d6772d240c717f20ba02c
       Content-Length:
-      - '1168'
+      - '1152'
       X-Teamsnap-Hmac:
-      - 19e3b85e9cd9e184852983721754cbd9185ddf99167c48bdbd509959df89a084
+      - 1717bf867b732b0268dda1ad7d1e699c652748e34bd036933fb5236ba60a682b
       Expect:
       - ''
   response:
@@ -38,9 +38,9 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       X-Request-Id:
-      - 27f29433-bd49-4e16-9c46-dc15235f2f72
+      - 42124b87-4be9-405e-b4c6-763ce959b791
       X-Runtime:
-      - '0.280068'
+      - '0.586770'
       Vary:
       - Origin
       Content-Length:
@@ -101,6 +101,6 @@ http_interactions:
         (2.2.2) lib/logging/diagnostic_context.rb:474:in `block in create_with_logging_context''"}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/?hmac_client_id=classic_service&hmac_nonce=817235ef-1204-498d-8ca1-f3a4558bea84&hmac_timestamp=1590126239
-  recorded_at: Fri, 22 May 2020 05:44:00 GMT
+      effective_url: http://localhost:3000/?hmac_client_id=classic_service&hmac_nonce=8ffbc64f-d0f8-4e18-881b-f68824b649c3&hmac_timestamp=1590129851
+  recorded_at: Fri, 22 May 2020 06:44:11 GMT
 recorded_with: VCR 5.0.0

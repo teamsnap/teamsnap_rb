@@ -97,7 +97,7 @@ RSpec.describe "teamsnap__collection", :vcr => true do
   end
 
   it "can follow singular links" do
-    m = TeamSnap::Member.find(TeamSnap.root_client, 3)
+    m = TeamSnap::Member.find(TeamSnap.root_client, 69)
     t = m.team
 
     expect(t.id).to eq(1)
@@ -114,7 +114,7 @@ RSpec.describe "teamsnap__collection", :vcr => true do
     t = TeamSnap::Team.find(TeamSnap.root_client, 1)
     ms = t.members
 
-    expect(ms.size).to eq(17)
+    expect(ms.size).to eq(13)
   end
 
   it "adds href to items" do

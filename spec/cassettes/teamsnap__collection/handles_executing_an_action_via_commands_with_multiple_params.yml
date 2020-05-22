@@ -26,9 +26,9 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Request-Id:
-      - d0403e0f-d17e-49dc-a793-a17fcecca114
+      - f6595e72-a351-4756-9eab-b7c06e862abe
       X-Runtime:
-      - '0.644708'
+      - '0.701703'
       Vary:
       - Origin
       Content-Length:
@@ -44,5 +44,5 @@ http_interactions:
     http_version: '1.1'
     adapter_metadata:
       effective_url: http://localhost:3000/teams/invite
-  recorded_at: Fri, 22 May 2020 05:44:05 GMT
+  recorded_at: Fri, 22 May 2020 06:47:06 GMT
 recorded_with: VCR 5.0.0

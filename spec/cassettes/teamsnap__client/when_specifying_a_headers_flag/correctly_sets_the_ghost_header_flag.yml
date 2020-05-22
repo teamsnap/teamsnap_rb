@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:3000?hmac_client_id=classic_service&hmac_nonce=99dc216b-5a68-4416-9e1c-1498cfb95a4c&hmac_timestamp=1590126261
+    uri: http://localhost:3000?hmac_client_id=classic_service&hmac_nonce=bf1eda7e-f262-4c02-adf8-d7952bdf0689&hmac_timestamp=1590129821
     body:
       encoding: US-ASCII
       string: ''
@@ -12,7 +12,7 @@ http_interactions:
       X-Teamsnap-Api-Features:
       - ghost_contact
       X-Teamsnap-Hmac:
-      - 55d96d886b517e07fd0d9f33b0ecdb6bbcaec424e1cb3f2ae56c86a63383d8d6
+      - c636a80b5b6f5e392e15614e5944229ff33abf63ad166de78f54a152746aea53
       Expect:
       - ''
   response:
@@ -29,9 +29,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 5904ed08-aabd-4dbb-aba0-770758f69799
+      - 2efffa78-0b3f-4cbe-9905-93ddf4a65ba2
       X-Runtime:
-      - '0.553571'
+      - '0.482557'
       Vary:
       - Origin
       Content-Length:
@@ -75,11 +75,11 @@ http_interactions:
         a signup email to an unregistered user to start the registration process","data":[{"name":"email_address","value":null},{"name":"client_id","value":null},{"name":"redirect_uri","value":null}]}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000?hmac_client_id=classic_service&hmac_nonce=99dc216b-5a68-4416-9e1c-1498cfb95a4c&hmac_timestamp=1590126261
-  recorded_at: Fri, 22 May 2020 05:44:21 GMT
+      effective_url: http://localhost:3000?hmac_client_id=classic_service&hmac_nonce=bf1eda7e-f262-4c02-adf8-d7952bdf0689&hmac_timestamp=1590129821
+  recorded_at: Fri, 22 May 2020 06:43:41 GMT
 - request:
     method: get
-    uri: http://localhost:3000/schemas?hmac_client_id=classic_service&hmac_nonce=58929f9c-a918-4200-8f60-1898d50f20b7&hmac_timestamp=1590126261
+    uri: http://localhost:3000/schemas?hmac_client_id=classic_service&hmac_nonce=9eb90175-6931-4ce2-aa9a-6c04eb4769b7&hmac_timestamp=1590129821
     body:
       encoding: US-ASCII
       string: ''
@@ -89,7 +89,7 @@ http_interactions:
       X-Teamsnap-Api-Features:
       - ghost_contact
       X-Teamsnap-Hmac:
-      - 7725f3caf686869e0bcda68a2bc386eae3e53910b510cb72596be6253d416c31
+      - 6d52ffc3e0fb5fd569c3cab40a40a316a3544a9aeb9ece6ae4424b3fe36efa60
       Expect:
       - ''
   response:
@@ -106,9 +106,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - c568bc60-576c-4e41-b840-dd06fe436934
+      - b61e3453-e8e8-460c-b173-d45a0c388238
       X-Runtime:
-      - '1.873461'
+      - '0.556401'
       Vary:
       - Origin
       Content-Length:
@@ -1468,6 +1468,6 @@ http_interactions:
         by also providing the page_size parameter."}]}]}}]'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/schemas?hmac_client_id=classic_service&hmac_nonce=58929f9c-a918-4200-8f60-1898d50f20b7&hmac_timestamp=1590126261
-  recorded_at: Fri, 22 May 2020 05:44:23 GMT
+      effective_url: http://localhost:3000/schemas?hmac_client_id=classic_service&hmac_nonce=9eb90175-6931-4ce2-aa9a-6c04eb4769b7&hmac_timestamp=1590129821
+  recorded_at: Fri, 22 May 2020 06:43:42 GMT
 recorded_with: VCR 5.0.0

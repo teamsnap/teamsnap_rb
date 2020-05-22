@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:3000/members/search?id=1&hmac_client_id=classic_service&hmac_nonce=c76bef47-1b5a-4a2c-937c-97e083eaab07&hmac_timestamp=1590126247
+    uri: http://localhost:3000/members/search?id=1&hmac_client_id=classic_service&hmac_nonce=6a873edf-ae58-45cc-9221-5cc6a8439e7c&hmac_timestamp=1590130029
     body:
       encoding: US-ASCII
       string: ''
@@ -10,7 +10,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.17.3
       X-Teamsnap-Hmac:
-      - 476473deede01bc54a2f17320c10abdeeb93981d41b8a1e0f54c482bb339a00e
+      - 344dd3ea8262ce69ffa039484eb87db13a55a167581d57868c9e8b6395779d4e
       Expect:
       - ''
   response:
@@ -23,13 +23,13 @@ http_interactions:
       X-Content-Type-Options:
       - nosniff
       ETag:
-      - W/"4013fe27686ee14427f5d62580ae55a5"
+      - W/"9feb1dc6ff967ced6afc8c09bea3847c"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 3d340fbc-1266-4cac-9942-c135ec1118d1
+      - 43a8dddc-1307-4c8a-bc58-b75cab35a340
       X-Runtime:
-      - '0.674347'
+      - '0.579498'
       Vary:
       - Origin
       Content-Length:
@@ -162,18 +162,18 @@ http_interactions:
         is deprecated and has been removed.  Continued use of last_logged_in_at is
         not recommended it will no longer be stored."},{"name":"last_name","value":"Sanders","type":"String"},{"name":"position","value":null,"type":"String"},{"name":"pending_team_id","value":null,"type":"String"},{"name":"pending_division_id","value":null,"type":"String"},{"name":"registration_form_id","value":5,"type":"String"},{"name":"team_id","value":null,"type":"String"},{"name":"user_id","value":null,"type":"String","deprecated":true,"prompt":"user_id
         is deprecated and has been removed.  Continued use of user_id is not recommended
-        it will no longer be stored."},{"name":"person_uuid","value":null,"type":"String"},{"name":"role_uuid","value":null,"type":"String"},{"name":"updated_at","value":"2020-05-22T05:44:06Z","type":"DateTime"},{"name":"created_at","value":"2020-05-22T05:21:17Z","type":"DateTime"},{"name":"source_member_id","value":null,"type":"String"},{"name":"phone_numbers","value":[],"type":"Array[String]"},{"name":"email_addresses","value":[],"type":"Array[String]"}],"links":[{"rel":"assignments","href":"http://localhost:3000/assignments/search?member_id=1"},{"rel":"availabilities","href":"http://localhost:3000/availabilities/search?member_id=1"},{"rel":"broadcast_email_attachments","href":"http://localhost:3000/broadcast_email_attachments/search?member_id=1"},{"rel":"broadcast_emails","href":"http://localhost:3000/broadcast_emails/search?member_id=1"},{"rel":"broadcast_alerts","href":"http://localhost:3000/broadcast_alerts/search?member_id=1"},{"rel":"contact_email_addresses","href":"http://localhost:3000/contact_email_addresses/search?member_id=1"},{"rel":"contact_phone_numbers","href":"http://localhost:3000/contact_phone_numbers/search?member_id=1"},{"rel":"contacts","href":"http://localhost:3000/contacts/search?member_id=1"},{"rel":"custom_data","href":"http://localhost:3000/custom_data/search?member_id=1"},{"rel":"custom_fields","href":"http://localhost:3000/custom_fields/search?"},{"rel":"division","href":"http://localhost:3000/divisions/3"},{"rel":"invoice_recipients_invoices_aggregates","href":"http://localhost:3000/invoice_recipients_invoices_aggregates/search?member_id=1"},{"rel":"league_custom_data","href":"http://localhost:3000/league_custom_data/search?member_id=1"},{"rel":"league_custom_fields","href":"http://localhost:3000/league_custom_fields/search?"},{"rel":"forum_posts","href":"http://localhost:3000/forum_posts/search?member_id=1"},{"rel":"forum_subscriptions","href":"http://localhost:3000/forum_subscriptions/search?member_id=1"},{"rel":"forum_topics","href":"http://localhost:3000/forum_topics/search?"},{"rel":"league_registrant_documents","href":"http://localhost:3000/league_registrant_documents/search?member_id=1"},{"rel":"member_assignments","href":"http://localhost:3000/member_assignments/search?member_id=1"},{"rel":"member_balances","href":"http://localhost:3000/member_balances/search?member_id=1"},{"rel":"member_email_addresses","href":"http://localhost:3000/member_email_addresses/search?member_id=1","prompt":"member_email_addresses
+        it will no longer be stored."},{"name":"person_uuid","value":null,"type":"String"},{"name":"role_uuid","value":null,"type":"String"},{"name":"updated_at","value":"2020-05-22T06:43:59Z","type":"DateTime"},{"name":"created_at","value":"2020-05-22T05:21:17Z","type":"DateTime"},{"name":"source_member_id","value":null,"type":"String"},{"name":"phone_numbers","value":[],"type":"Array[String]"},{"name":"email_addresses","value":[],"type":"Array[String]"}],"links":[{"rel":"assignments","href":"http://localhost:3000/assignments/search?member_id=1"},{"rel":"availabilities","href":"http://localhost:3000/availabilities/search?member_id=1"},{"rel":"broadcast_email_attachments","href":"http://localhost:3000/broadcast_email_attachments/search?member_id=1"},{"rel":"broadcast_emails","href":"http://localhost:3000/broadcast_emails/search?member_id=1"},{"rel":"broadcast_alerts","href":"http://localhost:3000/broadcast_alerts/search?member_id=1"},{"rel":"contact_email_addresses","href":"http://localhost:3000/contact_email_addresses/search?member_id=1"},{"rel":"contact_phone_numbers","href":"http://localhost:3000/contact_phone_numbers/search?member_id=1"},{"rel":"contacts","href":"http://localhost:3000/contacts/search?member_id=1"},{"rel":"custom_data","href":"http://localhost:3000/custom_data/search?member_id=1"},{"rel":"custom_fields","href":"http://localhost:3000/custom_fields/search?"},{"rel":"division","href":"http://localhost:3000/divisions/3"},{"rel":"invoice_recipients_invoices_aggregates","href":"http://localhost:3000/invoice_recipients_invoices_aggregates/search?member_id=1"},{"rel":"league_custom_data","href":"http://localhost:3000/league_custom_data/search?member_id=1"},{"rel":"league_custom_fields","href":"http://localhost:3000/league_custom_fields/search?"},{"rel":"forum_posts","href":"http://localhost:3000/forum_posts/search?member_id=1"},{"rel":"forum_subscriptions","href":"http://localhost:3000/forum_subscriptions/search?member_id=1"},{"rel":"forum_topics","href":"http://localhost:3000/forum_topics/search?"},{"rel":"league_registrant_documents","href":"http://localhost:3000/league_registrant_documents/search?member_id=1"},{"rel":"member_assignments","href":"http://localhost:3000/member_assignments/search?member_id=1"},{"rel":"member_balances","href":"http://localhost:3000/member_balances/search?member_id=1"},{"rel":"member_email_addresses","href":"http://localhost:3000/member_email_addresses/search?member_id=1","prompt":"member_email_addresses
         is deprecated and has been removed.  Continued use of member_email_addresses
         is not recommended it will no longer be stored."},{"rel":"member_files","href":"http://localhost:3000/member_files/search?member_id=1"},{"rel":"member_links","href":"http://localhost:3000/member_links/search?member_id=1"},{"rel":"member_payments","href":"http://localhost:3000/member_payments/search?member_id=1"},{"rel":"member_phone_numbers","href":"http://localhost:3000/member_phone_numbers/search?member_id=1","prompt":"member_phone_numbers
         is deprecated and has been removed.  Continued use of member_phone_numbers
         is not recommended it will no longer be stored."},{"rel":"member_photos","href":"http://localhost:3000/member_photos/search?member_id=1"},{"rel":"member_preferences","href":"http://localhost:3000/members_preferences/1"},{"rel":"member_registration_signups","href":"http://localhost:3000/member_registration_signups/search?member_id=1"},{"rel":"member_statistics","href":"http://localhost:3000/member_statistics/search?member_id=1"},{"rel":"message_data","href":"http://localhost:3000/message_data/search?member_id=1"},{"rel":"messages","href":"http://localhost:3000/messages/search?member_id=1"},{"rel":"registration_form","href":"http://localhost:3000/registration_forms/5"},{"rel":"statistic_data","href":"http://localhost:3000/statistic_data/search?member_id=1"},{"rel":"team","href":"http://localhost:3000/teams/"},{"rel":"team_media","href":"http://localhost:3000/team_media/search?member_id=1"},{"rel":"team_medium_comments","href":"http://localhost:3000/team_medium_comments/search?member_id=1"},{"rel":"tracked_item_statuses","href":"http://localhost:3000/tracked_item_statuses/search?member_id=1"}],"rel":"member-1"}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/members/search?id=1&hmac_client_id=classic_service&hmac_nonce=c76bef47-1b5a-4a2c-937c-97e083eaab07&hmac_timestamp=1590126247
-  recorded_at: Fri, 22 May 2020 05:44:08 GMT
+      effective_url: http://localhost:3000/members/search?id=1&hmac_client_id=classic_service&hmac_nonce=6a873edf-ae58-45cc-9221-5cc6a8439e7c&hmac_timestamp=1590130029
+  recorded_at: Fri, 22 May 2020 06:47:09 GMT
 - request:
     method: get
-    uri: http://localhost:3000/assignments/search?member_id=1&hmac_client_id=classic_service&hmac_nonce=6b9404bb-65ac-4574-af93-fc3df7ec85cd&hmac_timestamp=1590126248
+    uri: http://localhost:3000/assignments/search?member_id=1&hmac_client_id=classic_service&hmac_nonce=20f68de3-98b4-46d8-b123-57fa726e8e37&hmac_timestamp=1590130029
     body:
       encoding: US-ASCII
       string: ''
@@ -181,7 +181,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.17.3
       X-Teamsnap-Hmac:
-      - 101435ec216825dd3d623cdc101cd06d242ac271423c087732dd5f516acdf011
+      - 52a44fe2550c8d55107651d49df69731e33d6c3d415ff7ea2b4169113552c4cc
       Expect:
       - ''
   response:
@@ -198,9 +198,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - acadd637-d5f6-44bc-9be8-5ec618b22ea4
+      - d674ed7e-de42-41ff-b9f2-603f28f83fb5
       X-Runtime:
-      - '0.738388'
+      - '0.467640'
       Vary:
       - Origin
       Content-Length:
@@ -222,6 +222,6 @@ http_interactions:
         array of the ids in the order that they are to be moved to"}]}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/assignments/search?member_id=1&hmac_client_id=classic_service&hmac_nonce=6b9404bb-65ac-4574-af93-fc3df7ec85cd&hmac_timestamp=1590126248
-  recorded_at: Fri, 22 May 2020 05:44:09 GMT
+      effective_url: http://localhost:3000/assignments/search?member_id=1&hmac_client_id=classic_service&hmac_nonce=20f68de3-98b4-46d8-b123-57fa726e8e37&hmac_timestamp=1590130029
+  recorded_at: Fri, 22 May 2020 06:47:10 GMT
 recorded_with: VCR 5.0.0

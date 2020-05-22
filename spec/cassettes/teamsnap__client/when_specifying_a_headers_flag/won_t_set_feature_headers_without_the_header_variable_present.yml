@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:3000?hmac_client_id=classic_service&hmac_nonce=8729e406-166c-4d32-a5fb-41800bfd11ea&hmac_timestamp=1590126259
+    uri: http://localhost:3000?hmac_client_id=classic_service&hmac_nonce=367cca59-cbf1-444a-aac6-f821130cf58d&hmac_timestamp=1590129820
     body:
       encoding: US-ASCII
       string: ''
@@ -10,7 +10,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.17.3
       X-Teamsnap-Hmac:
-      - 740112388eb1ddf91442773352827c223716693b3a5c5403a2ed6a35618dc3b6
+      - 2f9ba77a4ec6482c1b12c75ecc1ef422c717a1fb133d3b33d88f93006bed1d94
       Expect:
       - ''
   response:
@@ -27,9 +27,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - c45105ad-0eef-4bef-8778-0980dd2fc4f6
+      - ac5c7b7a-4ad1-4b88-90d3-78d284e49ce3
       X-Runtime:
-      - '0.586987'
+      - '0.628299'
       Vary:
       - Origin
       Content-Length:
@@ -73,11 +73,11 @@ http_interactions:
         a signup email to an unregistered user to start the registration process","data":[{"name":"email_address","value":null},{"name":"client_id","value":null},{"name":"redirect_uri","value":null}]}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000?hmac_client_id=classic_service&hmac_nonce=8729e406-166c-4d32-a5fb-41800bfd11ea&hmac_timestamp=1590126259
-  recorded_at: Fri, 22 May 2020 05:44:20 GMT
+      effective_url: http://localhost:3000?hmac_client_id=classic_service&hmac_nonce=367cca59-cbf1-444a-aac6-f821130cf58d&hmac_timestamp=1590129820
+  recorded_at: Fri, 22 May 2020 06:43:40 GMT
 - request:
     method: get
-    uri: http://localhost:3000/schemas?hmac_client_id=classic_service&hmac_nonce=17564442-0c78-43ed-b8d6-d37a08cd362e&hmac_timestamp=1590126260
+    uri: http://localhost:3000/schemas?hmac_client_id=classic_service&hmac_nonce=7dbb1920-7173-4e8e-81e1-2bb6b6be26a9&hmac_timestamp=1590129820
     body:
       encoding: US-ASCII
       string: ''
@@ -85,7 +85,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.17.3
       X-Teamsnap-Hmac:
-      - 27cbe70c4198678d4e06eb8bd6bdf4f1a9b67b4a65424fce4e3990c06d599c65
+      - 34788e74f49e13af61bb1da0b971d70bc02b00770787c5a70d05d69ef605a20c
       Expect:
       - ''
   response:
@@ -102,9 +102,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 42aef9f8-0bd2-4b6c-852e-2ee33c7c2ec5
+      - 20d3d72b-3f0f-4982-94d6-d58bb045c756
       X-Runtime:
-      - '0.474554'
+      - '0.411656'
       Vary:
       - Origin
       Content-Length:
@@ -1468,6 +1468,6 @@ http_interactions:
         by also providing the page_size parameter."}]}]}}]'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/schemas?hmac_client_id=classic_service&hmac_nonce=17564442-0c78-43ed-b8d6-d37a08cd362e&hmac_timestamp=1590126260
-  recorded_at: Fri, 22 May 2020 05:44:21 GMT
+      effective_url: http://localhost:3000/schemas?hmac_client_id=classic_service&hmac_nonce=7dbb1920-7173-4e8e-81e1-2bb6b6be26a9&hmac_timestamp=1590129820
+  recorded_at: Fri, 22 May 2020 06:43:41 GMT
 recorded_with: VCR 5.0.0

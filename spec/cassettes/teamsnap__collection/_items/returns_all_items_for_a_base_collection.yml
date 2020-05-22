@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:3000/sports?hmac_client_id=classic_service&hmac_nonce=4dfe5c9e-59e6-45a6-ba93-ab2efe72f30f&hmac_timestamp=1590126251
+    uri: http://localhost:3000/sports?hmac_client_id=classic_service&hmac_nonce=c6bfe95c-b9c7-4d65-a27c-5631f5929832&hmac_timestamp=1590130036
     body:
       encoding: US-ASCII
       string: ''
@@ -10,7 +10,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.17.3
       X-Teamsnap-Hmac:
-      - e74ec10cdb31e4c510112cbb892f0ca8c54f9f1b34d7cb96fba9be4788605c88
+      - d7e8016dc4de8c73b0c3ed224778f33dfdb35a30c3a03dfe65a17c345738d6b1
       Expect:
       - ''
   response:
@@ -27,9 +27,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 3b71bd99-af0b-424f-82f0-499869eca91b
+      - c0a420fc-8439-4907-a21d-6761726519f7
       X-Runtime:
-      - '0.540198'
+      - '0.621202'
       Vary:
       - Origin
       Content-Length:
@@ -91,6 +91,6 @@ http_interactions:
         Volleyball","type":"String"},{"name":"overtime_abbrev","value":null,"type":"String"},{"name":"overtime_label","value":null,"type":"String"},{"name":"shootout_abbrev","value":null,"type":"String"},{"name":"shootout_label","value":null,"type":"String"},{"name":"tracks_overtime_losses","value":false,"type":"Boolean"},{"name":"tracks_points","value":true,"type":"Boolean"},{"name":"has_statistic_template","value":false,"type":"Boolean"},{"name":"created_at","value":"2020-05-22T05:21:10Z","type":"DateTime"},{"name":"updated_at","value":"2020-05-22T05:21:10Z","type":"DateTime"}],"links":[{"rel":"sport_logo","href":"http://9720728c11b014fc3f7c-401599d8c2efd31ed32bcf970d759503.r67.cf1.rackcdn.com/sport_logos/logo-wheelchair_volleyball.png"},{"rel":"sport_positions","href":"http://localhost:3000/sport_positions/search?sport_id=74"}],"rel":"sport-74"},{"href":"http://localhost:3000/sports/11","data":[{"name":"id","value":11,"type":"String"},{"name":"type","value":"sport","type":"String"},{"name":"has_customized_language","value":false,"type":"Boolean"},{"name":"has_overtime","value":false,"type":"Boolean"},{"name":"has_shootouts","value":false,"type":"Boolean"},{"name":"is_non_sport","value":false,"type":"Boolean"},{"name":"low_score_wins","value":false,"type":"Boolean"},{"name":"name","value":"Wiffleball","type":"String"},{"name":"overtime_abbrev","value":null,"type":"String"},{"name":"overtime_label","value":null,"type":"String"},{"name":"shootout_abbrev","value":null,"type":"String"},{"name":"shootout_label","value":null,"type":"String"},{"name":"tracks_overtime_losses","value":false,"type":"Boolean"},{"name":"tracks_points","value":true,"type":"Boolean"},{"name":"has_statistic_template","value":false,"type":"Boolean"},{"name":"created_at","value":"2020-05-22T05:21:10Z","type":"DateTime"},{"name":"updated_at","value":"2020-05-22T05:21:10Z","type":"DateTime"}],"links":[{"rel":"sport_logo","href":"http://9720728c11b014fc3f7c-401599d8c2efd31ed32bcf970d759503.r67.cf1.rackcdn.com/sport_logos/logo-wiffleball.png"},{"rel":"sport_positions","href":"http://localhost:3000/sport_positions/search?sport_id=11"}],"rel":"sport-11"},{"href":"http://localhost:3000/sports/49","data":[{"name":"id","value":49,"type":"String"},{"name":"type","value":"sport","type":"String"},{"name":"has_customized_language","value":false,"type":"Boolean"},{"name":"has_overtime","value":true,"type":"Boolean"},{"name":"has_shootouts","value":false,"type":"Boolean"},{"name":"is_non_sport","value":false,"type":"Boolean"},{"name":"low_score_wins","value":false,"type":"Boolean"},{"name":"name","value":"Wrestling","type":"String"},{"name":"overtime_abbrev","value":"OT","type":"String"},{"name":"overtime_label","value":"Overtime","type":"String"},{"name":"shootout_abbrev","value":null,"type":"String"},{"name":"shootout_label","value":null,"type":"String"},{"name":"tracks_overtime_losses","value":false,"type":"Boolean"},{"name":"tracks_points","value":true,"type":"Boolean"},{"name":"has_statistic_template","value":false,"type":"Boolean"},{"name":"created_at","value":"2020-05-22T05:21:10Z","type":"DateTime"},{"name":"updated_at","value":"2020-05-22T05:21:10Z","type":"DateTime"}],"links":[{"rel":"sport_logo","href":"http://9720728c11b014fc3f7c-401599d8c2efd31ed32bcf970d759503.r67.cf1.rackcdn.com/sport_logos/logo-wrestling.png"},{"rel":"sport_positions","href":"http://localhost:3000/sport_positions/search?sport_id=49"}],"rel":"sport-49"}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/sports?hmac_client_id=classic_service&hmac_nonce=4dfe5c9e-59e6-45a6-ba93-ab2efe72f30f&hmac_timestamp=1590126251
-  recorded_at: Fri, 22 May 2020 05:44:12 GMT
+      effective_url: http://localhost:3000/sports?hmac_client_id=classic_service&hmac_nonce=c6bfe95c-b9c7-4d65-a27c-5631f5929832&hmac_timestamp=1590130036
+  recorded_at: Fri, 22 May 2020 06:47:16 GMT
 recorded_with: VCR 5.0.0

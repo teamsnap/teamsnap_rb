@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:3000/bulk_load?team_id=1&types=team%2Cmember&hmac_client_id=classic_service&hmac_nonce=d958cf03-59b8-4d88-8e00-fe29d2907a59&hmac_timestamp=1590126235
+    uri: http://localhost:3000/bulk_load?team_id=1&types=team%2Cmember&hmac_client_id=classic_service&hmac_nonce=03d45ddd-382d-4d8c-9493-da8ba982f6f7&hmac_timestamp=1590129853
     body:
       encoding: US-ASCII
       string: ''
@@ -10,7 +10,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.17.3
       X-Teamsnap-Hmac:
-      - 5889c5deee6cbb8b14b09289a9875e2ebdb664512f6c47aead55d77f369554e8
+      - 02ffd95dc3f2bf13f6d0e68d35d22fefe4a82d5589da54339221cc695a025823
       Expect:
       - ''
   response:
@@ -27,9 +27,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - cac32039-95ad-40d5-8c13-988c87076ab5
+      - 0e53cb11-489c-448b-b505-9ca5e1fdee7a
       X-Runtime:
-      - '1.006859'
+      - '0.825741'
       Vary:
       - Origin
       Content-Length:
@@ -337,6 +337,6 @@ http_interactions:
         is not recommended it will no longer be stored."},{"rel":"member_photos","href":"http://localhost:3000/member_photos/search?member_id=81"},{"rel":"member_preferences","href":"http://localhost:3000/members_preferences/81"},{"rel":"member_registration_signups","href":"http://localhost:3000/member_registration_signups/search?member_id=81"},{"rel":"member_statistics","href":"http://localhost:3000/member_statistics/search?member_id=81"},{"rel":"message_data","href":"http://localhost:3000/message_data/search?member_id=81"},{"rel":"messages","href":"http://localhost:3000/messages/search?member_id=81"},{"rel":"registration_form","href":"http://localhost:3000/registration_forms/"},{"rel":"statistic_data","href":"http://localhost:3000/statistic_data/search?member_id=81"},{"rel":"team","href":"http://localhost:3000/teams/1"},{"rel":"team_media","href":"http://localhost:3000/team_media/search?member_id=81"},{"rel":"team_medium_comments","href":"http://localhost:3000/team_medium_comments/search?member_id=81"},{"rel":"tracked_item_statuses","href":"http://localhost:3000/tracked_item_statuses/search?member_id=81"}],"rel":"member-81"}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/bulk_load?team_id=1&types=team%2Cmember&hmac_client_id=classic_service&hmac_nonce=d958cf03-59b8-4d88-8e00-fe29d2907a59&hmac_timestamp=1590126235
-  recorded_at: Fri, 22 May 2020 05:43:56 GMT
+      effective_url: http://localhost:3000/bulk_load?team_id=1&types=team%2Cmember&hmac_client_id=classic_service&hmac_nonce=03d45ddd-382d-4d8c-9493-da8ba982f6f7&hmac_timestamp=1590129853
+  recorded_at: Fri, 22 May 2020 06:44:14 GMT
 recorded_with: VCR 5.0.0
