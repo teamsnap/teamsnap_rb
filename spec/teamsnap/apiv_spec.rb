@@ -22,7 +22,7 @@ RSpec.describe "teamsnap__api", :vcr => true do
             TeamSnap::Event,
             1
           )
-        }.to_not raise_error(JSON::ParserError)
+        }.to_not raise_error
       end
     end
   end
