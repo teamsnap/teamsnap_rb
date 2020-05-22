@@ -6,7 +6,7 @@ RSpec.describe "teamsnap__item", :vcr => true do
     VCR.use_cassette("apiv3-init") do
       TeamSnap.init(
         :url => ROOT_TEST_URL,
-        :client_id => "classic",
+        :client_id => "classic_service",
         :client_secret => "dont_tell_the_cops"
       )
     end

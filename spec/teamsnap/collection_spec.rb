@@ -6,7 +6,7 @@ RSpec.describe "teamsnap__collection", :vcr => true do
     VCR.use_cassette("apiv3-init") do
       TeamSnap.init(
         :url => ROOT_TEST_URL,
-        :client_id => "classic",
+        :client_id => "classic_service",
         :client_secret => "dont_tell_the_cops"
       )
     end
@@ -46,12 +46,12 @@ RSpec.describe "teamsnap__collection", :vcr => true do
 
     ms = TeamSnap::Team.invite(
       user_client,
-      :team_id => 1, :member_id => [9, 11], :notify_as_member_id => 3,
+      :team_id => 1, :member_id => [75, 76], :notify_as_member_id => 3,
       :introduction => "Welcome! This is our team\n ...the superstars!"
     )
 
     expect(ms.size).to eq(2)
-    expect(ms.map(&:id)).to eq([9, 11])
+    expect(ms.map(&:id)).to eq([75, 76])
     expect(ms.map(&:is_invited)).to eq([true, true])
   end
 
@@ -97,7 +97,7 @@ RSpec.describe "teamsnap__collection", :vcr => true do
   end
 
   it "can follow singular links" do
-    m = TeamSnap::Member.find(TeamSnap.root_client, 3)
+    m = TeamSnap::Member.find(TeamSnap.root_client, 69)
     t = m.team
 
     expect(t.id).to eq(1)
@@ -114,7 +114,7 @@ RSpec.describe "teamsnap__collection", :vcr => true do
     t = TeamSnap::Team.find(TeamSnap.root_client, 1)
     ms = t.members
 
-    expect(ms.size).to eq(17)
+    expect(ms.size).to eq(13)
   end
 
   it "adds href to items" do

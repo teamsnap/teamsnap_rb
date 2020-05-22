@@ -2,7 +2,7 @@ require "spec_helper"
 require "teamsnap"
 
 RSpec.describe "uploading files", :vcr => true do
-  let(:client_id) { "classic" }
+  let(:client_id) { "classic_service" }
   let(:client_secret) { "dont_tell_the_cops" }
 
   let(:client) {
@@ -16,7 +16,7 @@ RSpec.describe "uploading files", :vcr => true do
     VCR.use_cassette("apiv3-init") do
       TeamSnap.init(
         :url => ROOT_TEST_URL,
-        :client_id => "classic",
+        :client_id => "classic_service",
         :client_secret => "dont_tell_the_cops"
       )
     end

@@ -2,15 +2,17 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:3000/bulk_load?team_id=0&types=team%2Cmember&hmac_client_id=classic&hmac_nonce=77ef9372-d534-45cd-b839-af0120f87384&hmac_timestamp=1470941471
+    uri: http://localhost:3000/bulk_load?team_id=0&types=team%2Cmember&hmac_client_id=classic_service&hmac_nonce=daac81c0-ad16-49de-8362-24e9a541992b&hmac_timestamp=1590177529
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Faraday v0.9.2
+      - Faraday v0.17.3
       X-Teamsnap-Hmac:
-      - 49b1af63ee76a25fc6a3a08a6324f74b44ced82213e32fccc04d1aaa2fda38c1
+      - ab25fafc62f4f622b3e88e7d35ff69cfe2f6fdd88e94a040fb4fe04794ff5621
+      Expect:
+      - ''
   response:
     status:
       code: 200
@@ -18,25 +20,23 @@ http_interactions:
     headers:
       Content-Type:
       - application/vnd.collection+json
-      Content-Length:
-      - '1197'
       X-Content-Type-Options:
       - nosniff
       ETag:
-      - '"7cdab40d98a5fb98681df4ca537da9d0"'
+      - W/"0b9f20b7fc725d33d917a7549d4fdc77"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 4704e3f3-9692-4071-8564-9a2f8149ff2f
+      - c83f930c-7046-4e83-970d-b44331a5cd8b
       X-Runtime:
-      - '0.082258'
-      Connection:
-      - keep-alive
-      Server:
-      - thin
+      - '0.723140'
+      Vary:
+      - Origin
+      Content-Length:
+      - '1197'
     body:
       encoding: UTF-8
-      string: '{"collection":{"version":"3.306.2","href":"http://localhost:3000/bulk_load","rel":"bulk_load","links":[{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/bulk_load?team_id=0&types=team%2Cmember"}],"queries":[{"rel":"bulk_load","href":"http://localhost:3000/bulk_load","prompt":"Returns
+      string: '{"collection":{"version":"3.854.0","href":"http://localhost:3000/bulk_load","rel":"bulk_load","links":[{"rel":"root","href":"http://localhost:3000/"},{"rel":"self","href":"http://localhost:3000/bulk_load?team_id=0&types=team%2Cmember"}],"queries":[{"rel":"bulk_load","href":"http://localhost:3000/bulk_load","prompt":"Returns
         a heterogeneous collection of the specified types for a specified team or
         teams. Additional filters can be passed into requested types by passing them
         in the url''s querystring as type__filter=value (i.e. ?event__start_date=2015-01-01).
@@ -50,6 +50,6 @@ http_interactions:
         of singular types that you want returned."}]}],"items":[]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/bulk_load?team_id=0&types=team%2Cmember&hmac_client_id=classic&hmac_nonce=77ef9372-d534-45cd-b839-af0120f87384&hmac_timestamp=1470941471
-  recorded_at: Thu, 11 Aug 2016 18:51:11 GMT
-recorded_with: VCR 2.9.3
+      effective_url: http://localhost:3000/bulk_load?team_id=0&types=team%2Cmember&hmac_client_id=classic_service&hmac_nonce=daac81c0-ad16-49de-8362-24e9a541992b&hmac_timestamp=1590177529
+  recorded_at: Fri, 22 May 2020 19:58:50 GMT
+recorded_with: VCR 5.1.0
