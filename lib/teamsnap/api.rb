@@ -3,6 +3,7 @@ module TeamSnap
 
     CRUD_METHODS = [:find, :create, :update, :delete]
     CRUD_VIAS    = [:get,  :post,   :patch,  :delete]
+    INTEGER_CLASS = 1.class # To handle Fixnum on Ruby 2.3 and Integer on 2.4+
 
     def self.run(client, method, klass, args = {}, template_args = false)
       klass = klass.class == Symbol ? get_class(klass) : klass
@@ -40,7 +41,7 @@ module TeamSnap
     def self.href(base_href, method, args = {})
       case method
       when :find, :delete
-        if [Fixnum, String].include?(args.class)
+        if [INTEGER_CLASS, String].include?(args.class)
           base_href + "/#{args}"
         elsif args.class == Hash
           base_href + "/#{args.fetch(:id)}"

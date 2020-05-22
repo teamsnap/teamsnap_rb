@@ -1,18 +1,5 @@
-require "simplecov"
-require "coveralls"
 require "awesome_print"
 require "rack/test"
-
-Coveralls.wear!
-
-SimpleCov::Formatter::MultiFormatter[
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
-SimpleCov.start do
-  add_filter "vendor"
-end
-
 require "vcr"
 require "pry"
 

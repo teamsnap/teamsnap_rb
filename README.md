@@ -1,7 +1,6 @@
 # teamsnap_rb
 
 [![Quality](http://img.shields.io/codeclimate/github/teamsnap/teamsnap_rb.svg)](https://codeclimate.com/github/teamsnap/teamsnap_rb)
-[![Coverage](http://img.shields.io/coveralls/teamsnap/teamsnap_rb.svg)](https://coveralls.io/r/teamsnap/teamsnap_rb)
 [![Build](http://img.shields.io/travis-ci/teamsnap/teamsnap_rb.svg)](https://travis-ci.org/teamsnap/teamsnap_rb)
 [![Version](http://img.shields.io/gem/v/teamsnap_rb.svg)](https://rubygems.org/gems/teamsnap_rb)
 [![License](http://img.shields.io/badge/license-MIT-blue.svg)](http://opensource.org/licenses/MIT)

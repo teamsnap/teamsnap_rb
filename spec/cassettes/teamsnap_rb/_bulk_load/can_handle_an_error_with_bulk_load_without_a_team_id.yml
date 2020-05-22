@@ -2,15 +2,17 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:3000/bulk_load?types=team%2Cmember&hmac_client_id=classic&hmac_nonce=706d12fd-caf8-4e7d-b071-2e17c0d4378f&hmac_timestamp=1470941471
+    uri: http://localhost:3000/bulk_load?types=team%2Cmember&hmac_client_id=classic_service&hmac_nonce=4192e6fd-bbdc-4d6a-8ba0-5f19f3ce9af6&hmac_timestamp=1590177531
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Faraday v0.9.2
+      - Faraday v0.17.3
       X-Teamsnap-Hmac:
-      - 3bb2ae3d85782c5125abf5cfd4089f0e3a60ca470bc97d2958a285bb1755f9f2
+      - 8a83bdd33eae0c58a5fdb7a57ebb11a99949b30a5ce7dade8ec6e9cc44df59a6
+      Expect:
+      - ''
   response:
     status:
       code: 400
@@ -18,25 +20,23 @@ http_interactions:
     headers:
       Content-Type:
       - application/vnd.collection+json
-      Content-Length:
-      - '75'
       X-Content-Type-Options:
       - nosniff
       Cache-Control:
       - no-cache
       X-Request-Id:
-      - 2357c7ff-f124-4407-b155-e9340ba40ecb
+      - 2fa105b6-b7bb-47dd-94bd-efdec55ec93c
       X-Runtime:
-      - '0.024974'
-      Connection:
-      - keep-alive
-      Server:
-      - thin
+      - '0.375527'
+      Vary:
+      - Origin
+      Content-Length:
+      - '75'
     body:
       encoding: UTF-8
       string: '{"collection":{"error":{"message":"You must include a team_id parameter"}}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/bulk_load?types=team%2Cmember&hmac_client_id=classic&hmac_nonce=706d12fd-caf8-4e7d-b071-2e17c0d4378f&hmac_timestamp=1470941471
-  recorded_at: Thu, 11 Aug 2016 18:51:11 GMT
-recorded_with: VCR 2.9.3
+      effective_url: http://localhost:3000/bulk_load?types=team%2Cmember&hmac_client_id=classic_service&hmac_nonce=4192e6fd-bbdc-4d6a-8ba0-5f19f3ce9af6&hmac_timestamp=1590177531
+  recorded_at: Fri, 22 May 2020 19:58:51 GMT
+recorded_with: VCR 5.1.0

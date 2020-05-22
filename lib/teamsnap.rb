@@ -11,7 +11,11 @@
 
 module TeamSnap
   EXCLUDED_RELS = %w(me apiv2_root root self dude sweet random xyzzy schemas
-                     authorization plans_all tsl_photos)
+                     authorization authorization_root plans_all tsl_photos
+                     authorization_magic_links authorization_password_resets
+                     authorization_tokens authorization_user_registrations
+                     authorization_user_registration_initializations
+                     authorization_users card_feed)
   DEFAULT_URL = "https://apiv3.teamsnap.com"
   Error = Class.new(StandardError)
   NotFound = Class.new(TeamSnap::Error)
