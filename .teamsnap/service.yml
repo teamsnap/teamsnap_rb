@@ -1,13 +1,13 @@
 ---
 classification: lib
 production:
-  tier: 
+  tier: 1
   url: 
   hosting_platform: 
-  logging: false
 performance_monitoring: []
 error_monitoring: []
-continuous_integration: []
+continuous_integration:
+  - name: travis-ci
 bug_tracking: []
 documentation: []
 deployment: []
