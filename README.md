@@ -1,9 +1,8 @@
 # teamsnap_rb
 
-[![Quality](http://img.shields.io/codeclimate/github/teamsnap/teamsnap_rb.svg)](https://codeclimate.com/github/teamsnap/teamsnap_rb)
-[![Build](http://img.shields.io/travis-ci/teamsnap/teamsnap_rb.svg)](https://travis-ci.org/teamsnap/teamsnap_rb)
-[![Version](http://img.shields.io/gem/v/teamsnap_rb.svg)](https://rubygems.org/gems/teamsnap_rb)
-[![License](http://img.shields.io/badge/license-MIT-blue.svg)](http://opensource.org/licenses/MIT)
+[![Build](https://travis-ci.org/teamsnap/teamsnap_rb.svg?branch=master)](https://travis-ci.org/teamsnap/teamsnap_rb)
+[![Gem Version](https://badge.fury.io/rb/teamsnap_rb.svg)](https://badge.fury.io/rb/teamsnap_rb)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 ## Usage
 
