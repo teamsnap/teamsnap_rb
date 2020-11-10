@@ -11,5 +11,7 @@ continuous_integration:
 bug_tracking: []
 documentation: []
 deployment: []
-languages: []
+languages:
+  - name: Ruby
+    version: 2.5.8
 frameworks: []
