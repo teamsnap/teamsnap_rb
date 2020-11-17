@@ -1,6 +1,6 @@
 # teamsnap_rb
 
-
+![CI](https://github.com/teamsnap/teamsnap_rb/workflows/CI/badge.svg)
 [![Gem Version](https://badge.fury.io/rb/teamsnap_rb.svg)](https://badge.fury.io/rb/teamsnap_rb)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
