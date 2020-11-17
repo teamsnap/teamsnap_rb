@@ -21,7 +21,6 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby }}
-      - run: gem install bundler -v 1.17.3
       - name: Install dependencies
         run: bundle install
       - name: Run tests
