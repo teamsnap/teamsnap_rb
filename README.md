@@ -1,6 +1,6 @@
 # teamsnap_rb
 
-[![Build](https://travis-ci.org/teamsnap/teamsnap_rb.svg?branch=master)](https://travis-ci.org/teamsnap/teamsnap_rb)
+
 [![Gem Version](https://badge.fury.io/rb/teamsnap_rb.svg)](https://badge.fury.io/rb/teamsnap_rb)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
