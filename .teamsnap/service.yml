@@ -8,7 +8,7 @@ performance_monitoring: []
 error_monitoring: []
 continuous_integration:
   - name: github_actions
-    reference_id: CI
+    reference_id: ci.yml
 bug_tracking: []
 documentation: []
 deployment: []
