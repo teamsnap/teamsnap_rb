@@ -41,7 +41,7 @@ module TeamSnap
       end
 
       def load_class(type, data)
-        TeamSnap.const_get(Inflecto.camelize(type), false).tap { |cls|
+        TeamSnap.const_get(Inflector.camelize(type), false).tap { |cls|
           if cls.include?(Virtus::Model::Core)
             cls.class_eval do
               attributes = cls.attribute_set.map(&:name)
@@ -82,7 +82,7 @@ module TeamSnap
 
         rel = link.fetch(:rel)
         href = link.fetch(:href)
-        is_singular = rel == Inflecto.singularize(rel)
+        is_singular = rel == Inflector.singularize(rel)
 
         define_singleton_method(rel) {
           instance_variable_get("@#{rel}") || instance_variable_set(

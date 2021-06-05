@@ -49,13 +49,14 @@ RSpec.describe "teamsnap__structure", :vcr => true do
     end
 
     it "has all classes in schema loaded except for exceptions list endpoints" do
+      inflector = Dry::Inflector.new
       collection = TeamSnap.run(TeamSnap.root_client, :get, "/", {})
       links = collection.fetch(:links) { [] }
         .select{|l| !TeamSnap::EXCLUDED_RELS.include?(l[:rel]) }
 
       links.each do |obj|
         expect {
-          ["TeamSnap", Inflecto.classify(obj[:rel])]
+          ["TeamSnap", inflector.classify(obj[:rel])]
             .inject(Object) { |base, klass| base.const_get(klass) }
         }.to_not raise_error
       end

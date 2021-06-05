@@ -112,3 +112,10 @@ v2.0.0
 - Fix bug with json gem not parsing empty resopnse body
 - Fix bug with OpenSSL on Ruby 2.5+
 - Fix deprecation on ::Fixnum constant
+
+
+[v2.5.0](https://github.com/teamsnap/teamsnap_rb/pull/128)
+------
+
+- Drop support for Ruby 2.3
+- Switch from [Inflecto (discontinued)](https://github.com/mbj/inflecto) to [dry-inflector](https://github.com/dry-rb/dry-inflector)

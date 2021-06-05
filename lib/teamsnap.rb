@@ -1,10 +1,10 @@
 %w(
-    faraday typhoeus typhoeus/adapters/faraday inflecto virtus
+    faraday typhoeus typhoeus/adapters/faraday virtus
     date securerandom
   ).each { |x| require x }
 
 %w(
-    config/inflecto teamsnap/version teamsnap/api
+    teamsnap/inflector teamsnap/version teamsnap/api
     teamsnap/auth_middleware teamsnap/client teamsnap/collection teamsnap/item
     teamsnap/response teamsnap/structure
   ).each { |x| require_relative x }
