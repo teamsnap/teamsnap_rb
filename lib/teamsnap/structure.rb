@@ -67,7 +67,7 @@ module TeamSnap
       end
 
       def create_collection_class(rel, href, resp, collection)
-        name = Inflecto.classify(rel)
+        name = Inflector.classify(rel)
         rel_module = collection_module(href, resp, collection)
 
         TeamSnap.const_set(
