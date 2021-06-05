@@ -16,7 +16,7 @@ module TeamSnap
                      authorization_tokens authorization_user_registrations
                      authorization_user_registration_initializations
                      authorization_users card_feed)
-  DEFAULT_URL = "https://apiv3.teamsnap.com"
+  DEFAULT_URL = "https://api.teamsnap.com/v3"
   Error = Class.new(StandardError)
   NotFound = Class.new(TeamSnap::Error)
   InitializationError = Class.new(TeamSnap::Error)
