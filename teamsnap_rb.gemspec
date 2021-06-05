@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.description   = %q{A gem to interact with TeamSnap's API}
   spec.homepage      = "https://developer.teamsnap.com/"
   spec.license       = "MIT"
-  spec.required_ruby_version = ">= 2.3"
+  spec.required_ruby_version = ">= 2.4"
 
   spec.files         = `git ls-files`.split($/)
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
@@ -27,5 +27,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency "faraday",  "~> 0.17", "< 1.0"
   spec.add_dependency "typhoeus", ">= 1.3", "< 1.5"
   spec.add_dependency "inflecto", "~> 0.0.2"
-  spec.add_dependency "virtus",   "~> 1.0.4"
+  spec.add_dependency "dry-types", "~> 1.0"
+  spec.add_dependency "dry-struct", "~> 1.0"
 end

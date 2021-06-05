@@ -51,9 +51,8 @@ module TeamSnap
             end
           else
             cls.class_eval do
-              include Virtus.value_object
 
-              attribute :href, String
+              attribute :href, Types::String
               values do
                 data.each { |name, value| attribute name, value.class }
               end

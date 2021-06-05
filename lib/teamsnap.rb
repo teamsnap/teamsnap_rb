@@ -1,5 +1,5 @@
 %w(
-    faraday typhoeus typhoeus/adapters/faraday inflecto virtus
+    faraday typhoeus typhoeus/adapters/faraday inflecto dry-struct
     date securerandom
   ).each { |x| require x }
 
