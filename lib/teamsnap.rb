@@ -1,6 +1,5 @@
 %w(
-    faraday typhoeus typhoeus/adapters/faraday inflecto virtus
-    date securerandom
+    faraday typhoeus typhoeus/adapters/faraday inflecto date securerandom
   ).each { |x| require x }
 
 %w(

@@ -42,23 +42,22 @@ module TeamSnap
 
       def load_class(type, data)
         TeamSnap.const_get(Inflecto.camelize(type), false).tap { |cls|
-          if cls.include?(Virtus::Model::Core)
+          # if cls.include?(Virtus::Model::Core)
+          #   cls.class_eval do
+          #     attributes = cls.attribute_set.map(&:name)
+          #     data
+          #       .select { |name, _| !attributes.include?(name.to_sym) }
+          #       .each { |name, value| attribute name, value.class }
+          #   end
+          # else
             cls.class_eval do
-              attributes = cls.attribute_set.map(&:name)
-              data
-                .select { |name, _| !attributes.include?(name.to_sym) }
-                .each { |name, value| attribute name, value.class }
-            end
-          else
-            cls.class_eval do
-              include Virtus.value_object
 
-              attribute :href, String
-              values do
-                data.each { |name, value| attribute name, value.class }
-              end
+              # attribute :href, String
+              # values do
+              #   data.each { |name, value| attribute name, value.class }
+              # end
             end
-          end
+          # end
         }
       end
 
