@@ -7,7 +7,7 @@
 ## Usage
 
 _Note: You'll need an OAuth2 Token from TeamSnap. Checkout our API docs
-[here](http://developer.teamsnap.com/documentation/apiv3/)_
+[here](http://developer.teamsnap.com/apiv3/)_
 
     λ gem install teamsnap_rb
     λ irb
