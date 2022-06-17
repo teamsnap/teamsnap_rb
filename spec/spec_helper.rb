@@ -2,8 +2,13 @@ require "awesome_print"
 require "rack/test"
 require "vcr"
 require "pry"
+require "simplecov"
 
 ROOT_TEST_URL = "http://localhost:3000"
+
+SimpleCov.start do
+  add_filter "spec/"
+end
 
 VCR.configure do |c|
   c.cassette_library_dir = "spec/cassettes"

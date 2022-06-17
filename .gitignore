@@ -12,6 +12,7 @@ capybara-*.html
 /db/*.sqlite3
 /public/system/*
 /spec/tmp/*
+/coverage
 **.orig
 rerun.txt
 pickle-email-*.html
