@@ -2,18 +2,17 @@ name: CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master ]
+    branches: [master]
 
 jobs:
   test:
-
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        ruby: [ '2.3.8', '2.4.10', '2.5.8', '2.6.6' ]
+        ruby: ["2.3.8", "2.4.10", "2.5.8", "2.6.6"]
       max-parallel: 1
 
     steps:
@@ -22,6 +21,7 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby }}
+          bundler-cache: false
       - name: Install dependencies
         run: bundle install
       - name: Run tests
