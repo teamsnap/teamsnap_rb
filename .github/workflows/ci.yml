@@ -21,7 +21,7 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby }}
-          bundler-cache: false
+          rubygems: 3.2.3
       - name: Install dependencies
         run: bundle install
       - name: Run tests
