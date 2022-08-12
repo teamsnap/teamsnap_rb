@@ -67,7 +67,7 @@ _Note: You'll need an OAuth2 Token from TeamSnap. Checkout our API docs
          Api Class Syntax
     #########################
      - returns TeamSnap::Response object with select methods
-     - optionally converts attributes hash into template: { data: {}}
+     - optionally converts the attributes hash into template: { data: {}}
 
     # find
     response = TeamSnap::Api.run(client, :find, :members, 1)
@@ -141,8 +141,6 @@ _Note: You'll need an OAuth2 Token from TeamSnap. Checkout our API docs
     # queries (arguments sent in href key/value pairs)
     client.api(:query_name, :members, {})
     => #<TeamSnap::Response:...>
-
-
 
 ## Todo
 
