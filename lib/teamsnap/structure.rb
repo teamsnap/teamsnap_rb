@@ -10,7 +10,7 @@ module TeamSnap
           .find { |link| link[:rel] == "schemas" } || {}
 
         if schema[:href]
-          resp = client.get(schema[:href])
+          resp = client.get(schema[:href].gsub("/v3",""))
           classes = setup_model_classes(collection, resp)
         else
           client.in_parallel do

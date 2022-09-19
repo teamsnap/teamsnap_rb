@@ -1,3 +1,5 @@
+require 'json'
+
 module TeamSnap
   class Response
 
