@@ -77,9 +77,9 @@ module TeamSnap
     def client_send(client, via, href, args)
       case via
       when :get, :delete
-        client.send(via, href, args)
+        client.send(via, href.gsub("/v3", ""), args)
       when :patch, :post
-        client.send(via, href) do |req|
+        client.send(via, href.gsub("/v3", "")) do |req|
           if use_multipart?(args)
             req.body = args
           else
