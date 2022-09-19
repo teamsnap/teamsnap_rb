@@ -112,3 +112,8 @@ v2.0.0
 - Fix bug with json gem not parsing empty resopnse body
 - Fix bug with OpenSSL on Ruby 2.5+
 - Fix deprecation on ::Fixnum constant
+
+[v2.4.2](https://github.com/teamsnap/teamsnap_rb/pull/118)
+------
+
+- fix: strip /v3 prefix for compatibility for k8s internal ingress
