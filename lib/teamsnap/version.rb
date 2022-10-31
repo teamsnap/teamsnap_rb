@@ -1,3 +1,3 @@
 module TeamSnap
-  VERSION = "2.4.3"
+  VERSION = "3.0.1"
 end
