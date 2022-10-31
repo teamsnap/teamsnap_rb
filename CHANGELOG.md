@@ -117,3 +117,14 @@ v2.0.0
 ------
 
 - fix: strip /v3 prefix for compatibility for k8s internal ingress
+
+[v2.4.3](https://github.com/teamsnap/teamsnap_rb/pull/119)
+------
+
+- fix: strip /v3 prefix for compatibility for k8s internal ingress on #client_send
+
+[v3.0.1](https://github.com/teamsnap/teamsnap_rb/pull/135)
+------
+
+- feat: Upgrade farady to ~1
+- breaking: Drop support for ruby23, require Ruby version 2.4+
