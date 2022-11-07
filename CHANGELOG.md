@@ -128,3 +128,8 @@ v2.0.0
 
 - feat: Upgrade farady to ~1
 - breaking: Drop support for ruby23, require Ruby version 2.4+
+
+[v3.0.1](https://github.com/teamsnap/teamsnap_rb/pull/136)
+------
+
+- fix: Support farady < 2
