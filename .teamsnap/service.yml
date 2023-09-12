@@ -14,5 +14,5 @@ documentation: []
 deployment: []
 languages:
   - name: Ruby
-    version: 2.5.8
+    version: 3.2.2
 frameworks: []

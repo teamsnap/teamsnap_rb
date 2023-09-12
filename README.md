@@ -147,3 +147,12 @@ _Note: You'll need an OAuth2 Token from TeamSnap. Checkout our API docs
 ## Todo
 
 - Cache items with threadsafe Hash (https://github.com/headius/thread_safe).
+
+## Testing
+
+```
+docker build . -t teamsnap_rb:test -f Test.dockerfile
+docker run -t teamsnap_rb:test
+docker image rm teamsnap_rb:test --force
+```
+
