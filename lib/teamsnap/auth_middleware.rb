@@ -3,8 +3,8 @@ require 'openssl'
 module TeamSnap
   class AuthMiddleware < Faraday::Middleware
     def initialize(app, options)
-      @options = options
       super(app)
+      @options = options
     end
 
     def call(env)
