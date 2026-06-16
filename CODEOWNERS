@@ -1,1 +1,4 @@
 * @teamsnap/ruby
+.teamsnap/** @teamsnap/platform @teamsnap/ruby
+.github/** @teamsnap/platform @teamsnap/quality @teamsnap/ruby
+CODEOWNERS @teamsnap/platform @teamsnap/ruby
